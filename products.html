@@ -1824,6 +1824,16 @@ const products = [
     filterTicking = true;
     requestAnimationFrame(syncMobileFilter);
   };
+  const scrollToFilterResult = (category) => {
+    const target = category === 'all'
+      ? document.getElementById('catalogue')
+      : document.querySelector(`[data-category="${category}"]`);
+    if (!target) return;
+    const mobileOffset = isMobileFilter() ? 126 : 92;
+    const top = target.getBoundingClientRect().top + window.scrollY - mobileOffset;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    requestFilterSync();
+  };
   addEventListener('scroll', requestFilterSync, { passive: true });
   addEventListener('resize', requestFilterSync);
   addEventListener('load', syncMobileFilter);
@@ -1840,6 +1850,7 @@ const products = [
         activeFilter = category;
         renderFilters();
         renderProducts();
+        requestAnimationFrame(() => scrollToFilterResult(category));
       });
       row.appendChild(button);
     });
