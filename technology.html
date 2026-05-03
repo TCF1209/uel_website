@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en-MY">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07070a">
+<title>UEL Technology Guide | Lubricant Standards Malaysia</title>
+<meta name="description" content="Learn how UEL helps Malaysian drivers, workshops, fleets and industrial users choose engine oils, motorcycle oils, diesel oils, transmission fluids and hydraulic oils.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Saira:wght@400;500;600;700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void:#07070a; --carbon:#0d0d11; --steel:#15151a; --raised:#1a1a20;
+    --line:rgba(255,255,255,.08); --line-strong:rgba(255,255,255,.16);
+    --bone:#f5f3ec; --paper:#ece8da; --ash:#a6a6ad; --dim:#6d6d76;
+    --uel-red:#e23b2f; --uel-blue:#2b6cf6; --uel-green:#18a974; --amber:#f6b441;
+    --display:"Big Shoulders Display","Arial Narrow",sans-serif; --head:"Saira","Helvetica Neue",sans-serif; --body:"Sora","Helvetica Neue",sans-serif;
+    --gutter:clamp(20px,4vw,56px); --max:1320px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;color:var(--bone);font-family:var(--body);font-weight:300;line-height:1.58;overflow-x:hidden;
+    background:
+      radial-gradient(72vw 48vh at 75% -8%,rgba(226,59,47,.18),transparent 62%),
+      radial-gradient(55vw 44vh at 2% 24%,rgba(43,108,246,.12),transparent 62%),
+      radial-gradient(52vw 42vh at 70% 110%,rgba(24,169,116,.12),transparent 68%),
+      var(--void);
+  }
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 82%)}
+  a{color:inherit;text-decoration:none} button,input,select,textarea{font-family:inherit} img{display:block;max-width:100%}
+  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+  .ambient-dip{--dip-x:50vw;--dip-y:50vh;position:fixed;inset:-18vmax;z-index:0;pointer-events:none;overflow:hidden;opacity:.42}
+  .ambient-dip::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--dip-x) var(--dip-y),rgba(246,180,65,.25),transparent 11vmax),radial-gradient(circle at calc(var(--dip-x) + 8vw) calc(var(--dip-y) - 6vh),rgba(226,59,47,.18),transparent 16vmax);filter:blur(10px) saturate(1.1);transform:scale(1.02)}
+  .dip-ripple{position:fixed;left:var(--ripple-x);top:var(--ripple-y);width:16px;height:16px;border-radius:50%;border:1px solid rgba(246,180,65,.45);transform:translate(-50%,-50%) scale(.2);animation:dipRipple 900ms ease-out forwards}
+  @keyframes dipRipple{to{opacity:0;transform:translate(-50%,-50%) scale(10)}}
+  .nav{position:sticky;top:0;z-index:40;background:rgba(7,7,10,.76);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .logo{display:flex;align-items:center;gap:14px;font-family:var(--display);font-size:28px;font-weight:900}
+  .mark{width:58px;height:32px}.logo small{display:block;margin-top:-2px;color:var(--ash);font-family:var(--head);font-size:10px;letter-spacing:.035em}
+  .nav-links{display:flex;align-items:center;gap:clamp(7px,.9vw,14px)}
+  .nav-links a{color:var(--paper);font-family:var(--head);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.035em}
+  .nav-links a:hover,.nav-links a.active{color:var(--bone)}
+  .nav-cta{display:inline-flex;align-items:center;gap:8px;padding:9px 11px;border:1px solid rgba(37,211,102,.36);border-radius:999px;background:rgba(37,211,102,.1);color:#d9ffeb!important}
+  .lang{display:inline-flex;border:1px solid var(--line-strong);border-radius:999px;overflow:hidden;background:rgba(255,255,255,.04)}
+  .lang button{border:0;background:transparent;color:var(--ash);padding:7px 8px;font-family:var(--head);font-size:11px;font-weight:800;cursor:pointer}
+  .lang button.active{background:var(--bone);color:var(--void)}
+  .menu-btn{display:none}
+  .hero{position:relative;z-index:1;min-height:auto;display:grid;align-items:start;padding:clamp(28px,4.5vw,54px) 0 clamp(36px,5vw,64px)}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(34px,6vw,86px);align-items:center}
+  .eyebrow{color:var(--amber);font-family:var(--head);font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}
+  h1,h2,h3,p{margin:0} h1,h2,h3{font-family:var(--display);line-height:.9;text-transform:uppercase;letter-spacing:0}
+  h1{font-size:clamp(64px,10.5vw,154px);max-width:920px} h2{font-size:clamp(46px,7.5vw,106px)} h3{font-size:clamp(30px,4vw,54px)}
+  h1 em,h2 em{color:var(--amber);font-style:normal}.lead{margin-top:24px;max-width:720px;color:var(--paper);font-size:clamp(17px,1.6vw,21px)}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 18px;border:1px solid var(--line-strong);border-radius:999px;background:var(--bone);color:var(--void);font-family:var(--head);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.035em}
+  .btn.ghost{background:rgba(255,255,255,.04);color:var(--bone)}
+  .tech-stage{position:relative;min-height:580px;display:grid;place-items:center}
+  .core-ring{position:absolute;width:min(82vw,520px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(246,180,65,.28);background:radial-gradient(circle,rgba(246,180,65,.18),transparent 58%);box-shadow:inset 0 0 70px rgba(246,180,65,.08),0 40px 90px rgba(0,0,0,.45);animation:slowSpin 18s linear infinite}
+  .core-ring::before,.core-ring::after{content:"";position:absolute;inset:12%;border:1px dashed rgba(255,255,255,.13);border-radius:50%}.core-ring::after{inset:28%;border-color:rgba(43,108,246,.24)}
+  .spec-card{position:absolute;width:min(230px,44vw);padding:18px;border:1px solid var(--line-strong);background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));backdrop-filter:blur(16px);border-radius:7px;box-shadow:0 24px 60px rgba(0,0,0,.38)}
+  .spec-card strong{display:block;font-family:var(--display);font-size:36px;line-height:.9}.spec-card span{display:block;margin-top:8px;color:var(--ash);font-family:var(--head);font-size:11.5px;text-transform:uppercase}
+  .spec-card.one{left:0;top:8%}.spec-card.two{right:0;top:22%}.spec-card.three{left:10%;bottom:12%}.spec-card.four{right:12%;bottom:2%}
+  .section{position:relative;z-index:1;padding:clamp(58px,8vw,108px) 0;border-top:1px solid var(--line)}
+  .section-head{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:end;margin-bottom:34px}.section-head p{color:var(--paper)}
+  .guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .guide-card{min-height:310px;padding:clamp(22px,2.8vw,34px);background:radial-gradient(110% 80% at 100% 0%,var(--glow,rgba(246,180,65,.12)),transparent 58%),linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012)),var(--carbon)}
+  .guide-card span{color:var(--dim);font-family:var(--head);font-size:11.5px;font-weight:800;text-transform:uppercase}.guide-card h3{margin-top:16px}.guide-card p{margin-top:18px;color:var(--paper)}
+  .tech-flow{margin-top:28px;display:grid;grid-template-columns:auto 1fr auto 1fr auto 1fr auto;align-items:center;gap:12px}
+  .tech-flow span{display:grid;place-items:center;min-height:64px;padding:12px 18px;border:1px solid rgba(246,180,65,.34);border-radius:16px;background:rgba(246,180,65,.08);font-family:var(--head);font-size:11.5px;font-weight:900;text-transform:uppercase;color:var(--amber)}
+  .tech-flow i{height:1px;background:linear-gradient(90deg,rgba(246,180,65,.65),transparent)}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .panel{padding:clamp(26px,4vw,48px);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.014)),var(--carbon)}
+  .panel ul{margin:22px 0 0;padding:0;list-style:none;display:grid;gap:14px}.panel li{border-top:1px solid var(--line);padding-top:14px;color:var(--paper)}
+  .note{margin-top:28px;padding:18px;border-left:3px solid var(--amber);background:rgba(246,180,65,.08);color:var(--paper)}
+  footer{position:relative;z-index:1;padding:clamp(46px,7vw,80px) 0 32px;border-top:1px solid var(--line);background:rgba(7,7,10,.72)}
+  .foot-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:34px}.foot h4{margin:0 0 16px;color:var(--paper);font-family:var(--head);font-size:13px;text-transform:uppercase}.foot p,.foot a,.foot li{color:var(--ash);font-size:14px}.foot a:hover{color:var(--bone)}.foot ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}.foot-brand{font-family:var(--display);font-size:34px;font-weight:900;line-height:.9}.legal{margin-top:42px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--dim);font-family:var(--head);font-size:12px}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}.d2{transition-delay:.12s}.d3{transition-delay:.22s}
+  @keyframes slowSpin{to{transform:rotate(360deg)}}
+  @media (max-width:980px){.hero-grid,.section-head,.split{grid-template-columns:1fr}.guide-grid{grid-template-columns:1fr 1fr}.tech-stage{min-height:500px}.foot-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:740px){.nav-links{display:none;position:absolute;left:0;right:0;top:72px;padding:18px var(--gutter) 22px;background:rgba(7,7,10,.96);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.menu-btn{display:inline-grid;place-items:center;width:42px;height:42px;border:1px solid var(--line-strong);background:transparent;color:var(--bone);border-radius:50%}.hero{min-height:auto}.tech-stage{min-height:430px}.spec-card{width:168px}.spec-card strong{font-size:28px}.spec-card.one{left:0}.spec-card.two{right:0}.spec-card.three{left:0;bottom:4%}.spec-card.four{right:0;bottom:-5%}.guide-grid,.foot-grid{grid-template-columns:1fr}.tech-flow{grid-template-columns:1fr}.tech-flow i{height:22px;width:1px;justify-self:center;background:linear-gradient(180deg,rgba(246,180,65,.65),transparent)}}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.ambient-dip{display:none}.reveal{opacity:1;transform:none}}
+
+
+  /* UEL refinement overrides */
+  :root { --card-radius: 16px; }
+  .brand-logo {
+    width: clamp(132px, 13vw, 190px);
+    max-height: 52px;
+    object-fit: contain;
+    border-radius: 12px;
+    filter: drop-shadow(0 10px 22px rgba(0,0,0,.35));
+  }
+  .brand-logo-link { gap: 0 !important; flex: 0 0 auto; }
+  .footer-logo {
+    width: min(220px, 100%);
+    border-radius: var(--card-radius);
+    margin-bottom: 18px;
+    box-shadow: 0 18px 44px rgba(0,0,0,.28);
+  }
+  .ambient-dip {
+    --dip-x: 50vw;
+    --dip-y: 50vh;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+    opacity: 1 !important;
+    overflow: hidden !important;
+    background: radial-gradient(280px 280px at var(--dip-x) var(--dip-y), rgba(246,180,65,.24), rgba(226,59,47,.12) 38%, transparent 72%) !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+    mix-blend-mode: screen;
+  }
+  .ambient-dip::before, .dip-ripple { display: none !important; }
+  .product, .product-card, .modal-panel, .modal-image, .product-modal__panel, .form-shell, .quote-form, .guide-card, .spec-card, .panel, .support-card, .quick a, .contact-row, .cell, .stat, .range-table, .filter-row button, input, select, textarea {
+    border-radius: var(--card-radius) !important;
+  }
+  .product-grid.single-product {
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 360px)) !important;
+    justify-content: start !important;
+    gap: 18px !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+  .product-grid.single-product .product-card {
+    display: flex !important;
+    min-height: 520px !important;
+    grid-template-columns: unset !important;
+    gap: 0 !important;
+  }
+  .product-grid.single-product .product-card::before {
+    left: 15% !important;
+    right: 15% !important;
+    top: 212px !important;
+    bottom: auto !important;
+    width: auto !important;
+  }
+  .product-grid.single-product .product-image-box {
+    grid-row: auto !important;
+    height: 245px !important;
+    margin-bottom: 18px !important;
+  }
+  .product-grid.single-product .product-image-box img {
+    width: min(82%, 190px) !important;
+    max-height: 235px !important;
+  }
+  .product-grid.single-product .chip,
+  .product-grid.single-product h4,
+  .product-grid.single-product .meta-grid,
+  .product-grid.single-product .best-for,
+  .product-grid.single-product .btn {
+    grid-column: auto !important;
+  }
+  .product-grid.single-product .btn { width: 100% !important; justify-self: auto !important; }
+  @media (max-width: 740px) {
+    .brand-logo { width: 128px; max-height: 46px; }
+    .ambient-dip { background: radial-gradient(190px 190px at var(--dip-x) var(--dip-y), rgba(246,180,65,.20), rgba(226,59,47,.09) 42%, transparent 74%) !important; }
+  }
+
+  html[lang^="zh"] {
+    --display: "KaiTi", "STKaiti", "楷体", "DFKai-SB", serif;
+    --head: "KaiTi", "STKaiti", "楷体", "DFKai-SB", serif;
+    --body: "KaiTi", "STKaiti", "楷体", "DFKai-SB", serif;
+  }
+  html[lang^="zh"] body,
+  html[lang^="zh"] button,
+  html[lang^="zh"] input,
+  html[lang^="zh"] select,
+  html[lang^="zh"] textarea {
+    font-family: var(--body) !important;
+  }
+  html[lang^="zh"] h1,
+  html[lang^="zh"] h2,
+  html[lang^="zh"] h3,
+  html[lang^="zh"] h4,
+  html[lang^="zh"] .eyebrow,
+  html[lang^="zh"] .btn,
+  html[lang^="zh"] .nav-links a {
+    font-family: var(--display) !important;
+    letter-spacing: 0 !important;
+  }
+  .hero { padding-top: clamp(10px, 1.8vw, 22px) !important; }
+
+  /* Responsive typography refinement */
+  body { font-size: clamp(14px,.9vw,16px); }
+  h1 { font-size: clamp(44px,7.2vw,104px) !important; line-height: .98 !important; }
+  h2 { font-size: clamp(32px,4.8vw,64px) !important; line-height: 1 !important; }
+  h3 { font-size: clamp(23px,2.8vw,38px) !important; line-height: 1.06 !important; }
+  .lead { font-size: clamp(15px,1.1vw,18px) !important; line-height: 1.6 !important; }
+  .eyebrow { font-size: clamp(10px,.75vw,12px) !important; }
+  html[lang^="zh"] h1 {
+    font-size: clamp(38px,6.4vw,72px) !important;
+    line-height: 1.13 !important;
+    text-transform: none !important;
+  }
+  html[lang^="zh"] h2,
+  html[lang^="zh"] h3 {
+    text-transform: none !important;
+  }
+  @media (max-width:740px) {
+    h1 { font-size: clamp(38px,10vw,54px) !important; line-height: 1.04 !important; }
+    h2 { font-size: clamp(30px,8vw,42px) !important; }
+    h3 { font-size: clamp(22px,6vw,30px) !important; }
+    .lead { font-size: 15px !important; }
+    .hero-actions { margin-top: 22px !important; }
+    .section { padding-top: clamp(38px,10vw,56px) !important; }
+    html[lang^="zh"] h1 { font-size: clamp(32px,8.6vw,44px) !important; }
+  }
+
+
+  /* UEL single-card layout pass */
+  :root { --card-radius: 16px; }
+  .product-grid,
+  .brand-grid,
+  .guide-grid,
+  .support-grid,
+  .split,
+  .tech-list,
+  .range-scroll,
+  .quick,
+  .meta-grid,
+  .detail-list,
+  .quote-summary,
+  .review-box {
+    background: transparent !important;
+    border: 0 !important;
+    gap: clamp(14px, 2vw, 22px) !important;
+  }
+  .product-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(255px, 100%), 1fr)) !important;
+  }
+  .product-grid.single-product {
+    grid-template-columns: minmax(0, 340px) !important;
+    justify-content: start !important;
+  }
+  .product-grid.single-product .product-card {
+    display: flex !important;
+    min-height: 520px !important;
+    grid-template-columns: unset !important;
+    gap: 0 !important;
+  }
+  .product,
+  .product-card,
+  .brand-cell,
+  .guide-card,
+  .support-card,
+  .panel,
+  .stat,
+  .cell,
+  .cta-card,
+  .form-shell,
+  .quote-form,
+  .review-panel,
+  .modal-panel,
+  .modal-image,
+  .product-modal__panel,
+  .quick a,
+  .support-row,
+  .contact-row,
+  .range-table,
+  .spec-card,
+  .form-panel,
+  .schedule-note,
+  input,
+  select,
+  textarea {
+    border-radius: var(--card-radius) !important;
+  }
+  .product,
+  .product-card,
+  .brand-cell,
+  .guide-card,
+  .support-card,
+  .panel,
+  .stat,
+  .cell,
+  .cta-card,
+  .form-shell,
+  .review-panel,
+  .modal-panel,
+  .product-modal__panel,
+  .quick a,
+  .support-row,
+  .contact-row,
+  .spec-card {
+    border: 1px solid var(--line-strong) !important;
+    background:
+      radial-gradient(90% 70% at 100% 0%, var(--glow, rgba(246,180,65,.08)), transparent 62%),
+      linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.012)),
+      var(--carbon) !important;
+    overflow: hidden;
+  }
+  .product-card::before,
+  .product::before {
+    pointer-events: none;
+  }
+  .meta-grid div,
+  .detail-row,
+  .quote-summary div,
+  .review-box div {
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    border-bottom: 1px solid var(--line) !important;
+    padding: 10px 0 !important;
+  }
+  .meta-grid div:last-child,
+  .detail-row:last-child,
+  .quote-summary div:last-child,
+  .review-box div:last-child {
+    border-bottom: 0 !important;
+  }
+  .product-image-box,
+  .modal-image {
+    background: transparent !important;
+  }
+  .review-submit {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 10px;
+  }
+  @media (max-width: 740px) {
+    .product-grid,
+    .product-grid.single-product {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo brand-logo-link" aria-label="UEL - Unique Excellent Lubricant">
+      <img class="brand-logo" src="images/uel-logo.png" alt="UEL Unique Excellent Lubricant">
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html" data-copy="navHome">Home</a>
+      <a href="products.html" data-copy="navProducts">Products</a>
+      <a href="technology.html" class="active" data-copy="navTechnology">Technology</a>
+      <a href="where-to-buy.html" data-copy="navWhere">Where to Buy</a>
+      <a href="contact.html" data-copy="navContact">Contact</a>
+      <a class="nav-cta" href="https://wa.me/60108989120?text=Hi%20UEL%2C%20I%20want%20to%20ask%20about%20lubricant%20technology" target="_blank" rel="noopener">WhatsApp</a>
+      <div class="lang" aria-label="Language switcher"><button type="button" data-lang="en">EN</button><button type="button" data-lang="zh">中文</button><button type="button" data-lang="bm">BM</button></div>
+    </nav>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <span class="eyebrow" data-copy="heroEyebrow">Technology Guide</span>
+        <h1 data-copy-html="heroTitle">Oil standards, <em>made simple.</em></h1>
+        <p class="lead" data-copy="heroLead">A fast guide for choosing oil by vehicle, machine, grade and real usage in Malaysia.</p>
+        <div class="hero-actions">
+          <a class="btn" href="products.html" data-copy="heroPrimary">View Products</a>
+          <a class="btn ghost" href="contact.html" data-copy="heroSecondary">Ask UEL</a>
+        </div>
+      </div>
+      <div class="tech-stage reveal d2" aria-hidden="true">
+        <div class="core-ring"></div>
+        <div class="spec-card one"><strong>API</strong><span>Petrol & diesel categories</span></div>
+        <div class="spec-card two"><strong>JASO</strong><span>Motorcycle wet clutch</span></div>
+        <div class="spec-card three"><strong>ISO</strong><span>Industrial hydraulic grades</span></div>
+        <div class="spec-card four"><strong>SAE</strong><span>Viscosity selection</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="standards">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><span class="eyebrow" data-copy="standardsEyebrow">Quick Reference</span><h2 data-copy-html="standardsTitle">Pick by <em>label and manual.</em></h2></div>
+        <p data-copy="standardsLead">Use the label as a guide, then confirm the final grade with your vehicle or machine manual.</p>
+      </div>
+      <div class="guide-grid">
+        <article class="guide-card reveal" style="--glow:rgba(226,59,47,.16)"><span>01</span><h3 data-copy="card1Title">API Petrol</h3><p data-copy="card1Text">For petrol engine oil categories shown on suitable product labels.</p></article>
+        <article class="guide-card reveal d2" style="--glow:rgba(246,180,65,.18)"><span>02</span><h3 data-copy="card2Title">API Diesel</h3><p data-copy="card2Text">For diesel engines, fleets and heavy-duty service requirements.</p></article>
+        <article class="guide-card reveal d3" style="--glow:rgba(43,108,246,.16)"><span>03</span><h3 data-copy="card3Title">JASO</h3><p data-copy="card3Text">Important when motorcycle wet-clutch compatibility is required.</p></article>
+        <article class="guide-card reveal" style="--glow:rgba(24,169,116,.14)"><span>04</span><h3 data-copy="card4Title">SAE Grade</h3><p data-copy="card4Text">Viscosity grades such as 5W-30 or 15W-40 must match the manual.</p></article>
+        <article class="guide-card reveal d2" style="--glow:rgba(246,180,65,.14)"><span>05</span><h3 data-copy="card5Title">ATF / Gear</h3><p data-copy="card5Text">Transmission fluids should only be used where the spec is compatible.</p></article>
+        <article class="guide-card reveal d3" style="--glow:rgba(255,255,255,.08)"><span>06</span><h3 data-copy="card6Title">ISO Hydraulic</h3><p data-copy="card6Text">Hydraulic oil is usually selected by ISO grade and machine need.</p></article>
+      </div>
+      <div class="tech-flow reveal d3" aria-label="Oil choice flow">
+        <span>Manual</span><i></i><span>Grade</span><i></i><span>Usage</span><i></i><span>Ask UEL</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <article class="panel reveal">
+        <span class="eyebrow" data-copy="choiceEyebrow">Choosing The Right Oil</span>
+        <h2 data-copy-html="choiceTitle">Synthetic, semi or mineral?</h2>
+        <ul>
+          <li data-copy="choice1">Fully synthetic oils are often chosen for modern engines, higher heat stability and longer performance reserve.</li>
+          <li data-copy="choice2">Semi-synthetic oils can be a practical balance for many daily-use vehicles and workshops.</li>
+          <li data-copy="choice3">Mineral oils may suit selected older engines, basic service needs or industrial applications when the correct specification is used.</li>
+        </ul>
+      </article>
+      <article class="panel reveal d2">
+        <span class="eyebrow" data-copy="climateEyebrow">Malaysia Use Case</span>
+        <h2 data-copy-html="climateTitle">Heat, traffic and heavy work.</h2>
+        <ul>
+          <li data-copy="climate1">City driving creates repeated stop-start heat cycles, so oil cleanliness and oxidation resistance matter.</li>
+          <li data-copy="climate2">Diesel fleets and delivery vehicles need attention to load, hours, drain interval and oil top-up habits.</li>
+          <li data-copy="climate3">Factories should match hydraulic oil to pump type, operating temperature, contamination control and machine manual.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="wrap">
+      <p class="note reveal d3" data-copy="safeNote">Safe recommendation: check your owner's manual or machine manual first. When asking UEL, share vehicle or machine model, year, current oil grade, usage style, quantity needed and delivery area.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot"><img class="footer-logo" src="images/uel-logo.png" alt="UEL Unique Excellent Lubricant"><p data-copy="footerDesc">Engine oils, lubricants and vehicle fluids for Malaysian drivers, workshops, fleets and industrial users.</p></div>
+      <div class="foot"><h4 data-copy="footerProducts">Products</h4><ul><li><a href="products.html">Car Engine Oil</a></li><li><a href="products.html">Motorcycle Oil</a></li><li><a href="products.html">Diesel Oil</a></li><li><a href="products.html">Hydraulic Oil</a></li></ul></div>
+      <div class="foot"><h4 data-copy="footerCompany">Company</h4><ul><li><a href="index.html#about">Who We Are</a></li><li><a href="technology.html">Technology</a></li><li><a href="where-to-buy.html">Where to Buy</a></li><li><a href="products.html">Products</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="foot"><h4 data-copy="footerTouch">Get in Touch</h4><ul><li><a href="https://wa.me/60108989120" target="_blank" rel="noopener">WhatsApp +60 10-898 9120</a></li><li><a href="tel:+60108989120">Tel +60 10-898 9120</a></li><li><a href="mailto:uel.lubricant@gmail.com">uel.lubricant@gmail.com</a></li></ul></div>
+    </div>
+    <div class="legal"><span>UEL - Unique Excellent Lubricant. All rights reserved.</span><span>Site by DuoCode</span></div>
+  </div>
+</footer>
+<div class="ambient-dip" aria-hidden="true"></div>
+<script>
+  const copy = {
+    en: {
+      navHome:'Home',navProducts:'Products',navTechnology:'Technology',navWhere:'Where to Buy',navContact:'Contact',
+      heroEyebrow:'Technology Guide',heroTitle:'Oil standards, <em>made simple.</em>',heroLead:'A fast guide for choosing oil by vehicle, machine, grade and real usage in Malaysia.',heroPrimary:'View Products',heroSecondary:'Ask UEL',
+      standardsEyebrow:'Quick Reference',standardsTitle:'Pick by <em>label and manual.</em>',standardsLead:'Use the label as a guide, then confirm the final grade with your vehicle or machine manual.',
+      card1Title:'API Petrol',card1Text:'For petrol engine oil categories shown on suitable product labels.',
+      card2Title:'API Diesel',card2Text:'For diesel engines, fleets and heavy-duty service requirements.',
+      card3Title:'JASO',card3Text:'Important when motorcycle wet-clutch compatibility is required.',
+      card4Title:'SAE Grade',card4Text:'Viscosity grades such as 5W-30 or 15W-40 must match the manual.',
+      card5Title:'ATF / Gear',card5Text:'Transmission fluids should only be used where the spec is compatible.',
+      card6Title:'ISO Hydraulic',card6Text:'Hydraulic oil is usually selected by ISO grade and machine need.',
+      choiceEyebrow:'Choosing The Right Oil',choiceTitle:'Synthetic, semi or mineral?',choice1:'Fully synthetic oils are often chosen for modern engines, higher heat stability and longer performance reserve.',choice2:'Semi-synthetic oils can be a practical balance for many daily-use vehicles and workshops.',choice3:'Mineral oils may suit selected older engines, basic service needs or industrial applications when the correct specification is used.',
+      climateEyebrow:'Malaysia Use Case',climateTitle:'Heat, traffic and heavy work.',climate1:'City driving creates repeated stop-start heat cycles, so oil cleanliness and oxidation resistance matter.',climate2:'Diesel fleets and delivery vehicles need attention to load, hours, drain interval and oil top-up habits.',climate3:'Factories should match hydraulic oil to pump type, operating temperature, contamination control and machine manual.',
+      safeNote:"Safe recommendation: check your owner's manual or machine manual first. When asking UEL, share vehicle or machine model, year, current oil grade, usage style, quantity needed and delivery area.",
+      footerDesc:'Engine oils, lubricants and vehicle fluids for Malaysian drivers, workshops, fleets and industrial users.',footerProducts:'Products',footerCompany:'Company',footerTouch:'Get in Touch'
+    },
+    zh: {
+      navHome:'首页',navProducts:'产品',navTechnology:'技术',navWhere:'哪里购买',navContact:'联系',
+      heroEyebrow:'润滑油技术指南',heroTitle:'按<em>用途、等级和使用环境</em>选油。',heroLead:'为马来西亚车主、维修厂、车队和工业用户准备的简单指南：了解常见油品标准、黏度选择，以及什么时候需要向 UEL 查询建议。',heroPrimary:'查看产品',heroSecondary:'询问 UEL',
+      standardsEyebrow:'标准简单看懂',standardsTitle:'油瓶上的字母<em>代表什么。</em>',standardsLead:'以下内容为教育说明。更换油品类型、等级或保养周期前，请先确认车辆手册、机器要求或向 UEL 查询。',
+      card1Title:'API Petrol',card1Text:'常见汽油引擎油等级。较新的等级通常针对现代引擎保护、清洁度和燃油经济要求设计。',
+      card2Title:'API Diesel',card2Text:'重型柴油油品等级，适合货车、皮卡、巴士和商用用途，重点在抗磨、烟灰控制和长时间运行。',
+      card3Title:'JASO',card3Text:'常用于许多湿式离合 4T 摩托车，因为同一油品可能同时服务引擎、齿轮箱和离合器。',
+      card4Title:'SAE 黏度',card4Text:'0W-20、5W-30、10W-40 或 15W-40 代表低温启动与工作温度下的流动特性。正确等级取决于引擎设计。',
+      card5Title:'ATF / CVTF / 齿轮油',card5Text:'变速箱系统较敏感。ATF、CVT 油和齿轮油不可随意互换，除非规格明确允许。',
+      card6Title:'ISO 液压油',card6Text:'液压油常按 ISO 32、46、68 等黏度等级选择，取决于机器负载、温度和泵浦要求。',
+      choiceEyebrow:'如何选油',choiceTitle:'全合成、半合成或矿物油？',choice1:'全合成油常用于现代引擎，提供较好的高温稳定性和性能储备。',choice2:'半合成油对许多日常车辆和维修厂来说是实用平衡选择。',choice3:'矿物油可用于部分旧款引擎、基础保养或工业应用，前提是规格正确。',
+      climateEyebrow:'马来西亚使用环境',climateTitle:'高温、塞车和重负荷。',climate1:'城市驾驶会产生反复启停热循环，因此清洁度和抗氧化能力重要。',climate2:'柴油车队和配送车辆需留意负载、运行小时、换油周期和补油习惯。',climate3:'工厂应根据泵浦类型、工作温度、污染控制和机器手册选择液压油。',
+      safeNote:'安全建议：先查看车辆或机器手册。询问 UEL 时，请提供车型或机器型号、年份、目前油品等级、用途、数量和送货地区。',
+      footerDesc:'为马来西亚车主、维修厂、车队和工业用户供应引擎油、润滑油和车辆油液。',footerProducts:'产品',footerCompany:'公司',footerTouch:'联系'
+    },
+    bm: {
+      navHome:'Laman Utama',navProducts:'Produk',navTechnology:'Teknologi',navWhere:'Di Mana Beli',navContact:'Hubungi',
+      heroEyebrow:'Panduan Teknologi',heroTitle:'Pilih minyak ikut <em>kegunaan, gred dan keadaan.</em>',heroLead:'Panduan jelas untuk pemandu, bengkel, fleet dan pengguna industri di Malaysia: maksud standard minyak biasa, cara memilih viscosity dan bila perlu bertanya kepada UEL.',heroPrimary:'Lihat Produk',heroSecondary:'Tanya UEL',
+      standardsEyebrow:'Standard Dengan Mudah',standardsTitle:'Maksud huruf pada botol minyak <em>secara ringkas.</em>',standardsLead:'Penerangan ini untuk pendidikan. Sentiasa semak manual kenderaan, keperluan mesin atau UEL sebelum menukar jenis minyak, gred atau interval servis.',
+      card1Title:'API Petrol',card1Text:'Kategori minyak enjin petrol yang biasa. Kategori lebih baru direka untuk enjin moden, perlindungan, kebersihan dan keperluan ekonomi bahan api.',
+      card2Title:'API Diesel',card2Text:'Kategori diesel tugas berat untuk lori, pick-up, bas dan kegunaan komersial yang memerlukan kawalan soot dan perlindungan haus.',
+      card3Title:'JASO',card3Text:'Berguna untuk banyak motosikal 4T dengan wet clutch, apabila minyak sama digunakan untuk enjin, gearbox dan clutch.',
+      card4Title:'SAE Grade',card4Text:'Nombor seperti 0W-20, 5W-30, 10W-40 atau 15W-40 menerangkan aliran minyak semasa cold start dan suhu operasi.',
+      card5Title:'ATF / Gear',card5Text:'Sistem transmisi sensitif. ATF, CVT fluid dan gear oil tidak boleh ditukar ganti kecuali spesifikasi membenarkannya.',
+      card6Title:'ISO Hydraulic',card6Text:'Minyak hidraulik biasa dipilih mengikut ISO 32, 46 dan 68, bergantung pada beban mesin, suhu dan keperluan pam.',
+      choiceEyebrow:'Memilih Minyak Betul',choiceTitle:'Synthetic, semi atau mineral?',choice1:'Fully synthetic sering dipilih untuk enjin moden, kestabilan panas dan simpanan prestasi lebih tinggi.',choice2:'Semi-synthetic boleh menjadi pilihan seimbang untuk banyak kenderaan harian dan bengkel.',choice3:'Mineral oil boleh sesuai untuk sesetengah enjin lama, servis asas atau aplikasi industri jika spesifikasi betul.',
+      climateEyebrow:'Kegunaan Malaysia',climateTitle:'Panas, trafik dan kerja berat.',climate1:'Pemanduan bandar menghasilkan kitaran panas stop-start, jadi kebersihan minyak dan rintangan oksidasi penting.',climate2:'Fleet diesel dan kenderaan penghantaran perlu perhatikan beban, jam operasi, interval tukar minyak dan tabiat top-up.',climate3:'Kilang perlu padankan minyak hidraulik dengan jenis pam, suhu operasi, kawalan pencemaran dan manual mesin.',
+      safeNote:'Cadangan selamat: semak manual kenderaan atau mesin dahulu. Bila bertanya kepada UEL, kongsi model, tahun, gred minyak semasa, cara penggunaan, kuantiti dan kawasan penghantaran.',
+      footerDesc:'Minyak enjin, pelincir dan cecair kenderaan untuk pemandu, bengkel, fleet dan pengguna industri di Malaysia.',footerProducts:'Produk',footerCompany:'Syarikat',footerTouch:'Hubungi'
+    }
+  };
+  const supported = ['en','zh','bm'];
+
+  let currentLang = supported.includes(localStorage.getItem('uelLang')) ? localStorage.getItem('uelLang') : 'en';
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const applyLanguage = (lang) => {
+    currentLang = copy[lang] ? lang : 'en';
+    localStorage.setItem('uelLang', currentLang);
+    document.documentElement.lang = currentLang === 'zh' ? 'zh-Hans-MY' : currentLang === 'bm' ? 'ms-MY' : 'en-MY';
+    document.querySelectorAll('[data-lang]').forEach(button => button.classList.toggle('active', button.dataset.lang === currentLang));
+    document.querySelectorAll('[data-copy]').forEach(el => { el.textContent = copy[currentLang][el.dataset.copy] || el.textContent; });
+    document.querySelectorAll('[data-copy-html]').forEach(el => { el.innerHTML = copy[currentLang][el.dataset.copyHtml] || el.innerHTML; });
+  };
+  document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
+  const menuBtn = document.getElementById('menu-btn');
+  const navLinks = document.getElementById('nav-links');
+  menuBtn?.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks?.addEventListener('click', e => {
+    if (e.target.matches('a')) {
+      navLinks.classList.remove('open');
+      menuBtn?.setAttribute('aria-expanded','false');
+    }
+  });
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:.14, rootMargin:'0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  const initAmbientDip = () => {
+    const ambientDip = document.querySelector('.ambient-dip');
+    if (!ambientDip || prefersReducedMotion) return;
+    let lastRippleAt = 0, lastRippleX = innerWidth / 2, lastRippleY = innerHeight / 2;
+    const showDip = (x,y,force=false) => {
+      ambientDip.style.setProperty('--dip-x', `${x}px`);
+      ambientDip.style.setProperty('--dip-y', `${y}px`);
+      const now = performance.now();
+      const moved = Math.hypot(x - lastRippleX, y - lastRippleY);
+      if (!force && (now - lastRippleAt < 150 || moved < 42)) return;
+      lastRippleAt = now; lastRippleX = x; lastRippleY = y;
+      const ripple = document.createElement('span');
+      ripple.className = 'dip-ripple';
+      ripple.style.setProperty('--ripple-x', `${x}px`);
+      ripple.style.setProperty('--ripple-y', `${y}px`);
+      ambientDip.appendChild(ripple);
+      const ripples = ambientDip.querySelectorAll('.dip-ripple');
+      if (ripples.length > 8) ripples[0].remove();
+      ripple.addEventListener('animationend', () => ripple.remove(), { once:true });
+    };
+    addEventListener('pointermove', event => { if (event.pointerType === 'mouse' || event.pointerType === 'pen') showDip(event.clientX,event.clientY); }, { passive:true });
+    addEventListener('pointerdown', event => { if (event.pointerType === 'mouse' || event.pointerType === 'pen') showDip(event.clientX,event.clientY,true); }, { passive:true });
+    addEventListener('touchstart', event => { const touch = event.touches[0]; if (touch) showDip(touch.clientX,touch.clientY,true); }, { passive:true });
+    addEventListener('touchmove', event => { const touch = event.touches[0]; if (touch) showDip(touch.clientX,touch.clientY); }, { passive:true });
+  };
+  applyLanguage(currentLang);
+  initAmbientDip();
+
+
+  // Fast orange mouse-follow spotlight, without ripple/dip animation.
+  (() => {
+    const dip = document.querySelector('.ambient-dip');
+    if (!dip || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let x = window.innerWidth * 0.5;
+    let y = window.innerHeight * 0.5;
+    let raf = 0;
+    const paint = () => {
+      dip.style.setProperty('--dip-x', x + 'px');
+      dip.style.setProperty('--dip-y', y + 'px');
+      raf = 0;
+    };
+    const queue = (nextX, nextY) => {
+      x = nextX;
+      y = nextY;
+      if (!raf) raf = requestAnimationFrame(paint);
+    };
+    window.addEventListener('pointermove', event => queue(event.clientX, event.clientY), { passive: true });
+    window.addEventListener('pointerdown', event => queue(event.clientX, event.clientY), { passive: true });
+    window.addEventListener('touchstart', event => { const touch = event.touches[0]; if (touch) queue(touch.clientX, touch.clientY); }, { passive: true });
+    window.addEventListener('touchmove', event => { const touch = event.touches[0]; if (touch) queue(touch.clientX, touch.clientY); }, { passive: true });
+    paint();
+  })();
+
+</script>
+</body>
+</html>
