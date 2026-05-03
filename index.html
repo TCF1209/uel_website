@@ -2078,6 +2078,87 @@
     }
   }
 
+  /* Phone stability: prevent side-drag and keep large UI inside viewport */
+  @media (max-width: 740px) {
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      touch-action: pan-y;
+    }
+    body,
+    header,
+    main,
+    footer,
+    section,
+    .hero {
+      max-width: 100%;
+      overflow-x: clip;
+    }
+    .wrap,
+    .nav-inner {
+      width: min(100% - 32px, var(--max));
+      max-width: 100%;
+    }
+    h1 {
+      font-size: clamp(38px, 10vw, 52px) !important;
+      line-height: 1.04 !important;
+    }
+    h2 {
+      font-size: clamp(28px, 8vw, 40px) !important;
+      line-height: 1.06 !important;
+    }
+    h3 {
+      font-size: clamp(21px, 6vw, 30px) !important;
+      line-height: 1.12 !important;
+    }
+    h1,
+    h2,
+    h3,
+    p,
+    li,
+    a,
+    button,
+    label,
+    .btn {
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+    img,
+    svg,
+    video,
+    canvas {
+      max-width: 100%;
+    }
+    .btn,
+    .hero-actions,
+    .card-actions,
+    .modal-actions,
+    .submit-row,
+    input,
+    select,
+    textarea {
+      min-width: 0;
+      max-width: 100%;
+    }
+    .modal,
+    .modal-panel,
+    .form-shell,
+    .product-card,
+    .product,
+    .contact-row,
+    .support-card,
+    .guide-card,
+    .panel {
+      max-width: 100%;
+    }
+    html[lang^="zh"] h1 {
+      font-size: clamp(32px, 8.8vw, 44px) !important;
+      line-height: 1.14 !important;
+    }
+  }
+
 </style>
 </head>
 <body>
