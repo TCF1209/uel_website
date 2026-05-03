@@ -964,17 +964,20 @@
       justify-self: center;
     }
     .filters {
-      position: sticky !important;
+      position: fixed !important;
       top: 68px !important;
-      z-index: 42;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 39;
       margin-top: 0;
       background: rgba(7,7,10,.96) !important;
       border-top: 1px solid rgba(246,180,65,.18);
       border-bottom: 1px solid rgba(246,180,65,.22);
       backdrop-filter: none !important;
       -webkit-backdrop-filter: none !important;
-      transform: translateZ(0);
-      will-change: transform;
+      transform: none !important;
+      will-change: auto;
     }
     .filter-row {
       width: 100%;
@@ -983,6 +986,7 @@
       scroll-behavior: auto;
       overscroll-behavior-x: contain;
       -webkit-overflow-scrolling: touch;
+      touch-action: pan-x;
     }
     .filter-row button {
       font-size: 10.5px !important;
@@ -994,6 +998,10 @@
       background: rgba(246,180,65,.12) !important;
       border-color: rgba(246,180,65,.9) !important;
       box-shadow: inset 0 0 0 1px rgba(246,180,65,.28), 0 0 20px rgba(246,180,65,.1);
+    }
+    .catalogue {
+      padding-top: clamp(104px, 24vw, 132px) !important;
+      scroll-margin-top: 138px;
     }
     h1 {
       font-size: clamp(38px, 10vw, 52px) !important;
