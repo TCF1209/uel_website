@@ -904,6 +904,16 @@
       gap: 12px;
       padding-block: 0;
     }
+    .nav {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 70;
+    }
+    main {
+      padding-top: 68px;
+    }
     .menu-btn {
       display: inline-grid !important;
       place-items: center;
@@ -964,8 +974,8 @@
       justify-self: center;
     }
     .filters {
-      position: fixed !important;
-      top: 68px !important;
+      position: static !important;
+      top: auto !important;
       left: 0;
       right: 0;
       width: 100%;
@@ -978,6 +988,10 @@
       -webkit-backdrop-filter: none !important;
       transform: none !important;
       will-change: auto;
+    }
+    .filters.is-fixed-mobile {
+      position: fixed !important;
+      top: 68px !important;
     }
     .filter-row {
       width: 100%;
@@ -1000,7 +1014,6 @@
       box-shadow: inset 0 0 0 1px rgba(246,180,65,.28), 0 0 20px rgba(246,180,65,.1);
     }
     .catalogue {
-      padding-top: clamp(104px, 24vw, 132px) !important;
       scroll-margin-top: 138px;
     }
     h1 {
@@ -1771,6 +1784,50 @@ const products = [
     }
   });
 
+  const filterBar = document.querySelector('.filters');
+  let filterPlaceholder = null;
+  let filterTicking = false;
+  const isMobileFilter = () => window.matchMedia('(max-width: 740px)').matches;
+  const getFilterStart = () => {
+    if (!filterBar) return 0;
+    const source = filterBar.classList.contains('is-fixed-mobile') && filterPlaceholder ? filterPlaceholder : filterBar;
+    return source.getBoundingClientRect().top + window.scrollY;
+  };
+  const syncMobileFilter = () => {
+    filterTicking = false;
+    if (!filterBar) return;
+    if (!filterPlaceholder) {
+      filterPlaceholder = document.createElement('div');
+      filterPlaceholder.hidden = true;
+      filterBar.before(filterPlaceholder);
+    }
+    if (!isMobileFilter()) {
+      filterBar.classList.remove('is-fixed-mobile');
+      filterPlaceholder.hidden = true;
+      filterPlaceholder.style.height = '0px';
+      return;
+    }
+    const headerOffset = 68;
+    const shouldFix = window.scrollY >= getFilterStart() - headerOffset;
+    if (shouldFix) {
+      filterPlaceholder.hidden = false;
+      filterPlaceholder.style.height = `${filterBar.offsetHeight}px`;
+      filterBar.classList.add('is-fixed-mobile');
+    } else {
+      filterBar.classList.remove('is-fixed-mobile');
+      filterPlaceholder.hidden = true;
+      filterPlaceholder.style.height = '0px';
+    }
+  };
+  const requestFilterSync = () => {
+    if (filterTicking) return;
+    filterTicking = true;
+    requestAnimationFrame(syncMobileFilter);
+  };
+  addEventListener('scroll', requestFilterSync, { passive: true });
+  addEventListener('resize', requestFilterSync);
+  addEventListener('load', syncMobileFilter);
+
   const renderFilters = () => {
     const row = document.getElementById('filter-row');
     row.innerHTML = '';
@@ -1953,6 +2010,7 @@ const products = [
   initStageCarousel();
 
   applyLanguage(currentLang);
+  requestFilterSync();
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
