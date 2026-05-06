@@ -1197,7 +1197,8 @@
       transform: none !important;
       box-shadow: 0 18px 40px rgba(0,0,0,.32);
     }
-    body.modal-open .filters.is-fixed-mobile {
+    body.modal-open .filters.is-fixed-mobile,
+    body.menu-open .filters.is-fixed-mobile {
       opacity: 0 !important;
       visibility: hidden !important;
       pointer-events: none !important;
@@ -2896,6 +2897,7 @@ copy.zh = {
     let lastTouchMenuAt = 0;
     const setMenuOpen = open => {
       navLinks.classList.toggle('open', open);
+      document.body.classList.toggle('menu-open', open);
       menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     };
     const toggleMenu = () => setMenuOpen(!navLinks.classList.contains('open'));
