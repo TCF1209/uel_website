@@ -1371,6 +1371,12 @@
     };
     menuBtn.addEventListener('pointerdown', handlePhoneMenu);
     menuBtn.addEventListener('touchstart', handlePhoneMenu, { passive: false });
+    document.addEventListener('pointerdown', event => {
+      if (event.target.closest('#menu-btn')) handlePhoneMenu(event);
+    }, { capture: true });
+    document.addEventListener('touchstart', event => {
+      if (event.target.closest('#menu-btn')) handlePhoneMenu(event);
+    }, { passive: false, capture: true });
     menuBtn.addEventListener('click', event => {
       if (ignoreNextMenuClick || Date.now() - lastTouchMenuAt < 520) {
         if (event.cancelable) event.preventDefault();
@@ -1389,7 +1395,7 @@
   (()=>{const dip=document.querySelector('.ambient-dip');if(!dip||matchMedia('(prefers-reduced-motion: reduce)').matches)return;let x=innerWidth*.5,y=innerHeight*.35,raf=0;const paint=()=>{dip.style.setProperty('--dip-x',x+'px');dip.style.setProperty('--dip-y',y+'px');raf=0};const queue=(nx,ny)=>{x=nx;y=ny;if(!raf)raf=requestAnimationFrame(paint)};addEventListener('pointermove',e=>queue(e.clientX,e.clientY),{passive:true});addEventListener('touchmove',e=>{const t=e.touches[0];if(t)queue(t.clientX,t.clientY)},{passive:true});paint()})();
   (()=>{const items=[...document.querySelectorAll('.reveal')];if(!items.length)return;if(matchMedia('(prefers-reduced-motion: reduce)').matches){items.forEach(item=>item.classList.add('in-view'));return;}const io=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');io.unobserve(entry.target);}})},{threshold:.16,rootMargin:'0px 0px -8% 0px'});items.forEach(item=>io.observe(item));})();
   (()=>{const revealVisible=()=>{document.querySelectorAll('.reveal:not(.in-view)').forEach(item=>{const rect=item.getBoundingClientRect();if(rect.top<innerHeight*.94&&rect.bottom>0)item.classList.add('in-view');});};addEventListener('scroll',revealVisible,{passive:true});addEventListener('resize',revealVisible);addEventListener('load',revealVisible);requestAnimationFrame(revealVisible);setTimeout(revealVisible,350);})();
-  (()=>{const viewport=document.querySelector('meta[name="viewport"]');viewport?.setAttribute('content','width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover');const prevent=e=>{if(e.cancelable)e.preventDefault()};['gesturestart','gesturechange','gestureend'].forEach(type=>document.addEventListener(type,prevent,{passive:false}));document.addEventListener('touchmove',e=>{if(e.scale&&e.scale!==1)prevent(e)},{passive:false});let lastTouchEnd=0;document.addEventListener('touchend',e=>{const now=Date.now();if(now-lastTouchEnd<=320)prevent(e);lastTouchEnd=now},{passive:false})})();
+  (()=>{const viewport=document.querySelector('meta[name="viewport"]');viewport?.setAttribute('content','width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover');const prevent=e=>{if(e.cancelable)e.preventDefault()};['gesturestart','gesturechange','gestureend'].forEach(type=>document.addEventListener(type,prevent,{passive:false}));document.addEventListener('touchmove',e=>{if(e.scale&&e.scale!==1)prevent(e)},{passive:false});let lastTouchEnd=0;document.addEventListener('touchend',e=>{if(e.target.closest('a, button, input, select, textarea, #nav-links'))return;const now=Date.now();if(now-lastTouchEnd<=320)prevent(e);lastTouchEnd=now},{passive:false})})();
   applyLanguage(currentLang);
 </script>
 </body>

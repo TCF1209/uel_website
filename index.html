@@ -3839,6 +3839,12 @@
     };
     btn.addEventListener('pointerdown', handlePhoneMenu);
     btn.addEventListener('touchstart', handlePhoneMenu, { passive: false });
+    document.addEventListener('pointerdown', event => {
+      if (event.target.closest('#menu-btn')) handlePhoneMenu(event);
+    }, { capture: true });
+    document.addEventListener('touchstart', event => {
+      if (event.target.closest('#menu-btn')) handlePhoneMenu(event);
+    }, { passive: false, capture: true });
     btn.addEventListener('click', event => {
       if (ignoreNextMenuClick || Date.now() - lastTouchMenuAt < 520) {
         if (event.cancelable) event.preventDefault();
@@ -5500,6 +5506,7 @@
     }, { passive: false });
     let lastTouchEnd = 0;
     document.addEventListener('touchend', event => {
+      if (event.target.closest('a, button, input, select, textarea, #nav-links')) return;
       const now = Date.now();
       if (now - lastTouchEnd <= 320) prevent(event);
       lastTouchEnd = now;

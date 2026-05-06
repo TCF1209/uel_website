@@ -1083,6 +1083,12 @@
     };
     menuBtn.addEventListener('pointerdown', handlePhoneMenu);
     menuBtn.addEventListener('touchstart', handlePhoneMenu, { passive: false });
+    document.addEventListener('pointerdown', event => {
+      if (event.target.closest('#menu-btn')) handlePhoneMenu(event);
+    }, { capture: true });
+    document.addEventListener('touchstart', event => {
+      if (event.target.closest('#menu-btn')) handlePhoneMenu(event);
+    }, { passive: false, capture: true });
     menuBtn.addEventListener('click', event => {
       if (ignoreNextMenuClick || Date.now() - lastTouchMenuAt < 520) {
         if (event.cancelable) event.preventDefault();
