@@ -2559,17 +2559,357 @@
 
   /* Final mobile launch fixes */
   @media (max-width: 740px) {
+    .spec .bay-head {
+      position: relative !important;
+      z-index: 5 !important;
+      margin-bottom: 14px !important;
+      padding-bottom: 12px !important;
+      background: var(--carbon) !important;
+    }
+    .range-scroll {
+      max-height: 560px !important;
+      overflow: hidden !important;
+      position: relative !important;
+      z-index: 1 !important;
+      isolation: isolate !important;
+      contain: paint !important;
+      clip-path: inset(0 round 18px) !important;
+      overscroll-behavior: contain !important;
+      -webkit-overflow-scrolling: auto !important;
+      border-top: 1px solid var(--line) !important;
+      border-bottom: 1px solid var(--line) !important;
+      border-radius: 18px !important;
+    }
+    .range-scroll .spec-table,
+    .range-scroll .spec-table thead {
+      transform: none !important;
+      animation: none !important;
+    }
+    .range-scroll .spec-table tbody {
+      position: relative !important;
+      z-index: 1 !important;
+      animation: mobileRangeScroll 36s linear infinite alternate !important;
+      will-change: transform;
+    }
+    .range-scroll::before {
+      content: "" !important;
+      position: absolute !important;
+      left: 0 !important;
+      right: 0 !important;
+      top: 0 !important;
+      height: 58px !important;
+      z-index: 2 !important;
+      pointer-events: none !important;
+      background: linear-gradient(180deg, var(--carbon), rgba(17,17,22,.72), transparent) !important;
+    }
+    .range-scroll::after {
+      display: block !important;
+      height: 68px !important;
+      z-index: 2 !important;
+      background: linear-gradient(180deg, transparent, var(--carbon)) !important;
+    }
+    @keyframes mobileRangeScroll {
+      from { transform: translateY(0); }
+      to { transform: translateY(-42%); }
+    }
+  }
+  @media (max-width: 740px) and (prefers-reduced-motion: reduce) {
     .range-scroll {
       max-height: none !important;
       overflow: visible !important;
-      overscroll-behavior: auto !important;
-      -webkit-overflow-scrolling: auto !important;
     }
-    .range-scroll .spec-table,
-    .range-scroll .spec-table thead,
     .range-scroll .spec-table tbody {
-      transform: none !important;
       animation: none !important;
+      transform: none !important;
+    }
+    .range-scroll::after {
+      display: none !important;
+    }
+  }
+  /* Phone zoom guard: keep layout locked and prevent input-focus zoom */
+  @media (max-width: 740px) {
+    html,
+    body {
+      touch-action: pan-y !important;
+      -ms-touch-action: pan-y !important;
+    }
+    a,
+    button,
+    input,
+    select,
+    textarea {
+      touch-action: manipulation !important;
+    }
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+
+  /* Final phone polish: softer header gap, rounder boxes, full-site orange dip */
+  :root {
+    --card-radius: 24px;
+    --inner-radius: 16px;
+  }
+
+  .hero {
+    padding-top: clamp(20px, 3vh, 34px) !important;
+  }
+  main {
+    padding-top: clamp(8px, 1.2vh, 14px) !important;
+  }
+
+  .ambient-dip {
+    z-index: 4 !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+    mix-blend-mode: screen !important;
+    background:
+      radial-gradient(360px 360px at var(--dip-x) var(--dip-y),
+        rgba(255, 213, 142, .13) 0%,
+        rgba(246, 180, 65, .075) 30%,
+        rgba(226, 99, 28, .035) 56%,
+        rgba(7, 7, 10, 0) 80%) !important;
+    transition: opacity .22s ease !important;
+  }
+  .ambient-dip::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(130px 130px at var(--dip-x) var(--dip-y),
+        rgba(255, 244, 214, .045),
+        rgba(246, 180, 65, .022) 42%,
+        transparent 72%);
+  }
+  .dip-ripple {
+    display: block !important;
+    position: absolute !important;
+    left: var(--ripple-x) !important;
+    top: var(--ripple-y) !important;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(246, 180, 65, .22) !important;
+    box-shadow:
+      0 0 26px rgba(246, 180, 65, .12),
+      inset 0 0 14px rgba(255, 219, 143, .07) !important;
+    opacity: .32;
+    transform: translate(-50%, -50%) scale(.5);
+    animation: dipRipple .72s cubic-bezier(.16,.84,.28,1) forwards !important;
+  }
+
+  .product,
+  .product-grid,
+  .brand-cell,
+  .tech-row,
+  .tech-art,
+  .range-scroll,
+  .requirement-form,
+  .review-panel,
+  .product-modal__panel,
+  .modal-column,
+  .cta-card,
+  .contact-row,
+  .facebook-showcase,
+  .quote-summary,
+  .spec-table,
+  .footer-logo {
+    border-radius: var(--card-radius) !important;
+    overflow: hidden;
+  }
+
+  .product .index,
+  .product li,
+  .form-stepper,
+  .form-step,
+  .field input,
+  .field select,
+  .field textarea,
+  .spec-table .tag,
+  .quote-summary div {
+    border-radius: var(--inner-radius) !important;
+  }
+
+  .btn,
+  .nav-cta,
+  .lang-switch,
+  .lang-switch button,
+  .menu-btn,
+  .carousel-control,
+  .product-modal__close {
+    border-radius: 999px !important;
+  }
+
+  .hero .drop-stage {
+    overflow: visible !important;
+    border-radius: var(--card-radius) !important;
+  }
+  .hero .product-carousel {
+    overflow: visible !important;
+  }
+  .hero .carousel-item img,
+  .product-photo {
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+
+  @media (max-width: 740px) {
+    .nav-links {
+      top: 100% !important;
+      margin-top: 0 !important;
+      border-top: 0 !important;
+      border-radius: 0 0 24px 24px !important;
+    }
+    .hero {
+      padding-top: clamp(18px, 4.6vw, 28px) !important;
+    }
+    .hero .drop-stage {
+      width: min(360px, 88vw) !important;
+      aspect-ratio: 1 / 1.08 !important;
+      border-radius: 28px !important;
+      overflow: hidden !important;
+    }
+    .hero .product-carousel {
+      inset: 8% 3% 18% !important;
+      overflow: hidden !important;
+    }
+    .hero .carousel-item {
+      width: clamp(118px, 38vw, 165px) !important;
+    }
+    .hero .carousel-item.is-active {
+      transform: translate(-50%, -52%) scale(.96) !important;
+    }
+    .hero .carousel-item.is-prev {
+      transform: translate(-86%, -50%) scale(.5) rotate(-4deg) !important;
+    }
+    .hero .carousel-item.is-next {
+      transform: translate(-14%, -50%) scale(.5) rotate(4deg) !important;
+    }
+    .hero .carousel-item img {
+      max-height: min(230px, 42vh) !important;
+      width: 100% !important;
+      height: auto !important;
+    }
+    .product {
+      border-radius: 24px !important;
+      padding: 20px 18px 18px !important;
+    }
+    .product-photo {
+      width: min(42vw, 138px) !important;
+      height: clamp(142px, 44vw, 176px) !important;
+      margin: 6px auto 18px !important;
+    }
+    .ambient-dip {
+      background:
+        radial-gradient(260px 260px at var(--dip-x) var(--dip-y),
+          rgba(255, 213, 142, .12) 0%,
+          rgba(246, 180, 65, .065) 34%,
+          rgba(226, 99, 28, .03) 58%,
+          rgba(7, 7, 10, 0) 80%) !important;
+    }
+  }
+
+  /* Final homepage product-card + phone menu correction */
+  .product-grid {
+    align-items: start !important;
+  }
+  .product {
+    align-self: start !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .product .best-for {
+    margin: 10px 0 !important;
+    padding: 9px 0 !important;
+  }
+  .product .best-for span,
+  .product .best-for strong,
+  .product li,
+  .product .footer-line {
+    font-family: var(--body) !important;
+    letter-spacing: 0 !important;
+  }
+  .product .best-for span,
+  .product li {
+    font-weight: 500 !important;
+  }
+  .product .best-for strong,
+  .product .footer-line {
+    font-weight: 600 !important;
+  }
+  .product ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    margin: 0 0 10px !important;
+  }
+  .product li {
+    display: flex !important;
+    align-items: center !important;
+    min-height: 46px !important;
+    padding: 7px 9px 7px 24px !important;
+    font-size: 13px !important;
+    line-height: 1.28 !important;
+  }
+  .product li::before {
+    left: 11px !important;
+  }
+  .product .footer-line {
+    margin-top: 0 !important;
+    padding-top: 12px !important;
+  }
+  @media (max-width: 980px) {
+    .product-grid {
+      gap: 14px !important;
+      background: transparent !important;
+      border: 0 !important;
+    }
+    .product {
+      border: 1px solid var(--line-strong) !important;
+    }
+  }
+  @media (max-width: 740px) {
+    .nav {
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 80 !important;
+    }
+    .nav-inner {
+      position: static !important;
+    }
+    .nav-links {
+      position: fixed !important;
+      top: 68px !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100vw !important;
+      max-height: calc(100dvh - 68px) !important;
+      overflow-y: auto !important;
+      margin: 0 !important;
+      border-top: 0 !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      border-radius: 0 0 24px 24px !important;
+    }
+    .product-grid {
+      gap: 12px !important;
+    }
+    .product {
+      padding: 18px 16px 16px !important;
+    }
+    .product-photo {
+      margin-bottom: 12px !important;
+    }
+    .product ul {
+      gap: 7px !important;
+      margin-bottom: 9px !important;
+    }
+    .product li {
+      min-height: 42px !important;
+      font-size: 12.5px !important;
+      padding-left: 22px !important;
     }
   }
 </style>
@@ -4857,6 +5197,27 @@
     window.addEventListener('touchstart', event => { const touch = event.touches[0]; if (touch) queue(touch.clientX, touch.clientY); }, { passive: true });
     window.addEventListener('touchmove', event => { const touch = event.touches[0]; if (touch) queue(touch.clientX, touch.clientY); }, { passive: true });
     paint();
+  })();
+
+  // Phone zoom guard for mobile browsers that ignore viewport scaling.
+  (() => {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    viewport?.setAttribute('content', 'width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover');
+    const prevent = event => {
+      if (event.cancelable) event.preventDefault();
+    };
+    ['gesturestart', 'gesturechange', 'gestureend'].forEach(type => {
+      document.addEventListener(type, prevent, { passive: false });
+    });
+    document.addEventListener('touchmove', event => {
+      if (event.scale && event.scale !== 1) prevent(event);
+    }, { passive: false });
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', event => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 320) prevent(event);
+      lastTouchEnd = now;
+    }, { passive: false });
   })();
 
 </script>

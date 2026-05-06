@@ -1934,6 +1934,437 @@
       overflow: visible !important;
     }
   }
+  /* Final product detail modal polish: one image side only, rounded detail boxes */
+  #product-modal .modal-panel {
+    border-radius: 24px !important;
+  }
+  #product-modal .modal-image {
+    height: min(610px, calc(100dvh - 130px)) !important;
+    min-height: 460px !important;
+    overflow: hidden !important;
+    border-radius: 22px !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    background:
+      radial-gradient(ellipse at 50% 42%, rgba(246,180,65,.18), transparent 58%),
+      linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.018)),
+      rgba(17,17,22,.92) !important;
+  }
+  #modal-flip {
+    width: min(92%, 380px) !important;
+    height: min(540px, calc(100dvh - 180px)) !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+    cursor: default !important;
+    touch-action: manipulation !important;
+    isolation: isolate !important;
+    perspective: none !important;
+  }
+  #modal-flip .flip-stage,
+  #modal-flip.is-back .flip-stage {
+    transform: none !important;
+    transition: none !important;
+    transform-style: flat !important;
+    overflow: hidden !important;
+  }
+  #modal-flip .flip-face {
+    display: none !important;
+    transform: none !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: none !important;
+    border-radius: 18px !important;
+    backface-visibility: hidden !important;
+  }
+  #modal-flip .flip-face.front {
+    display: grid !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 2 !important;
+  }
+  #modal-flip.is-back .flip-face.front {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    z-index: 1 !important;
+  }
+  #modal-flip.is-back .flip-face.back {
+    display: grid !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 3 !important;
+  }
+  #modal-flip.single-side .flip-face.back {
+    display: none !important;
+  }
+  #modal-flip .flip-face img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+  #product-modal .detail-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    margin: 18px 0 !important;
+  }
+  #product-modal .detail-row {
+    display: block !important;
+    min-width: 0 !important;
+    border: 1px solid rgba(255,255,255,.12) !important;
+    border-radius: 16px !important;
+    background:
+      radial-gradient(90% 120% at 100% 0%, rgba(246,180,65,.08), transparent 62%),
+      rgba(255,255,255,.035) !important;
+    padding: 13px 14px !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.045) !important;
+  }
+  #product-modal .detail-row span {
+    display: block !important;
+    margin-bottom: 6px !important;
+  }
+  #product-modal .detail-row strong {
+    display: block !important;
+    font-size: 14.5px !important;
+    line-height: 1.45 !important;
+  }
+  @media (max-width: 820px) {
+    #product-modal .modal-panel {
+      border-radius: 22px 22px 0 0 !important;
+    }
+    #product-modal .modal-grid {
+      gap: 14px !important;
+    }
+    #product-modal .modal-image {
+      height: clamp(300px, 76vw, 390px) !important;
+      min-height: 300px !important;
+      padding: 12px !important;
+      margin: 0 !important;
+    }
+    #modal-flip {
+      width: min(82vw, 286px) !important;
+      height: clamp(278px, 72vw, 360px) !important;
+    }
+    #product-modal .detail-list {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+    #product-modal .detail-row {
+      border-radius: 16px !important;
+      padding: 12px 13px !important;
+    }
+  }
+  /* Phone zoom guard: keep layout locked and prevent input-focus zoom */
+  @media (max-width: 740px) {
+    html,
+    body {
+      touch-action: pan-y !important;
+      -ms-touch-action: pan-y !important;
+    }
+    a,
+    button,
+    input,
+    select,
+    textarea {
+      touch-action: manipulation !important;
+    }
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+
+  /* Final phone catalogue fit: 21 products + detail modal */
+  :root {
+    --card-radius: 24px;
+    --inner-radius: 16px;
+  }
+  .product-grid,
+  .product-card,
+  .modal-panel,
+  .modal-image {
+    border-radius: var(--card-radius) !important;
+  }
+
+  #product-modal.modal {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    min-height: 100vh !important;
+    height: 100vh !important;
+    z-index: 120 !important;
+    overflow: hidden !important;
+  }
+  #product-modal .modal-panel {
+    max-height: calc(100vh - 28px) !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  @supports (height: 100dvh) {
+    #product-modal.modal {
+      height: 100dvh !important;
+    }
+    #product-modal .modal-panel {
+      max-height: calc(100dvh - 28px) !important;
+    }
+  }
+
+  @media (max-width: 740px) {
+    .product-grid,
+    .product-grid.single-product {
+      grid-template-columns: 1fr !important;
+      justify-content: stretch !important;
+      gap: 16px !important;
+      width: 100% !important;
+      background: transparent !important;
+      border: 0 !important;
+    }
+    .product-card,
+    .product-grid.single-product .product-card {
+      display: flex !important;
+      flex-direction: column !important;
+      min-height: auto !important;
+      width: 100% !important;
+      padding: 20px 18px 18px !important;
+      border-radius: var(--card-radius) !important;
+      grid-template-columns: none !important;
+      gap: 0 !important;
+    }
+    .product-card::before,
+    .product-grid.single-product .product-card::before {
+      left: 16% !important;
+      right: 16% !important;
+      top: 176px !important;
+      bottom: auto !important;
+      width: auto !important;
+    }
+    .product-image-box,
+    .product-grid.single-product .product-image-box {
+      grid-row: auto !important;
+      height: 220px !important;
+      min-height: 0 !important;
+      margin: -6px -4px 12px !important;
+      overflow: hidden !important;
+      border-radius: 20px !important;
+    }
+    .product-image-box img,
+    .product-grid.single-product .product-image-box img {
+      width: auto !important;
+      height: auto !important;
+      max-width: min(70%, 164px) !important;
+      max-height: 210px !important;
+      object-fit: contain !important;
+      transform: none !important;
+    }
+    #catalogue .product-image-box,
+    #catalogue .product-grid.single-product .product-image-box {
+      height: 220px !important;
+      min-height: 0 !important;
+      max-height: 220px !important;
+      margin: -6px -4px 12px !important;
+      overflow: hidden !important;
+    }
+    #catalogue .product-card .product-card-photo,
+    #catalogue .product-grid.single-product .product-image-box .product-card-photo {
+      width: auto !important;
+      height: auto !important;
+      max-width: min(70%, 164px) !important;
+      max-height: 210px !important;
+      object-fit: contain !important;
+      transform: none !important;
+    }
+    #catalogue .product-card[data-product-id="cutting-fluid-coolant"] .product-card-photo {
+      max-width: min(64%, 150px) !important;
+      max-height: 198px !important;
+    }
+    .product-grid.single-product .chip,
+    .product-grid.single-product h4,
+    .product-grid.single-product .meta-grid,
+    .product-grid.single-product .best-for,
+    .product-grid.single-product .btn {
+      grid-column: auto !important;
+    }
+    .product-card h4 {
+      font-size: clamp(25px, 7.2vw, 32px) !important;
+      line-height: 1.02 !important;
+    }
+    .meta-grid {
+      grid-template-columns: 1fr !important;
+      gap: 8px !important;
+      margin: 14px 0 !important;
+    }
+    .best-for {
+      font-size: 13px !important;
+      line-height: 1.5 !important;
+    }
+
+    #product-modal.modal {
+      align-items: end !important;
+      padding: 10px !important;
+    }
+    #product-modal .modal-panel {
+      width: 100% !important;
+      max-height: calc(100vh - 20px) !important;
+      padding: 54px 16px 18px !important;
+      border-radius: 24px 24px 0 0 !important;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+    }
+    #product-modal .modal-grid {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+      width: 100% !important;
+    }
+    #product-modal .modal-image {
+      height: 240px !important;
+      min-height: 240px !important;
+      max-height: 240px !important;
+      padding: 10px !important;
+      overflow: hidden !important;
+      border-radius: 20px !important;
+    }
+    #modal-flip {
+      width: min(60vw, 220px) !important;
+      height: 220px !important;
+      max-height: 220px !important;
+      aspect-ratio: auto !important;
+    }
+    #modal-flip .flip-face img,
+    #product-modal .modal-image img {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      object-fit: contain !important;
+    }
+    #product-modal #modal-flip .flip-face img,
+    #product-modal .modal-image #modal-image-front,
+    #product-modal .modal-image #modal-image-back {
+      width: auto !important;
+      height: auto !important;
+      max-width: 100% !important;
+      max-height: 210px !important;
+      object-fit: contain !important;
+      transform: none !important;
+    }
+    #product-modal .flip-tools {
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 8px !important;
+    }
+    #product-modal .modal-content h3 {
+      font-size: clamp(30px, 8vw, 40px) !important;
+      line-height: 1.02 !important;
+    }
+    #product-modal .modal-content p {
+      font-size: 14px !important;
+      line-height: 1.55 !important;
+    }
+    #product-modal .detail-row {
+      grid-template-columns: 1fr !important;
+      gap: 5px !important;
+      border-radius: var(--inner-radius) !important;
+      padding: 12px 13px !important;
+    }
+    #product-modal .modal-content .btn {
+      width: 100% !important;
+      justify-content: center !important;
+      text-align: center !important;
+    }
+    @supports (height: 100dvh) {
+      #product-modal .modal-panel {
+        max-height: calc(100dvh - 20px) !important;
+      }
+    }
+  }
+
+  /* Final product-page polish: clear back view and rounded enquiry CTA */
+  #product-modal #modal-whatsapp {
+    border-radius: 999px !important;
+    overflow: hidden !important;
+  }
+  #product-modal #modal-flip.is-back .flip-face.back {
+    display: grid !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+  #product-modal #modal-flip.is-back .flip-face.front {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  @media (max-width: 740px) {
+    #product-modal .modal-image {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 10px !important;
+      height: 300px !important;
+      min-height: 300px !important;
+      max-height: 300px !important;
+      overflow: hidden !important;
+    }
+    #product-modal #modal-flip {
+      flex: 0 0 220px !important;
+      width: min(62vw, 220px) !important;
+      height: 220px !important;
+      max-height: 220px !important;
+      margin: 0 !important;
+      overflow: hidden !important;
+    }
+    #product-modal #modal-flip .flip-stage,
+    #product-modal #modal-flip .flip-face {
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      overflow: hidden !important;
+    }
+    #product-modal #modal-flip .flip-face img {
+      width: auto !important;
+      height: auto !important;
+      max-width: 100% !important;
+      max-height: 210px !important;
+      object-fit: contain !important;
+      object-position: center !important;
+    }
+    #product-modal .flip-tools {
+      flex: 0 0 auto !important;
+      margin: 0 !important;
+    }
+  }
+
+  /* Final mobile nav attachment */
+  @media (max-width: 740px) {
+    .nav {
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 80 !important;
+    }
+    .nav-inner {
+      position: static !important;
+    }
+    .nav-links {
+      position: fixed !important;
+      top: 68px !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100vw !important;
+      max-height: calc(100dvh - 68px) !important;
+      overflow-y: auto !important;
+      margin: 0 !important;
+      border-top: 0 !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      border-radius: 0 0 24px 24px !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -2836,6 +3267,27 @@ copy.zh = {
     window.addEventListener('touchstart', event => { const touch = event.touches[0]; if (touch) queue(touch.clientX, touch.clientY); }, { passive: true });
     window.addEventListener('touchmove', event => { const touch = event.touches[0]; if (touch) queue(touch.clientX, touch.clientY); }, { passive: true });
     paint();
+  })();
+
+  // Phone zoom guard for mobile browsers that ignore viewport scaling.
+  (() => {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    viewport?.setAttribute('content', 'width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover');
+    const prevent = event => {
+      if (event.cancelable) event.preventDefault();
+    };
+    ['gesturestart', 'gesturechange', 'gestureend'].forEach(type => {
+      document.addEventListener(type, prevent, { passive: false });
+    });
+    document.addEventListener('touchmove', event => {
+      if (event.scale && event.scale !== 1) prevent(event);
+    }, { passive: false });
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', event => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 320) prevent(event);
+      lastTouchEnd = now;
+    }, { passive: false });
   })();
 
 </script>

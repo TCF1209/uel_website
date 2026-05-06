@@ -665,6 +665,51 @@
       animation: none !important;
     }
   }
+  /* Phone zoom guard: keep layout locked and prevent input-focus zoom */
+  @media (max-width: 740px) {
+    html,
+    body {
+      touch-action: pan-y !important;
+      -ms-touch-action: pan-y !important;
+    }
+    a,
+    button,
+    input,
+    select,
+    textarea {
+      touch-action: manipulation !important;
+    }
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+  /* Final mobile nav attachment */
+  @media (max-width: 740px) {
+    .nav {
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 80 !important;
+    }
+    .nav-inner {
+      position: static !important;
+    }
+    .nav-links {
+      position: fixed !important;
+      top: 68px !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100vw !important;
+      max-height: calc(100dvh - 68px) !important;
+      overflow-y: auto !important;
+      margin: 0 !important;
+      border-top: 0 !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      border-radius: 0 0 24px 24px !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -1014,6 +1059,27 @@
     window.addEventListener('touchstart', event => { const touch = event.touches[0]; if (touch) queue(touch.clientX, touch.clientY); }, { passive: true });
     window.addEventListener('touchmove', event => { const touch = event.touches[0]; if (touch) queue(touch.clientX, touch.clientY); }, { passive: true });
     paint();
+  })();
+
+  // Phone zoom guard for mobile browsers that ignore viewport scaling.
+  (() => {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    viewport?.setAttribute('content', 'width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover');
+    const prevent = event => {
+      if (event.cancelable) event.preventDefault();
+    };
+    ['gesturestart', 'gesturechange', 'gestureend'].forEach(type => {
+      document.addEventListener(type, prevent, { passive: false });
+    });
+    document.addEventListener('touchmove', event => {
+      if (event.scale && event.scale !== 1) prevent(event);
+    }, { passive: false });
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', event => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 320) prevent(event);
+      lastTouchEnd = now;
+    }, { passive: false });
   })();
 
 </script>
