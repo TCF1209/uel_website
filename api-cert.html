@@ -871,7 +871,7 @@
     <a href="index.html" class="logo brand-logo-link" aria-label="UEL - Unique Excellent Lubricant">
       <img class="brand-logo" src="images/uel-logo.png" alt="UEL Unique Excellent Lubricant">
     </a>
-    <button class="menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links" ontouchstart="return uelToggleMenu(event)" onclick="return uelToggleMenu(event)">
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
       <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="1.5"/></svg>
     </button>
     <nav class="nav-links" id="nav-links" aria-label="Primary">
@@ -1345,55 +1345,49 @@
   let currentLang=localStorage.getItem('uelLang')||'en';
   const applyLanguage=lang=>{currentLang=copy[lang]?lang:'en';localStorage.setItem('uelLang',currentLang);document.documentElement.lang=copy[currentLang].htmlLang;document.querySelectorAll('[data-lang]').forEach(btn=>{const active=btn.dataset.lang===currentLang;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',active?'true':'false')});document.querySelectorAll('[data-copy]').forEach(el=>{el.textContent=copy[currentLang][el.dataset.copy]||el.textContent});document.querySelectorAll('[data-copy-html]').forEach(el=>{el.innerHTML=copy[currentLang][el.dataset.copyHtml]||el.innerHTML})};
   document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>applyLanguage(btn.dataset.lang)));
-  const menuBtn=document.getElementById('menu-btn');const navLinks=document.getElementById('nav-links');
-  if(menuBtn&&navLinks){
-    let ignoreNextClick=false;
-    const setMenu=open=>{navLinks.classList.toggle('open',open);menuBtn.setAttribute('aria-expanded',open?'true':'false')};
-    const toggleMenu=()=>setMenu(!navLinks.classList.contains('open'));
-    window.uelToggleMenu=e=>{
-      if(e&&e.cancelable)e.preventDefault();
-      if(e)e.stopImmediatePropagation?.();
-      if(e)e.stopPropagation?.();
-      if(ignoreNextClick)return false;
-      if(e&&e.type==='touchstart'){
-        ignoreNextClick=true;
-        toggleMenu();
-        window.setTimeout(()=>{ignoreNextClick=false},500);
-        return false;
-      }
-      toggleMenu();
-      return false;
+  const menuBtn = document.getElementById('menu-btn');
+  const navLinks = document.getElementById('nav-links');
+  if (menuBtn && navLinks) {
+    let ignoreNextMenuClick = false;
+    const setMenuOpen = open => {
+      navLinks.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     };
-    const handlePointerToggle=e=>{
-      if(e.pointerType==='mouse')return;
-      if(e.cancelable)e.preventDefault();
-      e.stopPropagation();
-      if(ignoreNextClick)return;
-      ignoreNextClick=true;
+    const toggleMenu = () => setMenuOpen(!navLinks.classList.contains('open'));
+    const handlePointerMenu = event => {
+      if (event.pointerType === 'mouse') return;
+      if (event.cancelable) event.preventDefault();
+      event.stopPropagation();
+      if (ignoreNextMenuClick) return;
+      ignoreNextMenuClick = true;
       toggleMenu();
-      window.setTimeout(()=>{ignoreNextClick=false},500);
+      window.setTimeout(() => { ignoreNextMenuClick = false; }, 500);
     };
-    const handleTouchToggle=e=>{
-      if(e.cancelable)e.preventDefault();
-      e.stopPropagation();
-      if(ignoreNextClick)return;
-      ignoreNextClick=true;
+    const handleTouchMenu = event => {
+      if (event.cancelable) event.preventDefault();
+      event.stopPropagation();
+      if (ignoreNextMenuClick) return;
+      ignoreNextMenuClick = true;
       toggleMenu();
-      window.setTimeout(()=>{ignoreNextClick=false},500);
+      window.setTimeout(() => { ignoreNextMenuClick = false; }, 500);
     };
-    menuBtn.addEventListener('pointerup',handlePointerToggle);
-    menuBtn.addEventListener('touchstart',handleTouchToggle,{passive:false});
-    menuBtn.addEventListener('touchend',handleTouchToggle,{passive:false});
-    menuBtn.addEventListener('click',e=>{
-      if(ignoreNextClick){
-        if(e.cancelable)e.preventDefault();
-        e.stopPropagation();
+    menuBtn.addEventListener('pointerup', handlePointerMenu);
+    menuBtn.addEventListener('touchstart', handleTouchMenu, { passive: false });
+    menuBtn.addEventListener('touchend', handleTouchMenu, { passive: false });
+    menuBtn.addEventListener('click', event => {
+      if (ignoreNextMenuClick) {
+        if (event.cancelable) event.preventDefault();
+        event.stopPropagation();
         return;
       }
       toggleMenu();
     });
-    navLinks.addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false)});
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+    navLinks.addEventListener('click', event => {
+      if (event.target.closest('a')) setMenuOpen(false);
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') setMenuOpen(false);
+    });
   }
   (()=>{const dip=document.querySelector('.ambient-dip');if(!dip||matchMedia('(prefers-reduced-motion: reduce)').matches)return;let x=innerWidth*.5,y=innerHeight*.35,raf=0;const paint=()=>{dip.style.setProperty('--dip-x',x+'px');dip.style.setProperty('--dip-y',y+'px');raf=0};const queue=(nx,ny)=>{x=nx;y=ny;if(!raf)raf=requestAnimationFrame(paint)};addEventListener('pointermove',e=>queue(e.clientX,e.clientY),{passive:true});addEventListener('touchmove',e=>{const t=e.touches[0];if(t)queue(t.clientX,t.clientY)},{passive:true});paint()})();
   (()=>{const items=[...document.querySelectorAll('.reveal')];if(!items.length)return;if(matchMedia('(prefers-reduced-motion: reduce)').matches){items.forEach(item=>item.classList.add('in-view'));return;}const io=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');io.unobserve(entry.target);}})},{threshold:.16,rootMargin:'0px 0px -8% 0px'});items.forEach(item=>io.observe(item));})();
