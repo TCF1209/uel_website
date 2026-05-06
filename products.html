@@ -1171,8 +1171,8 @@
       justify-self: center;
     }
     .filters {
-      position: sticky !important;
-      top: 68px !important;
+      position: static !important;
+      top: auto !important;
       left: 0;
       right: 0;
       width: 100%;
@@ -1187,8 +1187,15 @@
       will-change: auto;
     }
     .filters.is-fixed-mobile {
-      position: sticky !important;
+      position: fixed !important;
       top: 68px !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 120 !important;
+      box-sizing: border-box;
+      transform: none !important;
+      box-shadow: 0 18px 40px rgba(0,0,0,.32);
     }
     .filter-row {
       width: 100%;
@@ -2985,23 +2992,65 @@ copy.zh = {
   const filterBar = document.querySelector('.filters');
   let filterPlaceholder = null;
   let filterTicking = false;
+  let filterAnchorTop = 0;
   const isMobileFilter = () => window.matchMedia('(max-width: 740px)').matches;
-  const getFilterStart = () => {
-    if (!filterBar) return 0;
-    const source = filterBar.classList.contains('is-fixed-mobile') && filterPlaceholder ? filterPlaceholder : filterBar;
-    return source.getBoundingClientRect().top + window.scrollY;
+  const ensureFilterPlaceholder = () => {
+    if (!filterBar || filterPlaceholder) return;
+    filterPlaceholder = document.createElement('div');
+    filterPlaceholder.setAttribute('aria-hidden', 'true');
+    filterPlaceholder.hidden = true;
+    filterPlaceholder.style.height = '0px';
+    filterBar.before(filterPlaceholder);
+  };
+  const pinFilterToViewport = () => {
+    if (filterBar && filterBar.parentElement !== document.body) {
+      document.body.appendChild(filterBar);
+    }
+  };
+  const returnFilterToFlow = () => {
+    if (filterBar && filterPlaceholder && filterBar.parentElement === document.body) {
+      filterPlaceholder.after(filterBar);
+    }
+  };
+  const measureFilterAnchor = () => {
+    if (!filterBar) return;
+    ensureFilterPlaceholder();
+    const source = filterBar.classList.contains('is-fixed-mobile') && filterPlaceholder && !filterPlaceholder.hidden
+      ? filterPlaceholder
+      : filterBar;
+    filterAnchorTop = source.getBoundingClientRect().top + window.scrollY;
   };
   const syncMobileFilter = () => {
     filterTicking = false;
     if (!filterBar) return;
-    if (!filterPlaceholder) {
-      filterPlaceholder = document.createElement('div');
+    ensureFilterPlaceholder();
+    if (!isMobileFilter()) {
+      returnFilterToFlow();
+      filterBar.classList.remove('is-fixed-mobile');
       filterPlaceholder.hidden = true;
-      filterBar.before(filterPlaceholder);
+      filterPlaceholder.style.height = '0px';
+      filterAnchorTop = 0;
+      return;
     }
-    filterBar.classList.remove('is-fixed-mobile');
-    filterPlaceholder.hidden = true;
-    filterPlaceholder.style.height = '0px';
+    if (!filterAnchorTop || !filterBar.classList.contains('is-fixed-mobile')) measureFilterAnchor();
+    const headerOffset = 68;
+    const lockPoint = filterAnchorTop - headerOffset;
+    const isFixed = filterBar.classList.contains('is-fixed-mobile');
+    const shouldFix = isFixed
+      ? window.scrollY >= lockPoint - 8
+      : window.scrollY >= lockPoint;
+    if (shouldFix) {
+      filterPlaceholder.hidden = false;
+      filterPlaceholder.style.height = `${filterBar.offsetHeight}px`;
+      filterBar.classList.add('is-fixed-mobile');
+      pinFilterToViewport();
+    } else {
+      returnFilterToFlow();
+      filterBar.classList.remove('is-fixed-mobile');
+      filterPlaceholder.hidden = true;
+      filterPlaceholder.style.height = '0px';
+      measureFilterAnchor();
+    }
   };
   const requestFilterSync = () => {
     if (filterTicking) return;
@@ -3019,8 +3068,14 @@ copy.zh = {
     requestFilterSync();
   };
   addEventListener('scroll', requestFilterSync, { passive: true });
-  addEventListener('resize', requestFilterSync);
-  addEventListener('load', syncMobileFilter);
+  addEventListener('resize', () => {
+    filterAnchorTop = 0;
+    requestFilterSync();
+  });
+  addEventListener('load', () => {
+    measureFilterAnchor();
+    syncMobileFilter();
+  });
 
   const renderFilters = () => {
     const row = document.getElementById('filter-row');
