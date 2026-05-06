@@ -3822,6 +3822,7 @@
       if (event.pointerType === 'mouse') return;
       if (event.cancelable) event.preventDefault();
       event.stopPropagation();
+      if (ignoreNextMenuClick) return;
       ignoreNextMenuClick = true;
       toggleMenu();
       window.setTimeout(() => { ignoreNextMenuClick = false; }, 500);
@@ -3835,6 +3836,7 @@
       window.setTimeout(() => { ignoreNextMenuClick = false; }, 500);
     };
     btn.addEventListener('pointerup', handlePointerMenu);
+    btn.addEventListener('touchstart', handleTouchMenu, { passive: false });
     btn.addEventListener('touchend', handleTouchMenu, { passive: false });
     btn.addEventListener('click', event => {
       if (ignoreNextMenuClick) {

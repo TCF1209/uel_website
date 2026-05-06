@@ -1066,6 +1066,7 @@
       if (event.pointerType === 'mouse') return;
       if (event.cancelable) event.preventDefault();
       event.stopPropagation();
+      if (ignoreNextMenuClick) return;
       ignoreNextMenuClick = true;
       toggleMenu();
       window.setTimeout(() => { ignoreNextMenuClick = false; }, 500);
@@ -1079,6 +1080,7 @@
       window.setTimeout(() => { ignoreNextMenuClick = false; }, 500);
     };
     menuBtn.addEventListener('pointerup', handlePointerMenu);
+    menuBtn.addEventListener('touchstart', handleTouchMenu, { passive: false });
     menuBtn.addEventListener('touchend', handleTouchMenu, { passive: false });
     menuBtn.addEventListener('click', event => {
       if (ignoreNextMenuClick) {

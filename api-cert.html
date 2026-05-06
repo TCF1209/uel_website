@@ -1354,6 +1354,7 @@
       if(e.pointerType==='mouse')return;
       if(e.cancelable)e.preventDefault();
       e.stopPropagation();
+      if(ignoreNextClick)return;
       ignoreNextClick=true;
       toggleMenu();
       window.setTimeout(()=>{ignoreNextClick=false},500);
@@ -1367,6 +1368,7 @@
       window.setTimeout(()=>{ignoreNextClick=false},500);
     };
     menuBtn.addEventListener('pointerup',handlePointerToggle);
+    menuBtn.addEventListener('touchstart',handleTouchToggle,{passive:false});
     menuBtn.addEventListener('touchend',handleTouchToggle,{passive:false});
     menuBtn.addEventListener('click',e=>{
       if(ignoreNextClick){
