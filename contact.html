@@ -1106,33 +1106,7 @@
     });
   }, { threshold:.14, rootMargin:'0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-  const initAmbientDip = () => {
-    const ambientDip = document.querySelector('.ambient-dip');
-    if (!ambientDip || prefersReducedMotion) return;
-    let lastRippleAt = 0, lastRippleX = innerWidth / 2, lastRippleY = innerHeight / 2;
-    const showDip = (x,y,force=false) => {
-      ambientDip.style.setProperty('--dip-x', `${x}px`);
-      ambientDip.style.setProperty('--dip-y', `${y}px`);
-      const now = performance.now();
-      const moved = Math.hypot(x - lastRippleX, y - lastRippleY);
-      if (!force && (now - lastRippleAt < 150 || moved < 42)) return;
-      lastRippleAt = now; lastRippleX = x; lastRippleY = y;
-      const ripple = document.createElement('span');
-      ripple.className = 'dip-ripple';
-      ripple.style.setProperty('--ripple-x', `${x}px`);
-      ripple.style.setProperty('--ripple-y', `${y}px`);
-      ambientDip.appendChild(ripple);
-      const ripples = ambientDip.querySelectorAll('.dip-ripple');
-      if (ripples.length > 8) ripples[0].remove();
-      ripple.addEventListener('animationend', () => ripple.remove(), { once:true });
-    };
-    addEventListener('pointermove', event => { if (event.pointerType === 'mouse' || event.pointerType === 'pen') showDip(event.clientX,event.clientY); }, { passive:true });
-    addEventListener('pointerdown', event => { if (event.pointerType === 'mouse' || event.pointerType === 'pen') showDip(event.clientX,event.clientY,true); }, { passive:true });
-    addEventListener('touchstart', event => { const touch = event.touches[0]; if (touch) showDip(touch.clientX,touch.clientY,true); }, { passive:true });
-    addEventListener('touchmove', event => { const touch = event.touches[0]; if (touch) showDip(touch.clientX,touch.clientY); }, { passive:true });
-  };
   applyLanguage(currentLang);
-  initAmbientDip();
 
 
   // Fast orange mouse-follow spotlight, without ripple/dip animation.

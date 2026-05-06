@@ -1197,6 +1197,11 @@
       transform: none !important;
       box-shadow: 0 18px 40px rgba(0,0,0,.32);
     }
+    body.modal-open .filters.is-fixed-mobile {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
     .filter-row {
       width: 100%;
       max-width: 100%;
@@ -2106,7 +2111,7 @@
     width: 100vw !important;
     min-height: 100vh !important;
     height: 100vh !important;
-    z-index: 120 !important;
+    z-index: 300 !important;
     overflow: hidden !important;
   }
   #product-modal .modal-panel {
@@ -2583,63 +2588,6 @@
   const WHATSAPP_NUMBER = '60108989120';
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const initAmbientDip = () => {
-    const ambientDip = document.querySelector('.ambient-dip');
-    if (!ambientDip || prefersReducedMotion) return;
-    let dipTimer;
-    let lastRippleAt = 0;
-    let lastRippleX = window.innerWidth / 2;
-    let lastRippleY = window.innerHeight / 2;
-    const maxRipples = 8;
-
-    const setDipPosition = (x, y, hold = 520) => {
-      ambientDip.style.setProperty('--dip-x', `${x}px`);
-      ambientDip.style.setProperty('--dip-y', `${y}px`);
-      window.clearTimeout(dipTimer);
-      dipTimer = window.setTimeout(() => {}, hold);
-    };
-
-    const createDipRipple = (x, y, force = false) => {
-      const now = performance.now();
-      const moved = Math.hypot(x - lastRippleX, y - lastRippleY);
-      if (!force && (now - lastRippleAt < 150 || moved < 42)) return;
-      lastRippleAt = now;
-      lastRippleX = x;
-      lastRippleY = y;
-
-      const ripple = document.createElement('span');
-      ripple.className = 'dip-ripple';
-      ripple.style.setProperty('--ripple-x', `${x}px`);
-      ripple.style.setProperty('--ripple-y', `${y}px`);
-      ambientDip.appendChild(ripple);
-
-      const ripples = ambientDip.querySelectorAll('.dip-ripple');
-      if (ripples.length > maxRipples) ripples[0].remove();
-      ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
-    };
-
-    const showDip = (x, y, forceRipple = false) => {
-      setDipPosition(x, y);
-      createDipRipple(x, y, forceRipple);
-    };
-
-    window.addEventListener('pointermove', (event) => {
-      if (event.pointerType === 'mouse' || event.pointerType === 'pen') showDip(event.clientX, event.clientY);
-    }, { passive: true });
-    window.addEventListener('pointerdown', (event) => {
-      if (event.pointerType === 'mouse' || event.pointerType === 'pen') showDip(event.clientX, event.clientY, true);
-    }, { passive: true });
-    window.addEventListener('touchstart', (event) => {
-      const touch = event.touches[0];
-      if (touch) showDip(touch.clientX, touch.clientY, true);
-    }, { passive: true });
-    window.addEventListener('touchmove', (event) => {
-      const touch = event.touches[0];
-      if (touch) showDip(touch.clientX, touch.clientY);
-    }, { passive: true });
-  };
-
-  initAmbientDip();
   const categories = ['all', 'car', 'motorcycle', 'diesel', 'transmission', 'industrial', 'cutting'];
 
   const copy = {
