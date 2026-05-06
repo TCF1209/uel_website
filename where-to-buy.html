@@ -619,24 +619,78 @@
       padding-top: 0 !important;
     }
   }
+  /* Shared header consistency */
+  .nav-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  .nav-cta .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #25d366;
+    box-shadow: 0 0 0 3px rgba(37,211,102,.12);
+  }
+  .lang-switch {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 4px !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+  }
+  .lang-switch button {
+    border: 0 !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+    color: var(--ash) !important;
+    padding: 6px 9px !important;
+    font-family: var(--body) !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    line-height: normal !important;
+    cursor: pointer !important;
+  }
+  .lang-switch button.active {
+    background: var(--bone) !important;
+    color: var(--void) !important;
+  }
+  .menu-btn svg {
+    width: 18px;
+    height: 14px;
+    pointer-events: none;
+  }
+  @media (max-width: 740px) {
+    .brand-logo {
+      width: 128px !important;
+      max-height: 46px !important;
+    }
+  }
 </style>
 </head>
 <body>
 <header class="nav">
   <div class="wrap nav-inner">
-    <a href="index.html" class="brand-logo-link" aria-label="UEL - Unique Excellent Lubricant">
+    <a href="index.html" class="logo brand-logo-link" aria-label="UEL - Unique Excellent Lubricant">
       <img class="brand-logo" src="images/uel-logo.png" alt="UEL Unique Excellent Lubricant">
     </a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+      <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
     <nav class="nav-links" id="nav-links" aria-label="Primary">
       <a href="index.html" data-copy="navHome">Home</a>
       <a href="products.html" data-copy="navProducts">Products</a>
-      <a href="technology.html" data-copy="navTechnology">Technology</a>
-      <a href="api-cert.html" class="active" data-copy="navWhere">API &amp; Cert</a>
+      <a href="api-cert.html" data-copy="navWhere">API &amp; Cert</a>
       <a href="contact.html" data-copy="navContact">Contact</a>
-      <a class="nav-cta" href="https://wa.me/60108989120?text=Hi%20UEL%2C%20I%20want%20to%20ask%20where%20to%20buy%20UEL%20products" target="_blank" rel="noopener">WhatsApp</a>
-      <div class="lang" aria-label="Language switcher"><button type="button" data-lang="en">EN</button><button type="button" data-lang="zh">中文</button><button type="button" data-lang="bm">BM</button></div>
+      <a class="nav-cta" href="https://wa.me/60108989120?text=Hi%20UEL%2C%20I%20want%20to%20ask%20where%20to%20buy%20UEL%20products" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span>WhatsApp</a>
+      <div class="lang-switch" aria-label="Language">
+        <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+        <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+        <button type="button" data-lang="bm" aria-pressed="false">BM</button>
+      </div>
     </nav>
-    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">☰</button>
   </div>
 </header>
 <main>
@@ -1001,16 +1055,46 @@
   addEventListener('keydown', event => { if (event.key === 'Escape') closeChannelModal(); });
   const menuBtn = document.getElementById('menu-btn');
   const navLinks = document.getElementById('nav-links');
-  menuBtn?.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  navLinks?.addEventListener('click', event => {
-    if (event.target.matches('a')) {
-      navLinks.classList.remove('open');
-      menuBtn?.setAttribute('aria-expanded','false');
-    }
-  });
+  if (menuBtn && navLinks) {
+    let ignoreNextMenuClick = false;
+    const setMenuOpen = open => {
+      navLinks.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    const toggleMenu = () => setMenuOpen(!navLinks.classList.contains('open'));
+    const handlePointerMenu = event => {
+      if (event.pointerType === 'mouse') return;
+      if (event.cancelable) event.preventDefault();
+      event.stopPropagation();
+      ignoreNextMenuClick = true;
+      toggleMenu();
+      window.setTimeout(() => { ignoreNextMenuClick = false; }, 500);
+    };
+    const handleTouchMenu = event => {
+      if (event.cancelable) event.preventDefault();
+      event.stopPropagation();
+      if (ignoreNextMenuClick) return;
+      ignoreNextMenuClick = true;
+      toggleMenu();
+      window.setTimeout(() => { ignoreNextMenuClick = false; }, 500);
+    };
+    menuBtn.addEventListener('pointerup', handlePointerMenu);
+    menuBtn.addEventListener('touchend', handleTouchMenu, { passive: false });
+    menuBtn.addEventListener('click', event => {
+      if (ignoreNextMenuClick) {
+        if (event.cancelable) event.preventDefault();
+        event.stopPropagation();
+        return;
+      }
+      toggleMenu();
+    });
+    navLinks.addEventListener('click', event => {
+      if (event.target.closest('a')) setMenuOpen(false);
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') setMenuOpen(false);
+    });
+  }
   const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
