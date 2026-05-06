@@ -957,7 +957,11 @@
     }
 
   /* Product detail modal */
-  body.modal-open { overflow: hidden; }
+  html.modal-open,
+  body.modal-open {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
   .product-modal[hidden] { display: none; }
   .product-modal {
     position: fixed;
@@ -966,6 +970,9 @@
     display: grid;
     place-items: center;
     padding: var(--gutter);
+    overflow: hidden;
+    overscroll-behavior: contain;
+    touch-action: none;
   }
   .product-modal__backdrop {
     position: absolute;
@@ -973,13 +980,18 @@
     background: rgba(7,7,10,.82);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    touch-action: none;
   }
   .product-modal__panel {
     position: relative;
     z-index: 1;
     width: min(920px, 100%);
     max-height: min(760px, 88vh);
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
     border: 1px solid var(--line-strong);
     border-radius: 6px;
     background:
@@ -2912,6 +2924,167 @@
       padding-left: 22px !important;
     }
   }
+  body > .product-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    z-index: 120 !important;
+  }
+  body > .product-modal .product-modal__panel {
+    max-height: min(760px, calc(100dvh - 28px)) !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y !important;
+  }
+  @media (max-width: 760px) {
+    body > .product-modal {
+      align-items: end !important;
+      padding: 12px !important;
+    }
+    body > .product-modal .product-modal__panel {
+      width: 100% !important;
+      max-height: calc(100dvh - 24px) !important;
+      padding: 56px 18px 22px !important;
+      border-radius: 24px 24px 0 0 !important;
+    }
+  }
+
+  /* Final Common Oil Grades fix: readable rows, content starts visible */
+  .range-scroll .spec-table tbody {
+    animation: none !important;
+  }
+  .range-scroll.is-scrolling .spec-table tbody {
+    animation: rangeContentScroll 14s linear infinite !important;
+  }
+  .range-scroll.is-paused .spec-table tbody,
+  .range-scroll:hover .spec-table tbody,
+  .range-scroll:focus-within .spec-table tbody {
+    animation-play-state: paused !important;
+  }
+  @keyframes rangeContentScroll {
+    from { transform: translateY(0); }
+    to { transform: translateY(-46%); }
+  }
+  @media (max-width: 740px) {
+    .range-scroll {
+      max-height: min(560px, 72vh) !important;
+      padding: 10px !important;
+      overflow: hidden !important;
+      border: 1px solid var(--line-strong) !important;
+      border-radius: var(--card-radius) !important;
+      clip-path: none !important;
+    }
+    .range-scroll .spec-table {
+      display: block !important;
+      width: 100% !important;
+      border-collapse: separate !important;
+      table-layout: auto !important;
+    }
+    .range-scroll .spec-table thead {
+      display: none !important;
+    }
+    .range-scroll .spec-table tbody {
+      display: grid !important;
+      gap: 10px !important;
+      width: 100% !important;
+      animation: none !important;
+      will-change: transform;
+    }
+    .range-scroll.is-scrolling .spec-table tbody {
+      animation: mobileRangeContentScroll 14s linear infinite !important;
+    }
+    .range-scroll .spec-table tr {
+      display: grid !important;
+      width: 100% !important;
+      padding: 14px !important;
+      border: 1px solid var(--line) !important;
+      border-radius: 18px !important;
+      background:
+        radial-gradient(120% 80% at 100% 0%, rgba(246,180,65,.08), transparent 62%),
+        rgba(255,255,255,.025) !important;
+    }
+    .range-scroll .spec-table td {
+      display: grid !important;
+      grid-template-columns: 82px minmax(0, 1fr) !important;
+      gap: 10px !important;
+      align-items: start !important;
+      width: 100% !important;
+      padding: 5px 0 !important;
+      border: 0 !important;
+      font-family: var(--body) !important;
+      font-size: 13px !important;
+      line-height: 1.4 !important;
+      color: var(--paper) !important;
+      overflow-wrap: anywhere !important;
+    }
+    .range-scroll .spec-table td::before {
+      content: attr(data-label) !important;
+      display: block !important;
+      margin: 0 !important;
+      font-family: var(--body) !important;
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0 !important;
+      color: var(--ash) !important;
+    }
+    .range-scroll .spec-table td.name,
+    .range-scroll .spec-table td.sku,
+    .range-scroll .spec-table td.grade {
+      font-family: var(--body) !important;
+      font-size: 13.5px !important;
+      font-weight: 600 !important;
+      text-transform: none !important;
+      letter-spacing: 0 !important;
+      color: var(--bone) !important;
+    }
+    .range-scroll .spec-table .tag {
+      font-family: var(--body) !important;
+      font-size: 11.5px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0 !important;
+      border-radius: 999px !important;
+    }
+    .range-scroll::before {
+      display: none !important;
+    }
+    .range-scroll::after {
+      display: block !important;
+      height: 54px !important;
+      border-radius: 0 0 var(--card-radius) var(--card-radius) !important;
+    }
+    @keyframes mobileRangeContentScroll {
+      from { transform: translateY(0); }
+      to { transform: translateY(-52%); }
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .range-scroll .spec-table tbody {
+      animation: none !important;
+      transform: none !important;
+    }
+  }
+  .range-scroll.is-scrolling.is-paused .spec-table tbody,
+  .range-scroll.is-scrolling:hover .spec-table tbody,
+  .range-scroll.is-scrolling:focus-within .spec-table tbody {
+    animation-play-state: paused !important;
+  }
+  @media (max-width: 740px) {
+    body {
+      padding-top: 0 !important;
+    }
+    main {
+      padding-top: 0 !important;
+    }
+    .hero {
+      padding-top: clamp(10px, 2.8vw, 16px) !important;
+    }
+    .hero-grid {
+      padding-top: 0 !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -3654,6 +3827,36 @@
 
   const WHATSAPP_NUMBER = '60108989120';
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const rangeScroller = document.querySelector('.range-scroll');
+  if (rangeScroller && !prefersReducedMotion) {
+    const startRangeScroll = () => rangeScroller.classList.add('is-scrolling');
+    const pauseRangeScroll = () => rangeScroller.classList.add('is-paused');
+    const resumeRangeScroll = () => rangeScroller.classList.remove('is-paused');
+    rangeScroller.addEventListener('pointerenter', pauseRangeScroll);
+    rangeScroller.addEventListener('pointerleave', resumeRangeScroll);
+    rangeScroller.addEventListener('pointerdown', pauseRangeScroll);
+    rangeScroller.addEventListener('pointerup', resumeRangeScroll);
+    rangeScroller.addEventListener('pointercancel', resumeRangeScroll);
+    rangeScroller.addEventListener('touchstart', pauseRangeScroll, { passive: true });
+    rangeScroller.addEventListener('touchend', resumeRangeScroll, { passive: true });
+    rangeScroller.addEventListener('touchcancel', resumeRangeScroll, { passive: true });
+    rangeScroller.addEventListener('focusin', pauseRangeScroll);
+    rangeScroller.addEventListener('focusout', resumeRangeScroll);
+    if ('IntersectionObserver' in window) {
+      const rangeObserver = new IntersectionObserver((entries, observer) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            window.setTimeout(startRangeScroll, 700);
+            observer.disconnect();
+            break;
+          }
+        }
+      }, { threshold: .24 });
+      rangeObserver.observe(rangeScroller);
+    } else {
+      window.setTimeout(startRangeScroll, 700);
+    }
+  }
 
   const whatsappUrl = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
@@ -4826,8 +5029,57 @@
   const modalGrades = document.getElementById('product-modal-grades');
   const modalEnquiry = document.getElementById('product-modal-enquiry');
   const modalWhatsApp = document.getElementById('product-modal-whatsapp');
+  if (productModal && productModal.parentElement !== document.body) {
+    document.body.appendChild(productModal);
+  }
   let modalReturnFocus = null;
   let activeProductKey = null;
+  let modalScrollY = 0;
+  let modalScrollLocked = false;
+
+  const lockModalBackground = () => {
+    if (modalScrollLocked) return;
+    modalScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.documentElement.classList.add('modal-open');
+    document.body.classList.add('modal-open');
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${modalScrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+    modalScrollLocked = true;
+  };
+
+  const restoreScrollInstantly = (top) => {
+    const root = document.documentElement;
+    const previousBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, top);
+    root.style.scrollBehavior = previousBehavior;
+  };
+
+  const unlockModalBackground = () => {
+    if (!modalScrollLocked) return;
+    const scrollTarget = modalScrollY;
+    document.documentElement.classList.remove('modal-open');
+    document.body.classList.remove('modal-open');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    restoreScrollInstantly(scrollTarget);
+    requestAnimationFrame(() => restoreScrollInstantly(scrollTarget));
+    modalScrollLocked = false;
+  };
+
+  productModal?.addEventListener('touchmove', (event) => {
+    if (!event.target.closest('.product-modal__panel')) {
+      event.preventDefault();
+    }
+  }, { passive: false });
 
   Object.assign(productDetails, {
     car: {
@@ -5111,15 +5363,21 @@
       `${modalCopy.whatsappDetails}: ${detail.enquiry}`
     ].join('\n'));
     productModal.hidden = false;
-    document.body.classList.add('modal-open');
+    productModal.scrollTop = 0;
+    productModal.querySelector('.product-modal__panel')?.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    lockModalBackground();
     productModal.querySelector('.product-modal__close')?.focus();
   };
 
   const closeProductModal = () => {
     if (!productModal || productModal.hidden) return;
+    const returnTarget = modalReturnFocus;
+    const scrollTarget = modalScrollY;
     productModal.hidden = true;
-    document.body.classList.remove('modal-open');
-    modalReturnFocus?.focus?.();
+    unlockModalBackground();
+    returnTarget?.focus?.({ preventScroll: true });
+    window.setTimeout(() => restoreScrollInstantly(scrollTarget), 0);
+    window.setTimeout(() => restoreScrollInstantly(scrollTarget), 80);
   };
 
   document.querySelectorAll('.product[data-product]').forEach(card => {
