@@ -777,21 +777,106 @@
       padding-top: 0 !important;
     }
   }
+
+  /* Header parity with the main site pages */
+  .brand-logo-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    flex: 0 0 auto !important;
+  }
+  .brand-logo {
+    width: clamp(132px, 13vw, 190px) !important;
+    max-height: 52px !important;
+    border-radius: 18px !important;
+    filter: drop-shadow(0 10px 22px rgba(0,0,0,.35)) !important;
+  }
+  @media (min-width: 741px) {
+    .nav-inner {
+      width: 100% !important;
+      max-width: var(--max) !important;
+    }
+  }
+  .nav-links a {
+    font-size: 11.5px !important;
+    font-weight: 500 !important;
+    line-height: 1.55 !important;
+    letter-spacing: .045em !important;
+  }
+  .nav-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 9px 11px !important;
+    gap: normal !important;
+  }
+  .lang-switch {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 4px !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+    gap: 4px !important;
+  }
+  .lang-switch button {
+    border: 0 !important;
+    background: transparent !important;
+    color: var(--ash) !important;
+    border-radius: 999px !important;
+    padding: 6px 9px !important;
+    font-family: var(--body) !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    line-height: normal !important;
+    cursor: pointer !important;
+  }
+  .lang-switch button.active {
+    background: var(--bone) !important;
+    color: var(--void) !important;
+  }
+  .menu-btn svg {
+    width: 18px;
+    height: 14px;
+    pointer-events: none;
+  }
+  @media (max-width: 740px) {
+    .menu-btn {
+      width: 42px !important;
+      height: 42px !important;
+      min-width: 42px !important;
+      min-height: 42px !important;
+    }
+    .brand-logo {
+      width: 128px !important;
+      max-height: 46px !important;
+    }
+    .nav-links .lang-switch {
+      justify-self: center !important;
+    }
+  }
 </style>
 </head>
 <body>
 <header class="nav">
   <div class="wrap nav-inner">
-    <a href="index.html" aria-label="UEL"><img class="brand-logo" src="images/uel-logo.png" alt="UEL Unique Excellent Lubricant"></a>
+    <a href="index.html" class="logo brand-logo-link" aria-label="UEL - Unique Excellent Lubricant">
+      <img class="brand-logo" src="images/uel-logo.png" alt="UEL Unique Excellent Lubricant">
+    </a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">☰</button>
     <nav class="nav-links" id="nav-links" aria-label="Primary">
       <a href="index.html" data-copy="navHome">Home</a>
       <a href="products.html" data-copy="navProducts">Products</a>
       <a href="api-cert.html" class="active" data-copy="navWhere">API & Cert</a>
       <a href="contact.html" data-copy="navContact">Contact</a>
       <a class="nav-cta" href="https://wa.me/60108989120?text=Hi%20UEL%2C%20I%20want%20to%20ask%20about%20API%20and%20certificates" target="_blank" rel="noopener">WhatsApp</a>
-      <div class="lang" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="zh">中文</button><button type="button" data-lang="bm">BM</button></div>
+      <div class="lang-switch" aria-label="Language">
+        <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+        <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+        <button type="button" data-lang="bm" aria-pressed="false">BM</button>
+      </div>
     </nav>
-    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">☰</button>
   </div>
 </header>
 
@@ -1253,19 +1338,26 @@
   document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>applyLanguage(btn.dataset.lang)));
   const menuBtn=document.getElementById('menu-btn');const navLinks=document.getElementById('nav-links');
   if(menuBtn&&navLinks){
-    let lastMenuToggle=0;
+    let ignoreNextClick=false;
     const setMenu=open=>{navLinks.classList.toggle('open',open);menuBtn.setAttribute('aria-expanded',open?'true':'false')};
-    const toggleMenu=e=>{
-      if(e&&e.cancelable)e.preventDefault();
-      const now=Date.now();
-      if(now-lastMenuToggle<260)return;
-      lastMenuToggle=now;
-      setMenu(!navLinks.classList.contains('open'));
+    const toggleMenu=()=>setMenu(!navLinks.classList.contains('open'));
+    const handlePointerToggle=e=>{
+      if(e.pointerType==='mouse')return;
+      if(e.cancelable)e.preventDefault();
+      ignoreNextClick=true;
+      toggleMenu();
+      window.setTimeout(()=>{ignoreNextClick=false},500);
     };
-    menuBtn.addEventListener('click',toggleMenu);
-    menuBtn.addEventListener('pointerup',toggleMenu);
-    menuBtn.addEventListener('touchend',toggleMenu,{passive:false});
-    navLinks.addEventListener('click',e=>{if(e.target.matches('a'))setMenu(false)});
+    menuBtn.addEventListener('pointerup',handlePointerToggle);
+    menuBtn.addEventListener('click',e=>{
+      if(ignoreNextClick){
+        if(e.cancelable)e.preventDefault();
+        return;
+      }
+      toggleMenu();
+    });
+    navLinks.addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false)});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
   }
   (()=>{const dip=document.querySelector('.ambient-dip');if(!dip||matchMedia('(prefers-reduced-motion: reduce)').matches)return;let x=innerWidth*.5,y=innerHeight*.35,raf=0;const paint=()=>{dip.style.setProperty('--dip-x',x+'px');dip.style.setProperty('--dip-y',y+'px');raf=0};const queue=(nx,ny)=>{x=nx;y=ny;if(!raf)raf=requestAnimationFrame(paint)};addEventListener('pointermove',e=>queue(e.clientX,e.clientY),{passive:true});addEventListener('touchmove',e=>{const t=e.touches[0];if(t)queue(t.clientX,t.clientY)},{passive:true});paint()})();
   (()=>{const items=[...document.querySelectorAll('.reveal')];if(!items.length)return;if(matchMedia('(prefers-reduced-motion: reduce)').matches){items.forEach(item=>item.classList.add('in-view'));return;}const io=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');io.unobserve(entry.target);}})},{threshold:.16,rootMargin:'0px 0px -8% 0px'});items.forEach(item=>io.observe(item));})();

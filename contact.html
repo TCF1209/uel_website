@@ -725,6 +725,46 @@
       padding-top: 0 !important;
     }
   }
+  /* Visible date/time picker control */
+  .field.has-picker {
+    position: relative;
+  }
+  .field.has-picker input {
+    padding-right: 54px !important;
+    color-scheme: dark;
+  }
+  .field.has-picker input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+    background: transparent;
+  }
+  .picker-trigger {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    display: inline-grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(246,180,65,.42);
+    border-radius: 999px;
+    background: rgba(246,180,65,.14);
+    color: var(--amber);
+    cursor: pointer;
+    z-index: 2;
+    touch-action: manipulation;
+  }
+  .picker-trigger svg {
+    width: 17px;
+    height: 17px;
+    pointer-events: none;
+  }
+  .picker-trigger:hover,
+  .picker-trigger:focus-visible {
+    border-color: rgba(246,180,65,.78);
+    background: rgba(246,180,65,.22);
+    outline: none;
+  }
 </style>
 </head>
 <body>
@@ -764,41 +804,24 @@
           <p data-copy="formIntro">Share enough detail so UEL can recommend the correct oil, grade, pack size and availability.</p>
         </div>
         <form class="form quote-form" id="requirement-form">
-          <div class="form-steps" aria-label="Requirement form steps">
-            <span class="active" data-step-indicator="0">01 Contact</span>
-            <span data-step-indicator="1">02 Product</span>
-            <span data-step-indicator="2">03 Schedule</span>
-            <span data-step-indicator="3">04 Review</span>
-          </div>
-          <div class="form-panel" data-form-step="0">
+          <div class="form-panel form-panel-single">
             <div class="field"><label for="name" data-copy="labelName">Name</label><input id="name" name="name" autocomplete="name" required placeholder="Your name"></div>
             <div class="field"><label for="phone" data-copy="labelPhone">Phone / WhatsApp</label><input id="phone" name="phone" autocomplete="tel" required placeholder="+60..."></div>
             <div class="field full"><label for="type" data-copy="labelType">Customer Type</label><select id="type" name="customerType" required><option value="">Select one</option><option>Car owner</option><option>Workshop</option><option>Distributor</option><option>Fleet operator</option><option>Factory / industrial user</option><option>Other</option></select></div>
-          </div>
-          <div class="form-panel" data-form-step="1" hidden>
             <div class="field"><label for="category" data-copy="labelProduct">Product Category</label><select id="category" name="productCategory" required><option value="">Choose product</option><option>Car Engine Oil</option><option>Motorcycle Engine Oil</option><option>Diesel Engine Oil</option><option>Transmission & Gear Oil</option><option>Industrial Hydraulic Oil</option><option>Coolant, Brake Fluid & Additives</option><option>Not sure, need recommendation</option></select></div>
             <div class="field"><label for="quantity" data-copy="labelQuantity">Quantity / Pack Size</label><input id="quantity" name="quantity" required placeholder="Example: 4L x 12 cartons"></div>
             <div class="field full"><label for="message" data-copy="labelMessage">Requirement Details</label><textarea id="message" name="message" placeholder="Tell us vehicle model, oil grade, quantity, delivery area, or any question you have."></textarea></div>
-          </div>
-          <div class="form-panel" data-form-step="2" hidden>
-            <div class="field full"><label for="datetime" data-copy="labelDatetime">Required Date / Time</label><input id="datetime" name="requiredDateTime" type="datetime-local" required></div>
+            <div class="field full has-picker">
+              <label for="datetime" data-copy="labelDatetime">Required Date / Time</label>
+              <input id="datetime" name="requiredDateTime" type="datetime-local" required>
+              <button class="picker-trigger" type="button" aria-label="Open required date and time picker" data-picker-target="datetime">
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M7 3v4M17 3v4M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 13v3l2 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
             <div class="schedule-note" data-copy="scheduleNote">Tell UEL your preferred date/time. If stock or delivery needs checking, UEL will confirm by WhatsApp.</div>
           </div>
-          <div class="form-panel" data-form-step="3" hidden>
-            <div class="review-box">
-              <div><span>Name</span><strong data-review="name">-</strong></div>
-              <div><span>Phone / WhatsApp</span><strong data-review="phone">-</strong></div>
-              <div><span>Customer Type</span><strong data-review="customerType">-</strong></div>
-              <div><span>Product</span><strong data-review="productCategory">-</strong></div>
-              <div><span>Quantity</span><strong data-review="quantity">-</strong></div>
-              <div><span>Required Date / Time</span><strong data-review="requiredDateTime">-</strong></div>
-              <div><span>Requirement</span><strong data-review="message">-</strong></div>
-            </div>
-            <button class="btn review-submit" type="submit" id="form-submit" hidden data-copy="submit">Send to WhatsApp</button>
-          </div>
           <div class="submit-row">
-            <button class="btn ghost" type="button" id="form-prev" hidden>Back</button>
-            <button class="btn" type="button" id="form-next">Next</button>
+            <button class="btn review-submit" type="submit" id="form-submit" data-copy="submit">Send to WhatsApp</button>
             <a class="btn ghost" href="products.html" data-copy="browse">Browse Products</a>
             <small data-copy="formNote">Sends to +60 10-898 9120. No backend or database is used.</small>
           </div>
@@ -939,15 +962,7 @@
       const field = document.getElementById(id);
       if (field) field.placeholder = value;
     });
-    document.querySelectorAll('[data-step-indicator]').forEach((dot, index) => {
-      dot.textContent = formText.steps[index] || dot.textContent;
-    });
-    document.querySelectorAll('[data-review]').forEach((node, index) => {
-      const label = node.previousElementSibling;
-      if (label) label.textContent = formText.reviewLabels[index] || label.textContent;
-    });
-    if (typeof prevButton !== 'undefined' && prevButton) prevButton.textContent = formText.back;
-    if (typeof nextButton !== 'undefined' && nextButton) nextButton.textContent = activeStep === formPanels.length - 2 ? formText.reviewNext : formText.next;
+    if (typeof submitButton !== 'undefined' && submitButton) submitButton.textContent = copy[currentLang].submit;
   };
   document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
   const menuBtn = document.getElementById('menu-btn');
@@ -968,47 +983,27 @@
   datetime.value = `${nextDay.getFullYear()}-${pad(nextDay.getMonth()+1)}-${pad(nextDay.getDate())}T09:00`;
 
   const requirementFormEl = document.getElementById('requirement-form');
-  const formPanels = [...document.querySelectorAll('[data-form-step]')];
-  const stepDots = [...document.querySelectorAll('[data-step-indicator]')];
-  const prevButton = document.getElementById('form-prev');
-  const nextButton = document.getElementById('form-next');
   const submitButton = document.getElementById('form-submit');
-  let activeStep = 0;
-  const formValue = name => new FormData(requirementFormEl).get(name) || '-';
-  const updateReview = () => {
-    document.querySelectorAll('[data-review]').forEach(node => {
-      node.textContent = formValue(node.dataset.review);
-    });
-  };
-  const setStep = step => {
-    activeStep = Math.max(0, Math.min(step, formPanels.length - 1));
-    formPanels.forEach((panel, index) => panel.hidden = index !== activeStep);
-    stepDots.forEach((dot, index) => dot.classList.toggle('active', index === activeStep));
-    if (prevButton) prevButton.hidden = activeStep === 0;
-    if (nextButton) nextButton.hidden = activeStep === formPanels.length - 1;
-    if (submitButton) submitButton.hidden = activeStep !== formPanels.length - 1;
-    const formText = formLanguage[currentLang] || formLanguage.en;
-    if (prevButton) prevButton.textContent = formText.back;
-    if (nextButton) nextButton.textContent = activeStep === formPanels.length - 2 ? formText.reviewNext : formText.next;
-    if (activeStep === formPanels.length - 1) updateReview();
-  };
-  const validateStep = () => {
-    const fields = [...formPanels[activeStep].querySelectorAll('input, select, textarea')];
+  const validateForm = () => {
+    const fields = [...requirementFormEl.querySelectorAll('input, select, textarea')];
     const invalid = fields.find(field => !field.checkValidity());
     if (invalid) { invalid.reportValidity(); invalid.focus(); return false; }
     return true;
   };
-  nextButton?.addEventListener('click', () => { if (validateStep()) setStep(activeStep + 1); });
-  prevButton?.addEventListener('click', () => setStep(activeStep - 1));
-  setStep(0);
+  document.querySelectorAll('[data-picker-target]').forEach(button => {
+    button.addEventListener('click', () => {
+      const input = document.getElementById(button.dataset.pickerTarget);
+      if (!input) return;
+      input.focus({ preventScroll: true });
+      if (typeof input.showPicker === 'function') input.showPicker();
+    });
+  });
+  if (submitButton) submitButton.hidden = false;
 
   document.getElementById('requirement-form')?.addEventListener('submit', event => {
     event.preventDefault();
     const form = event.currentTarget;
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
+    if (!validateForm()) return;
     const data = new FormData(form);
     const values = [data.get('name'), data.get('phone'), data.get('customerType'), data.get('productCategory'), data.get('quantity'), data.get('requiredDateTime'), data.get('message') || '-'];
     const lines = [copy[currentLang].messageIntro, '', ...copy[currentLang].fields.map((label, index) => `${label}: ${values[index] || '-'}`)];

@@ -1532,18 +1532,47 @@
   .field input[type="date"],
   .field input[type="time"] {
     cursor: pointer;
-    padding-right: 12px;
+    padding-right: 54px;
   }
   .field input[type="date"]::-webkit-calendar-picker-indicator,
   .field input[type="time"]::-webkit-calendar-picker-indicator {
-    opacity: 1;
+    opacity: 0;
     cursor: pointer;
-    filter: invert(1) brightness(1.8);
     width: 20px;
     height: 20px;
     padding: 4px;
     border-radius: 4px;
-    background-color: rgba(255,255,255,.08);
+    background: transparent;
+  }
+  .field.has-picker {
+    position: relative;
+  }
+  .picker-trigger {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    display: inline-grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(246,180,65,.42);
+    border-radius: 999px;
+    background: rgba(246,180,65,.14);
+    color: var(--amber);
+    cursor: pointer;
+    z-index: 2;
+    touch-action: manipulation;
+  }
+  .picker-trigger svg {
+    width: 17px;
+    height: 17px;
+    pointer-events: none;
+  }
+  .picker-trigger:hover,
+  .picker-trigger:focus-visible {
+    border-color: rgba(246,180,65,.78);
+    background: rgba(246,180,65,.22);
+    outline: none;
   }
   .field textarea { min-height: 92px; resize: vertical; }
   .field.is-hidden { display: none; }
@@ -3584,14 +3613,7 @@
     <form class="requirement-form reveal d1" id="requirement-form" novalidate>
       <h3>Requirement Details</h3>
       <p class="form-intro">Fill in the basics and send everything to UEL through WhatsApp.</p>
-      <div class="form-stepper" aria-label="Quote form steps">
-        <span class="active" data-step-indicator="0">Contact</span>
-        <span data-step-indicator="1">Product</span>
-        <span data-step-indicator="2">Schedule</span>
-        <span data-step-indicator="3">Review</span>
-      </div>
-
-      <div class="form-step" data-form-step="0">
+      <div class="form-step form-step-single">
         <div class="form-grid">
           <div class="field">
             <label for="req-name">Name</label>
@@ -3617,11 +3639,6 @@
             <label for="req-type-other">Other Customer Type</label>
             <input id="req-type-other" name="customerTypeOther" type="text" placeholder="Example: Spare parts shop">
           </div>
-        </div>
-      </div>
-
-      <div class="form-step" data-form-step="1" hidden>
-        <div class="form-grid">
           <div class="field">
             <label for="req-product">Product Needed</label>
             <select id="req-product" name="productCategory" required>
@@ -3644,18 +3661,19 @@
             <label for="req-quantity">Quantity / Pack Size</label>
             <input id="req-quantity" name="quantity" type="text" placeholder="Example: 4L x 12 cartons">
           </div>
-        </div>
-      </div>
-
-      <div class="form-step" data-form-step="2" hidden>
-        <div class="form-grid">
-          <div class="field">
+          <div class="field has-picker">
             <label for="req-date">Required Date</label>
             <input id="req-date" name="requiredDate" type="date" required>
+            <button class="picker-trigger" type="button" aria-label="Open required date picker" data-picker-target="req-date">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M7 3v4M17 3v4M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
           </div>
-          <div class="field">
+          <div class="field has-picker">
             <label for="req-time">Required Time</label>
             <input id="req-time" name="requiredTime" type="time" required>
+            <button class="picker-trigger" type="button" aria-label="Open required time picker" data-picker-target="req-time">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
           </div>
           <div class="field full">
             <label for="req-message">Requirement / Notes Optional</label>
@@ -3663,31 +3681,12 @@
           </div>
         </div>
       </div>
-
-      <div class="form-step" data-form-step="3" hidden>
-        <div class="review-panel">
-          <h4>Review Before Sending</h4>
-          <p>The WhatsApp button appears here after the contact, product and schedule details are completed.</p>
-          <div class="quote-summary" aria-live="polite">
-            <div><span>Name</span><strong data-review="name">-</strong></div>
-            <div><span>Phone / WhatsApp</span><strong data-review="phone">-</strong></div>
-            <div><span>Customer Type</span><strong data-review="customerType">-</strong></div>
-            <div><span>Product Needed</span><strong data-review="productNeeded">-</strong></div>
-            <div><span>Quantity / Pack Size</span><strong data-review="quantity">-</strong></div>
-            <div><span>Required Date</span><strong data-review="requiredDate">-</strong></div>
-            <div><span>Required Time</span><strong data-review="requiredTime">-</strong></div>
-            <div><span>Requirement</span><strong data-review="requirement">-</strong></div>
-          </div>
-          <button class="btn btn-wa review-send" type="submit" id="form-submit" hidden>Send to WhatsApp <i class="arrow" aria-hidden="true"></i></button>
-        </div>
-      </div>
       <div class="form-actions">
         <div class="left-actions">
-          <button class="btn btn-secondary" type="button" id="form-prev" hidden>Back</button>
           <span class="form-note">Sends to +60 10-898 9120</span>
         </div>
         <div class="right-actions">
-          <button class="btn btn-secondary" type="button" id="form-next"><span id="form-next-label">Next</span> <i class="arrow" aria-hidden="true"></i></button>
+          <button class="btn btn-wa review-send" type="submit" id="form-submit">Send to WhatsApp <i class="arrow" aria-hidden="true"></i></button>
         </div>
       </div>
     </form>
@@ -4672,15 +4671,15 @@
   if (requiredDate && !requiredDate.value) requiredDate.value = formatLocalDate(new Date());
   if (requiredTime && !requiredTime.value) requiredTime.value = formatLocalTime(new Date());
 
-  // Quote form steps and "Other" fields
+  // One-step quote form and "Other" fields
   const requirementForm = document.getElementById('requirement-form');
-  const formSteps = [...document.querySelectorAll('[data-form-step]')];
-  const stepIndicators = [...document.querySelectorAll('[data-step-indicator]')];
-  const prevStepButton = document.getElementById('form-prev');
-  const nextStepButton = document.getElementById('form-next');
-  const nextStepLabel = document.getElementById('form-next-label');
+  const formSteps = [];
+  const stepIndicators = [];
+  const prevStepButton = null;
+  const nextStepButton = null;
+  const nextStepLabel = null;
   const submitStepButton = document.getElementById('form-submit');
-  const reviewFields = [...document.querySelectorAll('[data-review]')];
+  const reviewFields = [];
   let currentFormStep = 0;
 
   const getQuoteValues = () => {
@@ -4706,31 +4705,14 @@
     };
   };
 
-  const updateReviewSummary = () => {
-    const values = getQuoteValues();
-    reviewFields.forEach(field => {
-      field.textContent = values[field.dataset.review] || '-';
-    });
-  };
-
-  const setFormStep = (step) => {
-    currentFormStep = Math.max(0, Math.min(step, formSteps.length - 1));
-    formSteps.forEach((panel, index) => {
-      panel.hidden = index !== currentFormStep;
-    });
-    stepIndicators.forEach((indicator, index) => {
-      indicator.classList.toggle('active', index === currentFormStep);
-    });
-    if (prevStepButton) prevStepButton.hidden = currentFormStep === 0;
-    if (nextStepButton) nextStepButton.hidden = currentFormStep === formSteps.length - 1;
-    if (nextStepLabel) nextStepLabel.textContent = currentFormStep === formSteps.length - 2 ? copy().form.reviewNext : copy().form.next;
-    if (submitStepButton) submitStepButton.hidden = currentFormStep !== formSteps.length - 1;
-    if (currentFormStep === formSteps.length - 1) updateReviewSummary();
+  const updateReviewSummary = () => {};
+  const setFormStep = () => {
+    currentFormStep = 0;
+    if (submitStepButton) submitStepButton.hidden = false;
   };
 
   const validateCurrentStep = () => {
-    const activeStep = formSteps[currentFormStep];
-    const fields = [...activeStep.querySelectorAll('input, select, textarea')].filter(field => !field.disabled);
+    const fields = [...requirementForm.querySelectorAll('input, select, textarea')].filter(field => !field.disabled);
     const invalid = fields.find(field => !field.checkValidity());
     if (invalid) {
       invalid.reportValidity();
@@ -4757,10 +4739,14 @@
 
   bindOtherField('req-type', 'req-type-other-field', 'req-type-other');
   bindOtherField('req-product', 'req-product-other-field', 'req-product-other');
-  nextStepButton?.addEventListener('click', () => {
-    if (validateCurrentStep()) setFormStep(currentFormStep + 1);
+  document.querySelectorAll('[data-picker-target]').forEach(button => {
+    button.addEventListener('click', () => {
+      const input = document.getElementById(button.dataset.pickerTarget);
+      if (!input) return;
+      input.focus({ preventScroll: true });
+      if (typeof input.showPicker === 'function') input.showPicker();
+    });
   });
-  prevStepButton?.addEventListener('click', () => setFormStep(currentFormStep - 1));
   setFormStep(0);
 
   // Rotating hero keyword
