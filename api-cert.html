@@ -1,0 +1,1165 @@
+﻿<!DOCTYPE html>
+<html lang="en-MY">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UEL API & Cert Verification | Unique Excellent Lubricant</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Saira:wght@400;500;600;700&family=Sora:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  :root{--void:#07070a;--carbon:#111116;--steel:#1a1a20;--bone:#f5f3ec;--paper:#d9d6ce;--ash:#a6a6ad;--dim:#6f7079;--line:rgba(255,255,255,.1);--line-strong:rgba(255,255,255,.18);--amber:#f6b441;--green:#18a974;--max:1320px;--gutter:clamp(20px,4vw,56px);--display:"Big Shoulders Display","Arial Narrow",sans-serif;--head:"Saira","Helvetica Neue",sans-serif;--body:"Sora","Helvetica Neue",sans-serif;--card-radius:16px}
+  *{box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden}body{margin:0;background:var(--void);color:var(--bone);font-family:var(--body);font-size:16px;font-weight:300;line-height:1.6;overflow-x:hidden}body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(#000,transparent 92%);pointer-events:none}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}main,header,footer{position:relative;z-index:1}
+  .ambient-dip{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at var(--dip-x,50%) var(--dip-y,30%),rgba(246,180,65,.18),transparent 24%),radial-gradient(circle at 70% 12%,rgba(226,59,47,.12),transparent 30%)}
+  .nav{position:sticky;top:0;z-index:50;background:rgba(7,7,10,.82);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand-logo{width:clamp(130px,13vw,188px);max-height:56px;object-fit:contain;border-radius:7px}.nav-links{display:flex;align-items:center;gap:clamp(7px,.9vw,14px)}.nav-links a{font-family:var(--head);font-size:11.5px;font-weight:900;text-transform:uppercase;color:var(--paper);letter-spacing:.04em}.nav-links a:hover,.nav-links a.active{color:var(--bone)}.nav-cta{display:inline-flex!important;align-items:center;justify-content:center;min-height:42px;padding:9px 15px;border:1px solid rgba(24,169,116,.44);border-radius:999px;background:rgba(24,169,116,.1);color:var(--bone)!important}.lang{display:inline-flex;padding:4px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03)}.lang button{border:0;background:transparent;color:var(--ash);border-radius:999px;padding:7px 10px;font-family:var(--head);font-weight:900;cursor:pointer}.lang button.active{background:var(--bone);color:var(--void)}.menu-btn{display:none}
+  .hero{padding:clamp(54px,8vw,104px) 0 48px}.hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,70px);align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:12px;color:var(--amber);font-family:var(--head);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}.eyebrow::before{content:"";width:38px;height:2px;background:var(--amber)}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--display);font-weight:900;line-height:.96;text-transform:uppercase;letter-spacing:0}h1{font-size:clamp(52px,9vw,118px);margin-top:16px}h2{font-size:clamp(34px,5vw,72px)}h3{font-size:clamp(26px,3vw,44px)}em{font-style:normal;color:var(--amber)}.lead{margin-top:22px;color:var(--paper);font-size:clamp(15px,1.15vw,18px);max-width:62ch}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;border:1px solid var(--line-strong);border-radius:999px;background:var(--bone);color:var(--void);font-family:var(--head);font-weight:900;text-transform:uppercase}.btn.ghost{background:rgba(255,255,255,.04);color:var(--bone)}
+  .verify-stage{border:1px solid var(--line);border-radius:var(--card-radius);background:radial-gradient(80% 70% at 65% 20%,rgba(246,180,65,.18),transparent 62%),linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.014)),var(--carbon);padding:clamp(18px,3vw,32px);overflow:hidden}.api-table{border-radius:12px;border:1px solid var(--line);background:#fff;padding:8px;box-shadow:0 28px 70px rgba(0,0,0,.38)}.api-table img{border-radius:8px}
+  .section{padding:clamp(48px,7vw,88px) 0;border-top:1px solid var(--line)}.section-head{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end;margin-bottom:28px}.section-head p{color:var(--paper)}.guide-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.guide-card{border:1px solid var(--line);border-radius:var(--card-radius);background:radial-gradient(110% 80% at 100% 0%,var(--glow,rgba(246,180,65,.12)),transparent 58%),linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012)),var(--carbon);padding:clamp(18px,2.4vw,26px);overflow:hidden}.guide-card .step{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid rgba(246,180,65,.42);border-radius:50%;color:var(--amber);font-family:var(--head);font-weight:900}.guide-card h3{margin-top:18px}.guide-card p{margin-top:10px;color:var(--paper)}.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.proof-card,.cert-card{border:1px solid var(--line);border-radius:var(--card-radius);background:radial-gradient(110% 80% at 100% 0%,var(--glow,rgba(246,180,65,.12)),transparent 58%),linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012)),var(--carbon);padding:clamp(18px,2.4vw,26px);overflow:hidden}.proof-card img{width:100%;aspect-ratio:1/1;object-fit:contain;border-radius:12px;background:#fff;padding:8px}.proof-card h3{margin-top:16px}.proof-card p,.cert-card p{margin-top:10px;color:var(--ash)}.badge{display:inline-flex;min-height:28px;align-items:center;padding:5px 10px;border:1px solid rgba(246,180,65,.35);border-radius:999px;color:var(--amber);font-family:var(--head);font-size:11px;font-weight:900;text-transform:uppercase}
+  .cert-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:12px}.cert-frame{min-height:520px;border:1px solid var(--line);border-radius:var(--card-radius);background:#141418;overflow:hidden}.cert-frame iframe{width:100%;height:520px;border:0;background:#fff}.note-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.note{border:1px solid var(--line);border-radius:var(--card-radius);padding:20px;background:rgba(255,255,255,.026);color:var(--paper)}
+  .poster-card{border:1px solid var(--line);border-radius:var(--card-radius);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012)),var(--carbon);padding:clamp(18px,2.4vw,26px);overflow:hidden}.poster-card img{width:100%;border-radius:14px;border:1px solid var(--line-strong)}.series-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.series-card{border:1px solid var(--line);border-radius:var(--card-radius);background:radial-gradient(110% 80% at 100% 0%,var(--glow,rgba(246,180,65,.12)),transparent 58%),linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012)),var(--carbon);padding:clamp(18px,2.4vw,26px)}.series-card h3{margin-top:12px}.series-card ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:10px}.series-card li{border-top:1px solid var(--line);padding-top:10px;color:var(--paper);font-size:14px}.fact-table{width:100%;border-collapse:collapse;margin-top:18px}.fact-table th,.fact-table td{border-top:1px solid var(--line);padding:11px 0;text-align:left;vertical-align:top}.fact-table th{width:38%;color:var(--ash);font-family:var(--head);font-size:12px;text-transform:uppercase}.fact-table td{color:var(--paper)}
+  footer{padding:clamp(46px,7vw,80px) 0 32px;border-top:1px solid var(--line);background:rgba(7,7,10,.72)}.foot-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:34px}.footer-logo{width:min(220px,100%);border-radius:var(--card-radius);margin-bottom:18px}.foot h4{margin:0 0 16px;color:var(--paper);font-family:var(--head);font-size:13px;text-transform:uppercase}.foot p,.foot a,.foot li{color:var(--ash);font-size:14px}.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}.legal{margin-top:42px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--dim);font-family:var(--head);font-size:12px}
+  html[lang^="zh"]{--display:"KaiTi","STKaiti","楷体","DFKai-SB",serif;--head:"KaiTi","STKaiti","楷体","DFKai-SB",serif;--body:"KaiTi","STKaiti","楷体","DFKai-SB",serif}html[lang^="zh"] body,html[lang^="zh"] button{font-family:var(--body)!important}html[lang^="zh"] h1,html[lang^="zh"] h2,html[lang^="zh"] h3,html[lang^="zh"] h4,html[lang^="zh"] .eyebrow,html[lang^="zh"] .btn,html[lang^="zh"] .nav-links a{font-family:var(--display)!important;letter-spacing:0!important;text-transform:none;line-height:1.12}
+  @media(max-width:980px){.hero-grid,.section-head,.cert-layout{grid-template-columns:1fr}.guide-grid,.proof-grid,.note-row,.foot-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:980px){.series-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:740px){.nav-inner{position:relative;height:68px}.menu-btn{display:inline-grid;place-items:center;width:42px;height:42px;margin-left:auto;border:1px solid var(--line-strong);border-radius:50%;background:rgba(255,255,255,.045);color:var(--bone);font-size:22px}.nav-links{position:absolute;top:calc(100% + 10px);left:0;right:0;display:none;grid-template-columns:1fr;width:100%;gap:8px;padding:12px;background:rgba(7,7,10,.97);border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.48)}.nav-links.open{display:grid}.nav-links a,.nav-links .nav-cta{min-height:38px;padding:9px 8px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.035);text-align:center;justify-content:center}.nav-links a.active{color:var(--amber);border-color:rgba(246,180,65,.9);background:rgba(246,180,65,.12)}.lang{justify-self:center}h1{font-size:clamp(38px,10vw,52px)}h2{font-size:clamp(28px,8vw,40px)}.proof-grid,.note-row,.foot-grid{grid-template-columns:1fr}.cert-frame,.cert-frame iframe{min-height:420px;height:420px}.btn{width:100%}}
+  @media(max-width:740px){.series-grid{grid-template-columns:1fr}.fact-table th,.fact-table td{display:block;width:100%}.fact-table td{padding-top:2px}}
+  /* Shared UEL page consistency pass */
+  .hero{position:relative;z-index:1;min-height:auto;display:grid;align-items:start;padding:clamp(28px,4.5vw,54px) 0 clamp(36px,5vw,64px)!important}
+  .hero-grid{grid-template-columns:1.02fr .98fr!important;gap:clamp(34px,6vw,86px)!important}
+  h1{font-size:clamp(44px,7.2vw,104px)!important;line-height:.98!important}
+  h2{font-size:clamp(32px,4.8vw,64px)!important;line-height:1!important}
+  h3{font-size:clamp(23px,2.8vw,38px)!important;line-height:1.06!important}
+  .lead{font-size:clamp(15px,1.1vw,18px)!important;line-height:1.6!important}
+  .eyebrow{font-size:clamp(10px,.75vw,12px)!important;letter-spacing:.12em!important}
+  .verify-stage,.guide-card,.proof-card,.cert-card,.cert-frame,.note{border:1px solid var(--line-strong)!important;border-radius:var(--card-radius)!important;background:radial-gradient(110% 80% at 100% 0%,var(--glow,rgba(246,180,65,.12)),transparent 58%),linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.014)),var(--carbon)!important;box-shadow:0 28px 70px rgba(0,0,0,.34),0 0 42px rgba(246,180,65,.06)!important}
+  .verify-stage{padding:clamp(20px,3vw,34px)!important}
+  .api-table{border:1px solid var(--line-strong)!important;border-radius:var(--card-radius)!important;background:rgba(255,255,255,.96)!important;padding:10px!important}
+  .api-table img{border-radius:12px!important}
+  .section{padding:clamp(42px,6vw,78px) 0!important}
+  .section-head{grid-template-columns:.9fr 1.1fr!important;gap:34px!important;margin-bottom:34px!important}
+  .guide-grid,.proof-grid{grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr))!important;gap:clamp(14px,2vw,22px)!important;background:transparent!important;border:0!important}
+  .proof-card{min-height:360px!important;padding:clamp(22px,2.8vw,34px)!important}
+  .proof-card img{background:rgba(255,255,255,.96)!important;border:1px solid var(--line-strong)!important;border-radius:14px!important;padding:10px!important}
+  .proof-card p,.cert-card p,.note{color:var(--paper)!important}
+  .cert-layout{grid-template-columns:.88fr 1.12fr!important;gap:clamp(14px,2vw,22px)!important}
+  .cert-card{padding:clamp(24px,3.4vw,42px)!important}
+  .note-row{gap:clamp(14px,2vw,22px)!important}
+  .note{padding:20px!important}
+  .brand-logo{width:clamp(132px,13vw,190px)!important;max-height:56px!important;object-fit:contain!important;border-radius:8px!important}
+  .footer-logo{width:min(220px,100%)!important;border-radius:var(--card-radius)!important}
+  html[lang^="zh"] h1{font-size:clamp(38px,6.4vw,72px)!important;line-height:1.13!important;text-transform:none!important}
+  html[lang^="zh"] h2,html[lang^="zh"] h3{text-transform:none!important}
+  @media(max-width:980px){.hero-grid,.section-head,.cert-layout{grid-template-columns:1fr!important}.guide-grid,.proof-grid,.note-row,.foot-grid{grid-template-columns:1fr 1fr!important}}
+  @media(max-width:740px){
+    html,body{width:100%;max-width:100%;overflow-x:hidden;touch-action:pan-y}
+    body,header,main,footer,section,.hero{max-width:100%;overflow-x:clip}
+    .wrap,.nav-inner{width:min(100% - 32px,var(--max));max-width:100%}
+    .nav{position:fixed!important;top:0;left:0;right:0;z-index:70}
+    main{padding-top:68px}
+    .nav-inner{height:68px!important;min-height:68px;gap:12px}
+    .hero{padding-top:clamp(18px,6vw,32px)!important}
+    h1{font-size:clamp(38px,10vw,52px)!important;line-height:1.04!important}
+    h2{font-size:clamp(28px,8vw,40px)!important;line-height:1.06!important}
+    h3{font-size:clamp(21px,6vw,30px)!important;line-height:1.12!important}
+    .lead{font-size:15px!important}
+    .hero-actions{margin-top:22px!important}
+    .guide-grid,.proof-grid,.note-row,.foot-grid{grid-template-columns:1fr!important}
+    .proof-card{min-height:auto!important}
+    .cert-frame,.cert-frame iframe{min-height:420px!important;height:420px!important}
+    html[lang^="zh"] h1{font-size:clamp(32px,8.8vw,44px)!important;line-height:1.14!important}
+  }
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.ambient-dip{display:none}}
+  /* Match homepage typography and page rhythm */
+  body {
+    font-size: 16px;
+    line-height: 1.55;
+    letter-spacing: .005em;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--display) !important;
+    font-weight: 800 !important;
+    line-height: .95 !important;
+    letter-spacing: -.01em !important;
+  }
+  h1 {
+    font-size: clamp(44px, 7.8vw, 118px) !important;
+    line-height: .9 !important;
+  }
+  h2 {
+    font-size: clamp(40px, 6vw, 88px) !important;
+    line-height: .92 !important;
+  }
+  h3 {
+    font-size: clamp(30px, 3.8vw, 56px) !important;
+  }
+  .hero {
+    padding: clamp(8px, 2.2vh, 24px) 0 clamp(44px, 7vh, 80px) !important;
+  }
+  .eyebrow,
+  .badge,
+  .guide-card .step,
+  .foot h4 {
+    font-family: var(--head) !important;
+    font-size: 13px;
+    font-weight: 700 !important;
+    letter-spacing: .04em !important;
+  }
+  .lead,
+  .section-head p,
+  .guide-card p,
+  .proof-card p,
+  .cert-card p {
+    font-family: var(--body) !important;
+    font-size: clamp(16px, 1.6vw, 19px) !important;
+    font-weight: 300 !important;
+    line-height: 1.55 !important;
+  }
+  .nav-links a {
+    font-family: var(--head) !important;
+    font-weight: 500 !important;
+    font-size: 11.5px !important;
+    letter-spacing: .045em !important;
+  }
+  .btn,
+  .nav-cta {
+    font-family: var(--head) !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: .03em !important;
+  }
+  @media (max-width: 740px) {
+    h1 { font-size: clamp(38px, 13vw, 58px) !important; }
+    h2 { font-size: clamp(36px, 12vw, 54px) !important; }
+    h3 { font-size: clamp(30px, 10vw, 42px) !important; }
+    .hero { padding-top: clamp(18px, 6vw, 32px) !important; }
+  }
+
+  /* Technical verification dashboard */
+  .tech-console {
+    position: relative;
+    border: 1px solid var(--line-strong);
+    border-radius: 18px;
+    background:
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      radial-gradient(90% 80% at 70% 20%, rgba(246,180,65,.16), transparent 62%),
+      var(--carbon);
+    background-size: 36px 36px, 36px 36px, auto, auto;
+    padding: clamp(20px, 3vw, 34px);
+    box-shadow: 0 30px 80px rgba(0,0,0,.42), inset 0 0 0 1px rgba(255,255,255,.035);
+    overflow: hidden;
+  }
+  .tech-console::before {
+    content: "";
+    position: absolute;
+    inset: -30% -20%;
+    background:
+      linear-gradient(115deg, transparent 0 42%, rgba(246,180,65,.18) 48%, rgba(255,255,255,.16) 50%, rgba(246,180,65,.12) 53%, transparent 60%),
+      radial-gradient(circle at 24% 28%, rgba(24,169,116,.16), transparent 22%);
+    transform: translateX(-38%);
+    animation: consoleScan 4.8s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .tech-console::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      linear-gradient(90deg, transparent, rgba(246,180,65,.18), transparent) 0 0 / 220px 1px repeat-y,
+      linear-gradient(180deg, rgba(255,255,255,.08), transparent 18%, transparent 82%, rgba(246,180,65,.08));
+    opacity: .42;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+  .tech-console > * {
+    position: relative;
+    z-index: 1;
+  }
+  @keyframes consoleScan {
+    0%, 100% { transform: translateX(-42%) rotate(0deg); opacity: .38; }
+    48% { transform: translateX(34%) rotate(0deg); opacity: .9; }
+  }
+  .console-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .status-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--green);
+    font-family: var(--head);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  .status-light::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 18px rgba(24,169,116,.95);
+    animation: statusPulse 1.8s ease-in-out infinite;
+  }
+  @keyframes statusPulse {
+    0%, 100% { transform: scale(.86); box-shadow: 0 0 10px rgba(24,169,116,.55); }
+    50% { transform: scale(1.18); box-shadow: 0 0 24px rgba(24,169,116,1); }
+  }
+  .proof-dials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .dial {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: rgba(255,255,255,.035);
+    padding: 16px;
+  }
+  .dial::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--amber), transparent);
+    animation: dataRail 2.6s ease-in-out infinite;
+    opacity: .72;
+  }
+  .dial:nth-child(2)::after { animation-delay: .28s; }
+  .dial:nth-child(3)::after { animation-delay: .56s; }
+  @keyframes dataRail {
+    0%, 100% { transform: translateX(-35%); opacity: .22; }
+    50% { transform: translateX(35%); opacity: .88; }
+  }
+  .dial strong {
+    display: block;
+    font-family: var(--display);
+    font-size: clamp(34px, 4vw, 62px);
+    line-height: .9;
+  }
+  .dial span {
+    display: block;
+    margin-top: 8px;
+    color: var(--ash);
+    font-family: var(--head);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  .api-matrix {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 22px);
+  }
+  .api-grade-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line-strong);
+    border-radius: 18px;
+    background:
+      radial-gradient(90% 70% at 50% 0%, var(--glow, rgba(246,180,65,.18)), transparent 62%),
+      linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.012)),
+      var(--carbon);
+    padding: clamp(18px, 2.5vw, 28px);
+    transform-style: preserve-3d;
+    transition: transform .38s ease, border-color .38s ease, box-shadow .38s ease;
+  }
+  .api-grade-card::before {
+    content: "";
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 16px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(246,180,65,.9), transparent);
+    box-shadow: 0 0 18px rgba(246,180,65,.38);
+    animation: cardScanner 3.2s ease-in-out infinite;
+    z-index: 2;
+  }
+  .api-grade-card::after {
+    content: "API";
+    position: absolute;
+    right: -8px;
+    bottom: -26px;
+    color: rgba(255,255,255,.035);
+    font-family: var(--display);
+    font-size: 120px;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .api-grade-card:hover {
+    transform: translateY(-8px) rotateX(3deg) rotateY(-3deg);
+    border-color: rgba(246,180,65,.45);
+    box-shadow: 0 34px 84px rgba(0,0,0,.46), 0 0 44px rgba(246,180,65,.1);
+  }
+  @keyframes cardScanner {
+    0%, 100% { transform: translateY(0); opacity: .18; }
+    50% { transform: translateY(172px); opacity: .88; }
+  }
+  .api-grade-card img {
+    width: min(160px, 72%);
+    aspect-ratio: 1;
+    object-fit: contain;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 18px 42px rgba(0,0,0,.34);
+  }
+  .grade-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+    color: var(--paper);
+    font-family: var(--head);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  .advantage-grid {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: clamp(14px, 2vw, 22px);
+  }
+  .signal-list {
+    display: grid;
+    gap: 12px;
+  }
+  .signal {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: rgba(255,255,255,.03);
+    padding: 16px;
+  }
+  .signal::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--amber), rgba(24,169,116,.8));
+    opacity: .75;
+  }
+  .signal b {
+    display: block;
+    color: var(--bone);
+    font-family: var(--head);
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+  .signal span {
+    display: block;
+    margin-top: 6px;
+    color: var(--ash);
+    font-size: 14px;
+  }
+  .mini-poster {
+    display: grid;
+    grid-template-columns: .78fr 1.22fr;
+    gap: clamp(14px, 2vw, 22px);
+    align-items: stretch;
+  }
+  .tech-artwork-card {
+    display: grid;
+    grid-template-columns: minmax(260px, .95fr) 1.05fr;
+    gap: clamp(16px, 3vw, 32px);
+    align-items: center;
+  }
+  .tech-artwork-card img {
+    width: 100%;
+    border-radius: 18px;
+    border: 1px solid var(--line-strong);
+    box-shadow: 0 28px 70px rgba(0,0,0,.34);
+  }
+  .artwork-copy {
+    display: grid;
+    gap: 16px;
+  }
+  .artwork-copy p {
+    margin: 0;
+    color: var(--ash);
+    line-height: 1.75;
+  }
+  @media (max-width: 860px) {
+    .tech-artwork-card {
+      grid-template-columns: 1fr;
+    }
+  }
+  .mini-poster img {
+    width: 100%;
+    height: 100%;
+    max-height: 360px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 16px;
+    border: 1px solid var(--line-strong);
+  }
+  .spec-strips {
+    display: grid;
+    gap: 10px;
+  }
+  .spec-strip {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 12px;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(255,255,255,.03);
+    padding: 12px 14px;
+  }
+  .spec-strip::after {
+    content: "";
+    position: absolute;
+    inset: auto 14px 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(246,180,65,.7), transparent);
+    animation: dataRail 3.1s ease-in-out infinite;
+  }
+  .spec-strip b {
+    color: var(--amber);
+    font-family: var(--head);
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  .spec-strip span { color: var(--paper); font-size: 14px; }
+  .nav {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 90;
+  }
+  main {
+    padding-top: 72px;
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity .72s ease, transform .72s cubic-bezier(.2,.8,.2,1);
+  }
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal.d1 { transition-delay: .08s; }
+  .reveal.d2 { transition-delay: .16s; }
+  .reveal.d3 { transition-delay: .24s; }
+  .tech-console,
+  .verify-stage,
+  .api-table,
+  .guide-card,
+  .proof-card,
+  .cert-card,
+  .cert-frame,
+  .note,
+  .poster-card,
+  .series-card,
+  .fact-table,
+  .dial,
+  .api-grade-card,
+  .signal,
+  .mini-poster img,
+  .spec-strip,
+  .footer-logo,
+  .brand-logo {
+    border-radius: 18px !important;
+  }
+  .api-grade-card img,
+  .status-light::before,
+  .guide-card .step {
+    border-radius: 999px !important;
+  }
+  @media(max-width:980px){
+    .proof-dials,.api-matrix,.advantage-grid,.mini-poster{grid-template-columns:1fr!important}
+  }
+  @media(max-width:740px){
+    .tech-console{padding:18px}
+    .console-top{align-items:flex-start;flex-direction:column}
+    .spec-strip{grid-template-columns:1fr}
+    main { padding-top: 68px; }
+  }
+
+  /* Final typography match with Home / Products / Contact */
+  body {
+    font-size: clamp(14px, .9vw, 16px) !important;
+    line-height: 1.6 !important;
+  }
+  h1 {
+    font-size: clamp(44px, 7.2vw, 104px) !important;
+    line-height: .98 !important;
+  }
+  h2 {
+    font-size: clamp(32px, 4.8vw, 64px) !important;
+    line-height: 1 !important;
+  }
+  h3 {
+    font-size: clamp(23px, 2.8vw, 38px) !important;
+    line-height: 1.06 !important;
+  }
+  .lead,
+  .section-head p,
+  .guide-card p,
+  .proof-card p,
+  .cert-card p,
+  .signal span,
+  .spec-strip span,
+  .fact-table td,
+  .note {
+    font-size: clamp(14px, 1vw, 16px) !important;
+    line-height: 1.6 !important;
+  }
+  .eyebrow,
+  .badge,
+  .guide-card .step,
+  .foot h4,
+  .signal b,
+  .spec-strip b,
+  .fact-table th {
+    font-size: clamp(10px, .75vw, 12px) !important;
+    letter-spacing: .045em !important;
+  }
+  .dial strong {
+    font-size: clamp(30px, 3.2vw, 46px) !important;
+  }
+  .api-grade-card img {
+    width: min(132px, 64%) !important;
+  }
+  .proof-card {
+    min-height: auto !important;
+  }
+  .proof-card img {
+    max-height: 220px !important;
+  }
+  html[lang^="zh"] h1 {
+    font-size: clamp(38px, 6.4vw, 72px) !important;
+    line-height: 1.13 !important;
+  }
+  @media (max-width: 740px) {
+    h1 { font-size: clamp(38px, 10vw, 54px) !important; line-height: 1.04 !important; }
+    h2 { font-size: clamp(30px, 8vw, 42px) !important; }
+    h3 { font-size: clamp(22px, 6vw, 30px) !important; }
+    .lead,
+    .section-head p,
+    .guide-card p,
+    .proof-card p,
+    .cert-card p,
+    .signal span,
+    .spec-strip span,
+    .fact-table td,
+    .note {
+      font-size: 14.5px !important;
+    }
+    html[lang^="zh"] h1 { font-size: clamp(32px, 8.6vw, 44px) !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .tech-console::before,
+    .status-light::before,
+    .dial::after,
+    .api-grade-card::before,
+    .spec-strip::after {
+      animation: none !important;
+    }
+  }
+
+  /* Site-wide 3D depth pass */
+  main {
+    perspective: 1600px;
+  }
+  .tech-console,
+  .api-grade-card,
+  .cert-card,
+  .proof-card,
+  .note,
+  .poster-card,
+  .series-card,
+  .spec-strip,
+  .dial,
+  .signal,
+  .verify-stage {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    box-shadow:
+      0 22px 58px rgba(0,0,0,.34),
+      inset 0 1px 0 rgba(255,255,255,.045),
+      0 0 0 1px rgba(255,255,255,.045);
+    transition:
+      transform .38s cubic-bezier(.2,.8,.2,1),
+      box-shadow .38s ease,
+      border-color .38s ease,
+      background .38s ease;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .cert-card:hover,
+    .proof-card:hover,
+    .note:hover,
+    .poster-card:hover,
+    .series-card:hover,
+    .spec-strip:hover,
+    .dial:hover,
+    .signal:hover,
+    .verify-stage:hover {
+      transform: translateY(-7px) rotateX(2deg) rotateY(-1.8deg);
+      border-color: rgba(246,180,65,.34) !important;
+      box-shadow:
+        0 34px 86px rgba(0,0,0,.5),
+        0 0 52px rgba(246,180,65,.12),
+        inset 0 1px 0 rgba(255,255,255,.07);
+    }
+    .cert-card:hover h3,
+    .proof-card:hover h3,
+    .api-grade-card:hover h3,
+    .dial:hover strong {
+      transform: translateZ(22px);
+    }
+  }
+  @media (max-width: 740px), (prefers-reduced-motion: reduce) {
+    .tech-console,
+    .api-grade-card,
+    .cert-card,
+    .proof-card,
+    .note,
+    .poster-card,
+    .series-card,
+    .spec-strip,
+    .dial,
+    .signal,
+    .verify-stage {
+      transform: none !important;
+    }
+  }
+
+  /* Lightweight 3D page entrance */
+  main {
+    transform-origin: 50% 0;
+    animation: uelPageTurnIn .52s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes uelPageTurnIn {
+    from {
+      opacity: 0;
+      transform: translateY(18px) rotateX(5deg) scale(.985);
+      filter: blur(3px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotateX(0) scale(1);
+      filter: blur(0);
+    }
+  }
+  @media (max-width: 740px) {
+    main {
+      animation: uelMobilePageIn .34s ease-out both;
+    }
+    @keyframes uelMobilePageIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    main {
+      animation: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" aria-label="UEL"><img class="brand-logo" src="images/uel-logo.png" alt="UEL Unique Excellent Lubricant"></a>
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="index.html" data-copy="navHome">Home</a>
+      <a href="products.html" data-copy="navProducts">Products</a>
+      <a href="api-cert.html" class="active" data-copy="navWhere">API & Cert</a>
+      <a href="contact.html" data-copy="navContact">Contact</a>
+      <a class="nav-cta" href="https://wa.me/60108989120?text=Hi%20UEL%2C%20I%20want%20to%20ask%20about%20API%20and%20certificates" target="_blank" rel="noopener">WhatsApp</a>
+      <div class="lang" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="zh">中文</button><button type="button" data-lang="bm">BM</button></div>
+    </nav>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <span class="eyebrow" data-copy="heroEyebrow">API & Certificate Verification</span>
+        <h1 data-copy-html="heroTitle">API & Certificate <em>Proof Files.</em></h1>
+        <p class="lead" data-copy="heroLead">Review the API proof images, SIRIM licence details and certificate files provided for UEL product verification.</p>
+        <div class="hero-actions reveal d1">
+          <a class="btn" href="#api-proof" data-copy="heroPrimary">Check API Proof</a>
+          <a class="btn ghost" href="#sirim" data-copy="heroSecondary">View SIRIM Licence</a>
+        </div>
+      </div>
+      <div class="tech-console reveal d2" aria-label="API and certificate proof summary">
+        <div class="console-top">
+          <span class="status-light" data-copy="consoleStatus">Provided proof files</span>
+          <span class="badge" data-copy="consoleBadge">Verification records</span>
+        </div>
+        <div class="proof-dials">
+          <div class="dial"><strong>3</strong><span data-copy="dialApi">API SQ grade labels</span></div>
+          <div class="dial"><strong>1</strong><span data-copy="dialSirim">SIRIM licence record</span></div>
+          <div class="dial"><strong>2026</strong><span data-copy="dialValidity">Licence validity year</span></div>
+        </div>
+        <div class="signal-list" style="margin-top:18px">
+          <div class="signal"><b data-copy="consoleProofTitle">Proof file</b><span data-copy="consoleProofText">Use this page to check the provided API and certificate files before enquiry.</span></div>
+          <div class="signal"><b data-copy="consoleCareTitle">Use carefully</b><span data-copy="consoleCareText">API wording applies only to the matching grades shown in the proof files and product material.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="api-proof">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><span class="eyebrow" data-copy="proofEyebrow">API Service SQ</span><h2 data-copy-html="proofTitle">Proof by <em>grade.</em></h2></div>
+        <p data-copy="proofLead">Check the available API proof by grade, then match the same grade on the product label before ordering.</p>
+      </div>
+      <div class="api-matrix">
+        <article class="api-grade-card reveal" style="--glow:rgba(43,108,246,.22)">
+          <img src="API Proof/SAE 5W-30.jpeg" alt="API Service SQ SAE 5W-30 Resource Conserving label">
+          <h3>SAE 5W-30</h3>
+          <div class="grade-line"><span>API Service SQ</span><span>Resource Conserving</span></div>
+        </article>
+        <article class="api-grade-card reveal d1" style="--glow:rgba(24,169,116,.22)">
+          <img src="API Proof/SAE 10W-40.jpeg" alt="API Service SQ SAE 10W-40 Resource Conserving label">
+          <h3>SAE 10W-40</h3>
+          <div class="grade-line"><span>API Service SQ</span><span>Resource Conserving</span></div>
+        </article>
+        <article class="api-grade-card reveal d2" style="--glow:rgba(226,59,47,.22)">
+          <img src="API Proof/SAE 15W-40.jpeg" alt="API Service SQ SAE 15W-40 Resource Conserving label">
+          <h3>SAE 15W-40</h3>
+          <div class="grade-line"><span>API Service SQ</span><span>Resource Conserving</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap advantage-grid">
+      <article class="cert-card reveal">
+        <span class="eyebrow" data-copy="summaryEyebrow">Provided Proof Files</span>
+        <h2 style="margin-top:14px" data-copy-html="summaryTitle">Provided proof <em>summary.</em></h2>
+        <div class="signal-list" style="margin-top:24px">
+          <div class="signal"><b data-copy="summaryApiTitle">Grade-level API proof</b><span data-copy="summaryApiText">5W-30, 10W-40 and 15W-40 proof assets are shown as separate technical cards, not hidden inside a poster.</span></div>
+          <div class="signal"><b data-copy="summaryBadgeTitle">Gasoline-engine presentation</b><span data-copy="summaryBadgeText">The provided American Petroleum Institute gasoline-engine badge is kept as a visible proof-support asset.</span></div>
+          <div class="signal"><b data-copy="summaryCheckTitle">Check before use</b><span data-copy="summaryCheckText">Product selection should follow the product label, data sheet, manual and UEL confirmation.</span></div>
+        </div>
+      </article>
+      <article class="proof-card reveal d1" style="--glow:rgba(246,180,65,.18)">
+        <img src="API Proof/WhatsApp Image 2026-05-05 at 4.28.51 PM (2).jpeg" alt="American Petroleum Institute For Gasoline Engines badge">
+        <h3 data-copy="gasolineTitle">For Gasoline Engines</h3>
+        <p data-copy="gasolineText">Presented as the provided gasoline-engine badge asset. Product matching should still follow the exact grade label and vehicle manual.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="technology-artwork">
+    <div class="wrap">
+      <article class="cert-card tech-artwork-card reveal">
+        <img src="images/2739104a-2fc8-46b0-9a80-c8c84f5d8251.jpg" alt="UEL technology artwork showing LSPI Protection, Turbo Safe Technology and Fuel Economy Formula">
+        <div class="artwork-copy">
+          <span class="eyebrow" data-copy="artworkEyebrow">UEL Technology Artwork</span>
+          <h2 data-copy-html="artworkTitle">Technology highlights for <em>easier selection.</em></h2>
+          <p data-copy="artworkLead">These UEL technology highlights help customers understand the product range quickly. For exact product suitability, check the product label, data sheet or ask UEL.</p>
+          <div class="signal-list">
+            <div class="signal"><b>LSPI Protection</b><span data-copy="artworkPoint1">Shown as wording on the provided artwork.</span></div>
+            <div class="signal"><b>Turbo Safe Technology</b><span data-copy="artworkPoint2">Shown as wording on the provided artwork.</span></div>
+            <div class="signal"><b>Fuel Economy Formula</b><span data-copy="artworkPoint3">Shown as wording on the provided artwork.</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="sirim">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><span class="eyebrow" data-copy="certEyebrow">SIRIM Genuine Product</span><h2 data-copy-html="certTitle">Certificate details in <em>scan view.</em></h2></div>
+        <p data-copy="certLead">View the SIRIM licence details for WUHO Petroleum, including licence number, product scope and validity dates.</p>
+      </div>
+      <div class="cert-layout">
+        <article class="cert-card reveal">
+          <span class="badge">SIRIM 58:2022</span>
+          <h3 style="margin-top:18px" data-copy="licenceRecordTitle">Licence Record</h3>
+          <table class="fact-table">
+            <tr><th data-copy="licenceNumber">Licence number</th><td>PG000124</td></tr>
+            <tr><th data-copy="licenceHolder">Licence holder</th><td>WUHO Petroleum Packaging Sdn. Bhd.</td></tr>
+            <tr><th data-copy="productCertified">Product certified</th><td data-copy="engineOilsScope">Genuine Product - Engine Oils</td></tr>
+            <tr><th data-copy="standardLabel">Standard</th><td>SIRIM 58:2022</td></tr>
+            <tr><th data-copy="validityLabel">Validity</th><td data-copy="validityValue">Certified since 12 November 2025; valid until 12 November 2026</td></tr>
+            <tr><th data-copy="serialNumber">Serial number</th><td>119346</td></tr>
+          </table>
+          <div class="hero-actions">
+            <a class="btn" href="API Proof/Cert Wuho Petroleum.pdf" target="_blank" rel="noopener" data-copy="openCertPdf">Open Certificate PDF</a>
+            <a class="btn ghost" href="UEL_All_Product_and_Additional_Notes_Updated.pdf" target="_blank" rel="noopener" data-copy="openSourceNotes">Open Source Notes</a>
+          </div>
+        </article>
+        <article class="cert-card reveal d1">
+          <span class="badge" data-copy="certReportBadge">Certification Report</span>
+          <h3 style="margin-top:18px" data-copy="technicalTraceTitle">Technical Trace</h3>
+          <table class="fact-table">
+            <tr><th data-copy="schemeLabel">Scheme</th><td data-copy="schemeValue">Certification Scheme for Genuine Product</td></tr>
+            <tr><th data-copy="fileReportLabel">File / report</th><td>P5-022570 / RPT019532</td></tr>
+            <tr><th data-copy="editionLabel">Edition / revision</th><td data-copy="editionValue">Edition 1 / Revision 0</td></tr>
+            <tr><th data-copy="dateIssuedLabel">Date issued</th><td>12/11/2025</td></tr>
+            <tr><th data-copy="applicantLabel">Applicant / factory</th><td>WUHO Petroleum Packaging Sdn. Bhd.</td></tr>
+            <tr><th data-copy="verifiedLabel">Verified / approved</th><td>Irfan Abdullah Khalit / Ts. Hasnol Bin Zakaria</td></tr>
+          </table>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="poster">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><span class="eyebrow" data-copy="posterEyebrow">Poster Summary</span><h2 data-copy-html="posterTitle">Poster used as <em>supporting material.</em></h2></div>
+        <p data-copy="posterLead">The poster is included as a provided source file. Confirm product availability and pricing with UEL before quotation.</p>
+      </div>
+      <div class="mini-poster reveal">
+        <img src="API Proof/WhatsApp Image 2026-05-05 at 4.28.50 PM.jpeg" alt="UEL Passenger Vehicle Series poster">
+        <div class="spec-strips">
+          <div class="spec-strip"><b>Ultra Tech</b><span data-copy="posterUltra">5W30 SQ/CF Fully, 5W30 SQ/CF Semi, 10W40 SQ/CF Semi, 15W40 SQ/CF Semi. Poster shows normal and promo prices.</span></div>
+          <div class="spec-strip"><b>Premium Mineral</b><span data-copy="posterMineral">10W30 SL/CF, 15W40 SM/CF, 20W50 SL/CF and HD40 CF mineral products are grouped for practical servicing.</span></div>
+          <div class="spec-strip"><b>Heavy Duty / ATF</b><span data-copy="posterHeavy">15W40 CK4/SL Fully Synthetic and ATF Dex 3 are shown for heavy-load and transmission enquiries.</span></div>
+          <div class="spec-strip"><b data-copy="posterQuoteTitle">Quote note</b><span data-copy="posterQuote">Poster prices and promotions should be confirmed with UEL before final customer quotation.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap note-row">
+      <div class="note reveal" data-copy="noteApi">API Service SQ proof is shown for the exact grades in the provided proof images.</div>
+      <div class="note reveal d1" data-copy="noteSirim">SIRIM licence details are shown for engine oils under SIRIM 58:2022.</div>
+      <div class="note reveal d2" data-copy="noteManual">Final oil choice should still follow the product label, vehicle or machine manual, and UEL confirmation.</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot"><img class="footer-logo" src="images/uel-logo.png" alt="UEL Unique Excellent Lubricant"><p data-copy="footerDesc">Engine oils, lubricants and vehicle fluids for Malaysian drivers, workshops, fleets and industrial users.</p></div>
+      <div class="foot"><h4 data-copy="footerProducts">Products</h4><ul><li><a href="products.html" data-copy="footCar">Car Engine Oil</a></li><li><a href="products.html" data-copy="footDiesel">Diesel Oil</a></li><li><a href="products.html" data-copy="footAtf">ATF / Transmission</a></li><li><a href="products.html" data-copy="footHydraulic">Hydraulic Oil</a></li></ul></div>
+      <div class="foot"><h4 data-copy="footerCompany">Company</h4><ul><li><a href="index.html#about" data-copy="footWho">Who We Are</a></li><li><a href="api-cert.html" data-copy="navWhere">API & Cert</a></li><li><a href="index.html#range" data-copy="footRange">Range</a></li><li><a href="contact.html" data-copy="navContact">Contact</a></li></ul></div>
+      <div class="foot"><h4 data-copy="footerTouch">Get in Touch</h4><ul><li><a href="https://wa.me/60108989120" target="_blank" rel="noopener">WhatsApp +60 10-898 9120</a></li><li><a href="tel:+60108989120">Tel +60 10-898 9120</a></li><li><a href="mailto:uel.lubricant@gmail.com">uel.lubricant@gmail.com</a></li><li><a href="https://www.facebook.com/share/1FUh7wmZLy/" target="_blank" rel="noopener" data-copy="footerFacebook">Facebook Updates</a></li></ul></div>
+    </div>
+    <div class="legal"><span data-copy="legalRights">UEL - Unique Excellent Lubricant. All rights reserved.</span><span data-copy="legalViewer">API proof and certificate viewer</span></div>
+  </div>
+</footer>
+<div class="ambient-dip" aria-hidden="true"></div>
+<script>
+  const copy={
+    en:{htmlLang:'en-MY',navHome:'Home',navProducts:'Products',navTechnology:'Technology',navWhere:'API & Cert',navContact:'Contact',heroEyebrow:'Verification',heroTitle:'API & <em>Certificate Proof.</em>',heroLead:'View UEL proof assets for API listed grades, gasoline engine certification artwork and Wuho Petroleum certificate documents.',heroPrimary:'View API Proof',heroSecondary:'View Certificate',proofEyebrow:'API Proof',proofTitle:'Provided grade <em>assets.</em>',proofLead:'These proof cards use the files provided in the API Proof folder. Final product matching should still follow the product label and vehicle manual.',certEyebrow:'Certificate',certTitle:'Wuho Petroleum <em>certificate.</em>',certLead:'The certificate is embedded for desktop review and linked for download/opening on mobile browsers.',footerDesc:'Engine oils, lubricants and vehicle fluids for Malaysian drivers, workshops, fleets and industrial users.',footerProducts:'Products',footerCompany:'Company',footerTouch:'Get in Touch'},
+    zh:{htmlLang:'zh-Hans-MY',navHome:'首页',navProducts:'产品',navTechnology:'技术',navWhere:'API认证',navContact:'联系',heroEyebrow:'认证资料',heroTitle:'API 与 <em>证书证明。</em>',heroLead:'查看 UEL 提供的 API 等级证明、汽油引擎认证图和 Wuho Petroleum 证书文件。',heroPrimary:'查看 API',heroSecondary:'查看证书',proofEyebrow:'API 证明',proofTitle:'已提供的 <em>等级证明。</em>',proofLead:'本页只使用 API Proof 文件夹内的证明图。最终选择仍需以产品标签和车辆说明书为准。',certEyebrow:'证书',certTitle:'Wuho Petroleum <em>证书。</em>',certLead:'桌面可预览 PDF，手机可打开或下载。',footerDesc:'为马来西亚车主、维修厂、车队和工业用户供应引擎油、润滑油和车辆油液。',footerProducts:'产品',footerCompany:'公司',footerTouch:'联系'},
+    bm:{htmlLang:'ms-MY',navHome:'Laman Utama',navProducts:'Produk',navTechnology:'Teknologi',navWhere:'API & Sijil',navContact:'Hubungi',heroEyebrow:'Pengesahan',heroTitle:'Bukti API & <em>Sijil.</em>',heroLead:'Lihat aset bukti API, lencana enjin petrol dan sijil Wuho Petroleum yang dibekalkan.',heroPrimary:'Lihat API',heroSecondary:'Lihat Sijil',proofEyebrow:'Bukti API',proofTitle:'Aset gred <em>disahkan.</em>',proofLead:'Kad bukti ini menggunakan fail dalam folder API Proof. Padanan akhir masih ikut label produk dan manual kenderaan.',certEyebrow:'Sijil',certTitle:'Sijil <em>Wuho Petroleum.</em>',certLead:'Sijil dipaparkan untuk desktop dan disediakan sebagai pautan buka/muat turun untuk telefon.',footerDesc:'Minyak enjin, pelincir dan cecair kenderaan untuk pemandu, bengkel, fleet dan pengguna industri Malaysia.',footerProducts:'Produk',footerCompany:'Syarikat',footerTouch:'Hubungi'}
+  };
+  Object.assign(copy.en,{
+    navWhere:'API & Cert',
+    navTechnology:'API & Cert',
+    heroEyebrow:'API & Certificate Verification',
+    heroTitle:'API & Certificate <em>Proof Files.</em>',
+    heroLead:'Review the API proof images, SIRIM licence details and certificate files provided for UEL product verification.',
+    heroPrimary:'Check API Proof',
+    heroSecondary:'View SIRIM Licence',
+    guideEyebrow:'Oil Selection Guide',
+    guideTitle:'Check product proof in <em>four steps.</em>',
+    guideLead:'Use product labels, matching data sheets, API proof assets and SIRIM licence details carefully, then confirm the vehicle or machine manual with UEL.',
+    guide1Title:'Product data sheet',
+    guide1Text:'Use the product-specific sheet or the updated notes PDF for product identity, viscosity, application notes and typical technical values.',
+    guide2Title:'API label asset',
+    guide2Text:'Only show API Service SQ wording for the exact grades supported by the provided API proof images: SAE 5W-30, SAE 10W-40 and SAE 15W-40.',
+    guide3Title:'Poster information',
+    guide3Text:'The Passenger Vehicle Series poster groups products under Ultra Tech, Premium Mineral and Heavy Duty / ATF, including prices and promotion prices shown.',
+    guide4Title:'SIRIM licence',
+    guide4Text:'The updated notes list SIRIM Genuine Product Licence information for WUHO Petroleum Packaging Sdn. Bhd. under SIRIM 58:2022.',
+    proofEyebrow:'API Proof',
+    proofTitle:'Proof by <em>grade.</em>',
+    proofLead:'Check the available API proof by grade, then match the same grade on the product label before ordering.',
+    certEyebrow:'SIRIM Genuine Product',
+    certTitle:'Certificate details in <em>scan view.</em>',
+    certLead:'View the SIRIM licence details for WUHO Petroleum, including licence number, product scope and validity dates.',
+    consoleStatus:'Provided proof files',
+    consoleBadge:'Verification records',
+    dialApi:'API SQ grade labels',
+    dialSirim:'SIRIM licence record',
+    dialValidity:'Licence validity year',
+    consoleProofTitle:'Proof file',
+    consoleProofText:'Use this page to check the provided API and certificate files before enquiry.',
+    consoleCareTitle:'Use carefully',
+    consoleCareText:'API wording applies only to the matching grades shown in the proof files and product material.',
+    summaryEyebrow:'Provided Proof Files',
+    summaryTitle:'Provided proof <em>summary.</em>',
+    summaryApiTitle:'Grade-level API proof',
+    summaryApiText:'5W-30, 10W-40 and 15W-40 proof assets are shown as separate technical cards, not hidden inside a poster.',
+    summaryBadgeTitle:'Gasoline-engine presentation',
+    summaryBadgeText:'The provided American Petroleum Institute gasoline-engine badge is kept as a visible proof-support asset.',
+    summaryCheckTitle:'Check before use',
+    summaryCheckText:'Product selection should follow the product label, data sheet, manual and UEL confirmation.',
+    gasolineTitle:'For Gasoline Engines',
+    gasolineText:'Presented as the provided gasoline-engine badge asset. Product matching should still follow the exact grade label and vehicle manual.',
+    artworkEyebrow:'UEL Technology Artwork',
+    artworkTitle:'Technology highlights for <em>easier selection.</em>',
+    artworkLead:'These UEL technology highlights help customers understand the product range quickly. For exact product suitability, check the product label, data sheet or ask UEL.',
+    artworkPoint1:'Shown as wording on the provided artwork.',
+    artworkPoint2:'Shown as wording on the provided artwork.',
+    artworkPoint3:'Shown as wording on the provided artwork.',
+    licenceRecordTitle:'Licence Record',
+    licenceNumber:'Licence number',
+    licenceHolder:'Licence holder',
+    productCertified:'Product certified',
+    engineOilsScope:'Genuine Product - Engine Oils',
+    standardLabel:'Standard',
+    validityLabel:'Validity',
+    validityValue:'Certified since 12 November 2025; valid until 12 November 2026',
+    serialNumber:'Serial number',
+    openCertPdf:'Open Certificate PDF',
+    openSourceNotes:'Open Source Notes',
+    certReportBadge:'Certification Report',
+    technicalTraceTitle:'Technical Trace',
+    schemeLabel:'Scheme',
+    schemeValue:'Certification Scheme for Genuine Product',
+    fileReportLabel:'File / report',
+    editionLabel:'Edition / revision',
+    editionValue:'Edition 1 / Revision 0',
+    dateIssuedLabel:'Date issued',
+    applicantLabel:'Applicant / factory',
+    verifiedLabel:'Verified / approved',
+    posterEyebrow:'Poster Summary',
+    posterTitle:'Poster used as <em>supporting material.</em>',
+    posterLead:'The poster is included as a provided source file. Confirm product availability and pricing with UEL before quotation.',
+    posterUltra:'5W30 SQ/CF Fully, 5W30 SQ/CF Semi, 10W40 SQ/CF Semi, 15W40 SQ/CF Semi. Poster shows normal and promo prices.',
+    posterMineral:'10W30 SL/CF, 15W40 SM/CF, 20W50 SL/CF and HD40 CF mineral products are grouped for practical servicing.',
+    posterHeavy:'15W40 CK4/SL Fully Synthetic and ATF Dex 3 are shown for heavy-load and transmission enquiries.',
+    posterQuoteTitle:'Quote note',
+    posterQuote:'Poster prices and promotions should be confirmed with UEL before final customer quotation.',
+    noteApi:'API Service SQ proof is shown for the exact grades in the provided proof images.',
+    noteSirim:'SIRIM licence details are shown for engine oils under SIRIM 58:2022.',
+    noteManual:'Final oil choice should still follow the product label, vehicle or machine manual, and UEL confirmation.',
+    legalRights:'UEL - Unique Excellent Lubricant. All rights reserved.',
+    legalViewer:'API proof and certificate viewer',
+    footCar:'Car Engine Oil',
+    footDiesel:'Diesel Oil',
+    footAtf:'ATF / Transmission',
+    footHydraulic:'Hydraulic Oil',
+    footWho:'Who We Are',
+    footRange:'Range',
+    footerFacebook:'Facebook Updates'
+  });
+  Object.assign(copy.zh,{
+    navWhere:'API认证',
+    navTechnology:'API认证',
+    heroEyebrow:'API 与证书验证',
+    heroTitle:'API 与证书<em>证明文件。</em>',
+    heroLead:'查看 UEL 产品验证所提供的 API 证明图、SIRIM 执照资料和证书文件。',
+    heroPrimary:'查看 API 证明',
+    heroSecondary:'查看 SIRIM 执照',
+    guideEyebrow:'油品选择指南',
+    guideTitle:'用<em>四个步骤</em>检查资料。',
+    guideLead:'请结合产品标签、对应资料表、API 证明和 SIRIM 执照资料，再按车辆或机器手册向 UEL 确认。',
+    guide1Title:'产品资料表',
+    guide1Text:'使用对应产品资料表或更新后的备注 PDF，查看产品名称、粘度、用途说明和典型技术数值。',
+    guide2Title:'API 标签证明',
+    guide2Text:'API Service SQ 文字只用于已提供证明图的等级：SAE 5W-30、SAE 10W-40 和 SAE 15W-40。',
+    guide3Title:'产品海报资料',
+    guide3Text:'Passenger Vehicle Series 海报把产品分为 Ultra Tech、Premium Mineral 和 Heavy Duty / ATF，并显示价格与促销价。',
+    guide4Title:'SIRIM 执照',
+    guide4Text:'更新资料列出 WUHO Petroleum Packaging Sdn. Bhd. 在 SIRIM 58:2022 下的 Genuine Product Licence 资料。',
+    proofEyebrow:'API 证明',
+    proofTitle:'按<em>等级</em>查看证明。',
+    proofLead:'按等级查看已提供的 API 证明，并在订购前核对产品标签上的相同等级。',
+    certEyebrow:'SIRIM Genuine Product',
+    certTitle:'证书资料<em>快速检查。</em>',
+    certLead:'查看 WUHO Petroleum 的 SIRIM 执照资料，包括执照号码、产品范围和有效日期。',
+    consoleStatus:'已提供的证明文件',
+    consoleBadge:'验证资料',
+    dialApi:'API SQ 等级标签',
+    dialSirim:'SIRIM 执照记录',
+    dialValidity:'执照有效年份',
+    consoleProofTitle:'证明文件',
+    consoleProofText:'询问前，可先在本页查看已提供的 API 与证书文件。',
+    consoleCareTitle:'谨慎使用',
+    consoleCareText:'API 文字只适用于证明文件和产品资料中对应的等级。',
+    summaryEyebrow:'已提供的证明文件',
+    summaryTitle:'证明资料<em>摘要。</em>',
+    summaryApiTitle:'按等级区分的 API 证明',
+    summaryApiText:'5W-30、10W-40 和 15W-40 的证明资料以独立技术卡片展示，不隐藏在海报内。',
+    summaryBadgeTitle:'汽油引擎标志展示',
+    summaryBadgeText:'已提供的 American Petroleum Institute 汽油引擎标志作为辅助证明资料展示。',
+    summaryCheckTitle:'使用前确认',
+    summaryCheckText:'产品选择应以产品标签、资料表、手册和 UEL 确认为准。',
+    gasolineTitle:'适用于汽油引擎',
+    gasolineText:'此处展示已提供的汽油引擎标志资料。产品配对仍应以准确等级标签和车辆手册为准。',
+    artworkEyebrow:'UEL 技术图示',
+    artworkTitle:'技术亮点，帮助客户<em>更快选择。</em>',
+    artworkLead:'这些 UEL 技术亮点让客户更快了解产品系列。准确适用性请查看产品标签、资料表，或直接询问 UEL。',
+    artworkPoint1:'此文字显示在已提供的图示上。',
+    artworkPoint2:'此文字显示在已提供的图示上。',
+    artworkPoint3:'此文字显示在已提供的图示上。',
+    licenceRecordTitle:'执照记录',
+    licenceNumber:'执照号码',
+    licenceHolder:'执照持有人',
+    productCertified:'认证产品',
+    engineOilsScope:'Genuine Product - 引擎油',
+    standardLabel:'标准',
+    validityLabel:'有效期',
+    validityValue:'认证日期：2025年11月12日；有效至：2026年11月12日',
+    serialNumber:'序列号',
+    openCertPdf:'打开证书 PDF',
+    openSourceNotes:'打开来源资料',
+    certReportBadge:'认证报告',
+    technicalTraceTitle:'技术记录',
+    schemeLabel:'认证计划',
+    schemeValue:'Genuine Product 认证计划',
+    fileReportLabel:'文件 / 报告',
+    editionLabel:'版本 / 修订',
+    editionValue:'第 1 版 / 第 0 次修订',
+    dateIssuedLabel:'签发日期',
+    applicantLabel:'申请方 / 工厂',
+    verifiedLabel:'验证 / 批准',
+    posterEyebrow:'海报摘要',
+    posterTitle:'海报作为<em>辅助资料。</em>',
+    posterLead:'此海报作为已提供来源文件展示。报价前请向 UEL 确认产品库存和价格。',
+    posterUltra:'5W30 SQ/CF 全合成、5W30 SQ/CF 半合成、10W40 SQ/CF 半合成、15W40 SQ/CF 半合成。海报显示普通价和促销价。',
+    posterMineral:'10W30 SL/CF、15W40 SM/CF、20W50 SL/CF 和 HD40 CF 矿物油产品被归类为常见维修用途。',
+    posterHeavy:'15W40 CK4/SL 全合成和 ATF Dex 3 用于重负荷和变速箱相关询问。',
+    posterQuoteTitle:'报价提醒',
+    posterQuote:'海报价格和促销资料在给客户最终报价前应向 UEL 确认。',
+    noteApi:'API Service SQ 证明只展示已提供证明图中的对应等级。',
+    noteSirim:'SIRIM 执照资料显示 SIRIM 58:2022 下的引擎油记录。',
+    noteManual:'最终油品选择仍应以产品标签、车辆或机器手册，以及 UEL 确认为准。',
+    legalRights:'UEL - Unique Excellent Lubricant. 版权所有。',
+    legalViewer:'API 证明与证书查看',
+    footCar:'汽车引擎油',
+    footDiesel:'柴油引擎油',
+    footAtf:'ATF / 变速箱油',
+    footHydraulic:'液压油',
+    footWho:'关于 UEL',
+    footRange:'产品范围',
+    footerFacebook:'Facebook 官方动态'
+  });
+  Object.assign(copy.bm,{
+    navWhere:'API & Sijil',
+    navTechnology:'API & Sijil',
+    heroEyebrow:'Pengesahan API & Sijil',
+    heroTitle:'Fail Bukti API & <em>Sijil.</em>',
+    heroLead:'Semak imej bukti API, butiran lesen SIRIM dan fail sijil yang dibekalkan untuk pengesahan produk UEL.',
+    heroPrimary:'Semak Bukti API',
+    heroSecondary:'Lihat Lesen SIRIM',
+    guideEyebrow:'Panduan Pilihan Minyak',
+    guideTitle:'Semak bukti produk melalui <em>empat langkah.</em>',
+    guideLead:'Guna label produk, data sheet sepadan, aset bukti API dan butiran lesen SIRIM dengan teliti, kemudian sahkan manual kenderaan atau mesin dengan UEL.',
+    guide1Title:'Data sheet produk',
+    guide1Text:'Guna helaian produk sepadan atau PDF nota terkini untuk identiti produk, kelikatan, nota aplikasi dan nilai teknikal tipikal.',
+    guide2Title:'Aset label API',
+    guide2Text:'Tunjukkan wording API Service SQ hanya untuk gred yang disokong imej bukti: SAE 5W-30, SAE 10W-40 dan SAE 15W-40.',
+    guide3Title:'Maklumat poster',
+    guide3Text:'Poster Passenger Vehicle Series mengumpulkan produk di bawah Ultra Tech, Premium Mineral dan Heavy Duty / ATF, termasuk harga dan harga promosi yang dipaparkan.',
+    guide4Title:'Lesen SIRIM',
+    guide4Text:'Nota terkini menyenaraikan maklumat SIRIM Genuine Product Licence untuk WUHO Petroleum Packaging Sdn. Bhd. di bawah SIRIM 58:2022.',
+    proofEyebrow:'Bukti API',
+    proofTitle:'Bukti ikut <em>gred.</em>',
+    proofLead:'Semak bukti API yang tersedia mengikut gred, kemudian padankan gred yang sama pada label produk sebelum membuat pesanan.',
+    certEyebrow:'SIRIM Genuine Product',
+    certTitle:'Butiran sijil dalam <em>paparan semak.</em>',
+    certLead:'Lihat butiran lesen SIRIM untuk WUHO Petroleum, termasuk nombor lesen, skop produk dan tarikh sah.',
+    consoleStatus:'Fail bukti dibekalkan',
+    consoleBadge:'Rekod pengesahan',
+    dialApi:'Label gred API SQ',
+    dialSirim:'Rekod lesen SIRIM',
+    dialValidity:'Tahun sah lesen',
+    consoleProofTitle:'Fail bukti',
+    consoleProofText:'Guna halaman ini untuk menyemak fail API dan sijil yang dibekalkan sebelum bertanya.',
+    consoleCareTitle:'Guna dengan teliti',
+    consoleCareText:'Wording API hanya terpakai kepada gred sepadan yang ditunjukkan dalam fail bukti dan bahan produk.',
+    summaryEyebrow:'Fail Bukti Dibekalkan',
+    summaryTitle:'Ringkasan <em>bukti dibekalkan.</em>',
+    summaryApiTitle:'Bukti API ikut gred',
+    summaryApiText:'Aset bukti 5W-30, 10W-40 dan 15W-40 ditunjukkan sebagai kad teknikal berasingan.',
+    summaryBadgeTitle:'Paparan lencana enjin petrol',
+    summaryBadgeText:'Lencana American Petroleum Institute untuk enjin petrol yang dibekalkan ditunjukkan sebagai aset sokongan.',
+    summaryCheckTitle:'Sahkan sebelum guna',
+    summaryCheckText:'Pilihan produk perlu ikut label produk, data sheet, manual dan pengesahan UEL.',
+    gasolineTitle:'Untuk Enjin Petrol',
+    gasolineText:'Ditunjukkan sebagai aset lencana enjin petrol yang dibekalkan. Padanan produk masih perlu ikut label gred tepat dan manual kenderaan.',
+    artworkEyebrow:'Artwork Teknologi UEL',
+    artworkTitle:'Sorotan teknologi untuk <em>pemilihan lebih mudah.</em>',
+    artworkLead:'Sorotan teknologi UEL ini membantu pelanggan memahami rangkaian produk dengan cepat. Untuk kesesuaian produk yang tepat, semak label produk, data sheet atau tanya UEL.',
+    artworkPoint1:'Ditunjukkan sebagai wording pada artwork yang dibekalkan.',
+    artworkPoint2:'Ditunjukkan sebagai wording pada artwork yang dibekalkan.',
+    artworkPoint3:'Ditunjukkan sebagai wording pada artwork yang dibekalkan.',
+    licenceRecordTitle:'Rekod Lesen',
+    licenceNumber:'Nombor lesen',
+    licenceHolder:'Pemegang lesen',
+    productCertified:'Produk disijilkan',
+    engineOilsScope:'Genuine Product - Minyak Enjin',
+    standardLabel:'Standard',
+    validityLabel:'Tempoh sah',
+    validityValue:'Disijilkan sejak 12 November 2025; sah hingga 12 November 2026',
+    serialNumber:'Nombor siri',
+    openCertPdf:'Buka PDF Sijil',
+    openSourceNotes:'Buka Nota Sumber',
+    certReportBadge:'Laporan Sijil',
+    technicalTraceTitle:'Jejak Teknikal',
+    schemeLabel:'Skim',
+    schemeValue:'Certification Scheme for Genuine Product',
+    fileReportLabel:'Fail / laporan',
+    editionLabel:'Edisi / semakan',
+    editionValue:'Edisi 1 / Semakan 0',
+    dateIssuedLabel:'Tarikh dikeluarkan',
+    applicantLabel:'Pemohon / kilang',
+    verifiedLabel:'Disemak / diluluskan',
+    posterEyebrow:'Ringkasan Poster',
+    posterTitle:'Poster sebagai <em>bahan sokongan.</em>',
+    posterLead:'Poster disertakan sebagai fail sumber yang dibekalkan. Sahkan stok dan harga dengan UEL sebelum quotation.',
+    posterUltra:'5W30 SQ/CF Fully, 5W30 SQ/CF Semi, 10W40 SQ/CF Semi, 15W40 SQ/CF Semi. Poster menunjukkan harga biasa dan promosi.',
+    posterMineral:'10W30 SL/CF, 15W40 SM/CF, 20W50 SL/CF dan HD40 CF mineral dikumpulkan untuk servis praktikal.',
+    posterHeavy:'15W40 CK4/SL Fully Synthetic dan ATF Dex 3 ditunjukkan untuk pertanyaan heavy-load dan transmisi.',
+    posterQuoteTitle:'Nota quote',
+    posterQuote:'Harga poster dan promosi perlu disahkan dengan UEL sebelum quotation akhir kepada pelanggan.',
+    noteApi:'Bukti API Service SQ ditunjukkan untuk gred tepat dalam imej bukti yang dibekalkan.',
+    noteSirim:'Butiran lesen SIRIM ditunjukkan untuk minyak enjin di bawah SIRIM 58:2022.',
+    noteManual:'Pilihan minyak akhir masih perlu ikut label produk, manual kenderaan atau mesin dan pengesahan UEL.',
+    legalRights:'UEL - Unique Excellent Lubricant. Hak cipta terpelihara.',
+    legalViewer:'Paparan bukti API dan sijil',
+    footCar:'Minyak Enjin Kereta',
+    footDiesel:'Minyak Diesel',
+    footAtf:'ATF / Transmisi',
+    footHydraulic:'Minyak Hidraulik',
+    footWho:'Tentang UEL',
+    footRange:'Rangkaian',
+    footerFacebook:'Facebook UEL'
+  });
+  let currentLang=localStorage.getItem('uelLang')||'en';
+  const applyLanguage=lang=>{currentLang=copy[lang]?lang:'en';localStorage.setItem('uelLang',currentLang);document.documentElement.lang=copy[currentLang].htmlLang;document.querySelectorAll('[data-lang]').forEach(btn=>{const active=btn.dataset.lang===currentLang;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',active?'true':'false')});document.querySelectorAll('[data-copy]').forEach(el=>{el.textContent=copy[currentLang][el.dataset.copy]||el.textContent});document.querySelectorAll('[data-copy-html]').forEach(el=>{el.innerHTML=copy[currentLang][el.dataset.copyHtml]||el.innerHTML})};
+  document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>applyLanguage(btn.dataset.lang)));
+  const menuBtn=document.getElementById('menu-btn');const navLinks=document.getElementById('nav-links');menuBtn?.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open?'true':'false')});navLinks?.addEventListener('click',e=>{if(e.target.matches('a')){navLinks.classList.remove('open');menuBtn?.setAttribute('aria-expanded','false')}});
+  (()=>{const dip=document.querySelector('.ambient-dip');if(!dip||matchMedia('(prefers-reduced-motion: reduce)').matches)return;let x=innerWidth*.5,y=innerHeight*.35,raf=0;const paint=()=>{dip.style.setProperty('--dip-x',x+'px');dip.style.setProperty('--dip-y',y+'px');raf=0};const queue=(nx,ny)=>{x=nx;y=ny;if(!raf)raf=requestAnimationFrame(paint)};addEventListener('pointermove',e=>queue(e.clientX,e.clientY),{passive:true});addEventListener('touchmove',e=>{const t=e.touches[0];if(t)queue(t.clientX,t.clientY)},{passive:true});paint()})();
+  (()=>{const items=[...document.querySelectorAll('.reveal')];if(!items.length)return;if(matchMedia('(prefers-reduced-motion: reduce)').matches){items.forEach(item=>item.classList.add('in-view'));return;}const io=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');io.unobserve(entry.target);}})},{threshold:.16,rootMargin:'0px 0px -8% 0px'});items.forEach(item=>io.observe(item));})();
+  (()=>{const revealVisible=()=>{document.querySelectorAll('.reveal:not(.in-view)').forEach(item=>{const rect=item.getBoundingClientRect();if(rect.top<innerHeight*.94&&rect.bottom>0)item.classList.add('in-view');});};addEventListener('scroll',revealVisible,{passive:true});addEventListener('resize',revealVisible);addEventListener('load',revealVisible);requestAnimationFrame(revealVisible);setTimeout(revealVisible,350);})();
+  applyLanguage(currentLang);
+</script>
+</body>
+</html>
+

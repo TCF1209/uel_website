@@ -4,3 +4,10 @@
 .env.*
 node_modules/
 *.log
+desktop.ini
+document/
+transparent_png/_backup*/
+transparent_png/*review*
+transparent_png/*dark-preview*
+transparent_png/*_dark.png
+UEL PACKING MOCKUP.pdf
