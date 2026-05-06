@@ -2258,7 +2258,11 @@
       border-radius: 50%;
       background: rgba(255,255,255,.045);
       color: var(--bone);
+      position: relative;
       z-index: 80;
+      pointer-events: auto;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
     .nav-links {
       position: absolute !important;
@@ -3813,33 +3817,30 @@
   const links = document.getElementById('nav-links');
   if (btn && links) {
     let ignoreNextMenuClick = false;
+    let lastTouchMenuAt = 0;
     const setMenuOpen = open => {
       links.classList.toggle('open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     };
     const toggleMenu = () => setMenuOpen(!links.classList.contains('open'));
-    const handlePointerMenu = event => {
+    const runTouchMenu = event => {
+      const now = Date.now();
+      if (now - lastTouchMenuAt < 450) return;
+      lastTouchMenuAt = now;
+      ignoreNextMenuClick = true;
+      toggleMenu();
+      window.setTimeout(() => { ignoreNextMenuClick = false; }, 500);
+    };
+    const handlePhoneMenu = event => {
       if (event.pointerType === 'mouse') return;
       if (event.cancelable) event.preventDefault();
       event.stopPropagation();
-      if (ignoreNextMenuClick) return;
-      ignoreNextMenuClick = true;
-      toggleMenu();
-      window.setTimeout(() => { ignoreNextMenuClick = false; }, 500);
+      runTouchMenu(event);
     };
-    const handleTouchMenu = event => {
-      if (event.cancelable) event.preventDefault();
-      event.stopPropagation();
-      if (ignoreNextMenuClick) return;
-      ignoreNextMenuClick = true;
-      toggleMenu();
-      window.setTimeout(() => { ignoreNextMenuClick = false; }, 500);
-    };
-    btn.addEventListener('pointerup', handlePointerMenu);
-    btn.addEventListener('touchstart', handleTouchMenu, { passive: false });
-    btn.addEventListener('touchend', handleTouchMenu, { passive: false });
+    btn.addEventListener('pointerdown', handlePhoneMenu);
+    btn.addEventListener('touchstart', handlePhoneMenu, { passive: false });
     btn.addEventListener('click', event => {
-      if (ignoreNextMenuClick) {
+      if (ignoreNextMenuClick || Date.now() - lastTouchMenuAt < 520) {
         if (event.cancelable) event.preventDefault();
         event.stopPropagation();
         return;
