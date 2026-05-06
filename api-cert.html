@@ -2,7 +2,7 @@
 <html lang="en-MY">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>UEL API & Cert Verification | Unique Excellent Lubricant</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Saira:wght@400;500;600;700&family=Sora:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
@@ -554,6 +554,15 @@
     h1 { font-size: clamp(38px, 10vw, 54px) !important; line-height: 1.04 !important; }
     h2 { font-size: clamp(30px, 8vw, 42px) !important; }
     h3 { font-size: clamp(22px, 6vw, 30px) !important; }
+    .menu-btn {
+      position: relative !important;
+      z-index: 75 !important;
+      display: inline-grid !important;
+    }
+    .nav-links.open {
+      display: grid !important;
+      z-index: 74 !important;
+    }
     .lead,
     .section-head p,
     .guide-card p,
@@ -678,6 +687,30 @@
   @media (prefers-reduced-motion: reduce) {
     main {
       animation: none !important;
+    }
+  }
+
+  /* Final mobile menu reliability */
+  @media (max-width: 740px) {
+    .nav {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 100 !important;
+    }
+    .menu-btn {
+      position: relative !important;
+      z-index: 103 !important;
+      display: inline-grid !important;
+      touch-action: manipulation !important;
+    }
+    .nav-links {
+      z-index: 102 !important;
+      pointer-events: auto !important;
+    }
+    .nav-links.open {
+      display: grid !important;
     }
   }
 </style>

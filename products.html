@@ -2,7 +2,7 @@
 <html lang="en-MY">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#07070a">
 <title>UEL Product Catalogue | Engine Oil & Lubricants Malaysia</title>
 <meta name="description" content="Browse UEL engine oils, ATF transmission fluid, hydraulic oil, cutting fluid coolant and automotive lubricants for Malaysian drivers, workshops, fleets and industrial users.">
@@ -1666,19 +1666,25 @@
       gap: 16px !important;
     }
     .modal-image {
-      min-height: 300px !important;
-      height: clamp(315px, 76vw, 420px) !important;
+      min-height: 250px !important;
+      height: clamp(260px, 66vw, 330px) !important;
       padding: 12px !important;
-      overflow: visible !important;
+      overflow: hidden !important;
+      margin-bottom: 6px !important;
     }
     .product-flip {
-      width: min(82vw, 300px) !important;
-      height: clamp(300px, 76vw, 390px) !important;
+      width: min(78vw, 270px) !important;
+      height: clamp(245px, 62vw, 315px) !important;
       max-height: none !important;
+    }
+    .flip-stage,
+    .flip-face {
+      overflow: hidden !important;
     }
     .modal-content {
       overflow: visible !important;
       padding: 0 !important;
+      margin-top: 4px !important;
     }
     .modal-content h3 {
       font-size: clamp(28px, 8vw, 40px) !important;
@@ -1885,6 +1891,47 @@
   @media (prefers-reduced-motion: reduce) {
     main {
       animation: none !important;
+    }
+  }
+
+  /* Final mobile modal containment */
+  @media (max-width: 740px) {
+    .modal-panel {
+      width: min(100%, calc(100vw - 16px)) !important;
+      max-height: calc(100dvh - 16px) !important;
+      padding: 56px 14px 18px !important;
+      overflow: auto !important;
+    }
+    .modal-grid {
+      grid-template-columns: 1fr !important;
+      gap: 14px !important;
+      align-items: start !important;
+    }
+    .modal-image {
+      min-height: 0 !important;
+      height: clamp(238px, 64vw, 308px) !important;
+      overflow: hidden !important;
+      padding: 10px !important;
+      margin: 0 !important;
+    }
+    .product-flip {
+      width: min(74vw, 246px) !important;
+      height: clamp(224px, 58vw, 286px) !important;
+      overflow: hidden !important;
+    }
+    .flip-stage,
+    .flip-face {
+      overflow: hidden !important;
+    }
+    .modal-image img,
+    .flip-face img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+    }
+    .modal-content {
+      margin-top: 0 !important;
+      overflow: visible !important;
     }
   }
 </style>
