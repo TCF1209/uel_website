@@ -936,13 +936,13 @@
             <div class="field"><label for="quantity" data-copy="labelQuantity">Quantity / Pack Size</label><input id="quantity" name="quantity" required placeholder="Example: 4L x 12 cartons"></div>
             <div class="field full"><label for="message" data-copy="labelMessage">Requirement Details</label><textarea id="message" name="message" placeholder="Tell us vehicle model, oil grade, quantity, delivery area, or any question you have."></textarea></div>
             <div class="field full has-picker">
-              <label for="datetime" data-copy="labelDatetime">Required Date / Time</label>
-              <input id="datetime" name="requiredDateTime" type="datetime-local" required>
-              <button class="picker-trigger" type="button" aria-label="Open required date and time picker" data-picker-target="datetime">
-                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M7 3v4M17 3v4M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 13v3l2 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <label for="datetime" data-copy="labelDatetime">Required Date</label>
+              <input id="datetime" name="requiredDateTime" type="date" required>
+              <button class="picker-trigger" type="button" aria-label="Open required date picker" data-picker-target="datetime">
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M7 3v4M17 3v4M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
               </button>
             </div>
-            <div class="schedule-note" data-copy="scheduleNote">Tell UEL your preferred date/time. If stock or delivery needs checking, UEL will confirm by WhatsApp.</div>
+            <div class="schedule-note" data-copy="scheduleNote">Tell UEL your preferred date. If stock or delivery needs checking, UEL will confirm by WhatsApp.</div>
           </div>
           <div class="submit-row">
             <button class="btn review-submit" type="submit" id="form-submit" data-copy="submit">Send to WhatsApp</button>
@@ -996,7 +996,7 @@
           <li><a href="tel:+60108989120">Tel +60 10-898 9120</a></li>
           <li><a href="mailto:uel.lubricant@gmail.com">uel.lubricant@gmail.com</a></li>
           <li><a href="https://www.facebook.com/share/1FUh7wmZLy/" target="_blank" rel="noopener">Facebook</a></li>
-          <li>Lubricant Supply - 润滑油供应</li>
+          <li>Three drops · One standard</li>
         </ul>
       </div>
     </div>
@@ -1015,7 +1015,7 @@
       navHome:'Home',navProducts:'Products',navTechnology:'Technology',navWhere: 'API & Cert',navContact:'Contact',
       heroEyebrow:'Requirement Form',heroTitle:'Tell UEL what oil <em>you need.</em>',heroLead:'Fill in your product requirement, quantity and required date/time. The form opens WhatsApp with your details ready to send to UEL.',quickWhatsapp:'WhatsApp / Phone',quickPhone:'Phone',quickFacebook:'Facebook',
       formEyebrow:'Send Request',formTitle:'Requirement details',formIntro:'Share enough detail so UEL can recommend the correct oil, grade, pack size and availability.',
-      labelName:'Name',labelPhone:'Phone / WhatsApp',labelType:'Customer Type',labelProduct:'Product Category',labelQuantity:'Quantity / Pack Size',labelDatetime:'Required Date / Time',labelMessage:'Requirement Details',scheduleNote:'Tell UEL your preferred date/time. If stock or delivery needs checking, UEL will confirm by WhatsApp.',
+      labelName:'Name',labelPhone:'Phone / WhatsApp',labelType:'Customer Type',labelProduct:'Product Category',labelQuantity:'Quantity / Pack Size',labelDatetime:'Required Date',labelMessage:'Requirement Details',scheduleNote:'Tell UEL your preferred date. If stock or delivery needs checking, UEL will confirm by WhatsApp.',
       submit:'Send to WhatsApp',browse:'Browse Products',formNote:'Sends to +60 10-898 9120. No backend or database is used.',
       support1Kicker:'For Drivers',support1Title:'Car and motorcycle oil',support1Text:'Send vehicle model, year, current grade if known, and whether the use is daily city, highway or delivery.',
       support2Kicker:'For Business',support2Title:'Workshop and fleet supply',support2Text:'Send product category, grade, pack size, monthly quantity and delivery area so UEL can prepare a practical quote.',
@@ -1027,7 +1027,7 @@
       navHome:'首页',navProducts:'产品',navTechnology:'技术',navWhere: 'API认证',navContact:'联系',
       heroEyebrow:'需求表格',heroTitle:'告诉 UEL 你需要<em>什么油品。</em>',heroLead:'填写产品需求、数量和需要日期/时间。表格会自动打开 WhatsApp，并整理好信息发送给 UEL。',quickWhatsapp:'WhatsApp / 电话',quickPhone:'电话',quickFacebook:'Facebook',
       formEyebrow:'发送需求',formTitle:'需求资料',formIntro:'提供足够资料，让 UEL 可建议合适油品、等级、包装和库存。',
-      labelName:'姓名',labelPhone:'电话 / WhatsApp',labelType:'客户类型',labelProduct:'产品类别',labelQuantity:'数量 / 包装',labelDatetime:'需要日期 / 时间',labelMessage:'需求详情',scheduleNote:'请告诉 UEL 你希望的日期和时间。如果需要确认库存或配送，UEL 会通过 WhatsApp 回复。',
+      labelName:'姓名',labelPhone:'电话 / WhatsApp',labelType:'客户类型',labelProduct:'产品类别',labelQuantity:'数量 / 包装',labelDatetime:'需要日期',labelMessage:'需求详情',scheduleNote:'请告诉 UEL 你希望的日期。如果需要确认库存或配送，UEL 会通过 WhatsApp 回复。',
       submit:'发送到 WhatsApp',browse:'浏览产品',formNote:'发送至 +60 10-898 9120。网站没有后台或数据库。',
       support1Kicker:'车主',support1Title:'汽车与摩托车油',support1Text:'请发送车型、年份、目前油品等级，以及日常市区、高速或外送用途。',
       support2Kicker:'商业客户',support2Title:'维修厂与车队供应',support2Text:'请发送产品类别、等级、包装、每月数量和送货地区，方便 UEL 准备报价。',
@@ -1039,7 +1039,7 @@
       navHome:'Laman Utama',navProducts:'Produk',navTechnology:'Teknologi',navWhere: 'API & Sijil',navContact:'Hubungi',
       heroEyebrow:'Borang Permintaan',heroTitle:'Beritahu UEL minyak <em>yang diperlukan.</em>',heroLead:'Isi keperluan produk, kuantiti dan tarikh/masa diperlukan. Borang ini membuka WhatsApp dengan maklumat sedia dihantar kepada UEL.',quickWhatsapp:'WhatsApp / Telefon',quickPhone:'Telefon',quickFacebook:'Facebook',
       formEyebrow:'Hantar Permintaan',formTitle:'Butiran permintaan',formIntro:'Kongsi maklumat mencukupi supaya UEL boleh cadangkan minyak, gred, saiz pek dan ketersediaan.',
-      labelName:'Nama',labelPhone:'Telefon / WhatsApp',labelType:'Jenis Pelanggan',labelProduct:'Kategori Produk',labelQuantity:'Kuantiti / Saiz Pek',labelDatetime:'Tarikh / Masa Diperlukan',labelMessage:'Butiran Permintaan',scheduleNote:'Beritahu UEL tarikh/masa pilihan anda. Jika stok atau penghantaran perlu disemak, UEL akan sahkan melalui WhatsApp.',
+      labelName:'Nama',labelPhone:'Telefon / WhatsApp',labelType:'Jenis Pelanggan',labelProduct:'Kategori Produk',labelQuantity:'Kuantiti / Saiz Pek',labelDatetime:'Tarikh Diperlukan',labelMessage:'Butiran Permintaan',scheduleNote:'Beritahu UEL tarikh pilihan anda. Jika stok atau penghantaran perlu disemak, UEL akan sahkan melalui WhatsApp.',
       submit:'Hantar ke WhatsApp',browse:'Lihat Produk',formNote:'Dihantar ke +60 10-898 9120. Tiada backend atau database digunakan.',
       support1Kicker:'Untuk Pemandu',support1Title:'Minyak kereta dan motosikal',support1Text:'Hantar model kenderaan, tahun, gred semasa jika tahu, dan kegunaan harian bandar, highway atau penghantaran.',
       support2Kicker:'Untuk Bisnes',support2Title:'Bekalan bengkel dan fleet',support2Text:'Hantar kategori produk, gred, saiz pek, kuantiti bulanan dan kawasan penghantaran supaya UEL boleh sediakan quote.',
@@ -1055,7 +1055,7 @@
       back: 'Back',
       next: 'Next',
       reviewNext: 'Review',
-      reviewLabels: ['Name', 'Phone / WhatsApp', 'Customer Type', 'Product Category', 'Quantity / Pack Size', 'Required Date / Time', 'Requirement'],
+      reviewLabels: ['Name', 'Phone / WhatsApp', 'Customer Type', 'Product Category', 'Quantity / Pack Size', 'Required Date', 'Requirement'],
       placeholders: {
         name: 'Your name',
         phone: '+60...',
@@ -1070,7 +1070,7 @@
       back: '返回',
       next: '下一步',
       reviewNext: '确认需求',
-      reviewLabels: ['姓名', '电话 / WhatsApp', '客户类型', '产品类别', '数量 / 包装', '需要日期 / 时间', '需求'],
+      reviewLabels: ['姓名', '电话 / WhatsApp', '客户类型', '产品类别', '数量 / 包装', '需要日期', '需求'],
       placeholders: {
         name: '你的姓名',
         phone: '+60...',
@@ -1085,7 +1085,7 @@
       back: 'Kembali',
       next: 'Seterusnya',
       reviewNext: 'Semak',
-      reviewLabels: ['Nama', 'Telefon / WhatsApp', 'Jenis Pelanggan', 'Kategori Produk', 'Kuantiti / Saiz Pek', 'Tarikh / Masa Diperlukan', 'Permintaan'],
+      reviewLabels: ['Nama', 'Telefon / WhatsApp', 'Jenis Pelanggan', 'Kategori Produk', 'Kuantiti / Saiz Pek', 'Tarikh Diperlukan', 'Permintaan'],
       placeholders: {
         name: 'Nama anda',
         phone: '+60...',
@@ -1173,7 +1173,7 @@
   const pad = value => String(value).padStart(2,'0');
   const nextDay = new Date(Date.now() + 24 * 60 * 60 * 1000);
   const datetime = document.getElementById('datetime');
-  datetime.value = `${nextDay.getFullYear()}-${pad(nextDay.getMonth()+1)}-${pad(nextDay.getDate())}T09:00`;
+  datetime.value = `${nextDay.getFullYear()}-${pad(nextDay.getMonth()+1)}-${pad(nextDay.getDate())}`;
 
   const requirementFormEl = document.getElementById('requirement-form');
   const submitButton = document.getElementById('form-submit');
