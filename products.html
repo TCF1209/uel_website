@@ -2413,6 +2413,17 @@
     background: #25d366;
     box-shadow: 0 0 0 3px rgba(37,211,102,.12);
   }
+  .nav-links a {
+    position: relative !important;
+    padding: 6px 0 !important;
+    transition: color .25s ease !important;
+  }
+  .nav-links a:hover { color: var(--bone) !important; }
+  .nav-links a:hover::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+    height: 1px; background: var(--uel-red);
+  }
+  .nav-cta:hover::after { display: none !important; }
   .menu-btn svg {
     width: 18px;
     height: 14px;
