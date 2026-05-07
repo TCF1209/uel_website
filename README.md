@@ -46,8 +46,8 @@ vercel deploy --prod
 
 ## Contact (placeholder until client confirms)
 
-- WhatsApp / Phone: +60 12-793 8786
-- Email: sales@uel-lubricant.com
+- WhatsApp / Phone: +60 10-898 9120
+- Email: uel.lubricant@gmail.com
 
 ## Built by
 
