@@ -3454,6 +3454,10 @@
       </article>
 
     </div>
+
+    <div class="products-cta-wrap reveal d2" style="text-align:center; margin-top: clamp(36px, 5vw, 72px);">
+      <a class="btn btn-primary products-cta" href="products.html">View All Products <i class="arrow" aria-hidden="true"></i></a>
+    </div>
   </div>
 </section>
 
@@ -3949,7 +3953,8 @@
         title: 'Find the oil <em>you need.</em>',
         lead: 'Choose by vehicle or usage first. Click any category to see what it is for, common grades, and what details to send UEL for the right recommendation.',
         bestFor: 'Best for',
-        viewDetails: 'View Product Details'
+        viewDetails: 'View Product Details',
+        viewAll: 'View All Products'
       },
       productCards: {
         car: ['UEL 5W-30 FULLY SYNTHETIC', 'UEL 5W-30<br>Fully Synthetic', 'Car engine oil', 'Real UEL bottle preview. The visible label shows SAE 5W-30, Fully Synthetic, ILSAC GF-7A and API SQ/CF; confirm suitability with the vehicle manual.', 'Passenger cars and workshop enquiries where the manual allows the visible grade/spec.', ['SAE 5W-30', 'Fully Synthetic', 'API SQ/CF visible', 'Confirm manual']],
@@ -4096,7 +4101,7 @@
       hero: { meta: ['<b>UEL</b> - Pelincir', '<b>Untuk</b> - Kereta / Motosikal', '<b>Bekalan</b> - Bisnes / Fleet'], eyebrow: 'Minyak Enjin & Pelincir', l1: 'Minyak Enjin &', l2: 'Pelincir untuk', words: ['Malaysia.', 'Bengkel.', 'Fleet.', 'Industri.'], lead: 'Minyak enjin, pelincir dan cecair kenderaan untuk pemandu, bengkel dan bisnes di Malaysia.', primary: 'Lihat Produk', secondary: 'Minta Sebut Harga', scroll: 'SKROL', productTypes: '6 jenis produk', stamp: 'Unique - Excellent - Lubricant' },
       marquee: ['Fully Synthetic <em>/</em> Semi Synthetic <em>/</em> Mineral', 'Berpandukan label & data sheet', 'API proof jika disediakan', 'Sahkan dengan manual', 'Kereta - Motosikal - Lori - Industri', 'ATF - Hydraulic - Cutting Fluid', 'Gred mengikut dokumen', '6 Jenis Produk'],
       about: { eyebrow: 'Siapa Kami', title: 'Bekalan minyak untuk <em>servis dan bisnes.</em>', lead: 'UEL - Unique Excellent Lubricant - membekalkan minyak enjin, cecair transmisi, minyak hidraulik industri dan cutting fluid. Kami menyokong kereta harian, bengkel, fleet dan pasukan penyelenggaraan kilang dengan pilihan produk yang lebih jelas.', cells: [['Jenis Produk', 'Fully Synthetic, Semi-Synthetic, Mineral, ATF, hydraulic dan cutting-fluid mengikut label atau data sheet.'], ['Produk Dibekalkan', 'Daripada minyak enjin kereta kepada minyak hidraulik industri dalam kategori yang mudah dipilih.'], ['Sahkan Sebelum Guna', 'Gunakan label, data sheet dan manual kenderaan atau mesin sebelum pemilihan akhir.']] },
-      productHead: { eyebrow: 'Produk Dibekalkan', title: 'Cari minyak <em>yang diperlukan.</em>', lead: 'Pilih ikut kenderaan atau kegunaan dahulu. Klik kategori untuk lihat kegunaan, gred biasa dan maklumat untuk pertanyaan.', bestFor: 'Sesuai untuk', viewDetails: 'Lihat Butiran Produk' },
+      productHead: { eyebrow: 'Produk Dibekalkan', title: 'Cari minyak <em>yang diperlukan.</em>', lead: 'Pilih ikut kenderaan atau kegunaan dahulu. Klik kategori untuk lihat kegunaan, gred biasa dan maklumat untuk pertanyaan.', bestFor: 'Sesuai untuk', viewDetails: 'Lihat Butiran Produk', viewAll: 'Lihat Semua Produk' },
       productCards: {
         car: ['MINYAK ENJIN KERETA', 'Minyak Enjin<br>Kereta', 'Minyak enjin kereta', 'Data sheet UEL termasuk 5W-30 SQ/CF, 10W-40 SQ/CF, 10W-30 SL/CF, 20W-50 SL/CF dan 15W-40 SM/CF. Sahkan dengan manual.', 'Pemandu harian, kereta keluarga, bengkel dan pusat servis kereta.', ['5W-30 / 10W-40', '10W-30 / 20W-50', 'Ikut data sheet', 'Sahkan manual']],
         motorcycle: ['MINYAK PEK KECIL', 'Minyak Enjin<br>Pek Kecil', 'Minyak pek kecil', 'Produk pek kecil perlu disemak melalui label dan data sheet. Untuk motosikal atau wet-clutch, sahkan dengan UEL dahulu.', 'Pertanyaan pek kecil, runcit dan bengkel.', ['Gred pada label', 'Pek kecil', 'Tanya UEL', 'Sahkan guna']],
@@ -4456,7 +4461,8 @@
       title: '选择你需要的 <em>油品。</em>',
       lead: '先按车辆或用途选择。点击产品可查看标签资料、适合用途，以及询问 UEL 时应提供的资料。',
       bestFor: '适合',
-      viewDetails: '查看产品详情'
+      viewDetails: '查看产品详情',
+      viewAll: '查看所有产品'
     },
     productCards: {
       car: ['UEL 5W-30 全合成引擎油', '汽车<br>引擎油', '汽车引擎油', '产品照片可见 SAE 5W-30、Fully Synthetic 和 API SQ/CF。使用前请配合车辆手册确认。', '车主、维修厂和需要按等级询问的客户。', ['SAE 5W-30', 'Fully Synthetic', 'API SQ/CF 可见', '确认手册']],
@@ -5219,6 +5225,7 @@
       card.querySelectorAll('ul li').forEach((li, index) => { li.textContent = product[5][index] || ''; });
     });
     document.querySelectorAll('.product .footer-line span').forEach(el => { el.textContent = text.productHead.viewDetails; });
+    setHTML('.products-cta', `${text.productHead.viewAll} <i class="arrow" aria-hidden="true"></i>`);
 
     setText('.modal-kicker', text.modal.kicker);
     setAttr('.product-modal__close', 'aria-label', text.modal.close);
