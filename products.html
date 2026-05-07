@@ -498,7 +498,7 @@
   }
   .modal-grid { display: grid; grid-template-columns: minmax(260px, .82fr) 1.18fr; gap: clamp(26px, 4vw, 54px); align-items: center; }
   .modal-image {
-    min-height: 430px;
+    min-height: 340px;
     display: grid;
     place-items: center;
     border: 1px solid var(--line);
@@ -507,7 +507,7 @@
       radial-gradient(ellipse at center, rgba(246,180,65,.18), transparent 56%),
       rgba(255,255,255,.025);
   }
-  .modal-image img { max-height: 390px; object-fit: contain; filter: drop-shadow(0 24px 46px rgba(0,0,0,.55)); }
+  .modal-image img { max-height: 300px; object-fit: contain; filter: drop-shadow(0 24px 46px rgba(0,0,0,.55)); }
   .product-flip {
     width: min(330px, 78vw);
     aspect-ratio: 1 / 1.15;
@@ -1967,8 +1967,8 @@
       rgba(17,17,22,.92) !important;
   }
   #modal-flip {
-    width: min(92%, 380px) !important;
-    height: min(540px, calc(100dvh - 180px)) !important;
+    width: min(80%, 280px) !important;
+    height: min(380px, calc(100dvh - 200px)) !important;
     max-height: 100% !important;
     overflow: hidden !important;
     cursor: default !important;
