@@ -754,6 +754,15 @@
   .field.has-picker input {
     padding-right: 54px !important;
     color-scheme: dark;
+    text-align: left;
+  }
+  @media (max-width: 740px) {
+    .field.has-picker input {
+      padding-right: 14px !important;
+    }
+    .field.has-picker .picker-trigger {
+      display: none;
+    }
   }
   .field.has-picker input::-webkit-calendar-picker-indicator {
     opacity: 0;

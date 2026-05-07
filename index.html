@@ -1534,6 +1534,7 @@
   .field input[type="time"] {
     cursor: pointer;
     padding-right: 54px;
+    text-align: left;
   }
   .field input[type="date"]::-webkit-calendar-picker-indicator,
   .field input[type="time"]::-webkit-calendar-picker-indicator {
@@ -1544,6 +1545,15 @@
     padding: 4px;
     border-radius: 4px;
     background: transparent;
+  }
+  @media (max-width: 740px) {
+    .field input[type="date"],
+    .field input[type="time"] {
+      padding-right: 12px;
+    }
+    .field.has-picker .picker-trigger {
+      display: none;
+    }
   }
   .field.has-picker {
     position: relative;
