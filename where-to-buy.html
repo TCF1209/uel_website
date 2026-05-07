@@ -628,6 +628,17 @@
     display: inline-flex !important;
     align-items: center !important;
     gap: 8px !important;
+    padding: 9px 12px !important;
+    border: 1px solid var(--line-strong) !important;
+    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.01)) !important;
+    color: var(--bone) !important;
+    border-radius: 999px !important;
+    transition: border-color .25s ease, transform .2s ease, background .25s ease !important;
+  }
+  .nav-cta:hover {
+    border-color: var(--uel-green) !important;
+    background: linear-gradient(180deg, rgba(24,169,116,.16), rgba(24,169,116,.04)) !important;
+    transform: translateY(-1px) !important;
   }
   .nav-cta .dot {
     width: 7px;
@@ -635,6 +646,31 @@
     border-radius: 50%;
     background: #25d366;
     box-shadow: 0 0 0 3px rgba(37,211,102,.12);
+  }
+  .float-wa {
+    position: fixed;
+    right: 20px; bottom: 20px;
+    z-index: 60;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px 12px 14px;
+    background: #25d366;
+    color: #07261a;
+    border-radius: 999px;
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .045em;
+    box-shadow: 0 14px 40px rgba(0,0,0,.4), 0 0 0 4px rgba(37,211,102,.18);
+    transition: transform .25s ease, box-shadow .25s ease;
+    text-decoration: none;
+  }
+  .float-wa:hover { transform: translateY(-2px); box-shadow: 0 18px 48px rgba(0,0,0,.5), 0 0 0 6px rgba(37,211,102,.24); }
+  .float-wa svg { width: 18px; height: 18px; }
+  @media (max-width: 540px) {
+    .float-wa { padding: 12px; }
+    .float-wa span { display: none; }
   }
   .nav-links a {
     font-family: var(--head) !important;
@@ -802,6 +838,10 @@
     <div class="legal"><span>UEL - Unique Excellent Lubricant. All rights reserved.</span><span>Site by DuoCode</span></div>
   </div>
 </footer>
+<a class="float-wa" href="https://wa.me/60108989120?text=Hi%20UEL%2C%20I%20want%20to%20ask%20where%20to%20buy%20UEL%20products" target="_blank" rel="noopener" aria-label="WhatsApp UEL">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.06 0C5.5 0 .15 5.34.15 11.92a11.85 11.85 0 0 0 1.6 5.94L0 24l6.3-1.65a11.94 11.94 0 0 0 5.76 1.47h.01c6.56 0 11.92-5.34 11.92-11.92 0-3.18-1.24-6.18-3.47-8.42zM12.07 21.8h-.01a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.23-.37a9.84 9.84 0 0 1-1.51-5.25c0-5.45 4.45-9.88 9.88-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.9 6.99c-.01 5.45-4.46 9.87-9.89 9.87zm5.4-7.4c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15s-.77.96-.94 1.16c-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.79-1.67-2.09-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.08c.15.2 2.1 3.21 5.09 4.5.71.3 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.69.25-1.28.18-1.41-.07-.13-.27-.21-.57-.36z"/></svg>
+  <span>WhatsApp</span>
+</a>
 <div class="modal" id="channelModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-panel">
     <div class="modal-grid">
