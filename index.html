@@ -3713,13 +3713,6 @@
             <label for="req-quantity">Quantity / Pack Size</label>
             <input id="req-quantity" name="quantity" type="text" placeholder="Example: 4L x 12 cartons">
           </div>
-          <div class="field has-picker">
-            <label for="req-date">Required Date</label>
-            <input id="req-date" name="requiredDate" type="date" required>
-            <button class="picker-trigger" type="button" aria-label="Open required date picker" data-picker-target="req-date">
-              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><path d="M7 3v4M17 3v4M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            </button>
-          </div>
           <div class="field full">
             <label for="req-message">Requirement / Notes Optional</label>
             <textarea id="req-message" name="requirement" placeholder="Tell us vehicle model, oil grade, quantity, delivery area, or any question you have."></textarea>
@@ -4026,20 +4019,20 @@
         heading: 'Requirement Details',
         intro: 'Fill in the basics and send everything to UEL through WhatsApp.',
         steps: ['Contact', 'Product', 'Schedule', 'Review'],
-        labels: ['Name', 'Phone / WhatsApp', 'Customer Type', 'Other Customer Type', 'Product Needed', 'Other Product', 'Quantity / Pack Size', 'Required Date', 'Requirement / Notes Optional'],
+        labels: ['Name', 'Phone / WhatsApp', 'Customer Type', 'Other Customer Type', 'Product Needed', 'Other Product', 'Quantity / Pack Size', 'Requirement / Notes Optional'],
         placeholders: ['Your name', '+60...', 'Example: Spare parts shop', 'Type product or requirement', 'Example: 4L x 12 cartons', 'Tell us vehicle model, oil grade, quantity, delivery area, or any question you have.'],
         customerOptions: [['', 'Select one'], ['car_owner', 'Car owner'], ['workshop', 'Workshop'], ['distributor', 'Distributor'], ['fleet', 'Fleet operator'], ['industrial', 'Factory / industrial user'], ['Other', 'Other / type myself']],
         productOptions: [['', 'Choose product needed'], ['car_oil', 'Car Engine Oil'], ['motorcycle_oil', 'Motorcycle Engine Oil'], ['diesel_oil', 'Diesel Engine Oil'], ['transmission_oil', 'Transmission & Gear Oil'], ['hydraulic_oil', 'Industrial Hydraulic Oil'], ['auto_fluids', 'Coolant, Brake Fluid & Additives'], ['recommendation', 'Not sure, need recommendation'], ['Other', 'Other / type myself']],
         reviewTitle: 'Review Before Sending',
         reviewCopy: 'The WhatsApp button appears here after the contact, product and schedule details are completed.',
-        reviewLabels: ['Name', 'Phone / WhatsApp', 'Customer Type', 'Product Needed', 'Quantity / Pack Size', 'Required Date', 'Requirement'],
+        reviewLabels: ['Name', 'Phone / WhatsApp', 'Customer Type', 'Product Needed', 'Quantity / Pack Size', 'Requirement'],
         next: 'Next',
         reviewNext: 'Review Request',
         back: 'Back',
         note: 'Sends to +60 10-898 9120',
         submit: 'Send to WhatsApp',
         messageIntro: 'Hi UEL, I would like to submit a requirement.',
-        messageLabels: ['Name', 'Phone / WhatsApp', 'Customer type', 'Product needed', 'Quantity / pack size', 'Required date', 'Requirement']
+        messageLabels: ['Name', 'Phone / WhatsApp', 'Customer type', 'Product needed', 'Quantity / pack size', 'Requirement']
       },
       footer: {
         desc: 'Engine oils, lubricants and vehicle fluids for Malaysian drivers, workshops, fleets and industrial users.',
@@ -4146,20 +4139,20 @@
         heading: 'Butiran Permintaan',
         intro: 'Isi maklumat asas dan hantar kepada UEL melalui WhatsApp.',
         steps: ['Kontak', 'Produk', 'Jadual', 'Semak'],
-        labels: ['Nama', 'Telefon / WhatsApp', 'Jenis Pelanggan', 'Jenis Pelanggan Lain', 'Produk Diperlukan', 'Produk Lain', 'Kuantiti / Saiz Pek', 'Tarikh Diperlukan', 'Masa Diperlukan', 'Permintaan / Nota Pilihan'],
+        labels: ['Nama', 'Telefon / WhatsApp', 'Jenis Pelanggan', 'Jenis Pelanggan Lain', 'Produk Diperlukan', 'Produk Lain', 'Kuantiti / Saiz Pek', 'Permintaan / Nota Pilihan'],
         placeholders: ['Nama anda', '+60...', 'Contoh: Kedai alat ganti', 'Taip produk atau permintaan', 'Contoh: 4L x 12 karton', 'Nyatakan model kenderaan, gred minyak, kuantiti, kawasan penghantaran atau soalan.'],
         customerOptions: [['', 'Pilih satu'], ['car_owner', 'Pemilik kereta'], ['workshop', 'Bengkel'], ['distributor', 'Pengedar'], ['fleet', 'Operator fleet'], ['industrial', 'Kilang / pengguna industri'], ['Other', 'Lain / taip sendiri']],
         productOptions: [['', 'Pilih produk'], ['car_oil', 'Minyak Enjin Kereta'], ['motorcycle_oil', 'Minyak Enjin Motosikal'], ['diesel_oil', 'Minyak Enjin Diesel'], ['transmission_oil', 'Transmisi & Gear Oil'], ['hydraulic_oil', 'Minyak Hidraulik Industri'], ['auto_fluids', 'Coolant, Brake Fluid & Additives'], ['recommendation', 'Tidak pasti, perlukan cadangan'], ['Other', 'Lain / taip sendiri']],
         reviewTitle: 'Semak Sebelum Hantar',
         reviewCopy: 'Butang WhatsApp akan muncul di sini selepas butiran kontak, produk dan jadual lengkap.',
-        reviewLabels: ['Nama', 'Telefon / WhatsApp', 'Jenis Pelanggan', 'Produk Diperlukan', 'Kuantiti / Saiz Pek', 'Tarikh Diperlukan', 'Masa Diperlukan', 'Permintaan'],
+        reviewLabels: ['Nama', 'Telefon / WhatsApp', 'Jenis Pelanggan', 'Produk Diperlukan', 'Kuantiti / Saiz Pek', 'Permintaan'],
         next: 'Seterusnya',
         reviewNext: 'Semak Permintaan',
         back: 'Kembali',
         note: 'Hantar ke +60 10-898 9120',
         submit: 'Hantar ke WhatsApp',
         messageIntro: 'Hi UEL, saya ingin menghantar permintaan.',
-        messageLabels: ['Nama', 'Telefon / WhatsApp', 'Jenis pelanggan', 'Produk diperlukan', 'Kuantiti / saiz pek', 'Tarikh diperlukan', 'Permintaan']
+        messageLabels: ['Nama', 'Telefon / WhatsApp', 'Jenis pelanggan', 'Produk diperlukan', 'Kuantiti / saiz pek', 'Permintaan']
       },
       footer: { desc: 'Minyak enjin, pelincir dan cecair kenderaan untuk pemandu, bengkel, fleet dan pengguna industri di Malaysia.', products: 'Produk', company: 'Syarikat', touch: 'Hubungi', companyLinks: ['Siapa Kami', 'Teknologi', 'API & Sijil', 'Gred', 'Hubungi'], finalLine: 'Three drops · One standard', legal: 'UEL - Unique Excellent Lubricant. Hak cipta terpelihara.' }
     }
@@ -4534,20 +4527,20 @@
       heading: '需求资料',
       intro: '填写基本资料，并通过 WhatsApp 发送给 UEL。',
       steps: ['联系', '产品', '时间', '确认'],
-      labels: ['姓名', '电话 / WhatsApp', '客户类型', '其他客户类型', '需要的产品', '其他产品', '数量 / 包装', '需要日期', '需求 / 备注（选填）'],
+      labels: ['姓名', '电话 / WhatsApp', '客户类型', '其他客户类型', '需要的产品', '其他产品', '数量 / 包装', '需求 / 备注（选填）'],
       placeholders: ['你的姓名', '+60...', '例如：零件店', '输入产品或需求', '例如：4L x 12 箱', '可填写车型、油品等级、数量、送货地区或问题。'],
       customerOptions: [['', '请选择'], ['car_owner', '车主'], ['workshop', '维修厂'], ['distributor', '经销商'], ['fleet', '车队'], ['industrial', '工厂 / 工业用户'], ['Other', '其他 / 自己填写']],
       productOptions: [['', '选择需要的产品'], ['car_oil', '汽车引擎油'], ['motorcycle_oil', '摩托车引擎油'], ['diesel_oil', '柴油引擎油'], ['transmission_oil', '变速箱与齿轮油'], ['hydraulic_oil', '工业液压油'], ['auto_fluids', '冷却液、刹车油与添加剂'], ['recommendation', '不确定，需要建议'], ['Other', '其他 / 自己填写']],
       reviewTitle: '发送前确认',
       reviewCopy: '完成联系、产品和时间资料后，WhatsApp 按钮会显示在这里。',
-      reviewLabels: ['姓名', '电话 / WhatsApp', '客户类型', '需要的产品', '数量 / 包装', '需要日期', '需求'],
+      reviewLabels: ['姓名', '电话 / WhatsApp', '客户类型', '需要的产品', '数量 / 包装', '需求'],
       next: '下一步',
       reviewNext: '确认需求',
       back: '返回',
       note: '发送至 +60 10-898 9120',
       submit: '发送到 WhatsApp',
       messageIntro: '你好 UEL，我想提交需求。',
-      messageLabels: ['姓名', '电话 / WhatsApp', '客户类型', '需要的产品', '数量 / 包装', '需要日期', '需求']
+      messageLabels: ['姓名', '电话 / WhatsApp', '客户类型', '需要的产品', '数量 / 包装', '需求']
     },
     footer: {
       desc: '为马来西亚车主、维修厂、车队和工业用户供应引擎油、润滑油和车辆油液。',
@@ -4666,15 +4659,6 @@
     if (options.some(option => option[0] === selected)) select.value = selected;
   };
 
-  const padDateValue = (value) => String(value).padStart(2, '0');
-  const formatLocalDate = (date) => [
-    date.getFullYear(),
-    padDateValue(date.getMonth() + 1),
-    padDateValue(date.getDate())
-  ].join('-');
-  const requiredDate = document.getElementById('req-date');
-  if (requiredDate && !requiredDate.value) requiredDate.value = formatLocalDate(new Date());
-
   // One-step quote form and "Other" fields
   const requirementForm = document.getElementById('requirement-form');
   const formSteps = [];
@@ -4703,7 +4687,6 @@
       customerType: customerType || '-',
       productNeeded: productNeeded || '-',
       quantity: data.get('quantity') || '-',
-      requiredDate: data.get('requiredDate') || '-',
       requirement: data.get('requirement') || '-'
     };
   };
@@ -5280,7 +5263,7 @@
     stepIndicators.forEach((indicator, index) => { indicator.textContent = text.form.steps[index] || ''; });
     [
       'req-name', 'req-phone', 'req-type', 'req-type-other', 'req-product',
-      'req-product-other', 'req-quantity', 'req-date', 'req-message'
+      'req-product-other', 'req-quantity', 'req-message'
     ].forEach((id, index) => setText(`label[for="${id}"]`, text.form.labels[index]));
     document.getElementById('req-name')?.setAttribute('placeholder', text.form.placeholders[0]);
     document.getElementById('req-phone')?.setAttribute('placeholder', text.form.placeholders[1]);
@@ -5408,9 +5391,8 @@
       `${labels[2]}: ${values.customerType}`,
       `${labels[3]}: ${values.productNeeded}`,
       `${labels[4]}: ${values.quantity}`,
-      `${labels[5]}: ${values.requiredDate}`,
       '',
-      `${labels[6]}:`,
+      `${labels[5]}:`,
       `${values.requirement}`
     ].join('\n');
     window.open(whatsappUrl(message), '_blank', 'noopener');
