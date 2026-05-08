@@ -742,8 +742,24 @@
     max-width: 880px;
     margin: 0 auto clamp(40px, 6vw, 70px);
   }
-  .why-head .eyebrow { justify-content: center; color: var(--amber); }
+  .why-head .eyebrow { justify-content: center; color: var(--paper); }
+  .why-head .eyebrow::before { background: var(--uel-red); }
   .why-head .section-title { font-size: clamp(32px, 4.4vw, 56px); }
+  .why-head .section-title em {
+    background: linear-gradient(90deg, var(--uel-red) 0%, var(--uel-blue) 50%, var(--uel-green) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-style: normal;
+  }
+  .why-underline {
+    width: clamp(120px, 18vw, 220px);
+    height: 3px;
+    margin: 22px auto 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--uel-red) 0%, var(--uel-blue) 50%, var(--uel-green) 100%);
+  }
   .why-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -755,7 +771,7 @@
     border: 1px solid var(--line-strong);
     border-radius: 16px;
     background:
-      radial-gradient(140% 100% at 0% 0%, rgba(246,180,65,.08), transparent 58%),
+      radial-gradient(140% 100% at 0% 0%, var(--accent-soft, rgba(255,255,255,.04)), transparent 58%),
       linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.012)),
       var(--carbon);
     overflow: hidden;
@@ -764,8 +780,8 @@
   }
   .why-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(246,180,65,.42);
-    box-shadow: 0 28px 60px rgba(0,0,0,.4), 0 0 36px rgba(246,180,65,.08);
+    border-color: var(--accent, var(--line-strong));
+    box-shadow: 0 28px 60px rgba(0,0,0,.4), 0 0 36px var(--accent-soft, rgba(255,255,255,.04));
   }
   .why-icon {
     width: 64px;
@@ -773,17 +789,17 @@
     margin: 0 auto 22px;
     display: grid;
     place-items: center;
-    border: 1px solid rgba(246,180,65,.32);
+    border: 1px solid var(--accent, var(--line-strong));
     border-radius: 50%;
-    background: rgba(246,180,65,.08);
-    color: var(--amber);
+    background: var(--accent-soft, rgba(255,255,255,.04));
+    color: var(--accent, var(--bone));
   }
   .why-icon svg { width: 32px; height: 32px; }
   .why-title {
     font-family: var(--display);
     font-size: clamp(22px, 2.4vw, 28px);
     font-weight: 800;
-    color: var(--amber);
+    color: var(--accent, var(--bone));
     margin: 0 0 14px;
     letter-spacing: -.005em;
   }
@@ -802,8 +818,8 @@
     width: 0;
     height: 0;
     border-left: 56px solid transparent;
-    border-bottom: 56px solid var(--amber);
-    opacity: .85;
+    border-bottom: 56px solid var(--accent, var(--amber));
+    opacity: .9;
     pointer-events: none;
   }
   @media (max-width: 880px) {
@@ -3437,6 +3453,55 @@
 </section>
 
 <!-- â”€â”€â”€ PRODUCTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+<!-- ─── WHY CHOOSE UEL ──────────────────────────────────────────────── -->
+<section class="bay why" id="why-us">
+  <div class="wrap">
+    <div class="why-head">
+      <span class="eyebrow amber reveal">Why Choose UEL</span>
+      <h2 class="section-title reveal d1" style="margin-top:18px">Experience quality and reliability — <em>choose UEL for your lubricant needs.</em></h2>
+      <div class="why-underline reveal d1" aria-hidden="true"></div>
+    </div>
+
+    <div class="why-grid">
+      <article class="why-card reveal" style="--accent: var(--uel-red); --accent-soft: rgba(226,59,47,.10);">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3 4 7v8c0 7.5 5.4 12.4 12 14 6.6-1.6 12-6.5 12-14V7l-12-4Z"/>
+            <path d="m11 16 4 4 7-8"/>
+          </svg>
+        </div>
+        <h3 class="why-title">Superior Protection</h3>
+        <p class="why-text">UEL lubricants offer superior protection for your engine even in extreme heat and harsh Malaysian driving conditions.</p>
+        <span class="why-corner" aria-hidden="true"></span>
+      </article>
+
+      <article class="why-card reveal d1" style="--accent: var(--uel-blue); --accent-soft: rgba(43,108,246,.10);">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3c-3.5 4-6 7.6-6 10.8a6 6 0 0 0 12 0c0-3.2-2.5-6.8-6-10.8Z"/>
+            <path d="M16 13.5a3 3 0 0 0 3 3"/>
+          </svg>
+        </div>
+        <h3 class="why-title">Improved Fuel Efficiency</h3>
+        <p class="why-text">Designed to reduce friction and improve engine efficiency, delivering better fuel economy on every kilometre.</p>
+        <span class="why-corner" aria-hidden="true"></span>
+      </article>
+
+      <article class="why-card reveal d2" style="--accent: var(--uel-green); --accent-soft: rgba(24,169,116,.10);">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="16" cy="16" r="3.5"/>
+            <path d="M16 3v3M16 26v3M3 16h3M26 16h3M6.7 6.7l2.1 2.1M23.2 23.2l2.1 2.1M6.7 25.3l2.1-2.1M23.2 8.8l2.1-2.1"/>
+          </svg>
+        </div>
+        <h3 class="why-title">Enhanced Performance</h3>
+        <p class="why-text">Formulated to enhance engine performance, delivering smoother acceleration and sharper throttle response.</p>
+        <span class="why-corner" aria-hidden="true"></span>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="bay" id="products">
   <div class="wrap">
     <div class="bay-head">
@@ -3618,54 +3683,6 @@
     </div>
   </section>
 </div>
-
-<!-- ─── WHY CHOOSE UEL ──────────────────────────────────────────────── -->
-<section class="bay why" id="why-us">
-  <div class="wrap">
-    <div class="why-head">
-      <span class="eyebrow amber reveal">Why Choose UEL</span>
-      <h2 class="section-title reveal d1" style="margin-top:18px">Experience quality and reliability — <em>choose UEL for your lubricant needs.</em></h2>
-    </div>
-
-    <div class="why-grid">
-      <article class="why-card reveal">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 3 4 7v8c0 7.5 5.4 12.4 12 14 6.6-1.6 12-6.5 12-14V7l-12-4Z"/>
-            <path d="m11 16 4 4 7-8"/>
-          </svg>
-        </div>
-        <h3 class="why-title">Superior Protection</h3>
-        <p class="why-text">UEL lubricants offer superior protection for your engine even in extreme heat and harsh Malaysian driving conditions.</p>
-        <span class="why-corner" aria-hidden="true"></span>
-      </article>
-
-      <article class="why-card reveal d1">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 3c-3.5 4-6 7.6-6 10.8a6 6 0 0 0 12 0c0-3.2-2.5-6.8-6-10.8Z"/>
-            <path d="M16 13.5a3 3 0 0 0 3 3"/>
-          </svg>
-        </div>
-        <h3 class="why-title">Improved Fuel Efficiency</h3>
-        <p class="why-text">Designed to reduce friction and improve engine efficiency, delivering better fuel economy on every kilometre.</p>
-        <span class="why-corner" aria-hidden="true"></span>
-      </article>
-
-      <article class="why-card reveal d2">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="16" cy="16" r="3.5"/>
-            <path d="M16 3v3M16 26v3M3 16h3M26 16h3M6.7 6.7l2.1 2.1M23.2 23.2l2.1 2.1M6.7 25.3l2.1-2.1M23.2 8.8l2.1-2.1"/>
-          </svg>
-        </div>
-        <h3 class="why-title">Enhanced Performance</h3>
-        <p class="why-text">Formulated to enhance engine performance, delivering smoother acceleration and sharper throttle response.</p>
-        <span class="why-corner" aria-hidden="true"></span>
-      </article>
-    </div>
-  </div>
-</section>
 
 <!-- ─── TECHNOLOGY ─────────────────────────────────────────────────── -->
 <section class="bay tech" id="technology">
