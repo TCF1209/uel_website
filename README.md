@@ -47,7 +47,7 @@ vercel deploy --prod
 ## Contact (placeholder until client confirms)
 
 - WhatsApp / Phone: +60 10-898 9120
-- Email: uel.lubricant@gmail.com
+- Email: excellentestate.sb@gmail.com
 
 ## Built by
 
