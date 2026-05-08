@@ -969,6 +969,192 @@
       border-radius: 0 0 24px 24px !important;
     }
   }
+
+  /* EOLCS verification card */
+  .eolcs-card {
+    border: 1px solid var(--line-strong);
+    border-radius: var(--card-radius);
+    background:
+      radial-gradient(120% 80% at 100% 0%, rgba(24,169,116,.18), transparent 58%),
+      linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.014)),
+      var(--carbon);
+    padding: clamp(18px, 3vw, 32px);
+    box-shadow: 0 28px 70px rgba(0,0,0,.34), 0 0 42px rgba(24,169,116,.06);
+  }
+  .eolcs-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: clamp(22px, 3vw, 42px);
+    align-items: center;
+  }
+  .eolcs-shot {
+    display: block;
+    border-radius: 14px;
+    border: 1px solid var(--line-strong);
+    background: #fff;
+    padding: 8px;
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .eolcs-shot:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 44px rgba(0,0,0,.45);
+  }
+  .eolcs-shot img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+  .eolcs-info { display: grid; gap: 18px; }
+  .eolcs-status-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .eolcs-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border: 1px solid rgba(24,169,116,.5);
+    border-radius: 999px;
+    background: rgba(24,169,116,.12);
+    color: #5be4a4;
+    font-family: var(--head);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .eolcs-status i {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #25d366;
+    box-shadow: 0 0 0 4px rgba(37,211,102,.18);
+  }
+  .eolcs-licence {
+    font-family: var(--display);
+    font-size: clamp(28px, 3.4vw, 44px);
+    font-weight: 900;
+    color: var(--bone);
+    letter-spacing: .02em;
+  }
+  .eolcs-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .eolcs-table th,
+  .eolcs-table td {
+    border-top: 1px solid var(--line);
+    padding: 11px 0;
+    text-align: left;
+    vertical-align: top;
+    font-family: var(--body);
+    font-size: 14px;
+  }
+  .eolcs-table th {
+    width: 40%;
+    color: var(--ash);
+    font-family: var(--head);
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .eolcs-table td { color: var(--paper); }
+  .eolcs-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Certified grade chips */
+  .grade-section {
+    margin-top: clamp(28px, 4vw, 50px);
+  }
+  .grade-section h3 {
+    margin: 0 0 18px;
+    font-size: clamp(20px, 2.4vw, 28px);
+    color: var(--bone);
+  }
+  .chip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 10px;
+  }
+  .chip {
+    display: grid;
+    gap: 4px;
+    padding: 14px 16px;
+    border: 1px solid var(--line-strong);
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012)), var(--carbon);
+    transition: transform .2s ease, border-color .2s ease;
+  }
+  .chip:hover {
+    transform: translateY(-2px);
+    border-color: rgba(246,180,65,.5);
+  }
+  .chip b {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--bone);
+    letter-spacing: .01em;
+  }
+  .chip em {
+    font-style: normal;
+    font-family: var(--head);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+  .chip small {
+    font-family: var(--head);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--dim);
+    letter-spacing: .06em;
+  }
+  @media (max-width: 740px) {
+    .eolcs-grid { grid-template-columns: 1fr; }
+    .chip-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+  }
+
+  /* Gasoline badge inline card */
+  .gasoline-inline {
+    display: grid;
+    grid-template-columns: minmax(140px, 180px) 1fr;
+    gap: clamp(20px, 3vw, 36px);
+    align-items: center;
+    padding: clamp(20px, 3vw, 32px);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--card-radius);
+    background:
+      radial-gradient(120% 80% at 0% 0%, rgba(246,180,65,.16), transparent 58%),
+      linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012)),
+      var(--carbon);
+    box-shadow: 0 28px 70px rgba(0,0,0,.34);
+  }
+  .gasoline-inline img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #fff;
+    padding: 10px;
+  }
+  .gasoline-inline h3 { margin: 0 0 10px; }
+  .gasoline-inline p { margin: 0; color: var(--paper); }
+  @media (max-width: 740px) {
+    .gasoline-inline { grid-template-columns: 1fr; text-align: center; }
+    .gasoline-inline img { max-width: 200px; margin: 0 auto; }
+  }
 </style>
 </head>
 <body>
@@ -1025,44 +1211,65 @@
   <section class="section" id="api-proof">
     <div class="wrap">
       <div class="section-head reveal">
-        <div><span class="eyebrow" data-copy="proofEyebrow">API Service SQ</span><h2 data-copy-html="proofTitle">Proof by <em>grade.</em></h2></div>
-        <p data-copy="proofLead">Check the available API proof by grade, then match the same grade on the product label before ordering.</p>
+        <div><span class="eyebrow" data-copy="proofEyebrow">API EOLCS Verification</span><h2 data-copy-html="proofTitle">Verified on the <em>API official register.</em></h2></div>
+        <p data-copy="proofLead">UEL is listed under the American Petroleum Institute Engine Oil Licensing Certification System. The licence record below can be re-verified on api.org at any time.</p>
       </div>
-      <div class="api-matrix">
-        <article class="api-grade-card reveal" style="--glow:rgba(43,108,246,.22)">
-          <img src="API Proof/SAE 5W-30.jpeg" alt="API Service SQ SAE 5W-30 Resource Conserving label">
-          <h3>SAE 5W-30</h3>
-          <div class="grade-line"><span>API Service SQ</span><span>Resource Conserving</span></div>
-        </article>
-        <article class="api-grade-card reveal d1" style="--glow:rgba(24,169,116,.22)">
-          <img src="API Proof/SAE 10W-40.jpeg" alt="API Service SQ SAE 10W-40 Resource Conserving label">
-          <h3>SAE 10W-40</h3>
-          <div class="grade-line"><span>API Service SQ</span><span>Resource Conserving</span></div>
-        </article>
-        <article class="api-grade-card reveal d2" style="--glow:rgba(226,59,47,.22)">
-          <img src="API Proof/SAE 15W-40.jpeg" alt="API Service SQ SAE 15W-40 Resource Conserving label">
-          <h3>SAE 15W-40</h3>
-          <div class="grade-line"><span>API Service SQ</span><span>Resource Conserving</span></div>
-        </article>
+
+      <article class="eolcs-card reveal">
+        <div class="eolcs-grid">
+          <a class="eolcs-shot" href="API Proof/EOLCS-License-3898.jpeg" target="_blank" rel="noopener" aria-label="Open full EOLCS verification screenshot">
+            <img src="API Proof/EOLCS-License-3898.jpeg" alt="API EOLCS Results Detail page showing Excellent licence #3898 with active status and 14 certified products">
+          </a>
+          <div class="eolcs-info">
+            <div class="eolcs-status-row">
+              <span class="eolcs-status"><i aria-hidden="true"></i><span data-copy="eolcsActive">Active</span></span>
+              <span class="eolcs-licence">#3898</span>
+            </div>
+            <table class="eolcs-table">
+              <tr><th data-copy="eolcsEffective">Effective</th><td>01 Apr 2026</td></tr>
+              <tr><th data-copy="eolcsExpiry">Expiration</th><td>31 Mar 2027</td></tr>
+              <tr><th data-copy="eolcsIssued">First issued</th><td>11 Jan 2023</td></tr>
+              <tr><th data-copy="eolcsLicensee">Licensee</th><td data-copy="eolcsLicenseeValue">EXCELLENT — Unique Excellent Lubricant brand</td></tr>
+              <tr><th data-copy="eolcsScope">Certified for</th><td data-copy="eolcsScopeValue">14 grades, all API Service Category SQ</td></tr>
+            </table>
+            <div class="eolcs-actions">
+              <a class="btn" href="https://engineoil.api.org/Directory/EolcsSearchHome" target="_blank" rel="noopener" data-copy="eolcsVerify">Verify on api.org</a>
+              <a class="btn ghost" href="API Proof/EOLCS-License-3898.jpeg" target="_blank" rel="noopener" data-copy="eolcsOpen">Open Full Image</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="grade-section reveal d1">
+        <h3 data-copy="certifiedHeading">Certified Grades — listed on the EOLCS register</h3>
+        <div class="chip-grid">
+          <span class="chip"><b>SAE 0W-16</b><em data-copy="chipFully">Fully Synthetic</em><small>GF-7B</small></span>
+          <span class="chip"><b>SAE 0W-20</b><em data-copy="chipFully2">Fully Synthetic</em><small>GF-7A</small></span>
+          <span class="chip"><b>SAE 5W-20</b><em data-copy="chipFully3">Fully Synthetic</em><small>GF-7A</small></span>
+          <span class="chip"><b>SAE 5W-20</b><em data-copy="chipSemi">Semi-Synthetic</em><small>GF-7A</small></span>
+          <span class="chip"><b>SAE 5W-30</b><em data-copy="chipFully4">Fully Synthetic</em><small>GF-7A</small></span>
+          <span class="chip"><b>SAE 5W-30</b><em data-copy="chipSemi2">Semi-Synthetic</em><small>GF-7A</small></span>
+          <span class="chip"><b>SAE 5W-40</b><em data-copy="chipFully5">Fully Synthetic</em></span>
+          <span class="chip"><b>SAE 5W-40</b><em data-copy="chipSemi3">Semi-Synthetic</em></span>
+          <span class="chip"><b>SAE 10W-40</b><em data-copy="chipFully6">Fully Synthetic</em></span>
+          <span class="chip"><b>SAE 10W-40</b><em data-copy="chipSemi4">Semi-Synthetic</em></span>
+          <span class="chip"><b>SAE 10W-40</b><em data-copy="chipMineral">Mineral</em></span>
+          <span class="chip"><b>SAE 20W-50</b><em data-copy="chipFully7">Fully Synthetic</em></span>
+          <span class="chip"><b>SAE 20W-50</b><em data-copy="chipSemi5">Semi-Synthetic</em></span>
+          <span class="chip"><b>SAE 20W-50</b><em data-copy="chipMineral2">Mineral</em></span>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <div class="wrap advantage-grid">
-      <article class="cert-card reveal">
-        <span class="eyebrow" data-copy="summaryEyebrow">Provided Proof Files</span>
-        <h2 style="margin-top:14px" data-copy-html="summaryTitle">Provided proof <em>summary.</em></h2>
-        <div class="signal-list" style="margin-top:24px">
-          <div class="signal"><b data-copy="summaryApiTitle">Grade-level API proof</b><span data-copy="summaryApiText">5W-30, 10W-40 and 15W-40 proof assets are shown as separate technical cards, not hidden inside a poster.</span></div>
-          <div class="signal"><b data-copy="summaryBadgeTitle">Gasoline-engine presentation</b><span data-copy="summaryBadgeText">The provided American Petroleum Institute gasoline-engine badge is kept as a visible proof-support asset.</span></div>
-          <div class="signal"><b data-copy="summaryCheckTitle">Check before use</b><span data-copy="summaryCheckText">Product selection should follow the product label, data sheet, manual and UEL confirmation.</span></div>
+    <div class="wrap">
+      <article class="gasoline-inline reveal">
+        <img src="API Proof/WhatsApp Image 2026-05-05 at 4.28.51 PM (2).jpeg" alt="American Petroleum Institute For Gasoline Engines certified badge">
+        <div>
+          <h3 data-copy="gasolineTitle">For Gasoline Engines — API Certified</h3>
+          <p data-copy="gasolineText">The American Petroleum Institute "For Gasoline Engines Certified" mark confirms our oils meet API engine performance and emission standards.</p>
         </div>
-      </article>
-      <article class="proof-card reveal d1" style="--glow:rgba(246,180,65,.18)">
-        <img src="API Proof/WhatsApp Image 2026-05-05 at 4.28.51 PM (2).jpeg" alt="American Petroleum Institute For Gasoline Engines badge">
-        <h3 data-copy="gasolineTitle">For Gasoline Engines</h3>
-        <p data-copy="gasolineText">Presented as the provided gasoline-engine badge asset. Product matching should still follow the exact grade label and vehicle manual.</p>
       </article>
     </div>
   </section>
@@ -1182,9 +1389,23 @@
     guide3Text:'The Passenger Vehicle Series poster groups products under Ultra Tech, Premium Mineral and Heavy Duty / ATF, including prices and promotion prices shown.',
     guide4Title:'SIRIM licence',
     guide4Text:'The updated notes list SIRIM Genuine Product Licence information for WUHO Petroleum Packaging Sdn. Bhd. under SIRIM 58:2022.',
-    proofEyebrow:'API Proof',
-    proofTitle:'Proof by <em>grade.</em>',
-    proofLead:'Check the available API proof by grade, then match the same grade on the product label before ordering.',
+    proofEyebrow:'API EOLCS Verification',
+    proofTitle:'Verified on the <em>API official register.</em>',
+    proofLead:'UEL is listed under the American Petroleum Institute Engine Oil Licensing Certification System. The licence record below can be re-verified on api.org at any time.',
+    eolcsActive:'Active',
+    eolcsEffective:'Effective',
+    eolcsExpiry:'Expiration',
+    eolcsIssued:'First issued',
+    eolcsLicensee:'Licensee',
+    eolcsLicenseeValue:'EXCELLENT — Unique Excellent Lubricant brand',
+    eolcsScope:'Certified for',
+    eolcsScopeValue:'14 grades, all API Service Category SQ',
+    eolcsVerify:'Verify on api.org',
+    eolcsOpen:'Open Full Image',
+    certifiedHeading:'Certified Grades — listed on the EOLCS register',
+    chipFully:'Fully Synthetic',
+    chipSemi:'Semi-Synthetic',
+    chipMineral:'Mineral',
     certEyebrow:'SIRIM Genuine Product',
     certTitle:'Certificate details in <em>scan view.</em>',
     certLead:'View the SIRIM licence details for WUHO Petroleum, including licence number, product scope and validity dates.',
@@ -1205,8 +1426,8 @@
     summaryBadgeText:'The provided American Petroleum Institute gasoline-engine badge is kept as a visible proof-support asset.',
     summaryCheckTitle:'Check before use',
     summaryCheckText:'Product selection should follow the product label, data sheet, manual and UEL confirmation.',
-    gasolineTitle:'For Gasoline Engines',
-    gasolineText:'Presented as the provided gasoline-engine badge asset. Product matching should still follow the exact grade label and vehicle manual.',
+    gasolineTitle:'For Gasoline Engines — API Certified',
+    gasolineText:'The American Petroleum Institute "For Gasoline Engines Certified" mark confirms our oils meet API engine performance and emission standards.',
     artworkEyebrow:'UEL Technology Artwork',
     artworkTitle:'Technology highlights for <em>easier selection.</em>',
     artworkLead:'These UEL technology highlights help customers understand the product range quickly. For exact product suitability, check the product label, data sheet or ask UEL.',
@@ -1274,9 +1495,23 @@
     guide3Text:'Passenger Vehicle Series 海报把产品分为 Ultra Tech、Premium Mineral 和 Heavy Duty / ATF，并显示价格与促销价。',
     guide4Title:'SIRIM 执照',
     guide4Text:'更新资料列出 WUHO Petroleum Packaging Sdn. Bhd. 在 SIRIM 58:2022 下的 Genuine Product Licence 资料。',
-    proofEyebrow:'API 证明',
-    proofTitle:'按<em>等级</em>查看证明。',
-    proofLead:'按等级查看已提供的 API 证明，并在订购前核对产品标签上的相同等级。',
+    proofEyebrow:'API EOLCS 验证',
+    proofTitle:'已在 <em>API 官方注册</em>',
+    proofLead:'UEL 已注册于美国石油协会引擎油认证系统（EOLCS）。下方执照资料随时可在 api.org 重新核实。',
+    eolcsActive:'有效',
+    eolcsEffective:'生效日期',
+    eolcsExpiry:'到期日期',
+    eolcsIssued:'首次签发',
+    eolcsLicensee:'持照公司',
+    eolcsLicenseeValue:'EXCELLENT — Unique Excellent Lubricant 品牌',
+    eolcsScope:'认证范围',
+    eolcsScopeValue:'14 个等级，全部为 API Service Category SQ',
+    eolcsVerify:'前往 api.org 验证',
+    eolcsOpen:'查看完整截图',
+    certifiedHeading:'已认证等级 — EOLCS 注册名单',
+    chipFully:'全合成',
+    chipSemi:'半合成',
+    chipMineral:'矿物油',
     certEyebrow:'SIRIM Genuine Product',
     certTitle:'证书资料<em>快速检查。</em>',
     certLead:'查看 WUHO Petroleum 的 SIRIM 执照资料，包括执照号码、产品范围和有效日期。',
@@ -1297,8 +1532,8 @@
     summaryBadgeText:'已提供的 American Petroleum Institute 汽油引擎标志作为辅助证明资料展示。',
     summaryCheckTitle:'使用前确认',
     summaryCheckText:'产品选择应以产品标签、资料表、手册和 UEL 确认为准。',
-    gasolineTitle:'适用于汽油引擎',
-    gasolineText:'此处展示已提供的汽油引擎标志资料。产品配对仍应以准确等级标签和车辆手册为准。',
+    gasolineTitle:'API 认证 — 适用于汽油引擎',
+    gasolineText:'美国石油协会"For Gasoline Engines Certified"标志确认本产品符合 API 引擎性能与排放标准。',
     artworkEyebrow:'UEL 技术图示',
     artworkTitle:'技术亮点，帮助客户<em>更快选择。</em>',
     artworkLead:'这些 UEL 技术亮点让客户更快了解产品系列。准确适用性请查看产品标签、资料表，或直接询问 UEL。',
@@ -1366,9 +1601,23 @@
     guide3Text:'Poster Passenger Vehicle Series mengumpulkan produk di bawah Ultra Tech, Premium Mineral dan Heavy Duty / ATF, termasuk harga dan harga promosi yang dipaparkan.',
     guide4Title:'Lesen SIRIM',
     guide4Text:'Nota terkini menyenaraikan maklumat SIRIM Genuine Product Licence untuk WUHO Petroleum Packaging Sdn. Bhd. di bawah SIRIM 58:2022.',
-    proofEyebrow:'Bukti API',
-    proofTitle:'Bukti ikut <em>gred.</em>',
-    proofLead:'Semak bukti API yang tersedia mengikut gred, kemudian padankan gred yang sama pada label produk sebelum membuat pesanan.',
+    proofEyebrow:'Pengesahan API EOLCS',
+    proofTitle:'Disahkan pada <em>daftar rasmi API.</em>',
+    proofLead:'UEL didaftarkan di bawah American Petroleum Institute Engine Oil Licensing Certification System. Rekod lesen di bawah boleh disahkan semula di api.org pada bila-bila masa.',
+    eolcsActive:'Aktif',
+    eolcsEffective:'Berkuat kuasa',
+    eolcsExpiry:'Tamat tempoh',
+    eolcsIssued:'Pertama kali dikeluarkan',
+    eolcsLicensee:'Pemegang lesen',
+    eolcsLicenseeValue:'EXCELLENT — jenama Unique Excellent Lubricant',
+    eolcsScope:'Disijilkan untuk',
+    eolcsScopeValue:'14 gred, semua dalam API Service Category SQ',
+    eolcsVerify:'Sahkan di api.org',
+    eolcsOpen:'Buka Imej Penuh',
+    certifiedHeading:'Gred Disijilkan — tersenarai pada daftar EOLCS',
+    chipFully:'Sintetik Penuh',
+    chipSemi:'Separa Sintetik',
+    chipMineral:'Mineral',
     certEyebrow:'SIRIM Genuine Product',
     certTitle:'Butiran sijil dalam <em>paparan semak.</em>',
     certLead:'Lihat butiran lesen SIRIM untuk WUHO Petroleum, termasuk nombor lesen, skop produk dan tarikh sah.',
@@ -1389,8 +1638,8 @@
     summaryBadgeText:'Lencana American Petroleum Institute untuk enjin petrol yang dibekalkan ditunjukkan sebagai aset sokongan.',
     summaryCheckTitle:'Sahkan sebelum guna',
     summaryCheckText:'Pilihan produk perlu ikut label produk, data sheet, manual dan pengesahan UEL.',
-    gasolineTitle:'Untuk Enjin Petrol',
-    gasolineText:'Ditunjukkan sebagai aset lencana enjin petrol yang dibekalkan. Padanan produk masih perlu ikut label gred tepat dan manual kenderaan.',
+    gasolineTitle:'Untuk Enjin Petrol — Disijilkan API',
+    gasolineText:'Tanda "For Gasoline Engines Certified" daripada American Petroleum Institute mengesahkan minyak kami memenuhi standard prestasi enjin dan emisi API.',
     artworkEyebrow:'Artwork Teknologi UEL',
     artworkTitle:'Sorotan teknologi untuk <em>pemilihan lebih mudah.</em>',
     artworkLead:'Sorotan teknologi UEL ini membantu pelanggan memahami rangkaian produk dengan cepat. Untuk kesesuaian produk yang tepat, semak label produk, data sheet atau tanya UEL.',
