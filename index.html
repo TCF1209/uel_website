@@ -736,7 +736,81 @@
   }
   @media (max-width: 880px) { .bay-head { grid-template-columns: 1fr; } }
 
-  /* â”€â”€ ABOUT / BRAND â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── WHY CHOOSE UEL ────────────────────────────────────────── */
+  .why-head {
+    text-align: center;
+    max-width: 880px;
+    margin: 0 auto clamp(40px, 6vw, 70px);
+  }
+  .why-head .eyebrow { justify-content: center; color: var(--amber); }
+  .why-head .section-title { font-size: clamp(32px, 4.4vw, 56px); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2vw, 24px);
+  }
+  .why-card {
+    position: relative;
+    padding: clamp(28px, 3vw, 40px);
+    border: 1px solid var(--line-strong);
+    border-radius: 16px;
+    background:
+      radial-gradient(140% 100% at 0% 0%, rgba(246,180,65,.08), transparent 58%),
+      linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.012)),
+      var(--carbon);
+    overflow: hidden;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    text-align: center;
+  }
+  .why-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(246,180,65,.42);
+    box-shadow: 0 28px 60px rgba(0,0,0,.4), 0 0 36px rgba(246,180,65,.08);
+  }
+  .why-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 22px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(246,180,65,.32);
+    border-radius: 50%;
+    background: rgba(246,180,65,.08);
+    color: var(--amber);
+  }
+  .why-icon svg { width: 32px; height: 32px; }
+  .why-title {
+    font-family: var(--display);
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight: 800;
+    color: var(--amber);
+    margin: 0 0 14px;
+    letter-spacing: -.005em;
+  }
+  .why-text {
+    font-family: var(--body);
+    font-size: clamp(14px, 1vw, 15px);
+    line-height: 1.6;
+    color: var(--paper);
+    margin: 0 auto;
+    max-width: 32ch;
+  }
+  .why-corner {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 56px solid transparent;
+    border-bottom: 56px solid var(--amber);
+    opacity: .85;
+    pointer-events: none;
+  }
+  @media (max-width: 880px) {
+    .why-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── ABOUT / BRAND ─────────────────────────────────────────── */
   .brand-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -3545,7 +3619,55 @@
   </section>
 </div>
 
-<!-- â”€â”€â”€ TECHNOLOGY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+<!-- ─── WHY CHOOSE UEL ──────────────────────────────────────────────── -->
+<section class="bay why" id="why-us">
+  <div class="wrap">
+    <div class="why-head">
+      <span class="eyebrow amber reveal">Why Choose UEL</span>
+      <h2 class="section-title reveal d1" style="margin-top:18px">Experience quality and reliability — <em>choose UEL for your lubricant needs.</em></h2>
+    </div>
+
+    <div class="why-grid">
+      <article class="why-card reveal">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3 4 7v8c0 7.5 5.4 12.4 12 14 6.6-1.6 12-6.5 12-14V7l-12-4Z"/>
+            <path d="m11 16 4 4 7-8"/>
+          </svg>
+        </div>
+        <h3 class="why-title">Superior Protection</h3>
+        <p class="why-text">UEL lubricants offer superior protection for your engine even in extreme heat and harsh Malaysian driving conditions.</p>
+        <span class="why-corner" aria-hidden="true"></span>
+      </article>
+
+      <article class="why-card reveal d1">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3c-3.5 4-6 7.6-6 10.8a6 6 0 0 0 12 0c0-3.2-2.5-6.8-6-10.8Z"/>
+            <path d="M16 13.5a3 3 0 0 0 3 3"/>
+          </svg>
+        </div>
+        <h3 class="why-title">Improved Fuel Efficiency</h3>
+        <p class="why-text">Designed to reduce friction and improve engine efficiency, delivering better fuel economy on every kilometre.</p>
+        <span class="why-corner" aria-hidden="true"></span>
+      </article>
+
+      <article class="why-card reveal d2">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="16" cy="16" r="3.5"/>
+            <path d="M16 3v3M16 26v3M3 16h3M26 16h3M6.7 6.7l2.1 2.1M23.2 23.2l2.1 2.1M6.7 25.3l2.1-2.1M23.2 8.8l2.1-2.1"/>
+          </svg>
+        </div>
+        <h3 class="why-title">Enhanced Performance</h3>
+        <p class="why-text">Formulated to enhance engine performance, delivering smoother acceleration and sharper throttle response.</p>
+        <span class="why-corner" aria-hidden="true"></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TECHNOLOGY ─────────────────────────────────────────────────── -->
 <section class="bay tech" id="technology">
   <div class="wrap">
     <div class="bay-head">
@@ -3997,6 +4119,15 @@
         viewDetails: 'View Product Details',
         viewAll: 'View All Products'
       },
+      why: {
+        eyebrow: 'Why Choose UEL',
+        title: 'Experience quality and reliability — <em>choose UEL for your lubricant needs.</em>',
+        cards: [
+          ['Superior Protection', 'UEL lubricants offer superior protection for your engine even in extreme heat and harsh Malaysian driving conditions.'],
+          ['Improved Fuel Efficiency', 'Designed to reduce friction and improve engine efficiency, delivering better fuel economy on every kilometre.'],
+          ['Enhanced Performance', 'Formulated to enhance engine performance, delivering smoother acceleration and sharper throttle response.']
+        ]
+      },
       productCards: {
         car: ['UEL 5W-30 FULLY SYNTHETIC', 'UEL 5W-30<br>Fully Synthetic', 'Car engine oil', 'Real UEL bottle preview. The visible label shows SAE 5W-30, Fully Synthetic, ILSAC GF-7A and API SQ/CF; confirm suitability with the vehicle manual.', 'Passenger cars and workshop enquiries where the manual allows the visible grade/spec.', ['SAE 5W-30', 'Fully Synthetic', 'API SQ/CF visible', 'Confirm manual']],
         motorcycle: ['SMALL PACK ENGINE OIL', 'UEL Engine<br>Oil', 'Small pack oil', 'Small-pack UEL oil preview. The visible label shows SAE 20W-50, Premium Mineral and API SL/CF; confirm motorcycle or wet-clutch use with UEL first.', 'Customers needing a small pack oil enquiry with vehicle details ready.', ['20W-50 visible', 'Small pack', 'Ask UEL', 'Confirm use']],
@@ -4142,6 +4273,7 @@
       marquee: ['Fully Synthetic <em>/</em> Semi Synthetic <em>/</em> Mineral', 'Berpandukan label & data sheet', 'API proof jika disediakan', 'Sahkan dengan manual', 'Kereta - Motosikal - Lori - Industri', 'ATF - Hydraulic - Cutting Fluid', 'Gred mengikut dokumen', '6 Jenis Produk'],
       about: { eyebrow: 'Siapa Kami', title: 'Bekalan minyak untuk <em>servis dan bisnes.</em>', lead: 'UEL - Unique Excellent Lubricant - membekalkan minyak enjin, cecair transmisi, minyak hidraulik industri dan cutting fluid. Kami menyokong kereta harian, bengkel, fleet dan pasukan penyelenggaraan kilang dengan pilihan produk yang lebih jelas.', cells: [['Jenis Produk', 'Fully Synthetic, Semi-Synthetic, Mineral, ATF, hydraulic dan cutting-fluid mengikut label atau data sheet.'], ['Produk Dibekalkan', 'Daripada minyak enjin kereta kepada minyak hidraulik industri dalam kategori yang mudah dipilih.'], ['Sahkan Sebelum Guna', 'Gunakan label, data sheet dan manual kenderaan atau mesin sebelum pemilihan akhir.']] },
       productHead: { eyebrow: 'Produk Dibekalkan', title: 'Cari minyak <em>yang diperlukan.</em>', lead: 'Pilih ikut kenderaan atau kegunaan dahulu. Klik kategori untuk lihat kegunaan, gred biasa dan maklumat untuk pertanyaan.', bestFor: 'Sesuai untuk', viewDetails: 'Lihat Butiran Produk', viewAll: 'Lihat Semua Produk' },
+      why: { eyebrow: 'Kenapa Pilih UEL', title: 'Alami kualiti dan kebolehpercayaan — <em>pilih UEL untuk keperluan pelincir anda.</em>', cards: [['Perlindungan Unggul', 'Pelincir UEL menawarkan perlindungan unggul untuk enjin anda walaupun dalam haba melampau dan keadaan pemanduan Malaysia yang mencabar.'], ['Kecekapan Bahan Api Lebih Baik', 'Direka untuk mengurangkan geseran dan meningkatkan kecekapan enjin, memberikan ekonomi bahan api yang lebih baik pada setiap kilometer.'], ['Prestasi Dipertingkat', 'Diformulasikan untuk meningkatkan prestasi enjin, memberikan pecutan lebih lancar dan tindak balas pendikit lebih tajam.']] },
       productCards: {
         car: ['MINYAK ENJIN KERETA', 'Minyak Enjin<br>Kereta', 'Minyak enjin kereta', 'Data sheet UEL termasuk 5W-30 SQ/CF, 10W-40 SQ/CF, 10W-30 SL/CF, 20W-50 SL/CF dan 15W-40 SM/CF. Sahkan dengan manual.', 'Pemandu harian, kereta keluarga, bengkel dan pusat servis kereta.', ['5W-30 / 10W-40', '10W-30 / 20W-50', 'Ikut data sheet', 'Sahkan manual']],
         motorcycle: ['MINYAK PEK KECIL', 'Minyak Enjin<br>Pek Kecil', 'Minyak pek kecil', 'Produk pek kecil perlu disemak melalui label dan data sheet. Untuk motosikal atau wet-clutch, sahkan dengan UEL dahulu.', 'Pertanyaan pek kecil, runcit dan bengkel.', ['Gred pada label', 'Pek kecil', 'Tanya UEL', 'Sahkan guna']],
@@ -4501,6 +4633,15 @@
       bestFor: '适合',
       viewDetails: '查看产品详情',
       viewAll: '查看所有产品'
+    },
+    why: {
+      eyebrow: '为什么选 UEL',
+      title: '体验高品质与可靠性 — <em>选择 UEL，安心润滑。</em>',
+      cards: [
+        ['卓越保护', 'UEL 润滑油在高温和马来西亚严苛驾驶环境下，依然为引擎提供优异的保护。'],
+        ['提升燃油经济性', '配方专为减少摩擦、提升引擎效率而设计，让每一公里都更省油。'],
+        ['增强动力表现', '提升引擎性能，加速更顺畅、油门反应更敏锐。']
+      ]
     },
     productCards: {
       car: ['UEL 5W-30 全合成引擎油', '汽车<br>引擎油', '汽车引擎油', '产品照片可见 SAE 5W-30、Fully Synthetic 和 API SQ/CF。使用前请配合车辆手册确认。', '车主、维修厂和需要按等级询问的客户。', ['SAE 5W-30', 'Fully Synthetic', 'API SQ/CF 可见', '确认手册']],
@@ -5249,6 +5390,19 @@
     });
     document.querySelectorAll('.product .footer-line span').forEach(el => { el.textContent = text.productHead.viewDetails; });
     setHTML('.products-cta', `${text.productHead.viewAll} <i class="arrow" aria-hidden="true"></i>`);
+
+    if (text.why) {
+      setText('#why-us .eyebrow', text.why.eyebrow);
+      setHTML('#why-us .section-title', text.why.title);
+      document.querySelectorAll('#why-us .why-card').forEach((card, index) => {
+        const data = text.why.cards[index];
+        if (!data) return;
+        const titleEl = card.querySelector('.why-title');
+        const textEl = card.querySelector('.why-text');
+        if (titleEl) titleEl.textContent = data[0];
+        if (textEl) textEl.textContent = data[1];
+      });
+    }
 
     setText('.modal-kicker', text.modal.kicker);
     setAttr('.product-modal__close', 'aria-label', text.modal.close);
