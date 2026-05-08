@@ -888,6 +888,8 @@
     transition: background .4s ease, transform .4s ease;
     overflow: hidden;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
   }
   .product::before {
     content: "";
@@ -1013,6 +1015,7 @@
   .product .footer-line {
     display: flex; justify-content: space-between; align-items: center;
     padding-top: 14px;
+    margin-top: auto;
     border-top: 1px solid var(--line);
     font-family: var(--head);
     font-size: 13px;
