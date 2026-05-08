@@ -2727,10 +2727,10 @@
       footerTouch: 'Contact',
       footerFacebook: 'Facebook Updates',
       footerLine: 'Lubricants for Malaysia',
-      filters: { all: 'All', car: 'Car Engine Oil', motorcycle: 'Motorcycle Oil', diesel: 'Diesel Oil', transmission: 'ATF / Transmission', industrial: 'Hydraulic Oil', cutting: 'Cutting / Coolant' },
+      filters: { all: 'All', car: 'Car Engine Oil', motorcycle: 'Motorcycle Engine Oil', diesel: 'Diesel Engine Oil', transmission: 'ATF / Transmission', industrial: 'Hydraulic Oil', cutting: 'Cutting / Coolant' },
       categoryDesc: {
         car: 'Engine oils commonly selected for petrol cars, SUVs and MPVs.',
-        motorcycle: 'Small-pack engine oil for motorcycles or smaller service jobs.',
+        motorcycle: 'Engine oil for motorcycles and smaller workshop service jobs.',
         diesel: 'Heavy-duty engine oil options for diesel vehicles and fleet use.',
         transmission: 'Automatic transmission fluid for compatible ATF applications.',
         industrial: 'Hydraulic oils for machinery, equipment and industrial maintenance.',
@@ -2811,7 +2811,7 @@
       filters: { all: 'Semua', car: 'Minyak Enjin Kereta', motorcycle: 'Minyak Motosikal', diesel: 'Minyak Diesel', transmission: 'ATF / Transmisi', industrial: 'Minyak Hidraulik', cutting: 'Cutting / Coolant' },
       categoryDesc: {
         car: 'Minyak enjin biasa untuk kereta petrol, SUV dan MPV.',
-        motorcycle: 'Minyak enjin pek kecil untuk motosikal atau servis ringan.',
+        motorcycle: 'Minyak enjin untuk motosikal dan kerja servis ringan.',
         diesel: 'Pilihan minyak enjin heavy-duty untuk diesel dan fleet.',
         transmission: 'Automatic transmission fluid untuk aplikasi ATF yang serasi.',
         industrial: 'Minyak hidraulik untuk mesin, peralatan dan penyelenggaraan industri.',
@@ -2874,7 +2874,7 @@ const products = [
   { id:'pail-20w50-hd', category:'diesel', glow:'rgba(246,180,65,.18)', img:'transparent_png/UEL_mockup_page_13_transparent_FIXED.png', title:{en:'UEL Heavy Duty 20W-50 Engine Oil'}, grade:'SAE 20W-50', spec:'API SL/SJ/CF; ACEA A3/B3 or A3/B4', best:{en:'Heavy-duty 20W-50 enquiries in 18L pail format where the manual allows this grade.'}, detail:{en:'From UEL notes: 20W50 SL/CF Mineral is listed for high-temperature and heavy-load use. This pail is marked sold out from the supplied sold-out screenshots, so ask UEL for restock timing.'}, hasBack:true, dataSheet:'UEL Product details/product-specific-sheets/UEL-20W50-SL-CF-Mineral.pdf', sheetLabel:'View 20W-50 Data Sheet' },
   { id:'hd40-4l', category:'diesel', glow:'rgba(226,59,47,.18)', img:'transparent_png/UEL_mockup_page_01_transparent_FIXED.png', title:{en:'UEL HD40 Monograde Diesel Engine Oil'}, grade:'HD 40 / SAE 40', spec:'API CF / SF; MIL-L-2104C; CCMC D2', best:{en:'Naturally aspirated and light turbocharged diesel engines where SAE 40 monograde oil is specified.'}, detail:{en:'From UEL notes: refined mineral base oils with additives for wear, deposit, rust and oxidation protection. Typical values: KV40 101 mm2/s, KV100 12.6 mm2/s, VI 120, pour point -10 C and flash point 249 C.'}, hasBack:true, dataSheet:'UEL Product details/product-specific-sheets/UEL-HD40-SF-CF.pdf', sheetLabel:'View HD40 Data Sheet' },
   { id:'pail-hd40', category:'diesel', glow:'rgba(246,180,65,.18)', img:'transparent_png/UEL_mockup_page_14_transparent_FIXED.png', title:{en:'UEL Heavy Duty HD40 Engine Oil'}, grade:'HD 40 / SAE 40', spec:'API CF / SF; MIL-L-2104C; CCMC D2', best:{en:'HD40 enquiries in 18L pail format for engines requiring SAE 40 monograde oil.'}, detail:{en:'From UEL notes: HD40 is a monograde diesel engine oil. This pail is marked sold out from the supplied sold-out screenshots, so ask UEL for restock timing.'}, hasBack:true, dataSheet:'UEL Product details/product-specific-sheets/UEL-HD40-SF-CF.pdf', sheetLabel:'View HD40 Data Sheet' },
-  { id:'hd40-1l', category:'diesel', glow:'rgba(226,59,47,.18)', img:'transparent_png/UEL_mockup_page_18_transparent_FIXED.png', title:{en:'UEL HD40 Monograde Diesel Engine Oil Small Pack'}, grade:'HD 40 / SAE 40', spec:'API CF / SF; MIL-L-2104C; CCMC D2', best:{en:'Small-pack HD40 enquiries for equipment requiring SAE 40 monograde oil.'}, detail:{en:'From UEL notes: HD40 is a monograde diesel engine oil. The supplied sold-out screenshot marks this small pack as sold out, so ask UEL when stock will return.'}, hasBack:true, dataSheet:'UEL Product details/product-specific-sheets/UEL-HD40-SF-CF.pdf', sheetLabel:'View HD40 Data Sheet' },
+  { id:'hd40-1l', category:'diesel', glow:'rgba(226,59,47,.18)', img:'transparent_png/UEL_mockup_page_18_transparent_FIXED.png', title:{en:'UEL HD40 Monograde Diesel Engine Oil 1L'}, grade:'HD 40 / SAE 40', spec:'API CF / SF; MIL-L-2104C; CCMC D2', best:{en:'1L pack HD40 enquiries for equipment requiring SAE 40 monograde oil.'}, detail:{en:'From UEL notes: HD40 is a monograde diesel engine oil. Confirm pack size, equipment requirement and current stock with UEL before ordering.'}, hasBack:true, dataSheet:'UEL Product details/product-specific-sheets/UEL-HD40-SF-CF.pdf', sheetLabel:'View HD40 Data Sheet' },
   { id:'atf-dexron-4l', category:'transmission', glow:'rgba(226,59,47,.18)', img:'transparent_png/UEL_mockup_page_09_transparent_FIXED.png', title:{en:'UEL ATF Dexron-III'}, grade:'Dexron-III', spec:'GM Dexron III F/G; GM Type A Suffix A; Ford Mercon IV; Allison C-4/TES-389', best:{en:'Automatic transmissions, power steering systems and hydraulic systems requiring Dexron-III type fluid.'}, detail:{en:'From UEL notes: ATF Dexron-III is listed for smooth shifting, wear/corrosion/foaming protection and high-temperature performance. Other listed specs include Toyota D-III, MB 236.1/236.9, MAN 339 Type V1/V2/Z1/Z2, Ford M2C-138CJ, Voith, Volvo, Subaru and Mazda M III Fluid. Confirm compatibility before use.'}, hasBack:true, dataSheet:'UEL Product details/product-specific-sheets/UEL-ATF-Dexron-III.pdf', sheetLabel:'View ATF Dexron-III Data Sheet' },
   { id:'atf-dexron-pail', category:'transmission', glow:'rgba(226,59,47,.18)', img:'transparent_png/UEL_mockup_page_17_transparent_FIXED.png', title:{en:'UEL ATF Dexron-III Pail'}, grade:'Dexron-III', spec:'GM Dexron III F/G; Ford Mercon IV; Allison C-4/TES-389', best:{en:'Workshop or business ATF enquiries requiring Dexron-III type fluid.'}, detail:{en:'From UEL notes: ATF Dexron-III is listed for automatic transmissions, power steering systems and hydraulic systems requiring Dexron-III. This pail is marked sold out from the supplied screenshot, so check restock timing before confirming order.'}, hasBack:true, dataSheet:'UEL Product details/product-specific-sheets/UEL-ATF-Dexron-III.pdf', sheetLabel:'View ATF Dexron-III Data Sheet' },
   { id:'hydraulic-aws32', category:'industrial', glow:'rgba(246,180,65,.18)', img:'transparent_png/UEL_mockup_page_21_transparent_FIXED.png', title:{en:'UEL Hydraulic Fluid AWS32'}, grade:'AWS32 / ISO VG 32', spec:'DIN 51524 Part II HLP; AW/AWS anti-wear hydraulic oil standards', best:{en:'Industrial and mobile hydraulic systems including forklifts, excavators, injection molding machines, compressors and factory machinery.'}, detail:{en:'From UEL notes: AWS32 uses highly refined base oils and zinc-based additives for wear, oxidation and corrosion protection. Listed properties include density 861.8 kg/m3, KV40 32.12 mm2/s, KV100 5.9071 mm2/s, VI 112.4, pour point -33 C and flash point 210 C.'}, hasBack:false, dataSheet:'UEL Product details/UEL AWS32.pdf', sheetLabel:'View AWS32 Data Sheet' },
@@ -2900,7 +2900,7 @@ const zhProductText = {
   'yellow-15w40-18l': ['适合 18L 包装的重负荷 15W-40 引擎油询问。', 'UEL 资料包含三种 15W40 资料表：Fully API CK-4/SL、SM/CF Mineral 和 SQ/CF Semi。供应的售罄截图标记此黄色包装为售罄，请向 UEL 确认准确标签、对应资料表和补货时间。'],
   'engine-15w40-7l': ['适合要求 15W-40 矿物油，并符合标签所列 API 或 ACEA 类别的包装选择。', '根据 UEL 资料：15W40 SM/CF Mineral 有对应资料表支持。请向 UEL 确认需要的包装和准确标签。'],
   'atf-dexron-pail': ['适合维修厂或商业客户查询 Dexron-III 类 ATF 桶装。', '根据 UEL 资料：ATF Dexron-III 列明用于要求 Dexron-III 的自动变速箱、方向机系统和液压系统。供应的售罄截图标记此桶装为售罄，请先确认补货时间。'],
-  'hd40-1l': ['适合要求 SAE 40 单级油的小包装 HD40 询问。', '根据 UEL 资料：HD40 是单级柴油引擎油。供应的售罄截图标记此小包装为售罄，请向 UEL 查询补货时间。'],
+  'hd40-1l': ['适合要求 SAE 40 单级油的 1L 装 HD40 询问。', '根据 UEL 资料：HD40 是单级柴油引擎油。订购前请向 UEL 确认包装、设备需求和当前库存。'],
   'cutting-fluid-coolant': ['适合黑色和有色金属的钻孔、铣削、车削、磨削和攻牙加工。', '根据 UEL 资料：Cutting Fluid Coolant 为金属切削和加工提供冷却与润滑，可减少摩擦和刀具磨损，并支持表面效果与防锈。典型数值包括 15 C 密度 1.02、5% 乳化液 pH 9.6、Brix factor 1.11。资料中未列出额外性能标准声明。'],
   'hydraulic-68': ['UEL 资料说明 AWS68 为抗磨液压油，应用部分也列出齿轮箱、终传动和差速器用途；实际使用请按手册或向 UEL 确认。', '根据 UEL 资料：AWS68 使用高度精炼 Group II 基础油和含锌抗磨添加剂。列明数值包括 KV40 64.694 mm2/s、KV100 9.1529 mm2/s、VI 126.46、倾点 -18 C、闪点 220 C。由于资料同时出现液压油身份和齿轮用途，请务必确认准确用途。'],
   'hydraulic-aws32': ['适合工业和移动液压系统，包括叉车、挖掘机、注塑机、压缩机和工厂机械。', '根据 UEL 资料：AWS32 使用高度精炼基础油和含锌添加剂，用于抗磨、抗氧化和抗腐蚀保护。列明数值包括密度 861.8 kg/m3、KV40 32.12 mm2/s、KV100 5.9071 mm2/s、VI 112.4、倾点 -33 C、闪点 210 C。']
@@ -2960,7 +2960,7 @@ copy.zh = {
   },
   categoryDesc: {
     car: '适合汽油车、SUV 和 MPV 的常见引擎油。',
-    motorcycle: '适合摩托车或轻型保养的小包装引擎油。',
+    motorcycle: '摩托车与轻型保养引擎油。',
     diesel: '适合柴油车辆和车队用途的重负荷引擎油选择。',
     transmission: '适用于相容 ATF 规格的自动变速箱油。',
     industrial: '适合机器、设备和工业维护的液压油。',
