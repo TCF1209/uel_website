@@ -1507,8 +1507,11 @@
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
-  .field { display: grid; gap: 8px; }
+  .field { display: grid; gap: 8px; min-width: 0; }
   .field.full { grid-column: 1 / -1; }
+  .field input,
+  .field select,
+  .field textarea { min-width: 0; max-width: 100%; }
   .field label {
     font-family: var(--head);
     font-size: 12px;
