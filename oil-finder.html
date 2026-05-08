@@ -252,7 +252,7 @@
         <div class="step is-active" data-step="1">
           <div class="quick-pick">
             <div class="quick-pick-title"><span class="qp-bolt" aria-hidden="true">⚡</span><span data-copy="qpTitle">Quick Pick (Optional)</span></div>
-            <p class="quick-pick-help" data-copy="qpHelp">Choose your car make and model and we&rsquo;ll skip ahead to step 3.</p>
+            <p class="quick-pick-help" data-copy="qpHelp">Choose your car make and model and we&rsquo;ll skip ahead to step 2.</p>
             <div class="quick-row">
               <select id="qp-brand" aria-label="Brand">
                 <option value="" data-copy="qpBrand">Select brand</option>
@@ -453,90 +453,90 @@
   /* === CARS DATABASE (~55 Malaysian common cars) === */
   const CARS = {
     perodua: { name: 'Perodua', models: {
-      myvi: { name: 'Myvi (1.3 / 1.5)', type: 'passenger', engine: 'mid' },
-      axia: { name: 'Axia (1.0)', type: 'passenger', engine: 'small' },
-      bezza: { name: 'Bezza (1.0 / 1.3)', type: 'passenger', engine: 'small' },
-      aruz: { name: 'Aruz (1.5)', type: 'suv', engine: 'mid' },
-      alza: { name: 'Alza (1.5)', type: 'passenger', engine: 'mid' },
-      ativa: { name: 'Ativa (1.0T)', type: 'suv', engine: 'small' }
+      myvi: { name: 'Myvi', type: 'passenger', engine: 'mid' },
+      axia: { name: 'Axia', type: 'passenger', engine: 'small' },
+      bezza: { name: 'Bezza', type: 'passenger', engine: 'small' },
+      aruz: { name: 'Aruz', type: 'suv', engine: 'mid' },
+      alza: { name: 'Alza', type: 'passenger', engine: 'mid' },
+      ativa: { name: 'Ativa', type: 'suv', engine: 'small' }
     }},
     proton: { name: 'Proton', models: {
-      saga: { name: 'Saga (1.3)', type: 'passenger', engine: 'small' },
-      persona: { name: 'Persona (1.6)', type: 'passenger', engine: 'mid' },
-      iriz: { name: 'Iriz (1.3 / 1.6)', type: 'passenger', engine: 'mid' },
-      'x50': { name: 'X50 (1.5T)', type: 'suv', engine: 'mid' },
-      'x70': { name: 'X70 (1.5T / 1.8T)', type: 'suv', engine: 'mid' },
-      'x90': { name: 'X90 (1.5T)', type: 'suv', engine: 'mid' },
-      's70': { name: 'S70 (1.5T)', type: 'passenger', engine: 'mid' }
+      saga: { name: 'Saga', type: 'passenger', engine: 'small' },
+      persona: { name: 'Persona', type: 'passenger', engine: 'mid' },
+      iriz: { name: 'Iriz', type: 'passenger', engine: 'mid' },
+      'x50': { name: 'X50', type: 'suv', engine: 'mid' },
+      'x70': { name: 'X70', type: 'suv', engine: 'mid' },
+      'x90': { name: 'X90', type: 'suv', engine: 'mid' },
+      's70': { name: 'S70', type: 'passenger', engine: 'mid' }
     }},
     toyota: { name: 'Toyota', models: {
-      vios: { name: 'Vios (1.5)', type: 'passenger', engine: 'mid' },
-      yaris: { name: 'Yaris (1.5)', type: 'passenger', engine: 'mid' },
-      'yaris-cross': { name: 'Yaris Cross (1.5)', type: 'suv', engine: 'mid' },
-      corolla: { name: 'Corolla Altis (1.8 / 2.0)', type: 'passenger', engine: 'large' },
-      camry: { name: 'Camry (2.5)', type: 'passenger', engine: 'large' },
-      hilux: { name: 'Hilux (2.4D / 2.8D)', type: 'diesel', engine: 'large' },
-      innova: { name: 'Innova (2.0 / 2.7)', type: 'suv', engine: 'large' },
-      fortuner: { name: 'Fortuner (2.4D / 2.7)', type: 'diesel', engine: 'large' },
-      veloz: { name: 'Veloz (1.5)', type: 'suv', engine: 'mid' },
-      'rav4': { name: 'RAV4 (2.0 / 2.5)', type: 'suv', engine: 'large' },
-      alphard: { name: 'Alphard (2.5 / 3.5)', type: 'suv', engine: 'large' }
+      vios: { name: 'Vios', type: 'passenger', engine: 'mid' },
+      yaris: { name: 'Yaris', type: 'passenger', engine: 'mid' },
+      'yaris-cross': { name: 'Yaris Cross', type: 'suv', engine: 'mid' },
+      corolla: { name: 'Corolla Altis', type: 'passenger', engine: 'large' },
+      camry: { name: 'Camry', type: 'passenger', engine: 'large' },
+      hilux: { name: 'Hilux', type: 'diesel', engine: 'large' },
+      innova: { name: 'Innova', type: 'suv', engine: 'large' },
+      fortuner: { name: 'Fortuner', type: 'diesel', engine: 'large' },
+      veloz: { name: 'Veloz', type: 'suv', engine: 'mid' },
+      'rav4': { name: 'RAV4', type: 'suv', engine: 'large' },
+      alphard: { name: 'Alphard', type: 'suv', engine: 'large' }
     }},
     honda: { name: 'Honda', models: {
-      city: { name: 'City (1.5)', type: 'passenger', engine: 'mid' },
-      civic: { name: 'Civic (1.5T / 2.0)', type: 'passenger', engine: 'mid' },
-      accord: { name: 'Accord (1.5T / 2.0H)', type: 'passenger', engine: 'mid' },
-      jazz: { name: 'Jazz (1.5)', type: 'passenger', engine: 'mid' },
-      'hr-v': { name: 'HR-V (1.5)', type: 'suv', engine: 'mid' },
-      'cr-v': { name: 'CR-V (1.5T / 2.0)', type: 'suv', engine: 'mid' },
-      'br-v': { name: 'BR-V (1.5)', type: 'suv', engine: 'mid' }
+      city: { name: 'City', type: 'passenger', engine: 'mid' },
+      civic: { name: 'Civic', type: 'passenger', engine: 'mid' },
+      accord: { name: 'Accord', type: 'passenger', engine: 'mid' },
+      jazz: { name: 'Jazz', type: 'passenger', engine: 'mid' },
+      'hr-v': { name: 'HR-V', type: 'suv', engine: 'mid' },
+      'cr-v': { name: 'CR-V', type: 'suv', engine: 'mid' },
+      'br-v': { name: 'BR-V', type: 'suv', engine: 'mid' }
     }},
     nissan: { name: 'Nissan', models: {
-      almera: { name: 'Almera (1.0T)', type: 'passenger', engine: 'small' },
-      'x-trail': { name: 'X-Trail (2.0 / 2.5)', type: 'suv', engine: 'large' },
-      navara: { name: 'Navara (2.5D)', type: 'diesel', engine: 'large' },
-      serena: { name: 'Serena (2.0)', type: 'suv', engine: 'large' }
+      almera: { name: 'Almera', type: 'passenger', engine: 'small' },
+      'x-trail': { name: 'X-Trail', type: 'suv', engine: 'large' },
+      navara: { name: 'Navara', type: 'diesel', engine: 'large' },
+      serena: { name: 'Serena', type: 'suv', engine: 'large' }
     }},
     mazda: { name: 'Mazda', models: {
-      'mazda-3': { name: 'Mazda 3 (1.5 / 2.0)', type: 'passenger', engine: 'mid' },
-      'cx-3': { name: 'CX-3 (1.5 / 2.0)', type: 'suv', engine: 'mid' },
-      'cx-5': { name: 'CX-5 (2.0 / 2.5)', type: 'suv', engine: 'large' },
-      'cx-30': { name: 'CX-30 (2.0)', type: 'suv', engine: 'large' },
-      'bt-50': { name: 'BT-50 (3.0D)', type: 'diesel', engine: 'xlarge' }
+      'mazda-3': { name: 'Mazda 3', type: 'passenger', engine: 'mid' },
+      'cx-3': { name: 'CX-3', type: 'suv', engine: 'mid' },
+      'cx-5': { name: 'CX-5', type: 'suv', engine: 'large' },
+      'cx-30': { name: 'CX-30', type: 'suv', engine: 'large' },
+      'bt-50': { name: 'BT-50', type: 'diesel', engine: 'xlarge' }
     }},
     mitsubishi: { name: 'Mitsubishi', models: {
-      triton: { name: 'Triton (2.4D)', type: 'diesel', engine: 'large' },
-      outlander: { name: 'Outlander (2.4)', type: 'suv', engine: 'large' },
-      xpander: { name: 'Xpander (1.5)', type: 'passenger', engine: 'mid' }
+      triton: { name: 'Triton', type: 'diesel', engine: 'large' },
+      outlander: { name: 'Outlander', type: 'suv', engine: 'large' },
+      xpander: { name: 'Xpander', type: 'passenger', engine: 'mid' }
     }},
     hyundai: { name: 'Hyundai', models: {
-      tucson: { name: 'Tucson (2.0)', type: 'suv', engine: 'large' },
-      'santa-fe': { name: 'Santa Fe (2.5)', type: 'suv', engine: 'large' },
-      starex: { name: 'Starex (2.5D)', type: 'diesel', engine: 'large' }
+      tucson: { name: 'Tucson', type: 'suv', engine: 'large' },
+      'santa-fe': { name: 'Santa Fe', type: 'suv', engine: 'large' },
+      starex: { name: 'Starex', type: 'diesel', engine: 'large' }
     }},
     kia: { name: 'Kia', models: {
-      picanto: { name: 'Picanto (1.0 / 1.2)', type: 'passenger', engine: 'small' },
-      carnival: { name: 'Carnival (3.5 / 2.2D)', type: 'suv', engine: 'xlarge' },
-      sorento: { name: 'Sorento (2.4 / 2.2D)', type: 'suv', engine: 'large' }
+      picanto: { name: 'Picanto', type: 'passenger', engine: 'small' },
+      carnival: { name: 'Carnival', type: 'suv', engine: 'xlarge' },
+      sorento: { name: 'Sorento', type: 'suv', engine: 'large' }
     }},
     bmw: { name: 'BMW', models: {
-      '3-series': { name: '3 Series (2.0T)', type: 'passenger', engine: 'large' },
-      '5-series': { name: '5 Series (2.0T / 3.0T)', type: 'passenger', engine: 'large' },
-      'x1': { name: 'X1 (1.5T / 2.0T)', type: 'suv', engine: 'mid' },
-      'x3': { name: 'X3 (2.0T)', type: 'suv', engine: 'large' },
-      'x5': { name: 'X5 (3.0T)', type: 'suv', engine: 'xlarge' }
+      '3-series': { name: '3 Series', type: 'passenger', engine: 'large' },
+      '5-series': { name: '5 Series', type: 'passenger', engine: 'large' },
+      'x1': { name: 'X1', type: 'suv', engine: 'mid' },
+      'x3': { name: 'X3', type: 'suv', engine: 'large' },
+      'x5': { name: 'X5', type: 'suv', engine: 'xlarge' }
     }},
     mercedes: { name: 'Mercedes-Benz', models: {
-      'a-class': { name: 'A-Class (1.3T / 2.0T)', type: 'passenger', engine: 'mid' },
-      'c-class': { name: 'C-Class (1.5T / 2.0T)', type: 'passenger', engine: 'mid' },
-      'e-class': { name: 'E-Class (2.0T / 3.0T)', type: 'passenger', engine: 'large' },
-      glc: { name: 'GLC (2.0T)', type: 'suv', engine: 'large' }
+      'a-class': { name: 'A-Class', type: 'passenger', engine: 'mid' },
+      'c-class': { name: 'C-Class', type: 'passenger', engine: 'mid' },
+      'e-class': { name: 'E-Class', type: 'passenger', engine: 'large' },
+      glc: { name: 'GLC', type: 'suv', engine: 'large' }
     }},
     lexus: { name: 'Lexus', models: {
-      is: { name: 'IS (2.0T / 3.5)', type: 'passenger', engine: 'large' },
-      es: { name: 'ES (2.5)', type: 'passenger', engine: 'large' },
-      rx: { name: 'RX (2.5H / 3.5)', type: 'suv', engine: 'large' },
-      nx: { name: 'NX (2.0T / 2.4T)', type: 'suv', engine: 'large' }
+      is: { name: 'IS', type: 'passenger', engine: 'large' },
+      es: { name: 'ES', type: 'passenger', engine: 'large' },
+      rx: { name: 'RX', type: 'suv', engine: 'large' },
+      nx: { name: 'NX', type: 'suv', engine: 'large' }
     }}
   };
 
@@ -546,7 +546,7 @@
     'semi-5w30':  { grade: 'SAE 5W-30', name: 'UEL 5W-30 SQ/CF Semi-Synthetic Engine Oil', tier: 'Semi-Synthetic', accent: 'var(--uel-red)', soft: 'rgba(226,59,47,.12)' },
     'mineral-10w30': { grade: 'SAE 10W-30', name: 'UEL 10W-30 SL/CF Mineral Engine Oil', tier: 'Mineral', accent: 'var(--uel-green)', soft: 'rgba(24,169,116,.12)' },
     'semi-10w40': { grade: 'SAE 10W-40', name: 'UEL 10W-40 SQ/CF Semi-Synthetic Engine Oil', tier: 'Semi-Synthetic', accent: 'var(--uel-blue)', soft: 'rgba(43,108,246,.12)' },
-    'fully-15w40': { grade: 'SAE 15W-40', name: 'UEL 15W-40 Fully Synthetic Engine Oil', tier: 'Fully Synthetic (CK-4)', accent: 'var(--uel-blue)', soft: 'rgba(43,108,246,.12)' },
+    'fully-15w40': { grade: 'SAE 15W-40', name: 'UEL 15W-40 Fully Synthetic Engine Oil', tier: 'Fully Synthetic', accent: 'var(--uel-blue)', soft: 'rgba(43,108,246,.12)' },
     'mineral-15w40': { grade: 'SAE 15W-40', name: 'UEL 15W-40 SM/CF Mineral Engine Oil', tier: 'Mineral', accent: 'var(--uel-green)', soft: 'rgba(24,169,116,.12)' },
     'mineral-20w50': { grade: 'SAE 20W-50', name: 'UEL 20W-50 SL/CF Mineral Engine Oil', tier: 'Mineral', accent: 'var(--uel-red)', soft: 'rgba(226,59,47,.12)' },
     'hd40': { grade: 'HD 40 / SAE 40', name: 'UEL HD40 Monograde Diesel Engine Oil', tier: 'Mineral Monograde', accent: 'var(--amber)', soft: 'rgba(246,180,65,.12)' }
@@ -642,7 +642,7 @@
       u_highway_t: 'Highway / Long Distance', u_highway_s: 'Mostly long, steady runs',
       u_heavy_t: 'Heavy Load / Work', u_heavy_s: 'Towing, hauling, fleet duty',
       qpTitle: 'Quick Pick (Optional)',
-      qpHelp: 'Choose your car make and model and we’ll skip ahead to step 3.',
+      qpHelp: 'Choose your car make and model and we’ll skip ahead to step 2.',
       qpBrand: 'Select brand', qpModel: 'Select model',
       qpGo: 'Use This Car',
       qpSkip: 'Don’t see your car? Just answer the questions below ↓',
@@ -703,7 +703,7 @@
       u_highway_t: '高速 / 长途', u_highway_s: '主要长途稳定行驶',
       u_heavy_t: '重负荷 / 工作用', u_heavy_s: '拖载、车队、工作用车',
       qpTitle: '快速选车（选填）',
-      qpHelp: '选您的车品牌和型号，我们会直接跳到第 3 步。',
+      qpHelp: '选您的车品牌和型号，我们会直接跳到第 2 步。',
       qpBrand: '选择品牌', qpModel: '选择型号',
       qpGo: '使用此车',
       qpSkip: '找不到您的车？请回答下面的问题 ↓',
@@ -763,7 +763,7 @@
       u_highway_t: 'Lebuh Raya / Jauh', u_highway_s: 'Kebanyakan jarak jauh stabil',
       u_heavy_t: 'Beban Berat / Kerja', u_heavy_s: 'Tarik, angkut, fleet',
       qpTitle: 'Pilihan Pantas (Pilihan)',
-      qpHelp: 'Pilih jenama dan model kereta anda, kami akan langkau ke langkah 3.',
+      qpHelp: 'Pilih jenama dan model kereta anda, kami akan langkau ke langkah 2.',
       qpBrand: 'Pilih jenama', qpModel: 'Pilih model',
       qpGo: 'Guna Kereta Ini',
       qpSkip: 'Tiada kereta anda? Jawab soalan di bawah ↓',
@@ -983,15 +983,15 @@
       const modelKey = qpModel.value;
       if (!brandKey || !modelKey) return;
       const car = CARS[brandKey].models[modelKey];
-      // Auto-set answers for Step 1 (type) and Step 2 (engine)
+      // Auto-set vehicle type only (Step 1); user picks engine size manually in Step 2
       state.answers.type = car.type;
-      state.answers.engine = car.engine;
-      // Visually mark selected options + enable next buttons
+      state.answers.engine = null;
       $$('.step[data-step="1"] .option').forEach(o => o.classList.toggle('is-selected', o.dataset.value === car.type));
-      $$('.step[data-step="2"] .option').forEach(o => o.classList.toggle('is-selected', o.dataset.value === car.engine));
-      $$('.step[data-step="1"] .step-next, .step[data-step="2"] .step-next').forEach(b => b.disabled = false);
-      // Jump to Step 3
-      showStep(3);
+      $$('.step[data-step="2"] .option').forEach(o => o.classList.remove('is-selected'));
+      $$('.step[data-step="1"] .step-next').forEach(b => b.disabled = false);
+      $$('.step[data-step="2"] .step-next').forEach(b => b.disabled = true);
+      // Jump to Step 2 - user picks engine displacement
+      showStep(2);
     });
 
     // Apply initial language
