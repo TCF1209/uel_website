@@ -765,11 +765,21 @@
     padding: 0;
   }
   @media (max-width: 740px) {
+    .field.has-picker {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
     .field.has-picker input {
       padding-right: 14px !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      box-sizing: border-box !important;
+      display: block !important;
     }
     .field.has-picker .picker-trigger {
-      display: none;
+      display: none !important;
     }
   }
   .field.has-picker input::-webkit-calendar-picker-indicator {
