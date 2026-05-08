@@ -3735,87 +3735,6 @@
   </div>
 </section>
 
-<!-- â”€â”€â”€ SPEC TABLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
-<section class="bay spec" id="range">
-  <div class="wrap">
-    <div class="bay-head">
-      <div class="reveal">
-        <span class="num">Common Oil Grades</span>
-        <h2 class="section-title" style="margin-top:18px">A snapshot of <em>the lineup.</em></h2>
-      </div>
-      <div class="reveal d1">
-        <p class="lead">Examples shown from visible labels, API proof files and UEL data sheets. Confirm exact grade and suitability with UEL and the manual.</p>
-      </div>
-    </div>
-
-    <div class="range-scroll reveal">
-      <table class="spec-table" aria-label="UEL product range snapshot">
-        <thead>
-          <tr><th>Category</th><th>Product</th><th>Grade</th><th>Spec</th><th>Tier</th></tr>
-        </thead>
-                <tbody>
-          <tr>
-            <td data-label="Category"><span class="tag r">Car</span></td>
-            <td data-label="Product" class="name">UEL 5W-30 Fully / Semi</td>
-            <td data-label="Grade" class="grade">SAE 5W-30</td>
-            <td data-label="Spec" class="sku">API SQ/CF; GM dexos1 Gen 2; Ford WSS-M2C946-A/B1; Chrysler MS-6395</td>
-            <td data-label="Tier">Fully / Semi Synthetic</td>
-          </tr>
-          <tr>
-            <td data-label="Category"><span class="tag r">Car</span></td>
-            <td data-label="Product" class="name">UEL 10W-40 Semi</td>
-            <td data-label="Grade" class="grade">SAE 10W-40</td>
-            <td data-label="Spec" class="sku">API SQ/CF-4; BMW LL-01; MB 229.1/229.3; Renault RN 0700/0710</td>
-            <td data-label="Tier">Semi Synthetic</td>
-          </tr>
-          <tr>
-            <td data-label="Category"><span class="tag b">Engine</span></td>
-            <td data-label="Product" class="name">UEL 15W-40 Family</td>
-            <td data-label="Grade" class="grade">SAE 15W-40</td>
-            <td data-label="Spec" class="sku">Fully: API CK-4/SL; Mineral: API SM/SL/SJ/CF; Semi: API SQ/CF-4</td>
-            <td data-label="Tier">Fully / Semi / Mineral</td>
-          </tr>
-          <tr>
-            <td data-label="Category"><span class="tag r">Engine</span></td>
-            <td data-label="Product" class="name">UEL 20W-50 Mineral</td>
-            <td data-label="Grade" class="grade">SAE 20W-50</td>
-            <td data-label="Spec" class="sku">API SL/SJ/CF; ACEA A3/B3 or A3/B4</td>
-            <td data-label="Tier">Mineral</td>
-          </tr>
-          <tr>
-            <td data-label="Category"><span class="tag g">Diesel</span></td>
-            <td data-label="Product" class="name">UEL HD40</td>
-            <td data-label="Grade" class="grade">HD40</td>
-            <td data-label="Spec" class="sku">API CF / SF; MIL-L-2104C; CCMC D2 from product data sheet</td>
-            <td data-label="Tier">Premium Mineral</td>
-          </tr>
-          <tr>
-            <td data-label="Category"><span class="tag b">ATF</span></td>
-            <td data-label="Product" class="name">UEL ATF Dexron-III</td>
-            <td data-label="Grade" class="grade">Dexron-III</td>
-            <td data-label="Spec" class="sku">GM Dexron III F/G; GM Type A Suffix A; Ford Mercon IV; Allison C-4/TES-389</td>
-            <td data-label="Tier">ATF</td>
-          </tr>
-          <tr>
-            <td data-label="Category"><span class="tag">Hydraulic</span></td>
-            <td data-label="Product" class="name">UEL AWS32 / AWS68</td>
-            <td data-label="Grade" class="grade">ISO VG 32 / 68</td>
-            <td data-label="Spec" class="sku">DIN 51524 Part II HLP; AW/AWS anti-wear hydraulic oil standards</td>
-            <td data-label="Tier">Hydraulic</td>
-          </tr>
-          <tr>
-            <td data-label="Category"><span class="tag">Coolant</span></td>
-            <td data-label="Product" class="name">UEL Cutting Fluid Coolant</td>
-            <td data-label="Grade" class="grade">Water-soluble</td>
-            <td data-label="Spec" class="sku">Yellow neat liquid; white translucent after dilution; pH 9.6 at 5%; Brix 1.11</td>
-            <td data-label="Tier">Cutting fluid</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
 <!-- â”€â”€â”€ CONTACT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <section class="bay contact" id="contact">
   <div class="wrap contact-grid">
@@ -3968,7 +3887,7 @@
         <ul>
           <li><a href="#about">Who We Are</a></li>
           <li><a href="api-cert.html">API &amp; Cert</a></li>
-          <li><a href="#range">Range</a></li>
+          <li><a href="#why-us">Why Choose UEL</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -5441,13 +5360,6 @@
       row.querySelector('p').textContent = item[1];
     });
 
-    setText('#range .num', text.range.eyebrow);
-    setHTML('#range .section-title', text.range.title);
-    setText('#range .lead', text.range.lead);
-    document.querySelectorAll('.spec-table th').forEach((th, index) => { th.textContent = text.range.heads[index] || th.textContent; });
-    document.querySelectorAll('.spec-table tbody tr').forEach(row => {
-      row.querySelectorAll('td').forEach((td, index) => td.setAttribute('data-label', text.range.heads[index] || ''));
-    });
 
     setText('#contact > .wrap > .reveal .num', text.form.eyebrow);
     setHTML('#contact > .wrap > .reveal h2', text.form.title);
