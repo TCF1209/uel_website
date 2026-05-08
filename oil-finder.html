@@ -136,6 +136,10 @@
   .result-summary p{margin:0;color:var(--paper);font-size:14px}
   .answers-chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
   .answer-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.025);color:var(--ash);font-family:var(--head);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .spec-hint{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;border:1px solid rgba(43,108,246,.42);border-radius:12px;background:linear-gradient(180deg,rgba(43,108,246,.08),rgba(43,108,246,.012));margin:18px 0 0}
+  .spec-hint-icon{font-size:18px;line-height:1.2;flex-shrink:0}
+  .spec-hint p{margin:0;font-size:13.5px;line-height:1.55;color:var(--paper)}
+  .spec-hint strong{color:var(--bone);font-weight:700}
 
   .recs{display:grid;gap:14px;margin-top:18px}
   .rec-card{position:relative;border:1px solid var(--line-strong);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012)),var(--carbon);padding:22px;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;animation:cardIn .55s cubic-bezier(.2,.8,.2,1) both;overflow:hidden}
@@ -382,6 +386,11 @@
             <div class="answers-chips" id="answers-chips"></div>
           </div>
 
+          <div class="spec-hint" id="spec-hint" hidden>
+            <span class="spec-hint-icon" aria-hidden="true">💡</span>
+            <p id="spec-hint-text"></p>
+          </div>
+
           <div class="recs" id="recs"></div>
 
           <div class="result-cta">
@@ -519,14 +528,14 @@
       carnival: { name: 'Carnival', type: 'suv', engine: 'xlarge' },
       sorento: { name: 'Sorento', type: 'suv', engine: 'large' }
     }},
-    bmw: { name: 'BMW', models: {
+    bmw: { name: 'BMW', specHint: 'BMW Longlife-01', models: {
       '3-series': { name: '3 Series', type: 'passenger', engine: 'large' },
       '5-series': { name: '5 Series', type: 'passenger', engine: 'large' },
       'x1': { name: 'X1', type: 'suv', engine: 'mid' },
       'x3': { name: 'X3', type: 'suv', engine: 'large' },
       'x5': { name: 'X5', type: 'suv', engine: 'xlarge' }
     }},
-    mercedes: { name: 'Mercedes-Benz', models: {
+    mercedes: { name: 'Mercedes-Benz', specHint: 'MB 229.5 / 229.51', models: {
       'a-class': { name: 'A-Class', type: 'passenger', engine: 'mid' },
       'c-class': { name: 'C-Class', type: 'passenger', engine: 'mid' },
       'e-class': { name: 'E-Class', type: 'passenger', engine: 'large' },
@@ -646,6 +655,7 @@
       qpBrand: 'Select brand', qpModel: 'Select model',
       qpGo: 'Use This Car',
       qpSkip: 'Don’t see your car? Just answer the questions below ↓',
+      specHintTpl: 'Your {model} requires {spec} approval. UEL 5W-30 Fully Synthetic meets this specification.',
       next: 'Next', back: 'Back', finish: 'See Recommendations',
       resultTitle: 'Your <em>recommended oils.</em>',
       resultLead: 'Based on your answers, here are up to three UEL engine oils that fit your vehicle.',
@@ -707,6 +717,7 @@
       qpBrand: '选择品牌', qpModel: '选择型号',
       qpGo: '使用此车',
       qpSkip: '找不到您的车？请回答下面的问题 ↓',
+      specHintTpl: '您的 {model} 需要 {spec} 认证。UEL 5W-30 Fully Synthetic 已符合此标准。',
       next: '下一步', back: '上一步', finish: '查看推荐',
       resultTitle: '为您 <em>推荐的机油。</em>',
       resultLead: '根据您的回答，这是最多三款适合您车辆的 UEL 引擎油。',
@@ -767,6 +778,7 @@
       qpBrand: 'Pilih jenama', qpModel: 'Pilih model',
       qpGo: 'Guna Kereta Ini',
       qpSkip: 'Tiada kereta anda? Jawab soalan di bawah ↓',
+      specHintTpl: 'Kereta {model} anda memerlukan kelulusan {spec}. UEL 5W-30 Fully Synthetic memenuhi spesifikasi ini.',
       next: 'Seterusnya', back: 'Kembali', finish: 'Lihat Cadangan',
       resultTitle: 'Cadangan minyak <em>untuk anda.</em>',
       resultLead: 'Berdasarkan jawapan anda, ini adalah sehingga tiga minyak enjin UEL yang sesuai dengan kenderaan anda.',
@@ -797,7 +809,7 @@
   };
 
   /* === STATE === */
-  const state = { step: 1, answers: { type: null, engine: null, age: null, usage: null }, lang: localStorage.getItem('uelLang') || 'en' };
+  const state = { step: 1, answers: { type: null, engine: null, age: null, usage: null }, qpBrand: null, qpModel: null, lang: localStorage.getItem('uelLang') || 'en' };
   const STEP_KEYS = ['type', 'engine', 'age', 'usage'];
 
   /* === DOM HELPERS === */
@@ -888,6 +900,21 @@
       chips.appendChild(chip);
     });
 
+    // OEM spec hint when user picked a brand with specHint via Quick Pick
+    const hintEl = $('#spec-hint');
+    const hintText = $('#spec-hint-text');
+    const brand = state.qpBrand ? CARS[state.qpBrand] : null;
+    if (brand && brand.specHint && state.qpModel) {
+      const carName = brand.name + ' ' + brand.models[state.qpModel].name;
+      const tpl = dict.specHintTpl || 'Your {model} requires {spec} approval. UEL 5W-30 Fully Synthetic meets this specification.';
+      hintText.innerHTML = tpl
+        .replace('{model}', '<strong>' + carName + '</strong>')
+        .replace('{spec}', '<strong>' + brand.specHint + '</strong>');
+      hintEl.hidden = false;
+    } else {
+      hintEl.hidden = true;
+    }
+
     // Build WhatsApp message
     const recList = recs.map((r, i) => `${i + 1}. ${OILS[r.key].name}`).join('\n');
     const msg = `Hi UEL, I used the Oil Finder. My answers:\n` +
@@ -924,6 +951,11 @@
     // Restart
     $('#restart-btn').addEventListener('click', () => {
       state.answers = { type: null, engine: null, age: null, usage: null };
+      state.qpBrand = null;
+      state.qpModel = null;
+      const qpBrandSel = $('#qp-brand'); if (qpBrandSel) qpBrandSel.value = '';
+      const qpModelSel = $('#qp-model'); if (qpModelSel) { qpModelSel.value = ''; qpModelSel.disabled = true; }
+      const qpGoBtn = $('#qp-go'); if (qpGoBtn) qpGoBtn.disabled = true;
       $$('.option').forEach(o => o.classList.remove('is-selected'));
       $$('.step-next, .step-finish').forEach(b => b.disabled = true);
       showStep(1);
@@ -983,6 +1015,8 @@
       const modelKey = qpModel.value;
       if (!brandKey || !modelKey) return;
       const car = CARS[brandKey].models[modelKey];
+      state.qpBrand = brandKey;
+      state.qpModel = modelKey;
       // Auto-set vehicle type only (Step 1); user picks engine size manually in Step 2
       state.answers.type = car.type;
       state.answers.engine = null;
