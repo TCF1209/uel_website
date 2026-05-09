@@ -87,17 +87,15 @@
   .btn.ghost{background:rgba(255,255,255,.04);color:var(--bone)}
   .btn:hover{transform:translateY(-1px)}
 
-  /* hero card (right side preview) */
-  .hero-card{border:1px solid var(--line-strong);border-radius:var(--card-radius);background:radial-gradient(110% 80% at 100% 0%,rgba(246,180,65,.16),transparent 58%),linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.014)),var(--carbon);padding:clamp(20px,3vw,32px);box-shadow:0 28px 70px rgba(0,0,0,.34),0 0 42px rgba(246,180,65,.06);overflow:hidden}
-  .hero-card .hc-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
-  .hc-tile{border:1px solid var(--line);border-radius:12px;padding:18px;background:rgba(255,255,255,.026)}
-  .hc-tile .tag{font-family:var(--head);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ash)}
-  .hc-tile .code{display:block;margin-top:6px;font-family:var(--display);font-size:clamp(28px,3.4vw,46px);line-height:1;color:var(--bone)}
-  .hc-tile .desc{margin-top:8px;color:var(--paper);font-size:13.5px;line-height:1.45}
-  .hc-tile.petrol{border-color:rgba(226,59,47,.45)}
-  .hc-tile.petrol .code{color:#ffb1aa}
-  .hc-tile.diesel{border-color:rgba(246,180,65,.45)}
-  .hc-tile.diesel .code{color:var(--amber)}
+  /* hero card (UEL credibility summary) */
+  .hero-card{border:1px solid var(--line-strong);border-radius:var(--card-radius);background:radial-gradient(110% 80% at 100% 0%,rgba(246,180,65,.16),transparent 58%),linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.014)),var(--carbon);padding:clamp(22px,3vw,34px);box-shadow:0 28px 70px rgba(0,0,0,.34),0 0 42px rgba(246,180,65,.06);overflow:hidden}
+  .hc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+  .hc-stat{border:1px solid var(--line-strong);border-radius:12px;padding:18px 12px;background:rgba(255,255,255,.026);text-align:center}
+  .hc-stat .big{display:block;font-family:var(--display);font-weight:800;font-size:clamp(28px,3.6vw,46px);line-height:1;color:var(--amber);letter-spacing:-.01em}
+  .hc-stat .lbl{display:block;margin-top:8px;font-family:var(--head);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ash)}
+  .hc-foot{margin-top:18px;color:var(--paper);font-size:13.5px;line-height:1.55}
+  .hc-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;color:var(--amber);font-family:var(--head);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid rgba(246,180,65,.42);padding-bottom:3px}
+  .hc-link:hover{color:var(--bone);border-bottom-color:var(--bone)}
 
   /* sections */
   .section{padding:clamp(48px,7vw,90px) 0;border-top:1px solid var(--line)}
@@ -223,7 +221,7 @@
     h2{font-size:clamp(28px,8vw,40px)!important}
     h3{font-size:clamp(22px,6vw,32px)!important}
     .rules-grid,.foot-grid{grid-template-columns:1fr}
-    .hero-card .hc-row{grid-template-columns:1fr}
+    .hc-stats{grid-template-columns:1fr 1fr 1fr}
     .btn{width:100%}
     .float-wa span{display:none}
   }
@@ -245,7 +243,7 @@
       <a href="products.html" data-copy="navProducts">Products</a>
       <a href="api-guide.html" class="active" data-copy="navGuide">API Guide</a>
       <a href="api-cert.html" data-copy="navWhere">API &amp; Cert</a>
-      <a href="oil-finder.html" data-copy="navFinder">Oil Finder</a>
+      <a href="oil-finder.html" data-copy="navFinder">Oil Advisor</a>
       <a href="contact.html" data-copy="navContact">Contact</a>
       <a class="nav-cta" href="https://wa.me/60108989120?text=Hi%20UEL%2C%20I%20want%20to%20ask%20about%20API%20specifications" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span>WhatsApp</a>
       <div class="lang-switch" aria-label="Language">
@@ -277,21 +275,25 @@
         </div>
       </div>
 
-      <aside class="hero-card reveal d2" aria-label="API category quick reference">
-        <span class="badge" data-copy="heroCardBadge">Quick reference</span>
-        <h3 style="margin-top:14px" data-copy="heroCardTitle">Two letters tell you the engine type.</h3>
-        <div class="hc-row">
-          <div class="hc-tile petrol">
-            <span class="tag" data-copy="heroTilePetrolTag">Petrol · Spark Ignition</span>
-            <span class="code">S</span>
-            <p class="desc" data-copy-html="heroTilePetrolDesc">SA → SQ. Higher letter, newer technology. Current spec: <b>SQ</b> (2025).</p>
+      <aside class="hero-card reveal d2" aria-label="UEL API certification summary">
+        <span class="badge" data-copy="heroCardBadge">UEL × API EOLCS</span>
+        <h3 style="margin-top:14px" data-copy="heroCardTitle">Independently verified by API.</h3>
+        <div class="hc-stats">
+          <div class="hc-stat">
+            <span class="big">#3898</span>
+            <span class="lbl" data-copy="heroStat1Lbl">EOLCS Licence</span>
           </div>
-          <div class="hc-tile diesel">
-            <span class="tag" data-copy="heroTileDieselTag">Diesel · Compression Ignition</span>
-            <span class="code">C</span>
-            <p class="desc" data-copy-html="heroTileDieselDesc">CA → CK-4, plus FA-4. Current heavy-duty: <b>CK-4</b> &amp; <b>FA-4</b>.</p>
+          <div class="hc-stat">
+            <span class="big">14</span>
+            <span class="lbl" data-copy="heroStat2Lbl">Certified Grades</span>
+          </div>
+          <div class="hc-stat">
+            <span class="big">SQ</span>
+            <span class="lbl" data-copy="heroStat3Lbl">Service Category</span>
           </div>
         </div>
+        <p class="hc-foot" data-copy="heroCardFoot">Active on the API EOLCS register — independently audited, not a self-claim. Every grade below is what UEL is licensed to sell.</p>
+        <a class="hc-link" href="api-cert.html" data-copy="heroCardCta">View the certificate →</a>
       </aside>
     </div>
   </section>
@@ -494,9 +496,9 @@
       <article class="cta-stage reveal">
         <span class="badge" data-copy="ctaBadge">Next steps</span>
         <h2 data-copy-html="ctaTitle">Ready to <em>match a UEL grade</em> to your vehicle?</h2>
-        <p data-copy="ctaText">UEL is licensed under API EOLCS #3898 across 14 grades — all certified to the current API SQ category. Use the Oil Finder for a quick suggestion, check the proof on our API &amp; Cert page, or message us with your vehicle details.</p>
+        <p data-copy="ctaText">UEL is licensed under API EOLCS #3898 across 14 grades — all certified to the current API SQ category. Use the Oil Advisor for a quick suggestion, check the proof on our API &amp; Cert page, or message us with your vehicle details.</p>
         <div class="cta-actions">
-          <a class="btn" href="oil-finder.html" data-copy="ctaFinderBtn">Open Oil Finder</a>
+          <a class="btn" href="oil-finder.html" data-copy="ctaFinderBtn">Open Oil Advisor</a>
           <a class="btn ghost" href="api-cert.html" data-copy="ctaCertBtn">See UEL's API Cert</a>
           <a class="btn ghost" href="contact.html" data-copy="ctaContactBtn">Contact UEL</a>
         </div>
@@ -530,7 +532,7 @@
           <li><a href="index.html#about" data-copy="footWho">Who We Are</a></li>
           <li><a href="api-guide.html" data-copy="navGuide">API Guide</a></li>
           <li><a href="api-cert.html" data-copy="navWhere">API &amp; Cert</a></li>
-          <li><a href="oil-finder.html" data-copy="navFinder">Oil Finder</a></li>
+          <li><a href="oil-finder.html" data-copy="navFinder">Oil Advisor</a></li>
           <li><a href="contact.html" data-copy="navContact">Contact</a></li>
         </ul>
       </div>
@@ -559,7 +561,7 @@
 const copy = {
   en: {
     htmlLang: 'en-MY',
-    navHome: 'Home', navProducts: 'Products', navGuide: 'API Guide', navWhere: 'API & Cert', navFinder: 'Oil Finder', navContact: 'Contact',
+    navHome: 'Home', navProducts: 'Products', navGuide: 'API Guide', navWhere: 'API & Cert', navFinder: 'Oil Advisor', navContact: 'Contact',
     metaTopic: 'Topic', metaTopicVal: 'API Specifications',
     metaRead: 'Read', metaReadVal: '5 minutes',
     metaFor: 'For', metaForVal: 'Drivers · Workshops · Fleets',
@@ -568,12 +570,13 @@ const copy = {
     heroLead: "The American Petroleum Institute (API) sets the standard for engine oil performance. This guide breaks down the codes you'll see on a UEL technical data sheet — in plain words, without the chemistry lecture.",
     heroPrimary: 'Petrol Guide (S)',
     heroSecondary: 'Diesel Guide (C)',
-    heroCardBadge: 'Quick reference',
-    heroCardTitle: 'Two letters tell you the engine type.',
-    heroTilePetrolTag: 'Petrol · Spark Ignition',
-    heroTilePetrolDesc: 'SA → SQ. Higher letter, newer technology. Current spec: <b>SQ</b> (2025).',
-    heroTileDieselTag: 'Diesel · Compression Ignition',
-    heroTileDieselDesc: 'CA → CK-4, plus FA-4. Current heavy-duty: <b>CK-4</b> &amp; <b>FA-4</b>.',
+    heroCardBadge: 'UEL × API EOLCS',
+    heroCardTitle: 'Independently verified by API.',
+    heroStat1Lbl: 'EOLCS Licence',
+    heroStat2Lbl: 'Certified Grades',
+    heroStat3Lbl: 'Service Category',
+    heroCardFoot: 'Active on the API EOLCS register — independently audited, not a self-claim. Every grade below is what UEL is licensed to sell.',
+    heroCardCta: 'View the certificate →',
 
     basicsEyebrow: 'The Basics',
     basicsTitle: 'One body, <em>two letters,</em> one rule.',
@@ -649,8 +652,8 @@ const copy = {
 
     ctaBadge: 'Next steps',
     ctaTitle: 'Ready to <em>match a UEL grade</em> to your vehicle?',
-    ctaText: "UEL is licensed under API EOLCS #3898 across 14 grades — all certified to the current API SQ category. Use the Oil Finder for a quick suggestion, check the proof on our API & Cert page, or message us with your vehicle details.",
-    ctaFinderBtn: 'Open Oil Finder',
+    ctaText: "UEL is licensed under API EOLCS #3898 across 14 grades — all certified to the current API SQ category. Use the Oil Advisor for a quick suggestion, check the proof on our API & Cert page, or message us with your vehicle details.",
+    ctaFinderBtn: 'Open Oil Advisor',
     ctaCertBtn: "See UEL's API Cert",
     ctaContactBtn: 'Contact UEL',
 
@@ -665,7 +668,7 @@ const copy = {
 
   zh: {
     htmlLang: 'zh-Hans-MY',
-    navHome: '首页', navProducts: '产品', navGuide: 'API 指南', navWhere: 'API 认证', navFinder: '找油助手', navContact: '联系',
+    navHome: '首页', navProducts: '产品', navGuide: 'API 指南', navWhere: 'API 认证', navFinder: '选油顾问', navContact: '联系',
     metaTopic: '主题', metaTopicVal: 'API 规格',
     metaRead: '阅读', metaReadVal: '约 5 分钟',
     metaFor: '适合', metaForVal: '车主 · 维修厂 · 车队',
@@ -674,12 +677,13 @@ const copy = {
     heroLead: '美国石油协会（API）制定了引擎油的性能标准。这一篇用最直白的话，把你在 UEL 数据表上看到的代号拆开讲清楚——不绕术语。',
     heroPrimary: '汽油引擎指南（S）',
     heroSecondary: '柴油引擎指南（C）',
-    heroCardBadge: '快速参考',
-    heroCardTitle: '两个字母告诉你引擎类型。',
-    heroTilePetrolTag: '汽油 · 火花点燃',
-    heroTilePetrolDesc: 'SA → SQ。字母越后，技术越新。当前规格：<b>SQ</b>（2025）。',
-    heroTileDieselTag: '柴油 · 压燃',
-    heroTileDieselDesc: 'CA → CK-4，加上 FA-4。当前重型规格：<b>CK-4</b> 与 <b>FA-4</b>。',
+    heroCardBadge: 'UEL × API EOLCS',
+    heroCardTitle: '通过 API 独立认证。',
+    heroStat1Lbl: '认证编号',
+    heroStat2Lbl: '认证等级数',
+    heroStat3Lbl: '服务类别',
+    heroCardFoot: '在 API EOLCS 注册系统上为有效状态——由第三方独立审核，不是自我声明。下面讲到的每个等级，UEL 都已取得对应授权。',
+    heroCardCta: '查看证书 →',
 
     basicsEyebrow: '基础概念',
     basicsTitle: '一个机构，<em>两个字母，</em>一条原则。',
@@ -755,8 +759,8 @@ const copy = {
 
     ctaBadge: '下一步',
     ctaTitle: '准备好把 <em>UEL 的等级</em> 对应到你的车了吗？',
-    ctaText: 'UEL 持有 API EOLCS 牌照 #3898，覆盖 14 个等级——全部认证到当前 API SQ 规格。用「找油助手」获取快速建议，去「API 认证」页查看证明文件，或直接把车辆资料发给我们。',
-    ctaFinderBtn: '打开找油助手',
+    ctaText: 'UEL 持有 API EOLCS 牌照 #3898，覆盖 14 个等级——全部认证到当前 API SQ 规格。用「选油顾问」获取快速建议，去「API 认证」页查看证明文件，或直接把车辆资料发给我们。',
+    ctaFinderBtn: '打开选油顾问',
     ctaCertBtn: '查看 UEL API 证书',
     ctaContactBtn: '联系 UEL',
 
@@ -771,7 +775,7 @@ const copy = {
 
   bm: {
     htmlLang: 'ms-MY',
-    navHome: 'Laman Utama', navProducts: 'Produk', navGuide: 'Panduan API', navWhere: 'API & Sijil', navFinder: 'Pencari Minyak', navContact: 'Hubungi',
+    navHome: 'Laman Utama', navProducts: 'Produk', navGuide: 'Panduan API', navWhere: 'API & Sijil', navFinder: 'Penasihat Minyak', navContact: 'Hubungi',
     metaTopic: 'Topik', metaTopicVal: 'Spesifikasi API',
     metaRead: 'Baca', metaReadVal: '5 minit',
     metaFor: 'Untuk', metaForVal: 'Pemandu · Bengkel · Fleet',
@@ -780,12 +784,13 @@ const copy = {
     heroLead: 'American Petroleum Institute (API) menetapkan standard prestasi minyak enjin. Panduan ini memecahkan kod yang anda lihat pada lembaran data UEL — dalam bahasa mudah, tanpa kuliah kimia.',
     heroPrimary: 'Panduan Petrol (S)',
     heroSecondary: 'Panduan Diesel (C)',
-    heroCardBadge: 'Rujukan ringkas',
-    heroCardTitle: 'Dua huruf memberitahu jenis enjin.',
-    heroTilePetrolTag: 'Petrol · Spark Ignition',
-    heroTilePetrolDesc: 'SA → SQ. Huruf lebih tinggi, teknologi lebih baru. Spek semasa: <b>SQ</b> (2025).',
-    heroTileDieselTag: 'Diesel · Compression Ignition',
-    heroTileDieselDesc: 'CA → CK-4, serta FA-4. Heavy-duty semasa: <b>CK-4</b> &amp; <b>FA-4</b>.',
+    heroCardBadge: 'UEL × API EOLCS',
+    heroCardTitle: 'Disahkan secara bebas oleh API.',
+    heroStat1Lbl: 'Lesen EOLCS',
+    heroStat2Lbl: 'Gred Disahkan',
+    heroStat3Lbl: 'Kategori Servis',
+    heroCardFoot: 'Aktif pada daftar API EOLCS — diaudit secara bebas, bukan dakwaan sendiri. Setiap gred yang diterangkan di bawah adalah yang UEL berlesen menjualnya.',
+    heroCardCta: 'Lihat sijil →',
 
     basicsEyebrow: 'Asas',
     basicsTitle: 'Satu badan, <em>dua huruf,</em> satu peraturan.',
@@ -861,8 +866,8 @@ const copy = {
 
     ctaBadge: 'Langkah seterusnya',
     ctaTitle: 'Sedia <em>memadankan gred UEL</em> dengan kenderaan anda?',
-    ctaText: 'UEL berlesen di bawah API EOLCS #3898 merentasi 14 gred — semua disahkan kepada kategori API SQ semasa. Gunakan Pencari Minyak untuk cadangan ringkas, semak bukti pada halaman API & Sijil, atau hubungi kami dengan butiran kenderaan anda.',
-    ctaFinderBtn: 'Buka Pencari Minyak',
+    ctaText: 'UEL berlesen di bawah API EOLCS #3898 merentasi 14 gred — semua disahkan kepada kategori API SQ semasa. Gunakan Penasihat Minyak untuk cadangan ringkas, semak bukti pada halaman API & Sijil, atau hubungi kami dengan butiran kenderaan anda.',
+    ctaFinderBtn: 'Buka Penasihat Minyak',
     ctaCertBtn: 'Lihat Sijil API UEL',
     ctaContactBtn: 'Hubungi UEL',
 
