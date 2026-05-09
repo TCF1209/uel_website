@@ -2838,25 +2838,10 @@
     opacity: 1 !important;
     pointer-events: none !important;
     mix-blend-mode: screen !important;
-    background:
-      radial-gradient(360px 360px at var(--dip-x) var(--dip-y),
-        rgba(255, 213, 142, .13) 0%,
-        rgba(246, 180, 65, .075) 30%,
-        rgba(226, 99, 28, .035) 56%,
-        rgba(7, 7, 10, 0) 80%) !important;
+    background: radial-gradient(280px 280px at var(--dip-x) var(--dip-y), rgba(246,180,65,.24), rgba(226,59,47,.12) 38%, transparent 72%) !important;
     transition: opacity .22s ease !important;
   }
-  .ambient-dip::before {
-    content: "" !important;
-    display: block !important;
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(130px 130px at var(--dip-x) var(--dip-y),
-        rgba(255, 244, 214, .045),
-        rgba(246, 180, 65, .022) 42%,
-        transparent 72%);
-  }
+  .ambient-dip::before { display: none !important; }
   .dip-ripple {
     display: block !important;
     position: absolute !important;
@@ -2976,12 +2961,7 @@
       margin: 6px auto 18px !important;
     }
     .ambient-dip {
-      background:
-        radial-gradient(260px 260px at var(--dip-x) var(--dip-y),
-          rgba(255, 213, 142, .12) 0%,
-          rgba(246, 180, 65, .065) 34%,
-          rgba(226, 99, 28, .03) 58%,
-          rgba(7, 7, 10, 0) 80%) !important;
+      background: radial-gradient(190px 190px at var(--dip-x) var(--dip-y), rgba(246,180,65,.20), rgba(226,59,47,.09) 42%, transparent 74%) !important;
     }
   }
 
@@ -3297,9 +3277,9 @@
     <nav class="nav-links" id="nav-links" aria-label="Primary">
       <a href="index.html" class="active">Home</a>
       <a href="products.html">Products</a>
-      <a href="api-guide.html">API Guide</a>
       <a href="api-cert.html">API &amp; Cert</a>
-      <a href="oil-finder.html">Oil Finder</a>
+      <a href="api-guide.html">API Guide</a>
+      <a href="oil-advisor.html">Oil Advisor</a>
       <a href="contact.html">Contact</a>
       <a class="nav-cta" href="https://wa.me/60108989120?text=Hi%20UEL%2C%20I%27d%20like%20to%20enquire%20about%20your%20lubricants" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span>WhatsApp</a>
       <div class="lang-switch" aria-label="Language">
@@ -3888,10 +3868,10 @@
         <h4>Company</h4>
         <ul>
           <li><a href="#about">Who We Are</a></li>
-          <li><a href="api-guide.html">API Guide</a></li>
           <li><a href="api-cert.html">API &amp; Cert</a></li>
+          <li><a href="api-guide.html">API Guide</a></li>
           <li><a href="#why-us">Why Choose UEL</a></li>
-          <li><a href="oil-finder.html">Oil Finder</a></li>
+          <li><a href="oil-advisor.html">Oil Advisor</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -4370,7 +4350,7 @@
 
   i18n.en = {
     ...i18n.en,
-    nav: ['Home', 'Products', 'API & Cert', 'Oil Finder', 'Contact'],
+    nav: ['Home', 'Products', 'API & Cert', 'API Guide', 'Oil Advisor', 'Contact'],
     hero: {
       ...i18n.en.hero,
       meta: ['<b>UEL</b> - Lubricant', '<b>For</b> - Cars / Bikes', '<b>Supply</b> - B2B / Fleet'],
@@ -4541,7 +4521,7 @@
   };
 
   Object.assign(i18n.zh, {
-    nav: ['首页', '产品', 'API认证', '找油助手', '联系'],
+    nav: ['首页', '产品', 'API认证', 'API 指南', '选油顾问', '联系'],
     hero: {
       ...i18n.en.hero,
       meta: ['<b>UEL</b> - 润滑油', '<b>适用</b> - 汽车 / 摩托', '<b>供应</b> - 商业 / 车队'],
@@ -4664,7 +4644,7 @@
   });
 
   Object.assign(i18n.bm, {
-    nav: ['Laman Utama', 'Produk', 'API & Sijil', 'Pencari Minyak', 'Hubungi'],
+    nav: ['Laman Utama', 'Produk', 'API & Sijil', 'Panduan API', 'Penasihat Minyak', 'Hubungi'],
     marquee: ['Fully Synthetic <em>/</em> Semi Synthetic <em>/</em> Mineral', 'Berpandukan label & data sheet', 'Sahkan spesifikasi melalui label/manual', 'Untuk pertanyaan Malaysia', 'Kereta · Motosikal · Lori · Industri', 'ATF · CVTF · Gear Oil', 'Hydraulic · Coolant · Brake', '6 jenis produk'],
     about: {
       ...i18n.bm.about,
