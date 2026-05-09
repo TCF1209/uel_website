@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en-MY">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>API Specifications Explained | UEL Lubricant</title>
+<meta name="description" content="A plain-English guide to API engine oil specifications — what S categories like SQ mean for petrol engines, and what CK-4 / FA-4 mean for diesel engines.">
+<meta name="author" content="UEL - Unique Excellent Lubricant">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://uel-lubricant.com/api-guide.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="API Specifications Explained — UEL">
+<meta property="og:description" content="A clear guide to API engine oil categories — petrol (S series) and diesel (C, CK-4, FA-4) — and how to pick the right one for your vehicle.">
+<meta property="og:url" content="https://uel-lubricant.com/api-guide.html">
+<meta property="og:locale" content="en_MY">
+<meta property="og:site_name" content="UEL Lubricant">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="API Specifications Explained — UEL">
+<meta name="twitter:description" content="What does API SQ or CK-4 mean? A short, clear guide for petrol and diesel engine oils.">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='r' cx='.4' cy='.3'%3E%3Cstop offset='0' stop-color='%23ff8c80'/%3E%3Cstop offset='.6' stop-color='%23e23b2f'/%3E%3Cstop offset='1' stop-color='%237a1310'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='.4' cy='.3'%3E%3Cstop offset='0' stop-color='%237eaaff'/%3E%3Cstop offset='.6' stop-color='%232b6cf6'/%3E%3Cstop offset='1' stop-color='%230d2c8e'/%3E%3C/radialGradient%3E%3CradialGradient id='g' cx='.4' cy='.3'%3E%3Cstop offset='0' stop-color='%2343d59a'/%3E%3Cstop offset='.6' stop-color='%2318a974'/%3E%3Cstop offset='1' stop-color='%23054b34'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M11 8 C6 18 3 24 3 30 a8 8 0 0 0 16 0 c0-6-3-12-8-22z' fill='url(%23b)'/%3E%3Cpath d='M32 8 C27 18 24 24 24 30 a8 8 0 0 0 16 0 c0-6-3-12-8-22z' fill='url(%23r)'/%3E%3Cpath d='M53 8 C48 18 45 24 45 30 a8 8 0 0 0 16 0 c0-6-3-12-8-22z' fill='url(%23g)'/%3E%3Ctext x='32' y='56' text-anchor='middle' font-family='Arial Black, sans-serif' font-weight='900' font-size='18' fill='%23e6e6e6'%3EUEL%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="images/uel-logo.png">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Saira:wght@400;500;600;700&family=Sora:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --void:#07070a; --carbon:#111116; --steel:#1a1a20;
+    --bone:#f5f3ec; --paper:#d9d6ce; --ash:#a6a6ad; --dim:#6f7079;
+    --line:rgba(255,255,255,.10); --line-strong:rgba(255,255,255,.18);
+    --amber:#f6b441; --red:#e23b2f; --green:#18a974;
+    --max:1320px; --gutter:clamp(20px,4vw,56px);
+    --display:"Big Shoulders Display","Arial Narrow",sans-serif;
+    --head:"Saira","Helvetica Neue",sans-serif;
+    --body:"Sora","Helvetica Neue",sans-serif;
+    --card-radius:16px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{margin:0;background:var(--void);color:var(--bone);font-family:var(--body);font-size:16px;font-weight:300;line-height:1.6;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(#000,transparent 92%);pointer-events:none;z-index:0}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+  main,header,footer{position:relative;z-index:1}
+
+  .ambient-dip{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at var(--dip-x,50%) var(--dip-y,30%),rgba(246,180,65,.18),transparent 24%),radial-gradient(circle at 70% 12%,rgba(226,59,47,.12),transparent 30%)}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(7,7,10,.82);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+  .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand-logo{width:clamp(130px,13vw,188px);max-height:56px;object-fit:contain;border-radius:7px}
+  .nav-links{display:flex;align-items:center;gap:clamp(7px,.9vw,14px)}
+  .nav-links a{font-family:var(--head);font-size:11.5px;font-weight:500;text-transform:uppercase;color:var(--paper);letter-spacing:.045em}
+  .nav-links a:hover,.nav-links a.active{color:var(--bone)}
+  .nav-cta{display:inline-flex!important;align-items:center;justify-content:center;min-height:42px;padding:9px 15px;border:1px solid rgba(24,169,116,.44);border-radius:999px;background:rgba(24,169,116,.10);color:var(--bone)!important}
+  .nav-cta .dot{width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:8px;box-shadow:0 0 12px rgba(24,169,116,.7)}
+  .lang-switch{display:inline-flex;padding:4px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03)}
+  .lang-switch button{border:0;background:transparent;color:var(--ash);border-radius:999px;padding:7px 10px;font-family:var(--head);font-weight:700;cursor:pointer;font-size:11px}
+  .lang-switch button.active{background:var(--bone);color:var(--void)}
+  .menu-btn{display:none}
+
+  /* type */
+  h1,h2,h3,h4,p{margin:0}
+  h1,h2,h3,h4{font-family:var(--display);font-weight:800;line-height:.96;text-transform:uppercase;letter-spacing:-.01em}
+  h1{font-size:clamp(44px,7.8vw,118px);line-height:.92}
+  h2{font-size:clamp(34px,5.4vw,76px);line-height:.96}
+  h3{font-size:clamp(26px,3vw,44px);line-height:1.06}
+  h4{font-size:clamp(18px,1.6vw,22px);line-height:1.15}
+  em{font-style:normal;color:var(--amber)}
+  .lead{margin-top:22px;color:var(--paper);font-size:clamp(15px,1.15vw,18px);max-width:62ch;line-height:1.55}
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;color:var(--amber);font-family:var(--head);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em}
+  .eyebrow::before{content:"";width:38px;height:2px;background:var(--amber)}
+  .badge{display:inline-flex;align-items:center;padding:5px 10px;border:1px solid rgba(246,180,65,.35);border-radius:999px;color:var(--amber);font-family:var(--head);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+
+  /* hero */
+  .hero{padding:clamp(28px,4.5vw,60px) 0 clamp(36px,5vw,64px)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(34px,6vw,86px);align-items:center}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:14px 22px;color:var(--ash);font-family:var(--head);font-size:11.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+  .hero-meta b{color:var(--bone);font-weight:700;margin-right:6px}
+  .hero h1{margin-top:18px}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;border:1px solid var(--line-strong);border-radius:999px;background:var(--bone);color:var(--void);font-family:var(--head);font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+  .btn.ghost{background:rgba(255,255,255,.04);color:var(--bone)}
+  .btn:hover{transform:translateY(-1px)}
+
+  /* hero card (right side preview) */
+  .hero-card{border:1px solid var(--line-strong);border-radius:var(--card-radius);background:radial-gradient(110% 80% at 100% 0%,rgba(246,180,65,.16),transparent 58%),linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.014)),var(--carbon);padding:clamp(20px,3vw,32px);box-shadow:0 28px 70px rgba(0,0,0,.34),0 0 42px rgba(246,180,65,.06);overflow:hidden}
+  .hero-card .hc-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+  .hc-tile{border:1px solid var(--line);border-radius:12px;padding:18px;background:rgba(255,255,255,.026)}
+  .hc-tile .tag{font-family:var(--head);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ash)}
+  .hc-tile .code{display:block;margin-top:6px;font-family:var(--display);font-size:clamp(28px,3.4vw,46px);line-height:1;color:var(--bone)}
+  .hc-tile .desc{margin-top:8px;color:var(--paper);font-size:13.5px;line-height:1.45}
+  .hc-tile.petrol{border-color:rgba(226,59,47,.45)}
+  .hc-tile.petrol .code{color:#ffb1aa}
+  .hc-tile.diesel{border-color:rgba(246,180,65,.45)}
+  .hc-tile.diesel .code{color:var(--amber)}
+
+  /* sections */
+  .section{padding:clamp(48px,7vw,90px) 0;border-top:1px solid var(--line)}
+  .section-head{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:end;margin-bottom:34px}
+  .section-head p{color:var(--paper);font-size:clamp(15px,1.05vw,17px);line-height:1.6}
+
+  /* basics intro */
+  .basics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  .basics-card{border:1px solid var(--line-strong);border-radius:var(--card-radius);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.014)),var(--carbon);padding:clamp(20px,2.4vw,28px)}
+  .basics-card .lab{font-family:var(--display);font-size:48px;color:var(--amber);line-height:1}
+  .basics-card.s-cat .lab{color:#ff928a}
+  .basics-card.c-cat .lab{color:var(--amber)}
+  .basics-card h3{margin-top:8px;font-size:clamp(22px,2vw,28px)}
+  .basics-card p{margin-top:10px;color:var(--paper);font-size:14.5px;line-height:1.55}
+
+  /* chart card */
+  .chart-card{border:1px solid var(--line-strong);border-radius:var(--card-radius);background:rgba(255,255,255,.96);padding:clamp(14px,2vw,22px);box-shadow:0 28px 70px rgba(0,0,0,.38)}
+  .chart-card img{width:100%;border-radius:8px}
+  .chart-caption{margin-top:14px;color:var(--ash);font-family:var(--head);font-size:12px;text-transform:uppercase;letter-spacing:.08em;text-align:center}
+
+  /* rules grid */
+  .rules-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+  .rule-card{border:1px solid var(--line-strong);border-radius:var(--card-radius);background:radial-gradient(110% 80% at 100% 0%,rgba(246,180,65,.10),transparent 58%),linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.014)),var(--carbon);padding:clamp(20px,2.2vw,26px)}
+  .rule-card .num{display:inline-grid;place-items:center;width:36px;height:36px;border:1px solid rgba(246,180,65,.45);border-radius:50%;color:var(--amber);font-family:var(--head);font-weight:700;font-size:13px}
+  .rule-card h4{margin-top:14px}
+  .rule-card p{margin-top:10px;color:var(--paper);font-size:14.5px;line-height:1.55}
+
+  /* example */
+  .example-card{margin-top:22px;border:1px solid rgba(246,180,65,.3);border-radius:var(--card-radius);background:linear-gradient(180deg,rgba(246,180,65,.07),rgba(246,180,65,.014)),var(--carbon);padding:clamp(22px,2.6vw,30px)}
+  .example-card .badge{margin-bottom:14px}
+  .example-card h3{font-size:clamp(22px,2.2vw,30px)}
+  .example-list{margin-top:16px;display:grid;gap:14px}
+  .example-row{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:14px;border:1px dashed var(--line-strong);border-radius:12px;background:rgba(255,255,255,.024)}
+  .example-row .ico{width:44px;height:44px;border-radius:12px;background:rgba(246,180,65,.12);display:grid;place-items:center;font-family:var(--display);color:var(--amber);font-size:22px}
+  .example-row .txt{color:var(--paper);font-size:14.5px;line-height:1.55}
+  .example-row .txt b{color:var(--bone);display:block;margin-bottom:4px;font-weight:600}
+
+  /* PC-11 split (CK-4 vs FA-4) */
+  .pc11-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+  .pc11-card{border:1px solid var(--line-strong);border-radius:var(--card-radius);background:radial-gradient(110% 80% at 100% 0%,var(--glow,rgba(246,180,65,.12)),transparent 58%),linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.014)),var(--carbon);padding:clamp(22px,2.6vw,32px);box-shadow:0 28px 70px rgba(0,0,0,.34)}
+  .pc11-card.ck4{--glow:rgba(24,169,116,.18)}
+  .pc11-card.fa4{--glow:rgba(246,180,65,.18)}
+  .pc11-card .pc-tag{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;font-family:var(--head);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+  .pc11-card.ck4 .pc-tag{border:1px solid rgba(24,169,116,.45);color:#7ce0b6;background:rgba(24,169,116,.12)}
+  .pc11-card.fa4 .pc-tag{border:1px solid rgba(246,180,65,.45);color:var(--amber);background:rgba(246,180,65,.12)}
+  .pc11-card h3{margin-top:14px;font-size:clamp(28px,3vw,46px)}
+  .pc11-card .lede{margin-top:10px;color:var(--paper);font-size:14.5px;line-height:1.55}
+  .pc11-card ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:11px}
+  .pc11-card li{display:grid;grid-template-columns:18px 1fr;gap:10px;border-top:1px solid var(--line);padding-top:11px;color:var(--paper);font-size:14px;line-height:1.5}
+  .pc11-card li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--amber);margin-top:7px}
+  .pc11-card.ck4 li::before{background:#7ce0b6}
+
+  /* why-change note */
+  .why-note{margin-top:22px;border:1px solid var(--line-strong);border-radius:var(--card-radius);background:linear-gradient(180deg,rgba(255,255,255,.026),rgba(255,255,255,.008)),var(--carbon);padding:clamp(20px,2.4vw,28px)}
+  .why-note h4{color:var(--amber);font-size:clamp(18px,1.6vw,22px)}
+  .why-note p{margin-top:10px;color:var(--paper);font-size:14.5px;line-height:1.6}
+
+  /* choose decision table */
+  .choose-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+  .choose-card{border:1px solid var(--line-strong);border-radius:var(--card-radius);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.014)),var(--carbon);padding:clamp(22px,2.6vw,30px)}
+  .choose-card h3{font-size:clamp(24px,2.4vw,34px)}
+  .choose-table{width:100%;border-collapse:collapse;margin-top:18px}
+  .choose-table th,.choose-table td{text-align:left;vertical-align:top;padding:13px 0;border-top:1px solid var(--line)}
+  .choose-table thead th{font-family:var(--head);font-size:11px;font-weight:700;color:var(--ash);text-transform:uppercase;letter-spacing:.08em;border-top:0;padding-top:0}
+  .choose-table tbody th{font-family:var(--body);font-weight:500;color:var(--bone);font-size:14.5px;width:46%}
+  .choose-table td{color:var(--amber);font-family:var(--head);font-weight:700;font-size:14.5px;letter-spacing:.02em}
+  .footnote{margin-top:18px;color:var(--ash);font-size:13.5px;line-height:1.55}
+
+  /* final cta */
+  .cta-stage{margin-top:18px;border:1px solid var(--line-strong);border-radius:var(--card-radius);background:radial-gradient(120% 100% at 80% 10%,rgba(226,59,47,.16),transparent 56%),radial-gradient(120% 100% at 10% 90%,rgba(246,180,65,.14),transparent 60%),linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01)),var(--carbon);padding:clamp(28px,4vw,48px);text-align:center}
+  .cta-stage h2{font-size:clamp(28px,4vw,56px)}
+  .cta-stage p{margin:14px auto 0;max-width:60ch;color:var(--paper);font-size:clamp(15px,1.1vw,17px);line-height:1.55}
+  .cta-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px}
+
+  /* footer */
+  footer{padding:clamp(46px,7vw,80px) 0 32px;border-top:1px solid var(--line);background:rgba(7,7,10,.72)}
+  .foot-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:34px}
+  .footer-logo{width:min(220px,100%);border-radius:var(--card-radius);margin-bottom:18px}
+  .foot h4{margin:0 0 16px;color:var(--paper);font-family:var(--head);font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+  .foot p,.foot a,.foot li{color:var(--ash);font-size:14px}
+  .foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+  .legal{margin-top:42px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--dim);font-family:var(--head);font-size:12px}
+
+  /* float WA */
+  .float-wa{position:fixed;right:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;background:#25d366;color:#06250e;font-family:var(--head);font-weight:700;font-size:13px;box-shadow:0 18px 42px rgba(0,0,0,.45)}
+  .float-wa svg{width:18px;height:18px}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in-view{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}
+  .reveal.d2{transition-delay:.16s}
+  .reveal.d3{transition-delay:.24s}
+
+  /* zh font swap */
+  html[lang^="zh"]{--display:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--head:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--body:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
+  html[lang^="zh"] body,html[lang^="zh"] button{font-family:var(--body)!important}
+  html[lang^="zh"] h1,html[lang^="zh"] h2,html[lang^="zh"] h3,html[lang^="zh"] h4,html[lang^="zh"] .eyebrow,html[lang^="zh"] .btn,html[lang^="zh"] .nav-links a{font-family:var(--display)!important;letter-spacing:0!important;text-transform:none;line-height:1.12}
+  html[lang^="zh"] h1{font-size:clamp(38px,6.4vw,72px)!important;line-height:1.13!important}
+  html[lang^="zh"] h2,html[lang^="zh"] h3{text-transform:none!important}
+
+  /* responsive */
+  @media(max-width:1080px){
+    .hero-grid{grid-template-columns:1fr}
+    .section-head{grid-template-columns:1fr;gap:22px}
+    .rules-grid{grid-template-columns:repeat(2,1fr)}
+    .basics-grid{grid-template-columns:1fr}
+    .pc11-grid,.choose-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:740px){
+    html,body{width:100%;max-width:100%;overflow-x:hidden;touch-action:pan-y}
+    .nav{position:fixed!important;top:0;left:0;right:0;z-index:70}
+    main{padding-top:68px}
+    .nav-inner{position:relative;height:68px}
+    .menu-btn{display:inline-grid;place-items:center;width:42px;height:42px;margin-left:auto;border:1px solid var(--line-strong);border-radius:50%;background:rgba(255,255,255,.045);color:var(--bone);font-size:22px}
+    .nav-links{position:absolute;top:calc(100% + 10px);left:0;right:0;display:none;grid-template-columns:1fr;width:100%;gap:8px;padding:12px;background:rgba(7,7,10,.97);border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.48)}
+    .nav-links.open{display:grid}
+    .nav-links a,.nav-links .nav-cta{min-height:38px;padding:9px 8px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.035);text-align:center;justify-content:center}
+    .nav-links a.active{color:var(--amber);border-color:rgba(246,180,65,.9);background:rgba(246,180,65,.12)}
+    .lang-switch{justify-self:center}
+    h1{font-size:clamp(38px,10vw,52px)!important}
+    h2{font-size:clamp(28px,8vw,40px)!important}
+    h3{font-size:clamp(22px,6vw,32px)!important}
+    .rules-grid,.foot-grid{grid-template-columns:1fr}
+    .hero-card .hc-row{grid-template-columns:1fr}
+    .btn{width:100%}
+    .float-wa span{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.ambient-dip{display:none}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo brand-logo-link" aria-label="UEL - Unique Excellent Lubricant">
+      <img class="brand-logo" src="images/uel-logo.png" alt="UEL Unique Excellent Lubricant">
+    </a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+      <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="index.html" data-copy="navHome">Home</a>
+      <a href="products.html" data-copy="navProducts">Products</a>
+      <a href="api-guide.html" class="active" data-copy="navGuide">API Guide</a>
+      <a href="api-cert.html" data-copy="navWhere">API &amp; Cert</a>
+      <a href="oil-finder.html" data-copy="navFinder">Oil Finder</a>
+      <a href="contact.html" data-copy="navContact">Contact</a>
+      <a class="nav-cta" href="https://wa.me/60108989120?text=Hi%20UEL%2C%20I%20want%20to%20ask%20about%20API%20specifications" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span>WhatsApp</a>
+      <div class="lang-switch" aria-label="Language">
+        <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+        <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+        <button type="button" data-lang="bm" aria-pressed="false">BM</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ─── HERO ────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <div class="hero-meta">
+          <span><b data-copy="metaTopic">Topic</b><span data-copy="metaTopicVal">API Specifications</span></span>
+          <span><b data-copy="metaRead">Read</b><span data-copy="metaReadVal">5 minutes</span></span>
+          <span><b data-copy="metaFor">For</b><span data-copy="metaForVal">Drivers · Workshops · Fleets</span></span>
+        </div>
+        <span class="eyebrow" data-copy="heroEyebrow">Understanding API Standards</span>
+        <h1 data-copy-html="heroTitle">What does <em>API SQ</em> or <em>CK-4</em> actually mean?</h1>
+        <p class="lead" data-copy="heroLead">The American Petroleum Institute (API) sets the standard for engine oil performance. This guide breaks down the codes you'll see on a UEL technical data sheet — in plain words, without the chemistry lecture.</p>
+        <div class="hero-actions reveal d1">
+          <a class="btn" href="#petrol" data-copy="heroPrimary">Petrol Guide (S)</a>
+          <a class="btn ghost" href="#diesel" data-copy="heroSecondary">Diesel Guide (C)</a>
+        </div>
+      </div>
+
+      <aside class="hero-card reveal d2" aria-label="API category quick reference">
+        <span class="badge" data-copy="heroCardBadge">Quick reference</span>
+        <h3 style="margin-top:14px" data-copy="heroCardTitle">Two letters tell you the engine type.</h3>
+        <div class="hc-row">
+          <div class="hc-tile petrol">
+            <span class="tag" data-copy="heroTilePetrolTag">Petrol · Spark Ignition</span>
+            <span class="code">S</span>
+            <p class="desc" data-copy="heroTilePetrolDesc">SA → SQ. Higher letter, newer technology. Current spec: <b>SQ</b> (2025).</p>
+          </div>
+          <div class="hc-tile diesel">
+            <span class="tag" data-copy="heroTileDieselTag">Diesel · Compression Ignition</span>
+            <span class="code">C</span>
+            <p class="desc" data-copy="heroTileDieselDesc">CA → CK-4, plus FA-4. Current heavy-duty: <b>CK-4</b> &amp; <b>FA-4</b>.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ─── BASICS ────────────────────────────────────────────── -->
+  <section class="section" id="basics">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow" data-copy="basicsEyebrow">The Basics</span>
+          <h2 data-copy-html="basicsTitle">One body, <em>two letters,</em> one rule.</h2>
+        </div>
+        <p data-copy="basicsLead">API has been writing rules for engine oil since the 1920s. Every modern motor oil — petrol or diesel — is graded against an API service category, and that category is just two letters and a number.</p>
+      </div>
+
+      <div class="basics-grid">
+        <article class="basics-card reveal">
+          <span class="lab">API</span>
+          <h3 data-copy="basicsApiTitle">American Petroleum Institute</h3>
+          <p data-copy="basicsApiText">The US standards body that defines what an oil must do — wear protection, thermal stability, deposit control, fuel economy. If an oil claims an API spec, it has been tested against that spec.</p>
+        </article>
+        <article class="basics-card s-cat reveal d1">
+          <span class="lab">S</span>
+          <h3 data-copy="basicsSTitle">Spark Ignition · Petrol</h3>
+          <p data-copy="basicsSText">Cars, motorcycles and light commercial vehicles running on petrol (gasoline). Codes run SA, SB, SC ... up to today's <b>SQ</b>. The further down the alphabet, the newer the formulation.</p>
+        </article>
+        <article class="basics-card c-cat reveal d2">
+          <span class="lab">C</span>
+          <h3 data-copy="basicsCTitle">Compression Ignition · Diesel</h3>
+          <p data-copy="basicsCText">Trucks, buses, generators and heavy machinery. Codes run CA → CK-4, with a parallel category <b>FA-4</b> introduced for low-viscosity, fuel-economy diesel oils.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PETROL ────────────────────────────────────────────── -->
+  <section class="section" id="petrol">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow" data-copy="petrolEyebrow">Category S · Petrol Engines</span>
+          <h2 data-copy-html="petrolTitle">From <em>SA in 1930</em> to <em>SQ today.</em></h2>
+        </div>
+        <p data-copy="petrolLead">Each new S category replaces the one before it. Older categories (SA → SH) are obsolete — designed for engines made in 1995 or earlier. Modern engines need the modern letters.</p>
+      </div>
+
+      <figure class="chart-card reveal">
+        <img src="images/api-petrol-chart.png" alt="API Service Category S timeline — SA (1930) through SH (1996) marked obsolete; SJ (2001) through SQ (2025) marked current">
+        <figcaption class="chart-caption" data-copy="petrolChartCaption">API Service Category S — petrol engine oil specifications, 1930 → 2025</figcaption>
+      </figure>
+
+      <div class="rules-grid">
+        <article class="rule-card reveal">
+          <span class="num">01</span>
+          <h4 data-copy="petrolRule1Title">Higher letter, newer tech</h4>
+          <p data-copy="petrolRule1Text">The letter after S advances every time API tightens the standard — for wear protection, deposits, emissions and fuel economy.</p>
+        </article>
+        <article class="rule-card reveal d1">
+          <span class="num">02</span>
+          <h4 data-copy="petrolRule2Title">Backward compatible</h4>
+          <p data-copy="petrolRule2Text">A higher spec covers everything below it. SQ can be used in any engine that asks for SP, SN, SM, SL or SJ — no risk, only newer protection.</p>
+        </article>
+        <article class="rule-card reveal d2">
+          <span class="num">03</span>
+          <h4 data-copy="petrolRule3Title">SA → SH = obsolete</h4>
+          <p data-copy="petrolRule3Text">Specs from SA to SH are for engines built in 1995 or earlier. Modern oils may not be compatible with very old engine designs — and very old oils can damage modern engines.</p>
+        </article>
+        <article class="rule-card reveal d3">
+          <span class="num">04</span>
+          <h4 data-copy="petrolRule4Title">SJ → SQ = current</h4>
+          <p data-copy="petrolRule4Text">SJ (2001) onwards is what you'll see on modern bottles. SQ is the latest API spec for petrol and is the one UEL is licensed to.</p>
+        </article>
+      </div>
+
+      <article class="example-card reveal">
+        <span class="badge" data-copy="petrolExampleBadge">Worked example</span>
+        <h3 data-copy="petrolExampleTitle">"My car asks for X — what can I actually use?"</h3>
+        <div class="example-list">
+          <div class="example-row">
+            <span class="ico">1</span>
+            <div class="txt">
+              <b data-copy="petrolEg1Head">1987 car requiring API SF</b>
+              <span data-copy="petrolEg1Body">If only SH and SL are on the shelf, SH is the closer match. Anything from SH up will work — higher specs are always safe replacements for older requirements.</span>
+            </div>
+          </div>
+          <div class="example-row">
+            <span class="ico">2</span>
+            <div class="txt">
+              <b data-copy="petrolEg2Head">2003 car requiring API SL</b>
+              <span data-copy="petrolEg2Body">SL, SM, SN, SP or SQ — all fine. Pick the newer one for better deposit control and fuel economy without changing how the engine runs.</span>
+            </div>
+          </div>
+          <div class="example-row">
+            <span class="ico">!</span>
+            <div class="txt">
+              <b data-copy="petrolEg3Head">Don't go the other way</b>
+              <span data-copy="petrolEg3Body">A modern car asking for SP or SQ should never be filled with SH or older. The additive system the engine expects simply isn't there.</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ─── DIESEL ────────────────────────────────────────────── -->
+  <section class="section" id="diesel">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow" data-copy="dieselEyebrow">Category C · Diesel Engines</span>
+          <h2 data-copy-html="dieselTitle">Diesel split <em>into two paths</em> in 2017.</h2>
+        </div>
+        <p data-copy="dieselLead">Heavy-duty diesel followed the same letter-by-letter march for decades — until API CJ-4 (2006). Ten years later, fuel-economy regulations forced the standard to split. The result: <b>CK-4</b> and <b>FA-4</b>, side by side.</p>
+      </div>
+
+      <figure class="chart-card reveal">
+        <img src="images/api-diesel-chart.png" alt="API Service Category C timeline — CA (1949) through CK-4 (2017), and the parallel FA-4 category introduced in 2017">
+        <figcaption class="chart-caption" data-copy="dieselChartCaption">API Service Category C — diesel engine oil specifications, with the 2017 PC-11 split into CK-4 and FA-4</figcaption>
+      </figure>
+
+      <div class="pc11-grid">
+        <article class="pc11-card ck4 reveal">
+          <span class="pc-tag" data-copy="ck4Tag">PC-11a · Backward compatible</span>
+          <h3>API CK-4</h3>
+          <p class="lede" data-copy="ck4Lede">A tougher, more durable replacement for CJ-4. If your truck currently uses CJ-4 or CI-4, CK-4 drops in directly.</p>
+          <ul>
+            <li data-copy="ck4Bullet1">Common grades: 15W-40, 10W-30, 5W-40 — high HTHS (high-temperature high-shear) viscosity.</li>
+            <li data-copy="ck4Bullet2">On-road and off-road: trucks, buses, agricultural and construction equipment.</li>
+            <li data-copy="ck4Bullet3">Backward compatible with CJ-4, CI-4, CH-4 — safer to upgrade than to stick with old stock.</li>
+          </ul>
+        </article>
+
+        <article class="pc11-card fa4 reveal d1">
+          <span class="pc-tag" data-copy="fa4Tag">PC-11b · OEM-specified only</span>
+          <h3>API FA-4</h3>
+          <p class="lede" data-copy="fa4Lede">A new, separate category — not a CK-4 replacement. Lower viscosity for fuel-economy gains, but only safe in engines that ask for it by name.</p>
+          <ul>
+            <li data-copy="fa4Bullet1">Typical grades: 10W-30, 5W-30 — low HTHS for reduced friction and better mpg.</li>
+            <li data-copy="fa4Bullet2">On-road only, on the latest engine designs that the manufacturer (OEM) approves for FA-4.</li>
+            <li data-copy="fa4Bullet3"><b>Not backward compatible.</b> Don't use FA-4 in a truck spec'd for CJ-4 or CK-4 unless the OEM says so.</li>
+          </ul>
+        </article>
+      </div>
+
+      <aside class="why-note reveal">
+        <h4 data-copy="dieselWhyTitle">Why was the diesel standard split?</h4>
+        <p data-copy="dieselWhyText">Two pressures hit at once. Fleets wanted lower fuel bills, and the US EPA Heavy Duty National Program (2011) tightened greenhouse-gas and fuel-consumption rules. Engineers responded with thinner, lower-friction oils — but those thin oils aren't safe for older engines. The Engine Manufacturers Association asked API for a new category. The result was PC-11, splitting into CK-4 (durable, backward compatible) and FA-4 (low-viscosity, OEM-specific).</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ─── HOW TO CHOOSE ────────────────────────────────────────── -->
+  <section class="section" id="choose">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow" data-copy="chooseEyebrow">How to Choose</span>
+          <h2 data-copy-html="chooseTitle">Match the spec to the <em>year &amp; engine.</em></h2>
+        </div>
+        <p data-copy="chooseLead">Start with the manual. If the manual says "API SN", anything from SN onwards works. If you don't have the manual, the rules below will get you very close — and UEL can confirm before you order.</p>
+      </div>
+
+      <div class="choose-grid">
+        <article class="choose-card reveal">
+          <h3 data-copy="choosePetrolHeading">Petrol cars &amp; motorcycles</h3>
+          <table class="choose-table">
+            <thead><tr><th data-copy="chooseColCar">Vehicle</th><th data-copy="chooseColSpec">Use API</th></tr></thead>
+            <tbody>
+              <tr><th data-copy="choosePetrolR1">Petrol car, 2020 onward</th><td>SP / SQ</td></tr>
+              <tr><th data-copy="choosePetrolR2">Petrol car, 2010 – 2019</th><td>SN / SN Plus / SP</td></tr>
+              <tr><th data-copy="choosePetrolR3">Petrol car, 2001 – 2009</th><td>SL / SM (or higher)</td></tr>
+              <tr><th data-copy="choosePetrolR4">Older petrol, pre-1995</th><td data-copy="choosePetrolR4Val">Any current spec — check oil weight</td></tr>
+              <tr><th data-copy="choosePetrolR5">Motorcycle (4-stroke)</th><td data-copy="choosePetrolR5Val">JASO MA / MA2 + API SL or higher</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="choose-card reveal d1">
+          <h3 data-copy="chooseDieselHeading">Diesel trucks &amp; equipment</h3>
+          <table class="choose-table">
+            <thead><tr><th data-copy="chooseColEng">Engine</th><th data-copy="chooseColSpec2">Use API</th></tr></thead>
+            <tbody>
+              <tr><th data-copy="chooseDieselR1">Most fleets, on-road &amp; off-road</th><td>CK-4</td></tr>
+              <tr><th data-copy="chooseDieselR2">Older trucks specifying CJ-4 / CI-4</th><td data-copy="chooseDieselR2Val">CK-4 (backward compatible)</td></tr>
+              <tr><th data-copy="chooseDieselR3">Latest on-road engine, OEM allows FA-4</th><td>FA-4</td></tr>
+              <tr><th data-copy="chooseDieselR4">Off-road, agriculture, construction</th><td data-copy="chooseDieselR4Val">CK-4 (do not use FA-4)</td></tr>
+              <tr><th data-copy="chooseDieselR5">Generator / industrial diesel</th><td data-copy="chooseDieselR5Val">CK-4 — confirm with OEM manual</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </div>
+
+      <p class="footnote reveal" data-copy="chooseFoot">Always follow the vehicle or machine manual first. If the manual conflicts with what you read here — the manual wins. Send UEL the make, model, year and current spec, and we'll confirm the right grade before you buy.</p>
+    </div>
+  </section>
+
+  <!-- ─── CTA ────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap">
+      <article class="cta-stage reveal">
+        <span class="badge" data-copy="ctaBadge">Next steps</span>
+        <h2 data-copy-html="ctaTitle">Ready to <em>match a UEL grade</em> to your vehicle?</h2>
+        <p data-copy="ctaText">UEL is licensed under API EOLCS #3898 across 14 grades — all certified to the current API SQ category. Use the Oil Finder for a quick suggestion, check the proof on our API &amp; Cert page, or message us with your vehicle details.</p>
+        <div class="cta-actions">
+          <a class="btn" href="oil-finder.html" data-copy="ctaFinderBtn">Open Oil Finder</a>
+          <a class="btn ghost" href="api-cert.html" data-copy="ctaCertBtn">See UEL's API Cert</a>
+          <a class="btn ghost" href="contact.html" data-copy="ctaContactBtn">Contact UEL</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot">
+        <img class="footer-logo" src="images/uel-logo.png" alt="UEL Unique Excellent Lubricant">
+        <p data-copy="footerDesc">Engine oils, lubricants and vehicle fluids for Malaysian drivers, workshops, fleets and industrial users.</p>
+      </div>
+      <div class="foot">
+        <h4 data-copy="footerProducts">Products</h4>
+        <ul>
+          <li><a href="products.html" data-copy="footCar">Car Engine Oil</a></li>
+          <li><a href="products.html" data-copy="footMc">Motorcycle Engine Oil</a></li>
+          <li><a href="products.html" data-copy="footDiesel">Diesel Engine Oil</a></li>
+          <li><a href="products.html" data-copy="footAtf">Transmission &amp; Gear Oil</a></li>
+          <li><a href="products.html" data-copy="footHydraulic">Industrial Hydraulic Oil</a></li>
+          <li><a href="products.html" data-copy="footAdd">Coolant, Brake Fluid &amp; Additives</a></li>
+        </ul>
+      </div>
+      <div class="foot">
+        <h4 data-copy="footerCompany">Company</h4>
+        <ul>
+          <li><a href="index.html#about" data-copy="footWho">Who We Are</a></li>
+          <li><a href="api-guide.html" data-copy="navGuide">API Guide</a></li>
+          <li><a href="api-cert.html" data-copy="navWhere">API &amp; Cert</a></li>
+          <li><a href="oil-finder.html" data-copy="navFinder">Oil Finder</a></li>
+          <li><a href="contact.html" data-copy="navContact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot">
+        <h4 data-copy="footerTouch">Get in Touch</h4>
+        <ul>
+          <li><a href="https://wa.me/60108989120" target="_blank" rel="noopener">WhatsApp +60 10-898 9120</a></li>
+          <li><a href="tel:+60108989120">Tel +60 10-898 9120</a></li>
+          <li><a href="mailto:excellentestate.sb@gmail.com">excellentestate.sb@gmail.com</a></li>
+          <li><a href="https://www.facebook.com/share/1FUh7wmZLy/" target="_blank" rel="noopener">Facebook</a></li>
+          <li data-copy="footTagline">Three drops · One standard</li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal"><span data-copy="legalRights">UEL - Unique Excellent Lubricant. All rights reserved.</span></div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/60108989120?text=Hi%20UEL%2C%20I%20want%20to%20ask%20about%20API%20specifications" target="_blank" rel="noopener" aria-label="WhatsApp UEL">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.06 0C5.5 0 .15 5.34.15 11.92a11.85 11.85 0 0 0 1.6 5.94L0 24l6.3-1.65a11.94 11.94 0 0 0 5.76 1.47h.01c6.56 0 11.92-5.34 11.92-11.92 0-3.18-1.24-6.18-3.47-8.42zM12.07 21.8h-.01a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.23-.37a9.84 9.84 0 0 1-1.51-5.25c0-5.45 4.45-9.88 9.88-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.9 6.99c-.01 5.45-4.46 9.87-9.89 9.87zm5.4-7.4c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15s-.77.96-.94 1.16c-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.79-1.67-2.09-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.08c.15.2 2.1 3.21 5.09 4.5.71.3 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.69.25-1.28.18-1.41-.07-.13-.27-.21-.57-.36z"/></svg>
+  <span>WhatsApp</span>
+</a>
+<div class="ambient-dip" aria-hidden="true"></div>
+
+<script>
+const copy = {
+  en: {
+    htmlLang: 'en-MY',
+    navHome: 'Home', navProducts: 'Products', navGuide: 'API Guide', navWhere: 'API & Cert', navFinder: 'Oil Finder', navContact: 'Contact',
+    metaTopic: 'Topic', metaTopicVal: 'API Specifications',
+    metaRead: 'Read', metaReadVal: '5 minutes',
+    metaFor: 'For', metaForVal: 'Drivers · Workshops · Fleets',
+    heroEyebrow: 'Understanding API Standards',
+    heroTitle: 'What does <em>API SQ</em> or <em>CK-4</em> actually mean?',
+    heroLead: "The American Petroleum Institute (API) sets the standard for engine oil performance. This guide breaks down the codes you'll see on a UEL technical data sheet — in plain words, without the chemistry lecture.",
+    heroPrimary: 'Petrol Guide (S)',
+    heroSecondary: 'Diesel Guide (C)',
+    heroCardBadge: 'Quick reference',
+    heroCardTitle: 'Two letters tell you the engine type.',
+    heroTilePetrolTag: 'Petrol · Spark Ignition',
+    heroTilePetrolDesc: 'SA → SQ. Higher letter, newer technology. Current spec: <b>SQ</b> (2025).',
+    heroTileDieselTag: 'Diesel · Compression Ignition',
+    heroTileDieselDesc: 'CA → CK-4, plus FA-4. Current heavy-duty: <b>CK-4</b> &amp; <b>FA-4</b>.',
+
+    basicsEyebrow: 'The Basics',
+    basicsTitle: 'One body, <em>two letters,</em> one rule.',
+    basicsLead: 'API has been writing rules for engine oil since the 1920s. Every modern motor oil — petrol or diesel — is graded against an API service category, and that category is just two letters and a number.',
+    basicsApiTitle: 'American Petroleum Institute',
+    basicsApiText: 'The US standards body that defines what an oil must do — wear protection, thermal stability, deposit control, fuel economy. If an oil claims an API spec, it has been tested against that spec.',
+    basicsSTitle: 'Spark Ignition · Petrol',
+    basicsSText: "Cars, motorcycles and light commercial vehicles running on petrol (gasoline). Codes run SA, SB, SC ... up to today's <b>SQ</b>. The further down the alphabet, the newer the formulation.",
+    basicsCTitle: 'Compression Ignition · Diesel',
+    basicsCText: 'Trucks, buses, generators and heavy machinery. Codes run CA → CK-4, with a parallel category <b>FA-4</b> introduced for low-viscosity, fuel-economy diesel oils.',
+
+    petrolEyebrow: 'Category S · Petrol Engines',
+    petrolTitle: 'From <em>SA in 1930</em> to <em>SQ today.</em>',
+    petrolLead: 'Each new S category replaces the one before it. Older categories (SA → SH) are obsolete — designed for engines made in 1995 or earlier. Modern engines need the modern letters.',
+    petrolChartCaption: 'API Service Category S — petrol engine oil specifications, 1930 → 2025',
+    petrolRule1Title: 'Higher letter, newer tech',
+    petrolRule1Text: 'The letter after S advances every time API tightens the standard — for wear protection, deposits, emissions and fuel economy.',
+    petrolRule2Title: 'Backward compatible',
+    petrolRule2Text: 'A higher spec covers everything below it. SQ can be used in any engine that asks for SP, SN, SM, SL or SJ — no risk, only newer protection.',
+    petrolRule3Title: 'SA → SH = obsolete',
+    petrolRule3Text: 'Specs from SA to SH are for engines built in 1995 or earlier. Modern oils may not be compatible with very old engine designs — and very old oils can damage modern engines.',
+    petrolRule4Title: 'SJ → SQ = current',
+    petrolRule4Text: "SJ (2001) onwards is what you'll see on modern bottles. SQ is the latest API spec for petrol and is the one UEL is licensed to.",
+    petrolExampleBadge: 'Worked example',
+    petrolExampleTitle: '"My car asks for X — what can I actually use?"',
+    petrolEg1Head: '1987 car requiring API SF',
+    petrolEg1Body: 'If only SH and SL are on the shelf, SH is the closer match. Anything from SH up will work — higher specs are always safe replacements for older requirements.',
+    petrolEg2Head: '2003 car requiring API SL',
+    petrolEg2Body: 'SL, SM, SN, SP or SQ — all fine. Pick the newer one for better deposit control and fuel economy without changing how the engine runs.',
+    petrolEg3Head: "Don't go the other way",
+    petrolEg3Body: "A modern car asking for SP or SQ should never be filled with SH or older. The additive system the engine expects simply isn't there.",
+
+    dieselEyebrow: 'Category C · Diesel Engines',
+    dieselTitle: 'Diesel split <em>into two paths</em> in 2017.',
+    dieselLead: 'Heavy-duty diesel followed the same letter-by-letter march for decades — until API CJ-4 (2006). Ten years later, fuel-economy regulations forced the standard to split. The result: <b>CK-4</b> and <b>FA-4</b>, side by side.',
+    dieselChartCaption: 'API Service Category C — diesel engine oil specifications, with the 2017 PC-11 split into CK-4 and FA-4',
+    ck4Tag: 'PC-11a · Backward compatible',
+    ck4Lede: 'A tougher, more durable replacement for CJ-4. If your truck currently uses CJ-4 or CI-4, CK-4 drops in directly.',
+    ck4Bullet1: 'Common grades: 15W-40, 10W-30, 5W-40 — high HTHS (high-temperature high-shear) viscosity.',
+    ck4Bullet2: 'On-road and off-road: trucks, buses, agricultural and construction equipment.',
+    ck4Bullet3: 'Backward compatible with CJ-4, CI-4, CH-4 — safer to upgrade than to stick with old stock.',
+    fa4Tag: 'PC-11b · OEM-specified only',
+    fa4Lede: 'A new, separate category — not a CK-4 replacement. Lower viscosity for fuel-economy gains, but only safe in engines that ask for it by name.',
+    fa4Bullet1: 'Typical grades: 10W-30, 5W-30 — low HTHS for reduced friction and better mpg.',
+    fa4Bullet2: 'On-road only, on the latest engine designs that the manufacturer (OEM) approves for FA-4.',
+    fa4Bullet3: "<b>Not backward compatible.</b> Don't use FA-4 in a truck spec'd for CJ-4 or CK-4 unless the OEM says so.",
+    dieselWhyTitle: 'Why was the diesel standard split?',
+    dieselWhyText: "Two pressures hit at once. Fleets wanted lower fuel bills, and the US EPA Heavy Duty National Program (2011) tightened greenhouse-gas and fuel-consumption rules. Engineers responded with thinner, lower-friction oils — but those thin oils aren't safe for older engines. The Engine Manufacturers Association asked API for a new category. The result was PC-11, splitting into CK-4 (durable, backward compatible) and FA-4 (low-viscosity, OEM-specific).",
+
+    chooseEyebrow: 'How to Choose',
+    chooseTitle: 'Match the spec to the <em>year &amp; engine.</em>',
+    chooseLead: 'Start with the manual. If the manual says "API SN", anything from SN onwards works. If you don\'t have the manual, the rules below will get you very close — and UEL can confirm before you order.',
+    choosePetrolHeading: 'Petrol cars & motorcycles',
+    chooseColCar: 'Vehicle', chooseColSpec: 'Use API',
+    choosePetrolR1: 'Petrol car, 2020 onward',
+    choosePetrolR2: 'Petrol car, 2010 – 2019',
+    choosePetrolR3: 'Petrol car, 2001 – 2009',
+    choosePetrolR4: 'Older petrol, pre-1995',
+    choosePetrolR4Val: 'Any current spec — check oil weight',
+    choosePetrolR5: 'Motorcycle (4-stroke)',
+    choosePetrolR5Val: 'JASO MA / MA2 + API SL or higher',
+    chooseDieselHeading: 'Diesel trucks & equipment',
+    chooseColEng: 'Engine', chooseColSpec2: 'Use API',
+    chooseDieselR1: 'Most fleets, on-road & off-road',
+    chooseDieselR2: 'Older trucks specifying CJ-4 / CI-4',
+    chooseDieselR2Val: 'CK-4 (backward compatible)',
+    chooseDieselR3: 'Latest on-road engine, OEM allows FA-4',
+    chooseDieselR4: 'Off-road, agriculture, construction',
+    chooseDieselR4Val: 'CK-4 (do not use FA-4)',
+    chooseDieselR5: 'Generator / industrial diesel',
+    chooseDieselR5Val: 'CK-4 — confirm with OEM manual',
+    chooseFoot: "Always follow the vehicle or machine manual first. If the manual conflicts with what you read here — the manual wins. Send UEL the make, model, year and current spec, and we'll confirm the right grade before you buy.",
+
+    ctaBadge: 'Next steps',
+    ctaTitle: 'Ready to <em>match a UEL grade</em> to your vehicle?',
+    ctaText: "UEL is licensed under API EOLCS #3898 across 14 grades — all certified to the current API SQ category. Use the Oil Finder for a quick suggestion, check the proof on our API & Cert page, or message us with your vehicle details.",
+    ctaFinderBtn: 'Open Oil Finder',
+    ctaCertBtn: "See UEL's API Cert",
+    ctaContactBtn: 'Contact UEL',
+
+    footerDesc: 'Engine oils, lubricants and vehicle fluids for Malaysian drivers, workshops, fleets and industrial users.',
+    footerProducts: 'Products', footerCompany: 'Company', footerTouch: 'Get in Touch',
+    footCar: 'Car Engine Oil', footMc: 'Motorcycle Engine Oil', footDiesel: 'Diesel Engine Oil',
+    footAtf: 'Transmission & Gear Oil', footHydraulic: 'Industrial Hydraulic Oil', footAdd: 'Coolant, Brake Fluid & Additives',
+    footWho: 'Who We Are',
+    footTagline: 'Three drops · One standard',
+    legalRights: 'UEL - Unique Excellent Lubricant. All rights reserved.'
+  },
+
+  zh: {
+    htmlLang: 'zh-Hans-MY',
+    navHome: '首页', navProducts: '产品', navGuide: 'API 指南', navWhere: 'API 认证', navFinder: '找油助手', navContact: '联系',
+    metaTopic: '主题', metaTopicVal: 'API 规格',
+    metaRead: '阅读', metaReadVal: '约 5 分钟',
+    metaFor: '适合', metaForVal: '车主 · 维修厂 · 车队',
+    heroEyebrow: '读懂 API 标准',
+    heroTitle: '<em>API SQ</em> 或 <em>CK-4</em> 到底是什么意思？',
+    heroLead: '美国石油协会（API）制定了引擎油的性能标准。这一篇用最直白的话，把你在 UEL 数据表上看到的代号拆开讲清楚——不绕术语。',
+    heroPrimary: '汽油引擎指南（S）',
+    heroSecondary: '柴油引擎指南（C）',
+    heroCardBadge: '快速参考',
+    heroCardTitle: '两个字母告诉你引擎类型。',
+    heroTilePetrolTag: '汽油 · 火花点燃',
+    heroTilePetrolDesc: 'SA → SQ。字母越后，技术越新。当前规格：<b>SQ</b>（2025）。',
+    heroTileDieselTag: '柴油 · 压燃',
+    heroTileDieselDesc: 'CA → CK-4，加上 FA-4。当前重型规格：<b>CK-4</b> 与 <b>FA-4</b>。',
+
+    basicsEyebrow: '基础概念',
+    basicsTitle: '一个机构，<em>两个字母，</em>一条原则。',
+    basicsLead: 'API 自 1920 年代起就在为引擎油立规矩。今天每一瓶汽油或柴油引擎油，都对应一个 API 服务等级——本质上就是两个字母加一个数字。',
+    basicsApiTitle: '美国石油协会（API）',
+    basicsApiText: '美国制定行业标准的机构，规定了机油必须达到的指标——抗磨、热稳定、抗沉积、节油等。一瓶油标着 API 等级，意味着它通过了对应的测试。',
+    basicsSTitle: 'S = 火花点燃 · 汽油',
+    basicsSText: '面向汽油（gasoline）车辆——轿车、摩托车、轻型商用车。代号从 SA、SB、SC 一路排到现在的 <b>SQ</b>。字母越往后，配方越新。',
+    basicsCTitle: 'C = 压燃 · 柴油',
+    basicsCText: '面向柴油车辆——卡车、巴士、发电机、重型机械。代号从 CA 一路到 CK-4；2017 年起又多出一个并行的 <b>FA-4</b>，专门给低粘度节油配方使用。',
+
+    petrolEyebrow: 'S 系列 · 汽油引擎',
+    petrolTitle: '从 <em>1930 年的 SA</em> 到 <em>今天的 SQ。</em>',
+    petrolLead: '每一个新 S 等级都替代前一个。SA 到 SH 已经过时——是给 1995 年以前的引擎设计的。现代引擎要用现代字母。',
+    petrolChartCaption: 'API S 系列 — 汽油引擎油规格演变，1930 → 2025',
+    petrolRule1Title: '字母越后，技术越新',
+    petrolRule1Text: 'API 每次收紧标准——抗磨、抗沉积、排放、节油——S 后面的字母就往后推一位。',
+    petrolRule2Title: '向下兼容',
+    petrolRule2Text: '高规格涵盖低规格。要求 SP、SN、SM、SL 或 SJ 的引擎，用 SQ 都没问题，只会得到更新一代的保护。',
+    petrolRule3Title: 'SA → SH = 已淘汰',
+    petrolRule3Text: 'SA 到 SH 是给 1995 年以前的引擎用的。现代油可能不适合很旧的引擎设计；同样，老配方也会损害现代引擎。',
+    petrolRule4Title: 'SJ → SQ = 当前',
+    petrolRule4Text: 'SJ（2001）以后才是现代瓶身上常见的代号。SQ 是 API 汽油规格的最新一代，也是 UEL 已获认证的等级。',
+    petrolExampleBadge: '案例对照',
+    petrolExampleTitle: '"我的车要 X 规格——我实际能用什么？"',
+    petrolEg1Head: '1987 年的车，要求 API SF',
+    petrolEg1Body: '如果货架上只有 SH 和 SL，SH 更接近原规格。SH 以上都能用——高规格永远是低规格的安全替代。',
+    petrolEg2Head: '2003 年的车，要求 API SL',
+    petrolEg2Body: 'SL、SM、SN、SP、SQ 都可以。挑新的那个，能获得更好的抗沉积和节油表现，引擎运转方式不变。',
+    petrolEg3Head: '反方向不行',
+    petrolEg3Body: '要求 SP 或 SQ 的现代车，绝对不能加 SH 或更老的油——引擎需要的添加剂体系根本不存在。',
+
+    dieselEyebrow: 'C 系列 · 柴油引擎',
+    dieselTitle: '柴油标准在 <em>2017 年分成两条路。</em>',
+    dieselLead: '重型柴油几十年来按字母顺序更新——直到 API CJ-4（2006）。十年后节油法规迫使标准分裂。结果就是：<b>CK-4</b> 和 <b>FA-4</b> 并行存在。',
+    dieselChartCaption: 'API C 系列 — 柴油引擎油规格演变，含 2017 年 PC-11 拆分为 CK-4 与 FA-4',
+    ck4Tag: 'PC-11a · 向下兼容',
+    ck4Lede: '更耐久、更强韧的 CJ-4 替代品。卡车原本加 CJ-4 或 CI-4，可以直接换 CK-4。',
+    ck4Bullet1: '常见粘度：15W-40、10W-30、5W-40——HTHS（高温高剪切）粘度高，耐高温保护强。',
+    ck4Bullet2: '公路 + 非公路通用：卡车、巴士、农机、工程机械全部适用。',
+    ck4Bullet3: '向下兼容 CJ-4、CI-4、CH-4——比继续用旧规格库存更安全。',
+    fa4Tag: 'PC-11b · 仅 OEM 指定使用',
+    fa4Lede: '一个全新的独立等级——不是 CK-4 的替代品。低粘度换取节油，但只能用在原厂明确允许 FA-4 的引擎上。',
+    fa4Bullet1: '典型粘度：10W-30、5W-30——低 HTHS，降低摩擦，提升油耗表现。',
+    fa4Bullet2: '仅限公路使用，仅限制造商（OEM）批准 FA-4 的最新引擎设计。',
+    fa4Bullet3: '<b>不向下兼容。</b>除非 OEM 明确允许，否则原本要 CJ-4 或 CK-4 的卡车不要用 FA-4。',
+    dieselWhyTitle: '柴油标准为什么要分？',
+    dieselWhyText: '两股压力同时来。一是车队希望降低油耗成本；二是 2011 年美国 EPA 重型车国家计划收紧了温室气体和燃油消耗法规。工程师的解决方案是更稀、更低摩擦的油——但这种稀油对老引擎不安全。引擎制造商协会（EMA）于是请 API 设立新等级，最终就是 PC-11，拆分为 CK-4（耐久、向下兼容）和 FA-4（低粘度、OEM 专属）。',
+
+    chooseEyebrow: '怎么选',
+    chooseTitle: '按 <em>年份和引擎</em> 对应规格。',
+    chooseLead: '先翻使用手册。手册写"API SN"，那就用 SN 或更新的。没有手册的话，下面这张表能帮你接近答案——下单前 UEL 会再确认一次。',
+    choosePetrolHeading: '汽油车 & 摩托车',
+    chooseColCar: '车辆', chooseColSpec: '使用 API',
+    choosePetrolR1: '汽油车，2020 年起',
+    choosePetrolR2: '汽油车，2010 – 2019',
+    choosePetrolR3: '汽油车，2001 – 2009',
+    choosePetrolR4: '老汽油车，1995 年以前',
+    choosePetrolR4Val: '任何当前规格 — 注意粘度',
+    choosePetrolR5: '摩托车（四冲程）',
+    choosePetrolR5Val: 'JASO MA / MA2 + API SL 以上',
+    chooseDieselHeading: '柴油卡车 & 设备',
+    chooseColEng: '引擎', chooseColSpec2: '使用 API',
+    chooseDieselR1: '主流车队，公路 + 非公路',
+    chooseDieselR2: '老卡车，原本要求 CJ-4 / CI-4',
+    chooseDieselR2Val: 'CK-4（向下兼容）',
+    chooseDieselR3: '最新公路引擎，OEM 允许 FA-4',
+    chooseDieselR4: '非公路、农业、工程',
+    chooseDieselR4Val: 'CK-4（不要用 FA-4）',
+    chooseDieselR5: '发电机 / 工业柴油',
+    chooseDieselR5Val: 'CK-4 — 请对照 OEM 手册确认',
+    chooseFoot: '永远先看车辆或设备手册。手册和这里写的不一致时——以手册为准。把品牌、车型、年份和当前规格发给 UEL，下单前我们会替你确认正确等级。',
+
+    ctaBadge: '下一步',
+    ctaTitle: '准备好把 <em>UEL 的等级</em> 对应到你的车了吗？',
+    ctaText: 'UEL 持有 API EOLCS 牌照 #3898，覆盖 14 个等级——全部认证到当前 API SQ 规格。用「找油助手」获取快速建议，去「API 认证」页查看证明文件，或直接把车辆资料发给我们。',
+    ctaFinderBtn: '打开找油助手',
+    ctaCertBtn: '查看 UEL API 证书',
+    ctaContactBtn: '联系 UEL',
+
+    footerDesc: '为马来西亚车主、维修厂、车队和工业用户供应引擎油、润滑油和车辆油液。',
+    footerProducts: '产品', footerCompany: '公司', footerTouch: '联系',
+    footCar: '汽车机油', footMc: '摩托车机油', footDiesel: '柴油机油',
+    footAtf: '变速箱与齿轮油', footHydraulic: '工业液压油', footAdd: '冷却液、刹车油与添加剂',
+    footWho: '关于我们',
+    footTagline: '三滴 · 一个标准',
+    legalRights: 'UEL - Unique Excellent Lubricant. 版权所有。'
+  },
+
+  bm: {
+    htmlLang: 'ms-MY',
+    navHome: 'Laman Utama', navProducts: 'Produk', navGuide: 'Panduan API', navWhere: 'API & Sijil', navFinder: 'Pencari Minyak', navContact: 'Hubungi',
+    metaTopic: 'Topik', metaTopicVal: 'Spesifikasi API',
+    metaRead: 'Baca', metaReadVal: '5 minit',
+    metaFor: 'Untuk', metaForVal: 'Pemandu · Bengkel · Fleet',
+    heroEyebrow: 'Memahami Standard API',
+    heroTitle: 'Apa sebenarnya maksud <em>API SQ</em> atau <em>CK-4</em>?',
+    heroLead: 'American Petroleum Institute (API) menetapkan standard prestasi minyak enjin. Panduan ini memecahkan kod yang anda lihat pada lembaran data UEL — dalam bahasa mudah, tanpa kuliah kimia.',
+    heroPrimary: 'Panduan Petrol (S)',
+    heroSecondary: 'Panduan Diesel (C)',
+    heroCardBadge: 'Rujukan ringkas',
+    heroCardTitle: 'Dua huruf memberitahu jenis enjin.',
+    heroTilePetrolTag: 'Petrol · Spark Ignition',
+    heroTilePetrolDesc: 'SA → SQ. Huruf lebih tinggi, teknologi lebih baru. Spek semasa: <b>SQ</b> (2025).',
+    heroTileDieselTag: 'Diesel · Compression Ignition',
+    heroTileDieselDesc: 'CA → CK-4, serta FA-4. Heavy-duty semasa: <b>CK-4</b> &amp; <b>FA-4</b>.',
+
+    basicsEyebrow: 'Asas',
+    basicsTitle: 'Satu badan, <em>dua huruf,</em> satu peraturan.',
+    basicsLead: 'API telah menulis peraturan untuk minyak enjin sejak 1920-an. Setiap minyak enjin moden — petrol atau diesel — digredkan mengikut kategori servis API, iaitu hanya dua huruf dan satu nombor.',
+    basicsApiTitle: 'American Petroleum Institute',
+    basicsApiText: 'Badan standard AS yang menetapkan apa yang minyak enjin perlu lakukan — perlindungan haus, kestabilan haba, kawalan deposit, ekonomi bahan api. Jika minyak menyatakan spek API, ia telah diuji terhadap spek itu.',
+    basicsSTitle: 'Spark Ignition · Petrol',
+    basicsSText: 'Kereta, motosikal dan kenderaan komersial ringan yang menggunakan petrol (gasoline). Kod berjalan SA, SB, SC ... sehingga <b>SQ</b> hari ini. Semakin jauh huruf abjad, semakin baru formulasi.',
+    basicsCTitle: 'Compression Ignition · Diesel',
+    basicsCText: 'Lori, bas, generator dan jentera berat. Kod berjalan CA → CK-4, dengan kategori selari <b>FA-4</b> diperkenalkan untuk minyak diesel kelikatan rendah dan jimat bahan api.',
+
+    petrolEyebrow: 'Kategori S · Enjin Petrol',
+    petrolTitle: 'Dari <em>SA pada 1930</em> ke <em>SQ hari ini.</em>',
+    petrolLead: 'Setiap kategori S baru menggantikan yang sebelumnya. Kategori lama (SA → SH) sudah usang — direka untuk enjin yang dibuat pada 1995 atau lebih awal. Enjin moden memerlukan huruf moden.',
+    petrolChartCaption: 'API Service Category S — spesifikasi minyak enjin petrol, 1930 → 2025',
+    petrolRule1Title: 'Huruf lebih tinggi, teknologi lebih baru',
+    petrolRule1Text: 'Huruf selepas S maju setiap kali API mengetatkan standard — untuk perlindungan haus, deposit, pelepasan dan ekonomi bahan api.',
+    petrolRule2Title: 'Serasi ke belakang',
+    petrolRule2Text: 'Spek lebih tinggi meliputi semua di bawahnya. SQ boleh digunakan dalam mana-mana enjin yang meminta SP, SN, SM, SL atau SJ — tiada risiko, hanya perlindungan lebih baru.',
+    petrolRule3Title: 'SA → SH = sudah usang',
+    petrolRule3Text: 'Spek SA hingga SH adalah untuk enjin yang dibina pada 1995 atau lebih awal. Minyak moden mungkin tidak serasi dengan reka bentuk enjin sangat lama — dan minyak sangat lama boleh merosakkan enjin moden.',
+    petrolRule4Title: 'SJ → SQ = semasa',
+    petrolRule4Text: 'SJ (2001) ke atas adalah yang anda akan lihat pada botol moden. SQ ialah spek API petrol terkini dan UEL berlesen padanya.',
+    petrolExampleBadge: 'Contoh kerja',
+    petrolExampleTitle: '"Kereta saya minta X — apa sebenarnya boleh saya guna?"',
+    petrolEg1Head: 'Kereta 1987 memerlukan API SF',
+    petrolEg1Body: 'Jika hanya SH dan SL ada di rak, SH adalah padanan lebih dekat. Apa-apa dari SH ke atas akan berfungsi — spek lebih tinggi sentiasa pengganti selamat untuk keperluan lama.',
+    petrolEg2Head: 'Kereta 2003 memerlukan API SL',
+    petrolEg2Body: 'SL, SM, SN, SP atau SQ — semua OK. Pilih yang lebih baru untuk kawalan deposit dan ekonomi bahan api yang lebih baik tanpa mengubah cara enjin berjalan.',
+    petrolEg3Head: 'Jangan ke arah sebaliknya',
+    petrolEg3Body: 'Kereta moden yang meminta SP atau SQ tidak sepatutnya diisi dengan SH atau lebih lama. Sistem aditif yang enjin perlukan tiada di sana.',
+
+    dieselEyebrow: 'Kategori C · Enjin Diesel',
+    dieselTitle: 'Diesel berpecah <em>kepada dua jalan</em> pada 2017.',
+    dieselLead: 'Diesel heavy-duty mengikut perarakan huruf demi huruf yang sama selama beberapa dekad — sehingga API CJ-4 (2006). Sepuluh tahun kemudian, peraturan ekonomi bahan api memaksa standard berpecah. Hasilnya: <b>CK-4</b> dan <b>FA-4</b>, bersebelahan.',
+    dieselChartCaption: 'API Service Category C — spesifikasi minyak enjin diesel, dengan pemecahan PC-11 2017 kepada CK-4 dan FA-4',
+    ck4Tag: 'PC-11a · Serasi ke belakang',
+    ck4Lede: 'Pengganti CJ-4 yang lebih kuat dan tahan lama. Jika lori anda kini menggunakan CJ-4 atau CI-4, CK-4 boleh masuk terus.',
+    ck4Bullet1: 'Gred biasa: 15W-40, 10W-30, 5W-40 — kelikatan HTHS (high-temperature high-shear) tinggi.',
+    ck4Bullet2: 'Atas jalan dan luar jalan: lori, bas, peralatan pertanian dan pembinaan.',
+    ck4Bullet3: 'Serasi ke belakang dengan CJ-4, CI-4, CH-4 — lebih selamat untuk naik taraf daripada terus guna stok lama.',
+    fa4Tag: 'PC-11b · Hanya jika OEM tentukan',
+    fa4Lede: 'Kategori baru yang berasingan — bukan pengganti CK-4. Kelikatan lebih rendah untuk keuntungan ekonomi bahan api, tetapi hanya selamat dalam enjin yang memintanya secara khusus.',
+    fa4Bullet1: 'Gred tipikal: 10W-30, 5W-30 — HTHS rendah untuk geseran lebih rendah dan mpg lebih baik.',
+    fa4Bullet2: 'Atas jalan sahaja, pada reka bentuk enjin terkini yang pengeluar (OEM) meluluskan untuk FA-4.',
+    fa4Bullet3: '<b>Tidak serasi ke belakang.</b> Jangan guna FA-4 dalam lori yang ditetapkan untuk CJ-4 atau CK-4 melainkan OEM mengatakannya.',
+    dieselWhyTitle: 'Mengapa standard diesel dipecahkan?',
+    dieselWhyText: 'Dua tekanan datang serentak. Fleet mahukan bil bahan api lebih rendah, dan EPA AS Heavy Duty National Program (2011) mengetatkan peraturan gas rumah hijau dan penggunaan bahan api. Jurutera bertindak balas dengan minyak lebih nipis dan kurang geseran — tetapi minyak nipis itu tidak selamat untuk enjin lama. Engine Manufacturers Association meminta API menyediakan kategori baru. Hasilnya ialah PC-11, berpecah kepada CK-4 (tahan lama, serasi ke belakang) dan FA-4 (kelikatan rendah, OEM-spesifik).',
+
+    chooseEyebrow: 'Cara Memilih',
+    chooseTitle: 'Padankan spek dengan <em>tahun &amp; enjin.</em>',
+    chooseLead: 'Mulakan dengan manual. Jika manual menyatakan "API SN", apa-apa dari SN ke atas berfungsi. Jika anda tidak ada manual, peraturan di bawah akan dekat — dan UEL boleh sahkan sebelum anda pesan.',
+    choosePetrolHeading: 'Kereta petrol & motosikal',
+    chooseColCar: 'Kenderaan', chooseColSpec: 'Guna API',
+    choosePetrolR1: 'Kereta petrol, 2020 ke atas',
+    choosePetrolR2: 'Kereta petrol, 2010 – 2019',
+    choosePetrolR3: 'Kereta petrol, 2001 – 2009',
+    choosePetrolR4: 'Petrol lama, sebelum 1995',
+    choosePetrolR4Val: 'Mana-mana spek semasa — semak gred kelikatan',
+    choosePetrolR5: 'Motosikal (4-lejang)',
+    choosePetrolR5Val: 'JASO MA / MA2 + API SL atau lebih tinggi',
+    chooseDieselHeading: 'Lori diesel & peralatan',
+    chooseColEng: 'Enjin', chooseColSpec2: 'Guna API',
+    chooseDieselR1: 'Kebanyakan fleet, atas + luar jalan',
+    chooseDieselR2: 'Lori lama, asalnya CJ-4 / CI-4',
+    chooseDieselR2Val: 'CK-4 (serasi ke belakang)',
+    chooseDieselR3: 'Enjin atas jalan terkini, OEM benarkan FA-4',
+    chooseDieselR4: 'Luar jalan, pertanian, pembinaan',
+    chooseDieselR4Val: 'CK-4 (jangan guna FA-4)',
+    chooseDieselR5: 'Generator / diesel industri',
+    chooseDieselR5Val: 'CK-4 — sahkan dengan manual OEM',
+    chooseFoot: 'Sentiasa ikut manual kenderaan atau mesin dahulu. Jika manual bercanggah dengan apa yang anda baca di sini — manual menang. Hantar UEL jenama, model, tahun dan spek semasa, dan kami akan sahkan gred yang betul sebelum anda beli.',
+
+    ctaBadge: 'Langkah seterusnya',
+    ctaTitle: 'Sedia <em>memadankan gred UEL</em> dengan kenderaan anda?',
+    ctaText: 'UEL berlesen di bawah API EOLCS #3898 merentasi 14 gred — semua disahkan kepada kategori API SQ semasa. Gunakan Pencari Minyak untuk cadangan ringkas, semak bukti pada halaman API & Sijil, atau hubungi kami dengan butiran kenderaan anda.',
+    ctaFinderBtn: 'Buka Pencari Minyak',
+    ctaCertBtn: 'Lihat Sijil API UEL',
+    ctaContactBtn: 'Hubungi UEL',
+
+    footerDesc: 'Minyak enjin, pelincir dan cecair kenderaan untuk pemandu, bengkel, fleet dan pengguna industri Malaysia.',
+    footerProducts: 'Produk', footerCompany: 'Syarikat', footerTouch: 'Hubungi',
+    footCar: 'Minyak Enjin Kereta', footMc: 'Minyak Enjin Motosikal', footDiesel: 'Minyak Diesel',
+    footAtf: 'Minyak Transmisi & Gear', footHydraulic: 'Minyak Hidraulik Industri', footAdd: 'Penyejuk, Minyak Brek & Aditif',
+    footWho: 'Tentang Kami',
+    footTagline: 'Tiga titis · Satu standard',
+    legalRights: 'UEL - Unique Excellent Lubricant. Hak cipta terpelihara.'
+  }
+};
+
+let currentLang = localStorage.getItem('uelLang') || 'en';
+const applyLanguage = lang => {
+  currentLang = copy[lang] ? lang : 'en';
+  localStorage.setItem('uelLang', currentLang);
+  document.documentElement.lang = copy[currentLang].htmlLang;
+  document.querySelectorAll('[data-lang]').forEach(btn => {
+    const active = btn.dataset.lang === currentLang;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+  document.querySelectorAll('[data-copy]').forEach(el => {
+    const v = copy[currentLang][el.dataset.copy];
+    if (v != null) el.textContent = v;
+  });
+  document.querySelectorAll('[data-copy-html]').forEach(el => {
+    const v = copy[currentLang][el.dataset.copyHtml];
+    if (v != null) el.innerHTML = v;
+  });
+};
+document.querySelectorAll('[data-lang]').forEach(btn => btn.addEventListener('click', () => applyLanguage(btn.dataset.lang)));
+
+// Mobile menu
+const menuBtn = document.getElementById('menu-btn');
+const navLinks = document.getElementById('nav-links');
+if (menuBtn && navLinks) {
+  const setMenuOpen = open => {
+    navLinks.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  menuBtn.addEventListener('click', () => setMenuOpen(!navLinks.classList.contains('open')));
+  navLinks.addEventListener('click', e => { if (e.target.closest('a')) setMenuOpen(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenuOpen(false); });
+}
+
+// Ambient cursor light
+(() => {
+  const dip = document.querySelector('.ambient-dip');
+  if (!dip || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let x = innerWidth * .5, y = innerHeight * .35, raf = 0;
+  const paint = () => { dip.style.setProperty('--dip-x', x + 'px'); dip.style.setProperty('--dip-y', y + 'px'); raf = 0; };
+  const queue = (nx, ny) => { x = nx; y = ny; if (!raf) raf = requestAnimationFrame(paint); };
+  addEventListener('pointermove', e => queue(e.clientX, e.clientY), { passive: true });
+  paint();
+})();
+
+// Reveal on scroll
+(() => {
+  const items = [...document.querySelectorAll('.reveal')];
+  if (!items.length) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    items.forEach(item => item.classList.add('in-view'));
+    return;
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+    });
+  }, { threshold: .16, rootMargin: '0px 0px -8% 0px' });
+  items.forEach(item => io.observe(item));
+})();
+
+applyLanguage(currentLang);
+</script>
+
+</body>
+</html>
