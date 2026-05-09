@@ -114,9 +114,9 @@
   .basics-card p{margin-top:10px;color:var(--paper);font-size:14.5px;line-height:1.55}
 
   /* chart card */
-  .chart-card{border:1px solid var(--line-strong);border-radius:var(--card-radius);background:rgba(255,255,255,.96);padding:clamp(14px,2vw,22px);box-shadow:0 28px 70px rgba(0,0,0,.38)}
+  .chart-card{margin:0 auto;max-width:720px;border:1px solid var(--line-strong);border-radius:var(--card-radius);background:rgba(255,255,255,.96);padding:clamp(12px,1.6vw,18px);box-shadow:0 28px 70px rgba(0,0,0,.38)}
   .chart-card img{width:100%;border-radius:8px}
-  .chart-caption{margin-top:14px;color:var(--ash);font-family:var(--head);font-size:12px;text-transform:uppercase;letter-spacing:.08em;text-align:center}
+  .chart-caption{margin:14px auto 0;max-width:720px;color:var(--ash);font-family:var(--head);font-size:12px;text-transform:uppercase;letter-spacing:.08em;text-align:center}
 
   /* rules grid */
   .rules-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
@@ -284,12 +284,12 @@
           <div class="hc-tile petrol">
             <span class="tag" data-copy="heroTilePetrolTag">Petrol · Spark Ignition</span>
             <span class="code">S</span>
-            <p class="desc" data-copy="heroTilePetrolDesc">SA → SQ. Higher letter, newer technology. Current spec: <b>SQ</b> (2025).</p>
+            <p class="desc" data-copy-html="heroTilePetrolDesc">SA → SQ. Higher letter, newer technology. Current spec: <b>SQ</b> (2025).</p>
           </div>
           <div class="hc-tile diesel">
             <span class="tag" data-copy="heroTileDieselTag">Diesel · Compression Ignition</span>
             <span class="code">C</span>
-            <p class="desc" data-copy="heroTileDieselDesc">CA → CK-4, plus FA-4. Current heavy-duty: <b>CK-4</b> &amp; <b>FA-4</b>.</p>
+            <p class="desc" data-copy-html="heroTileDieselDesc">CA → CK-4, plus FA-4. Current heavy-duty: <b>CK-4</b> &amp; <b>FA-4</b>.</p>
           </div>
         </div>
       </aside>
@@ -316,12 +316,12 @@
         <article class="basics-card s-cat reveal d1">
           <span class="lab">S</span>
           <h3 data-copy="basicsSTitle">Spark Ignition · Petrol</h3>
-          <p data-copy="basicsSText">Cars, motorcycles and light commercial vehicles running on petrol (gasoline). Codes run SA, SB, SC ... up to today's <b>SQ</b>. The further down the alphabet, the newer the formulation.</p>
+          <p data-copy-html="basicsSText">Cars, motorcycles and light commercial vehicles running on petrol (gasoline). Codes run SA, SB, SC ... up to today's <b>SQ</b>. The further down the alphabet, the newer the formulation.</p>
         </article>
         <article class="basics-card c-cat reveal d2">
           <span class="lab">C</span>
           <h3 data-copy="basicsCTitle">Compression Ignition · Diesel</h3>
-          <p data-copy="basicsCText">Trucks, buses, generators and heavy machinery. Codes run CA → CK-4, with a parallel category <b>FA-4</b> introduced for low-viscosity, fuel-economy diesel oils.</p>
+          <p data-copy-html="basicsCText">Trucks, buses, generators and heavy machinery. Codes run CA → CK-4, with a parallel category <b>FA-4</b> introduced for low-viscosity, fuel-economy diesel oils.</p>
         </article>
       </div>
     </div>
@@ -404,7 +404,7 @@
           <span class="eyebrow" data-copy="dieselEyebrow">Category C · Diesel Engines</span>
           <h2 data-copy-html="dieselTitle">Diesel split <em>into two paths</em> in 2017.</h2>
         </div>
-        <p data-copy="dieselLead">Heavy-duty diesel followed the same letter-by-letter march for decades — until API CJ-4 (2006). Ten years later, fuel-economy regulations forced the standard to split. The result: <b>CK-4</b> and <b>FA-4</b>, side by side.</p>
+        <p data-copy-html="dieselLead">Heavy-duty diesel followed the same letter-by-letter march for decades — until API CJ-4 (2006). Ten years later, fuel-economy regulations forced the standard to split. The result: <b>CK-4</b> and <b>FA-4</b>, side by side.</p>
       </div>
 
       <figure class="chart-card reveal">
@@ -431,7 +431,7 @@
           <ul>
             <li data-copy="fa4Bullet1">Typical grades: 10W-30, 5W-30 — low HTHS for reduced friction and better mpg.</li>
             <li data-copy="fa4Bullet2">On-road only, on the latest engine designs that the manufacturer (OEM) approves for FA-4.</li>
-            <li data-copy="fa4Bullet3"><b>Not backward compatible.</b> Don't use FA-4 in a truck spec'd for CJ-4 or CK-4 unless the OEM says so.</li>
+            <li data-copy-html="fa4Bullet3"><b>Not backward compatible.</b> Don't use FA-4 in a truck spec'd for CJ-4 or CK-4 unless the OEM says so.</li>
           </ul>
         </article>
       </div>
