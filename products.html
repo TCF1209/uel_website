@@ -2511,7 +2511,6 @@
       <a href="products.html" class="active" data-copy="navProducts">Products</a>
       <a href="api-cert.html" data-copy="navWhere">API &amp; Cert</a>
       <a href="api-guide.html" data-copy="navGuide">API Guide</a>
-      <a href="oil-advisor.html" data-copy="navFinder">Oil Advisor</a>
       <a href="contact.html" data-copy="navContact">Contact</a>
       <a class="nav-cta" href="https://wa.me/60108989120?text=Hi%20UEL%2C%20I%20want%20to%20ask%20about%20your%20products" target="_blank" rel="noopener"><span class="dot" aria-hidden="true"></span>WhatsApp</a>
       <div class="lang-switch" aria-label="Language">
@@ -2630,7 +2629,6 @@
           <li><a href="api-cert.html">API &amp; Cert</a></li>
           <li><a href="api-guide.html">API Guide</a></li>
           <li><a href="index.html#range">Range</a></li>
-          <li><a href="oil-advisor.html">Oil Advisor</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -2876,7 +2874,7 @@ const products = [
   { id:'engine-15w40-7l', category:'diesel', glow:'rgba(246,180,65,.18)', img:'transparent_png/UEL_mockup_page_16_transparent_FIXED.png', title:{en:'UEL 15W-40 SM/CF Mineral Engine Oil'}, grade:'SAE 15W-40', spec:'API SM/SL/SJ/CF; ACEA A3/B3 or A3/B4', best:{en:'Pack option for engines requiring 15W-40 mineral oil with the listed API or ACEA category.'}, detail:{en:'From UEL notes: 15W40 SM/CF Mineral is supported by the product data sheet. Confirm required pack size and exact label with UEL.'}, hasBack:true, dataSheet:'UEL Product details/product-specific-sheets/UEL-15W40-SM-CF-Mineral.pdf', sheetLabel:'View 15W-40 Mineral Data Sheet' },
   { id:'yellow-15w40-18l', category:'diesel', glow:'rgba(246,180,65,.18)', img:'transparent_png/UEL_mockup_page_15_transparent_FIXED.png', title:{en:'UEL Heavy Duty 15W-40 Engine Oil'}, grade:'SAE 15W-40', spec:'15W-40 product family; confirm exact fully/semi/mineral sheet with UEL', best:{en:'Heavy-duty 15W-40 engine oil enquiries in 18L pack format.'}, detail:{en:'UEL notes include three 15W40 sheets: Fully API CK-4/SL, SM/CF Mineral, and SQ/CF Semi. The supplied sold-out screenshot marks this yellow pack as sold out, so confirm exact label, matching sheet and restock timing with UEL.'}, hasBack:false, dataSheet:'UEL Product details/product-specific-sheets/UEL-15W40-Fully.pdf', sheetLabel:'View 15W-40 Fully Sheet' },
   { id:'engine-20w50-4l', category:'car', glow:'rgba(24,169,116,.16)', img:'transparent_png/UEL_mockup_page_02_transparent_FIXED.png', title:{en:'UEL 20W-50 SL/CF Mineral Engine Oil'}, grade:'SAE 20W-50', spec:'API SL/SJ/CF; ACEA A3/B3 or A3/B4', best:{en:'Gasoline and light-duty diesel engines, motorcycles, generators or commercial equipment where 20W-50 mineral oil is specified.'}, detail:{en:'From UEL notes: 20W50 SL/CF Mineral is listed for high-temperature, heavy-load and long-distance use where the manual allows it. Typical values: KV40 188.07 mm2/s, KV100 19.996 mm2/s, VI 125.62, pour point -11 C and flash point 240 C.'}, hasBack:true, dataSheet:'UEL Product details/product-specific-sheets/UEL-20W50-SL-CF-Mineral.pdf', sheetLabel:'View 20W-50 Data Sheet' },
-  { id:'engine-20w50-4l-alt', category:'car', glow:'rgba(24,169,116,.16)', img:'transparent_png/UEL_mockup_page_03_transparent_FIXED.png', title:{en:'UEL 20W-50 SL/CF Mineral Engine Oil'}, grade:'SAE 20W-50', spec:'API SL/SJ/CF; ACEA A3/B3 or A3/B4', best:{en:'Alternative 20W-50 4L pack presentation for customers checking the same mineral-oil grade.'}, detail:{en:'From UEL notes: 20W50 SL/CF Mineral is supported by the product data sheet. Confirm vehicle, equipment, pack size and current stock with UEL before use.'}, hasBack:true, dataSheet:'UEL Product details/product-specific-sheets/UEL-20W50-SL-CF-Mineral.pdf', sheetLabel:'View 20W-50 Data Sheet' },
+  { id:'engine-20w50-4l-alt', category:'motorcycle', glow:'rgba(43,108,246,.18)', img:'transparent_png/UEL_mockup_page_03_transparent_FIXED.png', title:{en:'UEL 20W-50 SL/CF Mineral Engine Oil'}, grade:'SAE 20W-50', spec:'API SL/SJ/CF; ACEA A3/B3 or A3/B4', best:{en:'Motorcycles, gasoline and light-duty engines, generators or commercial equipment where 20W-50 mineral oil is specified.'}, detail:{en:'From UEL notes: 20W50 SL/CF Mineral is listed for motorcycle, high-temperature, heavy-load and long-distance use where the manual allows it. Confirm vehicle, equipment, pack size and current stock with UEL before use.'}, hasBack:true, dataSheet:'UEL Product details/product-specific-sheets/UEL-20W50-SL-CF-Mineral.pdf', sheetLabel:'View 20W-50 Data Sheet' },
   { id:'pail-20w50-hd', category:'diesel', glow:'rgba(246,180,65,.18)', img:'transparent_png/UEL_mockup_page_13_transparent_FIXED.png', title:{en:'UEL Heavy Duty 20W-50 Engine Oil'}, grade:'SAE 20W-50', spec:'API SL/SJ/CF; ACEA A3/B3 or A3/B4', best:{en:'Heavy-duty 20W-50 enquiries in 18L pail format where the manual allows this grade.'}, detail:{en:'From UEL notes: 20W50 SL/CF Mineral is listed for high-temperature and heavy-load use. This pail is marked sold out from the supplied sold-out screenshots, so ask UEL for restock timing.'}, hasBack:true, dataSheet:'UEL Product details/product-specific-sheets/UEL-20W50-SL-CF-Mineral.pdf', sheetLabel:'View 20W-50 Data Sheet' },
   { id:'hd40-4l', category:'diesel', glow:'rgba(226,59,47,.18)', img:'transparent_png/UEL_mockup_page_01_transparent_FIXED.png', title:{en:'UEL HD40 Monograde Diesel Engine Oil'}, grade:'HD 40 / SAE 40', spec:'API CF / SF; MIL-L-2104C; CCMC D2', best:{en:'Naturally aspirated and light turbocharged diesel engines where SAE 40 monograde oil is specified.'}, detail:{en:'From UEL notes: refined mineral base oils with additives for wear, deposit, rust and oxidation protection. Typical values: KV40 101 mm2/s, KV100 12.6 mm2/s, VI 120, pour point -10 C and flash point 249 C.'}, hasBack:true, dataSheet:'UEL Product details/product-specific-sheets/UEL-HD40-SF-CF.pdf', sheetLabel:'View HD40 Data Sheet' },
   { id:'pail-hd40', category:'diesel', glow:'rgba(246,180,65,.18)', img:'transparent_png/UEL_mockup_page_14_transparent_FIXED.png', title:{en:'UEL Heavy Duty HD40 Engine Oil'}, grade:'HD 40 / SAE 40', spec:'API CF / SF; MIL-L-2104C; CCMC D2', best:{en:'HD40 enquiries in 18L pail format for engines requiring SAE 40 monograde oil.'}, detail:{en:'From UEL notes: HD40 is a monograde diesel engine oil. This pail is marked sold out from the supplied sold-out screenshots, so ask UEL for restock timing.'}, hasBack:true, dataSheet:'UEL Product details/product-specific-sheets/UEL-HD40-SF-CF.pdf', sheetLabel:'View HD40 Data Sheet' },
@@ -2891,7 +2889,7 @@ const products = [
 const zhProductText = {
   'hd40-4l': ['适合说明书要求 SAE 40 单级油的自然吸气和轻度涡轮柴油引擎。', '根据 UEL 资料：此产品使用精炼矿物基础油，并加入抗磨、清净、抗锈和抗氧化添加剂。典型数值包括 KV40 101 mm2/s、KV100 12.6 mm2/s、VI 120、倾点 -10 C、闪点 249 C。'],
   'engine-20w50-4l': ['适合说明书要求 20W-50 矿物油的汽油、轻型柴油引擎、摩托、发电机或商用设备。', '根据 UEL 资料：20W50 SL/CF 矿物油列明适合高温、重负荷和长途使用，前提是车辆或设备手册允许。典型数值包括 KV40 188.07 mm2/s、KV100 19.996 mm2/s、VI 125.62、倾点 -11 C、闪点 240 C。'],
-  'engine-20w50-4l-alt': ['同一 20W-50 矿物油等级的另一种 4L 包装展示。', '根据 UEL 资料：20W50 SL/CF 矿物油有对应资料表支持。使用前请向 UEL 确认车型、设备、包装和库存。'],
+  'engine-20w50-4l-alt': ['适合摩托车、汽油及轻型引擎、发电机或商用设备使用 20W-50 矿物油的情况。', '根据 UEL 资料：20W50 SL/CF 矿物油列明可用于摩托车、高温、重负荷和长途用途，前提是手册允许。使用前请向 UEL 确认车型、设备、包装和库存。'],
   'engine-15w40-4l': ['适合说明书要求 15W-40 矿物油，并符合标签所列 API 或 ACEA 类别的引擎。', '根据 UEL 资料：15W40 SM/CF 矿物油列明 KV40 137.92 mm2/s、KV100 15.796 mm2/s、VI 128.59、倾点 -11 C、闪点 240 C。订购前请核对标签和手册需求。'],
   'engine-10w30-4l': ['适合要求 10W-30 矿物引擎油，并符合标签所列 API 或 ACEA 类别的车辆。', '根据 UEL 资料：10W30 SL/CF 矿物油列明 KV40 88.01 mm2/s、KV100 10.229 mm2/s、VI 119.01、倾点 -11 C、闪点 240 C。使用前请确认车辆兼容性。'],
   'semi-5w30-4l': ['适合要求 5W-30 半合成油的汽油和轻型柴油乘用车、SUV、轻卡和商用车辆。', '根据 UEL 资料：5W30 SQ/CF Semi 为半合成配方。资料也列出 GM dexos1 Gen 2、Ford WSS-M2C946-A/B1、Chrysler MS-6395、MB 229.5/229.51、VW 502.00/505.00 和 BMW Longlife-01。典型数值包括 KV40 94.530 mm2/s、KV100 12.893 mm2/s、VI 133.45、倾点 -27 C、闪点 220 C。'],
@@ -3410,9 +3408,20 @@ copy.zh = {
   };
   initStageCarousel();
 
+  const initialHashMatch = (window.location.hash || '').match(/^#category=([a-z]+)$/);
+  if (initialHashMatch && categories.includes(initialHashMatch[1])) {
+    activeFilter = initialHashMatch[1];
+  }
+
   applyLanguage(currentLang);
   revealController.observe(document);
   requestFilterSync();
+
+  if (activeFilter !== 'all') {
+    requestAnimationFrame(() => {
+      document.getElementById('catalogue')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
