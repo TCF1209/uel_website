@@ -595,6 +595,43 @@
     .stage-glow, .stage-spotlight { transition: none; }
   }
 
+  /* Product name caption */
+  .stage-caption {
+    position: absolute;
+    left: 50%;
+    bottom: 4%;
+    transform: translateX(-50%);
+    z-index: 4;
+    font-family: var(--head);
+    font-size: clamp(11px, 1.05vw, 14px);
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--bone);
+    text-align: center;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity .45s ease;
+    text-shadow: 0 1px 0 rgba(0,0,0,.6), 0 0 20px rgba(0,0,0,.5);
+    pointer-events: none;
+  }
+  .stage-caption.is-visible { opacity: .9; }
+
+  /* Floor reflection on the active product (Webkit/Chromium; degrades gracefully elsewhere) */
+  .carousel-item.is-active img {
+    -webkit-box-reflect: below 2px linear-gradient(to bottom, transparent 62%, rgba(0,0,0,.34) 100%);
+  }
+
+  /* Cinematic depth-of-field blur on the side products */
+  .carousel-item.is-prev img,
+  .carousel-item.is-next img {
+    filter: blur(1.2px);
+  }
+  .carousel-item.is-far-prev img,
+  .carousel-item.is-far-next img {
+    filter: blur(2.2px);
+  }
+
   .drop-stamp {
     position: absolute;
     left: 50%;
@@ -3375,61 +3412,56 @@
 
     <div class="hero-visual reveal d3" aria-label="Featured UEL product carousel">
       <div class="drop-stage" id="hero-carousel">
-        <div class="ring"></div>
-        <div class="ring inner"></div>
         <div class="stage-spotlight" aria-hidden="true"></div>
         <div class="stage-glow stage-glow-left" aria-hidden="true"></div>
         <div class="stage-glow stage-glow-right" aria-hidden="true"></div>
         <div class="product-carousel">
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_07_front.png" alt="UEL product 7"></div>
+          <div class="carousel-item" data-name="UEL 5W-30 Fully Synthetic"><img src="transparent_png/front/UEL_mockup_page_07_front.png" alt="UEL product 7"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_06_front.png" alt="UEL product 6"></div>
+          <div class="carousel-item" data-name="UEL 5W-30 Semi-Synthetic"><img src="transparent_png/front/UEL_mockup_page_06_front.png" alt="UEL product 6"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_05_front.png" alt="UEL product 5"></div>
+          <div class="carousel-item" data-name="UEL 10W-30 Mineral"><img src="transparent_png/front/UEL_mockup_page_05_front.png" alt="UEL product 5"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_08_front.png" alt="UEL product 8"></div>
+          <div class="carousel-item" data-name="UEL 10W-40 Semi-Synthetic"><img src="transparent_png/front/UEL_mockup_page_08_front.png" alt="UEL product 8"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_10_front.png" alt="UEL product 10"></div>
+          <div class="carousel-item" data-name="UEL 10W-40 Semi-Synthetic"><img src="transparent_png/front/UEL_mockup_page_10_front.png" alt="UEL product 10"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_12_front.png" alt="UEL product 12"></div>
+          <div class="carousel-item" data-name="UEL 10W-40 Semi-Synthetic"><img src="transparent_png/front/UEL_mockup_page_12_front.png" alt="UEL product 12"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_11_front.png" alt="UEL product 11"></div>
+          <div class="carousel-item" data-name="UEL 15W-40 Fully Synthetic"><img src="transparent_png/front/UEL_mockup_page_11_front.png" alt="UEL product 11"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_04_front.png" alt="UEL product 4"></div>
+          <div class="carousel-item" data-name="UEL 15W-40 Mineral"><img src="transparent_png/front/UEL_mockup_page_04_front.png" alt="UEL product 4"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_16_front.png" alt="UEL product 16"></div>
+          <div class="carousel-item" data-name="UEL 15W-40 Mineral"><img src="transparent_png/front/UEL_mockup_page_16_front.png" alt="UEL product 16"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_15_front.png" alt="UEL product 15"></div>
+          <div class="carousel-item" data-name="UEL Heavy Duty 15W-40"><img src="transparent_png/front/UEL_mockup_page_15_front.png" alt="UEL product 15"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_02_front.png" alt="UEL product 2"></div>
+          <div class="carousel-item" data-name="UEL 20W-50 Mineral"><img src="transparent_png/front/UEL_mockup_page_02_front.png" alt="UEL product 2"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_03_front.png" alt="UEL product 3"></div>
+          <div class="carousel-item" data-name="UEL 20W-50 Mineral"><img src="transparent_png/front/UEL_mockup_page_03_front.png" alt="UEL product 3"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_13_front.png" alt="UEL product 13"></div>
+          <div class="carousel-item" data-name="UEL Heavy Duty 20W-50"><img src="transparent_png/front/UEL_mockup_page_13_front.png" alt="UEL product 13"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_01_front.png" alt="UEL product 1"></div>
+          <div class="carousel-item" data-name="UEL HD40 Monograde Diesel"><img src="transparent_png/front/UEL_mockup_page_01_front.png" alt="UEL product 1"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_14_front.png" alt="UEL product 14"></div>
+          <div class="carousel-item" data-name="UEL Heavy Duty HD40"><img src="transparent_png/front/UEL_mockup_page_14_front.png" alt="UEL product 14"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_18_front.png" alt="UEL product 18"></div>
+          <div class="carousel-item" data-name="UEL HD40 Monograde 1L"><img src="transparent_png/front/UEL_mockup_page_18_front.png" alt="UEL product 18"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_09_front.png" alt="UEL product 9"></div>
+          <div class="carousel-item" data-name="UEL ATF Dexron-III"><img src="transparent_png/front/UEL_mockup_page_09_front.png" alt="UEL product 9"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_17_front.png" alt="UEL product 17"></div>
+          <div class="carousel-item" data-name="UEL ATF Dexron-III Pail"><img src="transparent_png/front/UEL_mockup_page_17_front.png" alt="UEL product 17"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_21_front.png" alt="UEL product 21"></div>
+          <div class="carousel-item" data-name="UEL Hydraulic Fluid AWS32"><img src="transparent_png/front/UEL_mockup_page_21_front.png" alt="UEL product 21"></div>
 
-          <div class="carousel-item"><img src="transparent_png/front/UEL_mockup_page_20_front.png" alt="UEL product 20"></div>
+          <div class="carousel-item" data-name="UEL Hydraulic Fluid AWS68"><img src="transparent_png/front/UEL_mockup_page_20_front.png" alt="UEL product 20"></div>
 
-          <div class="carousel-item"><img src="transparent_png/ultra-cut-front.png" alt="UEL Ultra Cut Water-Soluble Cutting Fluid Coolant"></div>
+          <div class="carousel-item" data-name="UEL Ultra Cut Coolant"><img src="transparent_png/ultra-cut-front.png" alt="UEL Ultra Cut Water-Soluble Cutting Fluid Coolant"></div>
         </div>
         <button class="carousel-control prev" type="button" aria-label="Previous product">‹</button>
         <button class="carousel-control next" type="button" aria-label="Next product">›</button>
-        <div class="drop-stamp">
-          <div class="stamp-word">UEL</div>
-          <div class="stamp-tag">Unique - Excellent - Lubricant</div>
-        </div>
+        <div class="stage-caption" id="hero-caption" aria-live="polite"></div>
       </div>
     </div>
   </div>
@@ -4875,8 +4907,10 @@
     const items = [...heroCarousel.querySelectorAll('.carousel-item')];
     const prevButton = heroCarousel.querySelector('.carousel-control.prev');
     const nextButton = heroCarousel.querySelector('.carousel-control.next');
+    const heroCaption = document.getElementById('hero-caption');
     let activeHeroProduct = 0;
     let carouselTimer;
+    let captionTimer;
     let dragStartX = 0;
     let isDragging = false;
 
@@ -4891,7 +4925,21 @@
         else if (offset === 2) item.classList.add('is-far-next');
         else if (offset === items.length - 2) item.classList.add('is-far-prev');
       });
+      if (heroCaption) {
+        const activeItem = items[activeHeroProduct];
+        const label = activeItem?.dataset.name || '';
+        heroCaption.classList.remove('is-visible');
+        window.clearTimeout(captionTimer);
+        captionTimer = window.setTimeout(() => {
+          heroCaption.textContent = label;
+          heroCaption.classList.add('is-visible');
+        }, 280);
+      }
     };
+    if (heroCaption) {
+      heroCaption.textContent = items[0]?.dataset.name || '';
+      heroCaption.classList.add('is-visible');
+    }
     const moveHeroProduct = (direction) => setHeroProduct(activeHeroProduct + direction);
     const restartCarousel = () => {
       window.clearInterval(carouselTimer);
