@@ -604,10 +604,10 @@
     z-index: 4;
     font-family: var(--head);
     font-size: clamp(9px, 0.78vw, 11px);
-    font-weight: 600;
+    font-weight: 800;
     letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--ash);
+    color: var(--bone);
     text-align: center;
     white-space: nowrap;
     opacity: 0;
@@ -615,7 +615,7 @@
     text-shadow: 0 1px 0 rgba(0,0,0,.6), 0 0 16px rgba(0,0,0,.5);
     pointer-events: none;
   }
-  .stage-caption.is-visible { opacity: .8; }
+  .stage-caption.is-visible { opacity: .9; }
 
   /* Floor reflection on the active product (Webkit/Chromium; degrades gracefully elsewhere) */
   .carousel-item.is-active img {
@@ -3044,6 +3044,9 @@
       bottom: 6% !important;
       height: 64% !important;
       filter: blur(16px) !important;
+    }
+    .hero .stage-caption {
+      bottom: 10% !important;
     }
     .product {
       border-radius: 24px !important;
