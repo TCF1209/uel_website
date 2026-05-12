@@ -2925,9 +2925,12 @@
       padding-top: clamp(18px, 4.6vw, 28px) !important;
     }
     .hero .drop-stage {
-      width: min(360px, 88vw) !important;
+      width: calc(100% + var(--gutter) * 2) !important;
+      max-width: none !important;
+      margin-left: calc(var(--gutter) * -1) !important;
+      margin-right: calc(var(--gutter) * -1) !important;
       aspect-ratio: 1 / 1.08 !important;
-      border-radius: 28px !important;
+      border-radius: 0 !important;
       overflow: hidden !important;
     }
     .hero .product-carousel {
