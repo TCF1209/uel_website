@@ -298,6 +298,41 @@
     opacity: .14;
     transform: translate(76%, -44%) scale(.54) rotate(10deg);
   }
+  /* Product name caption + active reflection + side blur */
+  .stage-caption {
+    position: absolute;
+    left: 50%;
+    bottom: 1%;
+    transform: translateX(-50%);
+    z-index: 4;
+    font-family: var(--head);
+    font-size: clamp(9px, 0.78vw, 11px);
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--bone);
+    text-align: center;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity .45s ease;
+    text-shadow: 0 1px 0 rgba(0,0,0,.6), 0 0 16px rgba(0,0,0,.5);
+    pointer-events: none;
+  }
+  .stage-caption.is-visible { opacity: .9; }
+  .stage-carousel-item.is-active img {
+    -webkit-box-reflect: below 2px linear-gradient(to bottom, transparent 62%, rgba(0,0,0,.34) 100%);
+  }
+  .stage-carousel-item.is-prev img,
+  .stage-carousel-item.is-next img {
+    filter: blur(1.2px);
+  }
+  .stage-carousel-item.is-far-prev img,
+  .stage-carousel-item.is-far-next img {
+    filter: blur(2.2px);
+  }
+  @media (max-width: 740px) {
+    .product-stage .stage-caption { bottom: 10% !important; }
+  }
   @keyframes float {
     0%, 100% { transform: translateY(0) rotate(0deg); }
     50% { transform: translateY(-16px) rotate(-1.5deg); }
@@ -2540,48 +2575,49 @@
         <div class="stage-base"></div>
         <div class="stage-carousel">
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_07_front.png" alt="UEL product 7"></div>
+          <div class="stage-carousel-item" data-name="5W-30 Fully Synthetic"><img src="transparent_png/front/UEL_mockup_page_07_front.png" alt="UEL Ultra Engine Oil SAE 5W-30 Fully Synthetic 4L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_06_front.png" alt="UEL product 6"></div>
+          <div class="stage-carousel-item" data-name="5W-30 Semi-Synthetic"><img src="transparent_png/front/UEL_mockup_page_06_front.png" alt="UEL Ultra Engine Oil SAE 5W-30 Semi-Synthetic 4L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_05_front.png" alt="UEL product 5"></div>
+          <div class="stage-carousel-item" data-name="10W-30 Premium Mineral"><img src="transparent_png/front/UEL_mockup_page_05_front.png" alt="UEL Ultra Engine Oil SAE 10W-30 Premium Mineral 4L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_08_front.png" alt="UEL product 8"></div>
+          <div class="stage-carousel-item" data-name="10W-40 Semi-Synthetic"><img src="transparent_png/front/UEL_mockup_page_08_front.png" alt="UEL Ultra Engine Oil SAE 10W-40 Semi-Synthetic 4L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_10_front.png" alt="UEL product 10"></div>
+          <div class="stage-carousel-item" data-name="15W-40 Semi-Synthetic"><img src="transparent_png/front/UEL_mockup_page_10_front.png" alt="UEL Ultra Engine Oil SAE 15W-40 Semi-Synthetic 4L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_12_front.png" alt="UEL product 12"></div>
+          <div class="stage-carousel-item" data-name="10W-40 Semi-Synthetic"><img src="transparent_png/front/UEL_mockup_page_12_front.png" alt="UEL Ultra Engine Oil SAE 10W-40 Semi-Synthetic 7L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_11_front.png" alt="UEL product 11"></div>
+          <div class="stage-carousel-item" data-name="15W-40 Synthetic Blended"><img src="transparent_png/front/UEL_mockup_page_11_front.png" alt="UEL Engine Oil 15W-40 Synthetic Blended 7.5L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_04_front.png" alt="UEL product 4"></div>
+          <div class="stage-carousel-item" data-name="15W-40 Premium Mineral"><img src="transparent_png/front/UEL_mockup_page_04_front.png" alt="UEL Ultra Engine Oil SAE 15W-40 Premium Mineral 7L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_16_front.png" alt="UEL product 16"></div>
+          <div class="stage-carousel-item" data-name="15W-40 Premium Mineral"><img src="transparent_png/front/UEL_mockup_page_16_front.png" alt="UEL Ultra Engine Oil SAE 15W-40 Premium Mineral 4L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_15_front.png" alt="UEL product 15"></div>
+          <div class="stage-carousel-item" data-name="Heavy Duty 15W-40"><img src="transparent_png/front/UEL_mockup_page_15_front.png" alt="UEL Heavy Duty Engine Oil 15W-40 18L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_02_front.png" alt="UEL product 2"></div>
+          <div class="stage-carousel-item" data-name="20W-50 Premium Mineral"><img src="transparent_png/front/UEL_mockup_page_02_front.png" alt="UEL Ultra Engine Oil SAE 20W-50 Premium Mineral 4L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_03_front.png" alt="UEL product 3"></div>
+          <div class="stage-carousel-item" data-name="20W-50 Premium Mineral"><img src="transparent_png/front/UEL_mockup_page_03_front.png" alt="UEL Ultra Engine Oil SAE 20W-50 Premium Mineral 4L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_13_front.png" alt="UEL product 13"></div>
+          <div class="stage-carousel-item" data-name="Heavy Duty 20W-50"><img src="transparent_png/front/UEL_mockup_page_13_front.png" alt="UEL Heavy Duty Engine Oil 20W-50 18L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_01_front.png" alt="UEL product 1"></div>
+          <div class="stage-carousel-item" data-name="HD40 Premium Mineral"><img src="transparent_png/front/UEL_mockup_page_01_front.png" alt="UEL Ultra Engine Oil HD40 Premium Mineral 4L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_14_front.png" alt="UEL product 14"></div>
+          <div class="stage-carousel-item" data-name="Heavy Duty HD40"><img src="transparent_png/front/UEL_mockup_page_14_front.png" alt="UEL Heavy Duty Engine Oil HD40 18L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_18_front.png" alt="UEL product 18"></div>
+          <div class="stage-carousel-item" data-name="HD40 Premium Mineral"><img src="transparent_png/front/UEL_mockup_page_18_front.png" alt="UEL Ultra Engine Oil HD40 Premium Mineral 1L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_09_front.png" alt="UEL product 9"></div>
+          <div class="stage-carousel-item" data-name="ATF Dexron-III"><img src="transparent_png/front/UEL_mockup_page_09_front.png" alt="UEL Advanced ATF Dexron-III Fully Synthetic 4L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_17_front.png" alt="UEL product 17"></div>
+          <div class="stage-carousel-item" data-name="ATF Dexron-III"><img src="transparent_png/front/UEL_mockup_page_17_front.png" alt="UEL Advanced ATF Dexron-III Fully Synthetic 18L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_21_front.png" alt="UEL product 21"></div>
+          <div class="stage-carousel-item" data-name="Hydraulic Fluid AWS32"><img src="transparent_png/front/UEL_mockup_page_21_front.png" alt="UEL Hydraulic Fluid AWS32 18L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/front/UEL_mockup_page_20_front.png" alt="UEL product 20"></div>
+          <div class="stage-carousel-item" data-name="Hydraulic Fluid AWS68"><img src="transparent_png/front/UEL_mockup_page_20_front.png" alt="UEL Hydraulic Fluid AWS68 18L"></div>
 
-          <div class="stage-carousel-item"><img src="transparent_png/ultra-cut-front.png" alt="UEL Ultra Cut Water-Soluble Cutting Fluid Coolant"></div>
+          <div class="stage-carousel-item" data-name="Ultra Cut Cutting Fluid"><img src="transparent_png/ultra-cut-front.png" alt="UEL Ultra Cut Water-Soluble Cutting Fluid Coolant 18L"></div>
         </div>
+        <div class="stage-caption" id="products-hero-caption" aria-live="polite"></div>
       </div>
     </div>
   </section>
@@ -3360,8 +3396,10 @@ copy.zh = {
     if (!stage) return;
     const items = [...stage.querySelectorAll('.stage-carousel-item')];
     if (!items.length) return;
+    const caption = document.getElementById('products-hero-caption');
     let active = 0;
     let timer = null;
+    let captionTimer = null;
     let startX = 0;
     let dragging = false;
 
@@ -3375,7 +3413,20 @@ copy.zh = {
         else if (offset === 2) item.classList.add('is-far-next');
         else if (offset === items.length - 2) item.classList.add('is-far-prev');
       });
+      if (caption) {
+        const label = items[active]?.dataset.name || '';
+        caption.classList.remove('is-visible');
+        window.clearTimeout(captionTimer);
+        captionTimer = window.setTimeout(() => {
+          caption.textContent = label;
+          caption.classList.add('is-visible');
+        }, 280);
+      }
     };
+    if (caption) {
+      caption.textContent = items[0]?.dataset.name || '';
+      caption.classList.add('is-visible');
+    }
     const go = (direction = 1) => {
       active = (active + direction + items.length) % items.length;
       render();
