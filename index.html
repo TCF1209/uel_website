@@ -440,6 +440,34 @@
   .hero h1.reveal.in .l2 { transition-delay: .08s; }
   .hero h1.reveal.in .l3 { transition-delay: .16s; }
 
+  .hero-slogan {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 22px;
+    font-family: var(--head);
+    font-size: clamp(13px, 1.2vw, 16px);
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  .hero-slogan::before,
+  .hero-slogan::after {
+    content: "";
+    width: 34px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--amber));
+  }
+  .hero-slogan::after {
+    background: linear-gradient(90deg, var(--amber), transparent);
+  }
+  @media (max-width: 540px) {
+    .hero-slogan { gap: 10px; }
+    .hero-slogan::before,
+    .hero-slogan::after { width: 22px; }
+  }
+
   .hero-tag {
     margin-top: 28px;
     display: grid;
@@ -3404,6 +3432,7 @@
         <span class="l2">Lubricants for</span>
         <span class="l3"><span class="hero-rotating-word" id="hero-rotating-word" data-words="Malaysia.,Workshops.,Fleets.,Industry.">Malaysia.</span></span>
       </h1>
+      <div class="hero-slogan reveal d3">Run Smooth, Run Excellent.</div>
       <div class="hero-tag reveal d3">
         <p>Engine oils, lubricants and vehicle fluids for Malaysian drivers, workshops and businesses.</p>
       </div>
@@ -3486,6 +3515,7 @@
     <span><i class="pip"></i> ATF - CVTF - Gear Oil </span>
     <span><i class="pip g"></i> Hydraulic - Coolant - Brake </span>
     <span><i class="pip a"></i> 6 Product Types </span>
+    <span><i class="pip a"></i> Run Smooth, Run Excellent. </span>
     <!-- duplicate set for seamless scroll -->
     <span><i class="pip b"></i> Fully Synthetic <em>/</em> Semi Synthetic <em>/</em> Mineral </span>
     <span><i class="pip"></i> Label &amp; Data Sheet Guided </span>
@@ -3495,6 +3525,7 @@
     <span><i class="pip"></i> ATF - CVTF - Gear Oil </span>
     <span><i class="pip g"></i> Hydraulic - Coolant - Brake </span>
     <span><i class="pip a"></i> 6 Product Types </span>
+    <span><i class="pip a"></i> Run Smooth, Run Excellent. </span>
   </div>
 </div>
 
@@ -3953,7 +3984,7 @@
           <li><a href="tel:+60108989120">Tel +60 10-898 9120</a></li>
           <li><a href="mailto:excellentestate.sb@gmail.com">excellentestate.sb@gmail.com</a></li>
           <li><a href="https://www.facebook.com/share/1FUh7wmZLy/" target="_blank" rel="noopener">Facebook</a></li>
-          <li>Three drops · One standard</li>
+          <li>Run Smooth, Run Excellent.</li>
         </ul>
       </div>
     </div>
@@ -4185,7 +4216,7 @@
         company: 'Company',
         touch: 'Get in Touch',
         companyLinks: ['Who We Are', 'Technology', 'API & Cert', 'Range', 'Contact'],
-        finalLine: 'Three drops · One standard',
+        finalLine: 'Run Smooth, Run Excellent.',
         legal: 'UEL - Unique Excellent Lubricant. All rights reserved.'
       }
     },
@@ -4257,7 +4288,7 @@
         messageIntro: 'ä½ å¥½ UELï¼Œæˆ‘æƒ³æäº¤éœ€æ±‚ã€‚',
         messageLabels: ['å§“å', 'ç”µè¯ / WhatsApp', 'å®¢æˆ·ç±»åž‹', 'éœ€è¦çš„äº§å“', 'æ•°é‡ / åŒ…è£…', 'éœ€è¦æ—¥æœŸ', 'éœ€è¦æ—¶é—´', 'éœ€æ±‚']
       },
-      footer: { desc: 'ä¸ºé©¬æ¥è¥¿äºšè½¦ä¸»ã€ç»´ä¿®åŽ‚ã€è½¦é˜Ÿå’Œå·¥ä¸šç”¨æˆ·ä¾›åº”å¼•æ“Žæ²¹ã€æ¶¦æ»‘æ²¹å’Œè½¦è¾†æ²¹æ¶²ã€‚', products: 'äº§å“', company: 'å…¬å¸', touch: 'è”ç³»', companyLinks: ['å…³äºŽ UEL', 'æŠ€æœ¯', 'å“ªé‡Œè´­ä¹°', 'ç³»åˆ—', 'è”ç³»'], finalLine: 'Three drops · One standard', legal: 'UEL - Unique Excellent Lubricant. ç‰ˆæƒæ‰€æœ‰ã€‚' }
+      footer: { desc: 'ä¸ºé©¬æ¥è¥¿äºšè½¦ä¸»ã€ç»´ä¿®åŽ‚ã€è½¦é˜Ÿå’Œå·¥ä¸šç”¨æˆ·ä¾›åº”å¼•æ“Žæ²¹ã€æ¶¦æ»‘æ²¹å’Œè½¦è¾†æ²¹æ¶²ã€‚', products: 'äº§å“', company: 'å…¬å¸', touch: 'è”ç³»', companyLinks: ['å…³äºŽ UEL', 'æŠ€æœ¯', 'å“ªé‡Œè´­ä¹°', 'ç³»åˆ—', 'è”ç³»'], finalLine: 'Run Smooth, Run Excellent.', legal: 'UEL - Unique Excellent Lubricant. ç‰ˆæƒæ‰€æœ‰ã€‚' }
     },
     bm: {
       htmlLang: 'ms-MY',
@@ -4300,7 +4331,7 @@
         messageIntro: 'Hi UEL, saya ingin menghantar permintaan.',
         messageLabels: ['Nama', 'Telefon / WhatsApp', 'Jenis pelanggan', 'Produk diperlukan', 'Kuantiti / saiz pek', 'Permintaan']
       },
-      footer: { desc: 'Minyak enjin, pelincir dan cecair kenderaan untuk pemandu, bengkel, fleet dan pengguna industri di Malaysia.', products: 'Produk', company: 'Syarikat', touch: 'Hubungi', companyLinks: ['Siapa Kami', 'Teknologi', 'API & Sijil', 'Gred', 'Hubungi'], finalLine: 'Three drops · One standard', legal: 'UEL - Unique Excellent Lubricant. Hak cipta terpelihara.' }
+      footer: { desc: 'Minyak enjin, pelincir dan cecair kenderaan untuk pemandu, bengkel, fleet dan pengguna industri di Malaysia.', products: 'Produk', company: 'Syarikat', touch: 'Hubungi', companyLinks: ['Siapa Kami', 'Teknologi', 'API & Sijil', 'Gred', 'Hubungi'], finalLine: 'Run Smooth, Run Excellent.', legal: 'UEL - Unique Excellent Lubricant. Hak cipta terpelihara.' }
     }
   };
 
@@ -4435,7 +4466,8 @@
       'Cars - Motorcycles - Trucks - Industrial',
       'ATF - CVTF - Gear Oil',
       'Hydraulic - Coolant - Brake',
-      '6 Product Types'
+      '6 Product Types',
+      'Run Smooth, Run Excellent.'
     ],
     about: {
       ...i18n.en.about,
@@ -4465,7 +4497,7 @@
     footer: {
       ...i18n.en.footer,
       companyLinks: ['Who We Are', 'API & Cert', 'Range', 'Contact'],
-      finalLine: 'Three drops · One standard',
+      finalLine: 'Run Smooth, Run Excellent.',
       legal: 'UEL - Unique Excellent Lubricant. All rights reserved.'
     }
   };
@@ -4586,7 +4618,7 @@
       company: 'å…¬å¸',
       touch: 'è”ç³»',
       companyLinks: ['å…³äºŽ UEL', 'æŠ€æœ¯', 'å“ªé‡Œè´­ä¹°', 'äº§å“èŒƒå›´', 'è”ç³»'],
-      finalLine: 'Three drops · One standard',
+      finalLine: 'Run Smooth, Run Excellent.',
       legal: 'UEL - Unique Excellent Lubricant. ç‰ˆæƒæ‰€æœ‰ã€‚'
     }
   };
@@ -4607,7 +4639,7 @@
       productTypes: '6 类产品',
       stamp: 'Unique - Excellent - Lubricant'
     },
-    marquee: ['全合成 <em>/</em> 半合成 <em>/</em> 矿物油', '以标签与资料表为准', '按标签与手册确认规格', '马来西亚客户询问', '汽车 / 摩托 / 货车 / 工业', 'ATF / CVTF / 齿轮油', '液压油 / 冷却液 / 刹车油', '6 类产品'],
+    marquee: ['全合成 <em>/</em> 半合成 <em>/</em> 矿物油', '以标签与资料表为准', '按标签与手册确认规格', '马来西亚客户询问', '汽车 / 摩托 / 货车 / 工业', 'ATF / CVTF / 齿轮油', '液压油 / 冷却液 / 刹车油', '6 类产品', 'Run Smooth, Run Excellent.'],
     about: {
       eyebrow: '关于 UEL',
       title: '清楚了解 <em>UEL 做什么。</em>',
@@ -4704,7 +4736,7 @@
       touch: '联系',
       companyLinks: ['关于 UEL', 'API认证', '产品范围', '联系'],
       facebook: 'Facebook 官方动态',
-      finalLine: 'Three drops · One standard',
+      finalLine: 'Run Smooth, Run Excellent.',
       legal: 'UEL - Unique Excellent Lubricant. 版权所有。'
     },
     social: {
@@ -4716,7 +4748,7 @@
 
   Object.assign(i18n.bm, {
     nav: ['Laman Utama', 'Produk', 'API & Sijil', 'Panduan API', 'Hubungi'],
-    marquee: ['Fully Synthetic <em>/</em> Semi Synthetic <em>/</em> Mineral', 'Berpandukan label & data sheet', 'Sahkan spesifikasi melalui label/manual', 'Untuk pertanyaan Malaysia', 'Kereta · Motosikal · Lori · Industri', 'ATF · CVTF · Gear Oil', 'Hydraulic · Coolant · Brake', '6 jenis produk'],
+    marquee: ['Fully Synthetic <em>/</em> Semi Synthetic <em>/</em> Mineral', 'Berpandukan label & data sheet', 'Sahkan spesifikasi melalui label/manual', 'Untuk pertanyaan Malaysia', 'Kereta · Motosikal · Lori · Industri', 'ATF · CVTF · Gear Oil', 'Hydraulic · Coolant · Brake', '6 jenis produk', 'Run Smooth, Run Excellent.'],
     about: {
       ...i18n.bm.about,
       cells: [
@@ -4746,7 +4778,7 @@
     footer: {
       ...i18n.bm.footer,
       companyLinks: ['Siapa Kami', 'API & Sijil', 'Gred', 'Hubungi'],
-      finalLine: 'Three drops · One standard',
+      finalLine: 'Run Smooth, Run Excellent.',
       facebook: 'Facebook UEL'
     },
     social: {
@@ -5370,7 +5402,12 @@
 
     const marqueeItems = [...text.marquee, ...text.marquee];
     document.querySelectorAll('.marquee-track span').forEach((item, index) => {
-      item.innerHTML = `<i class="pip ${index % 8 === 0 || index % 8 === 4 ? 'b' : index % 8 === 2 || index % 8 === 6 ? 'g' : index % 8 === 3 || index % 8 === 7 ? 'a' : ''}"></i> ${marqueeItems[index] || ''} `;
+      const slot = index % 9;
+      const pip = slot === 0 || slot === 4 ? 'b'
+                : slot === 2 || slot === 6 ? 'g'
+                : slot === 3 || slot === 7 || slot === 8 ? 'a'
+                : '';
+      item.innerHTML = `<i class="pip ${pip}"></i> ${marqueeItems[index] || ''} `;
     });
 
     setText('#about .num', text.about.eyebrow);
