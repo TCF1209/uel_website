@@ -2,7 +2,7 @@
 
 > Tracking document for the UEL Lubricant site SEO work. Updated as items ship.
 
-**Status:** Batch 1 not started · Last updated 2026-05-13
+**Status:** Batch 1 complete · Last updated 2026-05-13
 
 ---
 
@@ -36,17 +36,17 @@
 
 ---
 
-## 2. Batch 1 — Technical foundations
-> Low risk, high impact. Claude implements without further discussion.
+## 2. Batch 1 — Technical foundations ✓
+> Low risk, high impact. Shipped 2026-05-13.
 
-- [ ] `sitemap.xml` at site root listing all canonical pages
-- [ ] `robots.txt` at site root, points to sitemap
-- [ ] Resolve `oil-advisor.html`: delete the file (recommended, no inbound links) **or** add `<meta name="robots" content="noindex">`
-- [ ] `og:image` (and `twitter:image`) on every page — needs a dedicated image asset (~1200×630 px). Default to `images/uel-logo.png` if no custom OG card yet
-- [ ] LocalBusiness JSON-LD on `index.html` (extends the existing Organization block: telephone, address, openingHours, areaServed, sameAs Facebook)
-- [ ] Product JSON-LD per product on `products.html` (name, image, description, brand, sku, dataSheet URL)
-- [ ] Article + FAQPage JSON-LD on `api-guide.html`
-- [ ] BreadcrumbList JSON-LD on `products.html`, `api-cert.html`, `api-guide.html`, `contact.html`
+- [x] `sitemap.xml` at site root listing all canonical pages
+- [x] `robots.txt` at site root, points to sitemap
+- [x] `oil-advisor.html` deleted from repo
+- [x] `og:image` + `twitter:image` on every page (using `images/uel-logo.png` as default)
+- [x] LocalBusiness JSON-LD on `index.html` (extends Organization: telephone, email, openingHours Mon-Sat 09:00-18:00, areaServed MY, sameAs Facebook)
+- [x] Product JSON-LD on `products.html` — dynamic ItemList generated from the `products` array on load (covers all 21 products incl. SKU, brand, SAE grade and specification)
+- [x] Article + FAQPage JSON-LD on `api-guide.html` (5 FAQ entries derived from page content)
+- [x] BreadcrumbList JSON-LD on `products.html`, `api-cert.html`, `api-guide.html`, `contact.html`, `where-to-buy.html`
 
 ## 3. Batch 2 — Keyword & content
 > Needs user direction. **Questions below need answers before Claude can act.**
@@ -96,14 +96,18 @@
 ## 5. Decision Log
 | Date | Decision | Notes |
 |---|---|---|
-| _ | _ | _ |
+| 2026-05-13 | Delete `oil-advisor.html` from repo | User confirmed; no inbound links |
+| 2026-05-13 | Use `images/uel-logo.png` as default `og:image` | Interim; replace with dedicated 1200×630 OG card later |
+| 2026-05-13 | `where-to-buy.html` kept and included in sitemap | Not in main nav but content exists; reassess in Batch 2 |
+| 2026-05-13 | Product JSON-LD generated dynamically in JS rather than static blocks | Googlebot renders JS; single source of truth from `products` array |
 
 ## 6. Open Questions (waiting on user)
-1. Should `oil-advisor.html` be deleted from the repo, or kept and noindexed?
-2. Do we have a custom OG card image, or use `uel-logo.png` for now?
-3. Audience priority + top 5 keywords (Batch 2 Q1, Q2)
-4. Multilingual strategy A / B / C (Batch 3)
-5. Do we want the Google Search Console verification meta tag added now (so it's ready when you create the property)?
+1. ~~Should `oil-advisor.html` be deleted from the repo, or kept and noindexed?~~ ✓ Deleted
+2. ~~Do we have a custom OG card image, or use `uel-logo.png` for now?~~ ✓ Logo for now
+3. Should `where-to-buy.html` also be deleted (not in main nav)? Currently kept and in sitemap.
+4. Audience priority + top 5 keywords (Batch 2 Q1, Q2)
+5. Multilingual strategy A / B / C (Batch 3)
+6. Do we want the Google Search Console verification meta tag added now (so it's ready when you create the property)?
 
 ---
 
