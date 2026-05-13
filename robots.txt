@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://uel-lubricant.com/sitemap.xml
+Sitemap: https://uellubricant.com.my/sitemap.xml

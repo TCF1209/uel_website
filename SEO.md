@@ -10,7 +10,7 @@
 
 ### Already in place
 - Per-page `<title>` + meta description on every page
-- Canonical URL on every page (`https://uel-lubricant.com/...`)
+- Canonical URL on every page (`https://uellubricant.com.my/...`)
 - Open Graph + Twitter card tags (partial — missing image)
 - Organization JSON-LD on `index.html` (name, contactPoint, areaServed: MY)
 - `<meta name="robots" content="index,follow,max-image-preview:large">`
@@ -112,6 +112,7 @@
 | 2026-05-13 | Product JSON-LD generated dynamically in JS rather than static blocks | Googlebot renders JS; single source of truth from `products` array |
 | 2026-05-14 | WebP everywhere except `og:image` / `apple-touch-icon` / JSON-LD `logo` | Social previews + iOS still expect PNG; in-page WebP is supported in 96%+ browsers |
 | 2026-05-14 | Nav `brand-logo` not lazy-loaded | LCP candidate; even at 17KB we want it eager so first paint is fast |
+| 2026-05-14 | Official domain locked in: `uellubricant.com.my` (registered, status pending) | `.com.my` is a strong local-SEO signal to Google for Malaysian searches. All canonical / og:url / JSON-LD / sitemap updated. |
 
 ## 6. Open Questions (waiting on user)
 1. ~~Should `oil-advisor.html` be deleted from the repo, or kept and noindexed?~~ ✓ Deleted
