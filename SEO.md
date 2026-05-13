@@ -2,7 +2,7 @@
 
 > Tracking document for the UEL Lubricant site SEO work. Updated as items ship.
 
-**Status:** Batch 1 complete · Last updated 2026-05-13
+**Status:** Batch 1 complete · Perf + GSC scaffolding done · Last updated 2026-05-14
 
 ---
 
@@ -48,6 +48,18 @@
 - [x] Article + FAQPage JSON-LD on `api-guide.html` (5 FAQ entries derived from page content)
 - [x] BreadcrumbList JSON-LD on `products.html`, `api-cert.html`, `api-guide.html`, `contact.html`, `where-to-buy.html`
 
+## 2b. Performance + GSC scaffolding ✓
+> Shipped 2026-05-14.
+
+- [x] All product mockups, charts and logo converted to WebP (PNG originals retained for `og:image` / `apple-touch-icon` / JSON-LD where social and iOS need raster):
+  - `uel-logo.png` 1040KB → `uel-logo.webp` **17KB** (-98%)
+  - `api-diesel-chart.png` 2657KB → `api-diesel-chart.webp` **60KB** (-98%)
+  - `api-petrol-chart.png` 1552KB → `api-petrol-chart.webp` **46KB** (-97%)
+  - All 21 `transparent_png/*_FIXED.png` mockups + `front/` + `back/` subdirs converted (avg ~92% reduction)
+- [x] `<img loading="lazy">` added to 59 images across all 7 HTML pages (skipped nav `brand-logo` which is the LCP candidate)
+- [x] Dynamic `sideImage()` in products.html updated to use `.webp` extensions
+- [x] Google Search Console verification meta tag scaffolded in `index.html` (commented out — uncomment + paste token after creating GSC property)
+
 ## 3. Batch 2 — Keyword & content
 > Needs user direction. **Questions below need answers before Claude can act.**
 
@@ -80,13 +92,11 @@
   - **A.** Keep JS toggle, only EN indexes (easiest, lose 中文/BM search traffic)
   - **B.** Split into `/zh/`, `/bm/` URL paths + `hreflang` (best for SEO, ~1 day of work)
   - **C.** Hybrid: only translate `index.html` and `products.html` to URL paths, keep others EN-only
-- [ ] **Image compression strategy:**
-  - Convert `uel-logo.png` 1 MB → WebP ~50 KB
-  - Convert all `transparent_png/` mockups to WebP, keep PNG as fallback
-  - Add `<img loading="lazy">` where missing
+- [x] ~~**Image compression strategy:**~~ Done 2026-05-14 (see section 2b)
 - [ ] **Google Search Console:**
-  - Add verification meta tag once you create the property at search.google.com/search-console
-  - Submit sitemap after batch 1
+  - [x] Verification meta tag scaffolded in `index.html` (commented out)
+  - [ ] Create the property at search.google.com/search-console, paste token into the existing meta tag
+  - [ ] Submit `sitemap.xml` in GSC after deploy
 - [ ] **Google Business Profile** (external, not code):
   - Register at google.com/business
   - Keep NAP consistent with site (Name: UEL — Unique Excellent Lubricant; Phone: +60 10-898 9120)
@@ -100,6 +110,8 @@
 | 2026-05-13 | Use `images/uel-logo.png` as default `og:image` | Interim; replace with dedicated 1200×630 OG card later |
 | 2026-05-13 | `where-to-buy.html` kept and included in sitemap | Not in main nav but content exists; reassess in Batch 2 |
 | 2026-05-13 | Product JSON-LD generated dynamically in JS rather than static blocks | Googlebot renders JS; single source of truth from `products` array |
+| 2026-05-14 | WebP everywhere except `og:image` / `apple-touch-icon` / JSON-LD `logo` | Social previews + iOS still expect PNG; in-page WebP is supported in 96%+ browsers |
+| 2026-05-14 | Nav `brand-logo` not lazy-loaded | LCP candidate; even at 17KB we want it eager so first paint is fast |
 
 ## 6. Open Questions (waiting on user)
 1. ~~Should `oil-advisor.html` be deleted from the repo, or kept and noindexed?~~ ✓ Deleted
