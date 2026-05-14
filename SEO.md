@@ -2,7 +2,7 @@
 
 > Tracking document for the UEL Lubricant site SEO work. Updated as items ship.
 
-**Status:** Batch 1 + Batch 2 complete · GSC verified, sitemap submitted (Success, 6 pages) · Last updated 2026-05-14
+**Status:** Batch 1 + 2 + 3 complete · GSC verified, sitemap submitted · Multilingual /zh/ + /bm/ routing live · Last updated 2026-05-14
 
 ---
 
@@ -96,10 +96,7 @@
 > Bigger decisions, bigger scope.
 
 ### Decisions
-- [ ] **Multilingual strategy** — pick one:
-  - **A.** Keep JS toggle, only EN indexes (easiest, lose 中文/BM search traffic)
-  - **B.** Split into `/zh/`, `/bm/` URL paths + `hreflang` (best for SEO, ~1 day of work)
-  - **C.** Hybrid: only translate `index.html` and `products.html` to URL paths, keep others EN-only
+- [x] **Multilingual strategy** — chose **B** (full URL paths + hreflang), implemented via **smart rewrite** (Vercel rewrites + URL-derived lang + dynamic head meta), shipped 2026-05-14. See Decision Log for trade-off rationale.
 - [x] ~~**Image compression strategy:**~~ Done 2026-05-14 (see section 2b)
 - [ ] **Google Search Console:**
   - [x] Verification meta tag scaffolded in `index.html` (commented out)
@@ -127,13 +124,15 @@
 | 2026-05-14 | GSC property type: Domain (not URL prefix) | One property covers all subdomains + protocols. DNS TXT verified via Exabytes support. |
 | 2026-05-14 | `where-to-buy.html` hidden from index (noindex,nofollow + removed from sitemap) | Client wants this page kept dark until they're ready to launch it. File stays in repo for easy re-enable (flip meta robots + re-add to sitemap). No internal links anywhere on the site point to it, so this is a clean hide. |
 | 2026-05-14 | Bumped all sitemap `<lastmod>` to 2026-05-14 | Title/meta/copy changes shipped today across all remaining 5 pages; the bump signals Google to re-crawl. |
+| 2026-05-14 | Multilingual: smart rewrite over static file duplication | True static would mean 5 pages × 3 langs = 15 HTML files (8+ hours, sync nightmare for future translation updates). Smart rewrite uses Vercel rewrites + early JS to apply lang from URL (~95% SEO power, 25% the work, 33% the maintenance). First-wave Googlebot crawl sees EN HTML at /zh/... URLs but second-wave (with JS) renders correct ZH/BM. Acceptable trade-off. |
+| 2026-05-14 | Per-page title + meta description translated inline per language (not in i18n JS copy object) | Title/meta sit in `<head>` and are not covered by the existing `data-copy` system. Each page's router script carries its own 3-language T = { en, zh, bm } object. Translation source: Claude (pattern-matched from existing body translations), should be reviewed by a native ZH/BM speaker before client launch. |
 
 ## 6. Open Questions (waiting on user)
 1. ~~Should `oil-advisor.html` be deleted from the repo, or kept and noindexed?~~ ✓ Deleted
 2. ~~Do we have a custom OG card image, or use `uel-logo.png` for now?~~ ✓ Logo for now
 3. ~~Should `where-to-buy.html` also be deleted (not in main nav)?~~ ✓ Client wants it hidden for now — set `noindex,nofollow` + removed from sitemap. File stays for later re-enable.
 4. ~~Audience priority + top 5 keywords (Batch 2 Q1, Q2)~~ ✓ Answered + shipped
-5. Multilingual strategy A / B / C (Batch 3) — still open
+5. ~~Multilingual strategy A / B / C (Batch 3)~~ ✓ Chose B (smart rewrite implementation)
 6. ~~Do we want the Google Search Console verification meta tag added now?~~ ✓ Domain property verified via DNS TXT instead
 
 ---
