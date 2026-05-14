@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="r" cx=".4" cy=".3">
+      <stop offset="0" stop-color="#ff8c80"/>
+      <stop offset=".6" stop-color="#e23b2f"/>
+      <stop offset="1" stop-color="#7a1310"/>
+    </radialGradient>
+    <radialGradient id="b" cx=".4" cy=".3">
+      <stop offset="0" stop-color="#7eaaff"/>
+      <stop offset=".6" stop-color="#2b6cf6"/>
+      <stop offset="1" stop-color="#0d2c8e"/>
+    </radialGradient>
+    <radialGradient id="g" cx=".4" cy=".3">
+      <stop offset="0" stop-color="#43d59a"/>
+      <stop offset=".6" stop-color="#18a974"/>
+      <stop offset="1" stop-color="#054b34"/>
+    </radialGradient>
+  </defs>
+  <path d="M11 8 C6 18 3 24 3 30 a8 8 0 0 0 16 0 c0-6-3-12-8-22z" fill="url(#b)"/>
+  <path d="M32 8 C27 18 24 24 24 30 a8 8 0 0 0 16 0 c0-6-3-12-8-22z" fill="url(#r)"/>
+  <path d="M53 8 C48 18 45 24 45 30 a8 8 0 0 0 16 0 c0-6-3-12-8-22z" fill="url(#g)"/>
+  <text x="32" y="56" text-anchor="middle" font-family="Arial Black, sans-serif" font-weight="900" font-size="18" fill="#e6e6e6">UEL</text>
+</svg>
