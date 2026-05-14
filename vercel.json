@@ -1,6 +1,10 @@
 {
   "rewrites": [
-    { "source": "/zh/:path*", "destination": "/:path*" },
-    { "source": "/bm/:path*", "destination": "/:path*" }
+    { "source": "/zh", "destination": "/index.html" },
+    { "source": "/zh/", "destination": "/index.html" },
+    { "source": "/bm", "destination": "/index.html" },
+    { "source": "/bm/", "destination": "/index.html" },
+    { "source": "/zh/:path+", "destination": "/:path+" },
+    { "source": "/bm/:path+", "destination": "/:path+" }
   ]
 }
