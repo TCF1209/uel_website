@@ -257,6 +257,13 @@
   .choose-table td{color:var(--amber);font-family:var(--head);font-weight:700;font-size:14.5px;letter-spacing:.02em}
   .footnote{margin-top:18px;color:var(--ash);font-size:13.5px;line-height:1.55}
 
+  /* faq */
+  .faq-list{display:grid;gap:12px;margin-top:24px}
+  .faq-item{border:1px solid var(--line-strong);border-radius:var(--card-radius);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.014)),var(--carbon);padding:clamp(22px,2.4vw,28px)}
+  .faq-item h3{margin:0 0 12px;font-size:clamp(18px,1.9vw,24px);color:var(--paper);font-family:var(--head);font-weight:700;line-height:1.3}
+  .faq-item p{margin:0;color:var(--paper);font-size:clamp(14.5px,1vw,16px);line-height:1.65}
+  .faq-item a{color:var(--amber);text-decoration:underline;text-underline-offset:3px}
+
   /* final cta */
   .cta-stage{margin-top:18px;border:1px solid var(--line-strong);border-radius:var(--card-radius);background:radial-gradient(120% 100% at 80% 10%,rgba(226,59,47,.16),transparent 56%),radial-gradient(120% 100% at 10% 90%,rgba(246,180,65,.14),transparent 60%),linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01)),var(--carbon);padding:clamp(28px,4vw,48px);text-align:center}
   .cta-stage h2{font-size:clamp(28px,4vw,56px)}
@@ -282,6 +289,7 @@
   .reveal.d1{transition-delay:.08s}
   .reveal.d2{transition-delay:.16s}
   .reveal.d3{transition-delay:.24s}
+  .reveal.d4{transition-delay:.32s}
 
   /* zh font swap */
   html[lang^="zh"]{--display:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--head:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--body:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
@@ -579,6 +587,46 @@
       </div>
 
       <p class="footnote reveal" data-copy="chooseFoot">Always follow the vehicle or machine manual first. If the manual conflicts with what you read here — the manual wins. Send UEL the make, model, year and current spec, and we'll confirm the right grade before you buy.</p>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ────────────────────────────────────────────── -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Frequently asked</span>
+          <h2>API engine oil <em>questions, answered.</em></h2>
+        </div>
+        <p>Quick answers to what workshops, fleet managers and motorists in Malaysia ask UEL most often about API engine oil grades.</p>
+      </div>
+
+      <div class="faq-list">
+        <article class="faq-item reveal">
+          <h3>What does API SQ mean for engine oil?</h3>
+          <p>SQ is the current API service category for petrol (spark-ignition) engine oils. It's the latest letter in the S-series, which has run from SA (1930) to SQ today. A higher S-spec is always safe in engines that ask for an older spec. UEL is licensed under API EOLCS #3898 and is API SQ certified across 14 grades.</p>
+        </article>
+
+        <article class="faq-item reveal d1">
+          <h3>What is the difference between API CK-4 and FA-4?</h3>
+          <p>Both came from the 2017 PC-11 split of the diesel category. CK-4 is the tougher, more durable replacement for CJ-4 and is backward compatible with CJ-4, CI-4 and CH-4 — common grades 15W-40, 10W-30, 5W-40. FA-4 is a new separate category with lower viscosity (typical 10W-30, 5W-30) for fuel economy, but is only safe in engines that the manufacturer (OEM) approves for FA-4 — it is not backward compatible.</p>
+        </article>
+
+        <article class="faq-item reveal d2">
+          <h3>Why was the API diesel standard split into CK-4 and FA-4?</h3>
+          <p>Two pressures hit at once. Fleets wanted lower fuel bills, and the US EPA Heavy Duty National Program (2011) tightened greenhouse-gas and fuel-consumption rules. Engineers responded with thinner, lower-friction oils — but those thin oils aren't safe for older engines. The Engine Manufacturers Association asked API for a new category, and the result was PC-11, splitting into CK-4 (durable, backward compatible) and FA-4 (low-viscosity, OEM-specific).</p>
+        </article>
+
+        <article class="faq-item reveal d3">
+          <h3>Can I use a newer API spec than my car requires?</h3>
+          <p>Yes. A higher S-spec covers everything below it. SQ can be used in any engine that asks for SP, SN, SM, SL or SJ — no risk, only newer protection. Never use a lower spec than the manual requires, because the additive system the engine expects won't be there.</p>
+        </article>
+
+        <article class="faq-item reveal d4">
+          <h3>What API spec do modern Malaysian cars need?</h3>
+          <p>Petrol cars from 2020 onwards typically need SP or SQ. Cars from 2010-2019 typically need SN, SN Plus or SP. Cars from 2001-2009 need SL or SM (or higher). For 4-stroke motorcycles, look for JASO MA / MA2 alongside API SL or higher. Always check the owner's manual first — or <a href="contact.html">message UEL with your make, model and year</a> and we'll confirm the right grade before you buy.</p>
+        </article>
+      </div>
     </div>
   </section>
 
