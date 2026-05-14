@@ -23,6 +23,51 @@
 <meta name="twitter:description" content="What does API SQ or CK-4 mean? Plain-English guide for petrol, diesel and fleet engine oils.">
 <meta name="twitter:image" content="https://uellubricant.com.my/images/uel-logo.png">
 
+<!-- Hreflang alternates for /zh/ and /bm/ language variants (served via Vercel rewrites) -->
+<link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/api-guide.html">
+<link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/api-guide.html">
+<link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/api-guide.html">
+<link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/api-guide.html">
+
+<script>
+(function () {
+  var path = window.location.pathname;
+  var m = path.match(/^\/(zh|bm)(\/|$)/);
+  var lang = m ? m[1] : 'en';
+  var pagePath = path.replace(/^\/(zh|bm)(?=\/|$)/, '') || '/';
+  try { localStorage.setItem('uelLang', lang); } catch (e) {}
+  document.documentElement.lang = lang === 'zh' ? 'zh-Hans-MY' : (lang === 'bm' ? 'ms-MY' : 'en-MY');
+
+  var T = {
+    en: { title: 'API Engine Oil Specs Explained — SQ, CK-4, FA-4 Guide for Malaysia | UEL', desc: 'Plain-English guide to API engine oil categories — what SQ, CK-4 and FA-4 mean for petrol and diesel engines. Choose the right oil for your car, motorcycle or fleet in Malaysia.' },
+    zh: { title: 'API 机油规格详解 — 马来西亚 SQ、CK-4、FA-4 指南 | UEL', desc: '简明易懂的 API 机油类别指南 — 解释 SQ、CK-4 和 FA-4 对汽油和柴油引擎的意义。为您在马来西亚的车辆、摩托车或车队选择正确的机油。' },
+    bm: { title: 'Penjelasan Spesifikasi Minyak Enjin API — Panduan SQ, CK-4, FA-4 untuk Malaysia | UEL', desc: 'Panduan ringkas tentang kategori minyak enjin API — apa makna SQ, CK-4 dan FA-4 untuk enjin petrol dan diesel. Pilih minyak yang sesuai untuk kereta, motosikal atau fleet anda di Malaysia.' }
+  };
+
+  var setAttr = function (sel, attr, val) { var el = document.querySelector(sel); if (el) el.setAttribute(attr, val); };
+
+  document.title = T[lang].title;
+  setAttr('meta[name="description"]', 'content', T[lang].desc);
+  setAttr('meta[property="og:title"]', 'content', T[lang].title);
+  setAttr('meta[property="og:description"]', 'content', T[lang].desc);
+  setAttr('meta[name="twitter:title"]', 'content', T[lang].title);
+  setAttr('meta[name="twitter:description"]', 'content', T[lang].desc);
+  var fullUrl = 'https://uellubricant.com.my' + (lang === 'en' ? '' : '/' + lang) + pagePath;
+  setAttr('link[rel="canonical"]', 'href', fullUrl);
+  setAttr('meta[property="og:url"]', 'content', fullUrl);
+  setAttr('meta[property="og:locale"]', 'content', lang === 'zh' ? 'zh_MY' : (lang === 'bm' ? 'ms_MY' : 'en_MY'));
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-lang]');
+    if (!btn || (btn.tagName !== 'BUTTON' && btn.tagName !== 'A')) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var target = btn.getAttribute('data-lang');
+    window.location.href = (target === 'en' ? '' : '/' + target) + pagePath;
+  }, true);
+})();
+</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

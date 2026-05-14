@@ -24,6 +24,51 @@
 <meta name="twitter:description" content="Workshop, fleet and B2B engine oil enquiries — Klang-based, Malaysia-wide. WhatsApp UEL for a quote.">
 <meta name="twitter:image" content="https://uellubricant.com.my/images/uel-logo.png">
 
+<!-- Hreflang alternates for /zh/ and /bm/ language variants (served via Vercel rewrites) -->
+<link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/contact.html">
+<link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/contact.html">
+<link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/contact.html">
+<link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/contact.html">
+
+<script>
+(function () {
+  var path = window.location.pathname;
+  var m = path.match(/^\/(zh|bm)(\/|$)/);
+  var lang = m ? m[1] : 'en';
+  var pagePath = path.replace(/^\/(zh|bm)(?=\/|$)/, '') || '/';
+  try { localStorage.setItem('uelLang', lang); } catch (e) {}
+  document.documentElement.lang = lang === 'zh' ? 'zh-Hans-MY' : (lang === 'bm' ? 'ms-MY' : 'en-MY');
+
+  var T = {
+    en: { title: 'Contact UEL — Engine Oil Supplier in Klang, Selangor & Malaysia', desc: 'Get a quote for UEL engine oil and lubricants. Workshop, fleet and B2B wholesale enquiries — based in Klang, serving Selangor and all of Malaysia. WhatsApp +60 10-898 9120.' },
+    zh: { title: '联系 UEL — 巴生、雪兰莪及马来西亚机油供应商', desc: '索取 UEL 机油和润滑油报价。车间、车队和 B2B 批发咨询 — 位于巴生，服务雪兰莪及全马。WhatsApp +60 10-898 9120。' },
+    bm: { title: 'Hubungi UEL — Pembekal Minyak Enjin di Klang, Selangor & Malaysia', desc: 'Dapatkan sebut harga minyak enjin dan pelincir UEL. Pertanyaan bengkel, fleet dan B2B borong — berpusat di Klang, melayani Selangor dan seluruh Malaysia. WhatsApp +60 10-898 9120.' }
+  };
+
+  var setAttr = function (sel, attr, val) { var el = document.querySelector(sel); if (el) el.setAttribute(attr, val); };
+
+  document.title = T[lang].title;
+  setAttr('meta[name="description"]', 'content', T[lang].desc);
+  setAttr('meta[property="og:title"]', 'content', T[lang].title);
+  setAttr('meta[property="og:description"]', 'content', T[lang].desc);
+  setAttr('meta[name="twitter:title"]', 'content', T[lang].title);
+  setAttr('meta[name="twitter:description"]', 'content', T[lang].desc);
+  var fullUrl = 'https://uellubricant.com.my' + (lang === 'en' ? '' : '/' + lang) + pagePath;
+  setAttr('link[rel="canonical"]', 'href', fullUrl);
+  setAttr('meta[property="og:url"]', 'content', fullUrl);
+  setAttr('meta[property="og:locale"]', 'content', lang === 'zh' ? 'zh_MY' : (lang === 'bm' ? 'ms_MY' : 'en_MY'));
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-lang]');
+    if (!btn || (btn.tagName !== 'BUTTON' && btn.tagName !== 'A')) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var target = btn.getAttribute('data-lang');
+    window.location.href = (target === 'en' ? '' : '/' + target) + pagePath;
+  }, true);
+})();
+</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

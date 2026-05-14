@@ -28,6 +28,51 @@
 <meta name="twitter:description" content="API-certified Malaysian engine oil for workshops, fleets and motorists. Klang-based, Malaysia-wide.">
 <meta name="twitter:image" content="https://uellubricant.com.my/images/uel-logo.png">
 
+<!-- Hreflang alternates for /zh/ and /bm/ language variants (served via Vercel rewrites) -->
+<link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/">
+<link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/">
+<link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/">
+<link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/">
+
+<script>
+(function () {
+  var path = window.location.pathname;
+  var m = path.match(/^\/(zh|bm)(\/|$)/);
+  var lang = m ? m[1] : 'en';
+  var pagePath = path.replace(/^\/(zh|bm)(?=\/|$)/, '') || '/';
+  try { localStorage.setItem('uelLang', lang); } catch (e) {}
+  document.documentElement.lang = lang === 'zh' ? 'zh-Hans-MY' : (lang === 'bm' ? 'ms-MY' : 'en-MY');
+
+  var T = {
+    en: { title: 'UEL Lubricant — Malaysian Engine Oil Brand for Workshops in Klang', desc: 'UEL — a Malaysian-made engine oil and lubricant brand serving workshops, fleets and motorists in Klang, Selangor and across Malaysia. API-certified petrol (SQ) and diesel (CK-4) oils, ATF, hydraulic and industrial fluids.' },
+    zh: { title: 'UEL 润滑油 — 马来西亚机油品牌，巴生车间专供', desc: 'UEL 是马来西亚本土制造的机油与润滑油品牌，服务巴生、雪兰莪及全马的车间、车队和车主。API SQ 汽油与 CK-4 柴油认证机油、自动变速箱油、液压油及工业用油。' },
+    bm: { title: 'UEL Pelincir — Jenama Minyak Enjin Malaysia untuk Bengkel di Klang', desc: 'UEL ialah jenama minyak enjin dan pelincir buatan Malaysia yang melayani bengkel, fleet dan pemandu di Klang, Selangor dan seluruh Malaysia. Minyak petrol API SQ dan diesel CK-4 yang disahkan, ATF, cecair hidraulik dan industri.' }
+  };
+
+  var setAttr = function (sel, attr, val) { var el = document.querySelector(sel); if (el) el.setAttribute(attr, val); };
+
+  document.title = T[lang].title;
+  setAttr('meta[name="description"]', 'content', T[lang].desc);
+  setAttr('meta[property="og:title"]', 'content', T[lang].title);
+  setAttr('meta[property="og:description"]', 'content', T[lang].desc);
+  setAttr('meta[name="twitter:title"]', 'content', T[lang].title);
+  setAttr('meta[name="twitter:description"]', 'content', T[lang].desc);
+  var fullUrl = 'https://uellubricant.com.my' + (lang === 'en' ? '' : '/' + lang) + pagePath;
+  setAttr('link[rel="canonical"]', 'href', fullUrl);
+  setAttr('meta[property="og:url"]', 'content', fullUrl);
+  setAttr('meta[property="og:locale"]', 'content', lang === 'zh' ? 'zh_MY' : (lang === 'bm' ? 'ms_MY' : 'en_MY'));
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-lang]');
+    if (!btn || (btn.tagName !== 'BUTTON' && btn.tagName !== 'A')) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var target = btn.getAttribute('data-lang');
+    window.location.href = (target === 'en' ? '' : '/' + target) + pagePath;
+  }, true);
+})();
+</script>
+
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='r' cx='.4' cy='.3'%3E%3Cstop offset='0' stop-color='%23ff8c80'/%3E%3Cstop offset='.6' stop-color='%23e23b2f'/%3E%3Cstop offset='1' stop-color='%237a1310'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='.4' cy='.3'%3E%3Cstop offset='0' stop-color='%237eaaff'/%3E%3Cstop offset='.6' stop-color='%232b6cf6'/%3E%3Cstop offset='1' stop-color='%230d2c8e'/%3E%3C/radialGradient%3E%3CradialGradient id='g' cx='.4' cy='.3'%3E%3Cstop offset='0' stop-color='%2343d59a'/%3E%3Cstop offset='.6' stop-color='%2318a974'/%3E%3Cstop offset='1' stop-color='%23054b34'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M11 8 C6 18 3 24 3 30 a8 8 0 0 0 16 0 c0-6-3-12-8-22z' fill='url(%23b)'/%3E%3Cpath d='M32 8 C27 18 24 24 24 30 a8 8 0 0 0 16 0 c0-6-3-12-8-22z' fill='url(%23r)'/%3E%3Cpath d='M53 8 C48 18 45 24 45 30 a8 8 0 0 0 16 0 c0-6-3-12-8-22z' fill='url(%23g)'/%3E%3Ctext x='32' y='56' text-anchor='middle' font-family='Arial Black, sans-serif' font-weight='900' font-size='18' fill='%23e6e6e6'%3EUEL%3C/text%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="images/uel-logo.png">
 

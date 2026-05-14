@@ -1,33 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage (3 language variants) -->
   <url>
     <loc>https://uellubricant.com.my/</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/"/>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://uellubricant.com.my/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/"/>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://uellubricant.com.my/bm/</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/"/>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Products (3 language variants) -->
+  <url>
     <loc>https://uellubricant.com.my/products.html</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/products.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/products.html"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/products.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/products.html"/>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://uellubricant.com.my/zh/products.html</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/products.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/products.html"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/products.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/products.html"/>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://uellubricant.com.my/bm/products.html</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/products.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/products.html"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/products.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/products.html"/>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- API Cert (3 language variants) -->
+  <url>
     <loc>https://uellubricant.com.my/api-cert.html</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/api-cert.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/api-cert.html"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/api-cert.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/api-cert.html"/>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://uellubricant.com.my/zh/api-cert.html</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/api-cert.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/api-cert.html"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/api-cert.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/api-cert.html"/>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://uellubricant.com.my/bm/api-cert.html</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/api-cert.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/api-cert.html"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/api-cert.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/api-cert.html"/>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- API Guide (3 language variants) -->
   <url>
     <loc>https://uellubricant.com.my/api-guide.html</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/api-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/api-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/api-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/api-guide.html"/>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://uellubricant.com.my/zh/api-guide.html</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/api-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/api-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/api-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/api-guide.html"/>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://uellubricant.com.my/bm/api-guide.html</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/api-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/api-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/api-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/api-guide.html"/>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact (3 language variants) -->
+  <url>
     <loc>https://uellubricant.com.my/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/contact.html"/>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://uellubricant.com.my/zh/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/contact.html"/>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uellubricant.com.my/bm/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/contact.html"/>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>

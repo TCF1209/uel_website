@@ -24,6 +24,51 @@
 <meta name="twitter:description" content="API CK-4 diesel, SQ petrol, ATF, hydraulic and industrial lubricants. Malaysian engine oil brand for workshops and fleets.">
 <meta name="twitter:image" content="https://uellubricant.com.my/images/uel-logo.png">
 
+<!-- Hreflang alternates for /zh/ and /bm/ language variants (served via Vercel rewrites) -->
+<link rel="alternate" hreflang="en-MY" href="https://uellubricant.com.my/products.html">
+<link rel="alternate" hreflang="zh-Hans-MY" href="https://uellubricant.com.my/zh/products.html">
+<link rel="alternate" hreflang="ms-MY" href="https://uellubricant.com.my/bm/products.html">
+<link rel="alternate" hreflang="x-default" href="https://uellubricant.com.my/products.html">
+
+<script>
+(function () {
+  var path = window.location.pathname;
+  var m = path.match(/^\/(zh|bm)(\/|$)/);
+  var lang = m ? m[1] : 'en';
+  var pagePath = path.replace(/^\/(zh|bm)(?=\/|$)/, '') || '/';
+  try { localStorage.setItem('uelLang', lang); } catch (e) {}
+  document.documentElement.lang = lang === 'zh' ? 'zh-Hans-MY' : (lang === 'bm' ? 'ms-MY' : 'en-MY');
+
+  var T = {
+    en: { title: 'Engine Oil & Lubricants Malaysia — UEL Product Catalogue (API-Certified)', desc: "Browse UEL's API-certified engine oils — passenger car, motorcycle, heavy-duty diesel (CK-4), ATF, hydraulic and industrial lubricants. Malaysian engine oil brand for workshops and fleets in Klang, Selangor and nationwide." },
+    zh: { title: '马来西亚机油与润滑油 — UEL 产品目录（API 认证）', desc: '浏览 UEL API 认证的机油产品 — 轿车机油、摩托车油、重型柴油（CK-4）、自动变速箱油、液压油和工业润滑油。专供巴生、雪兰莪及全马的车间和车队的马来西亚机油品牌。' },
+    bm: { title: 'Minyak Enjin & Pelincir Malaysia — Katalog Produk UEL (Disahkan API)', desc: 'Layari minyak enjin UEL yang disahkan API — kereta penumpang, motosikal, diesel tugas berat (CK-4), ATF, pelincir hidraulik dan industri. Jenama minyak enjin Malaysia untuk bengkel dan fleet di Klang, Selangor dan seluruh negara.' }
+  };
+
+  var setAttr = function (sel, attr, val) { var el = document.querySelector(sel); if (el) el.setAttribute(attr, val); };
+
+  document.title = T[lang].title;
+  setAttr('meta[name="description"]', 'content', T[lang].desc);
+  setAttr('meta[property="og:title"]', 'content', T[lang].title);
+  setAttr('meta[property="og:description"]', 'content', T[lang].desc);
+  setAttr('meta[name="twitter:title"]', 'content', T[lang].title);
+  setAttr('meta[name="twitter:description"]', 'content', T[lang].desc);
+  var fullUrl = 'https://uellubricant.com.my' + (lang === 'en' ? '' : '/' + lang) + pagePath;
+  setAttr('link[rel="canonical"]', 'href', fullUrl);
+  setAttr('meta[property="og:url"]', 'content', fullUrl);
+  setAttr('meta[property="og:locale"]', 'content', lang === 'zh' ? 'zh_MY' : (lang === 'bm' ? 'ms_MY' : 'en_MY'));
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-lang]');
+    if (!btn || (btn.tagName !== 'BUTTON' && btn.tagName !== 'A')) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var target = btn.getAttribute('data-lang');
+    window.location.href = (target === 'en' ? '' : '/' + target) + pagePath;
+  }, true);
+})();
+</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
