@@ -125,11 +125,13 @@
 | 2026-05-14 | Removed `makesOffer` from homepage LocalBusiness JSON-LD | Six bare `{@type: Product, name: ...}` entries failed Google's Product schema validator ("offers / review / aggregateRating required"). Full Product schema lives on products.html — homepage block was a thin duplicate. |
 | 2026-05-14 | Drop generic head term `engine oil malaysia` from target list | SERP locked by Petronas / Shell / Castrol / TotalEnergies + productnation / mordor listicles. 6-12 months and a content engine to crack; not realistic for UEL. Target mid-tail + local instead. |
 | 2026-05-14 | GSC property type: Domain (not URL prefix) | One property covers all subdomains + protocols. DNS TXT verified via Exabytes support. |
+| 2026-05-14 | `where-to-buy.html` hidden from index (noindex,nofollow + removed from sitemap) | Client wants this page kept dark until they're ready to launch it. File stays in repo for easy re-enable (flip meta robots + re-add to sitemap). No internal links anywhere on the site point to it, so this is a clean hide. |
+| 2026-05-14 | Bumped all sitemap `<lastmod>` to 2026-05-14 | Title/meta/copy changes shipped today across all remaining 5 pages; the bump signals Google to re-crawl. |
 
 ## 6. Open Questions (waiting on user)
 1. ~~Should `oil-advisor.html` be deleted from the repo, or kept and noindexed?~~ ✓ Deleted
 2. ~~Do we have a custom OG card image, or use `uel-logo.png` for now?~~ ✓ Logo for now
-3. Should `where-to-buy.html` also be deleted (not in main nav)? Currently kept and in sitemap.
+3. ~~Should `where-to-buy.html` also be deleted (not in main nav)?~~ ✓ Client wants it hidden for now — set `noindex,nofollow` + removed from sitemap. File stays for later re-enable.
 4. ~~Audience priority + top 5 keywords (Batch 2 Q1, Q2)~~ ✓ Answered + shipped
 5. Multilingual strategy A / B / C (Batch 3) — still open
 6. ~~Do we want the Google Search Console verification meta tag added now?~~ ✓ Domain property verified via DNS TXT instead
