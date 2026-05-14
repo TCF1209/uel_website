@@ -2956,7 +2956,14 @@ const products = [
         'additionalProperty': [
           { '@type': 'PropertyValue', 'name': 'SAE Grade', 'value': product.grade },
           { '@type': 'PropertyValue', 'name': 'Specification', 'value': product.spec }
-        ]
+        ],
+        'offers': {
+          '@type': 'Offer',
+          'priceCurrency': 'MYR',
+          'availability': 'https://schema.org/InStock',
+          'url': baseUrl + 'contact.html',
+          'seller': { '@type': 'Organization', 'name': 'UEL — Unique Excellent Lubricant' }
+        }
       }
     }))
   };
