@@ -2,7 +2,7 @@
 
 > Tracking document for the UEL Lubricant site SEO work. Updated as items ship.
 
-**Status:** Batch 1 complete · Perf + GSC scaffolding done · Last updated 2026-05-14
+**Status:** Batch 1 + Batch 2 complete · GSC verified, sitemap submitted (Success, 6 pages) · Last updated 2026-05-14
 
 ---
 
@@ -60,29 +60,37 @@
 - [x] Dynamic `sideImage()` in products.html updated to use `.webp` extensions
 - [x] Google Search Console verification meta tag scaffolded in `index.html` (commented out — uncomment + paste token after creating GSC property)
 
-## 3. Batch 2 — Keyword & content
-> Needs user direction. **Questions below need answers before Claude can act.**
+## 3. Batch 2 — Keyword & content ✓
+> Shipped 2026-05-14.
 
-### Questions
-1. **Primary audience priority** (rank 1–4):
-   - [ ] Daily car owners
-   - [ ] Workshops / service centres
-   - [ ] Fleet / B2B distributors
-   - [ ] Factory / industrial maintenance
-2. **Top 5 keywords / phrases to rank for** (give me your guesses, I'll add tools to refine):
-   - 1. _____
-   - 2. _____
-   - 3. _____
-   - 4. _____
-   - 5. _____
-3. **Any competitor sites we want to outrank?** (e.g. Petronas, Shell, Castrol Malaysia)
+### Answered
+1. **Primary audience priority:** Workshops > Car owners > B2B/Fleet > Industrial
+2. **Top 5 target keywords** (refined after competitor research — head term "engine oil malaysia" dropped as unwinnable vs Petronas/Shell/Castrol):
+   - `engine oil klang`
+   - `lubricant supplier klang / selangor`
+   - `API CK-4 diesel oil malaysia`
+   - `malaysian engine oil brand`
+   - `engine oil wholesale malaysia`
+3. **Realistic competitors** (mid-tier local — beatable with focused on-page SEO):
+   - Hi-Rev, Add Oil/HIPRO, Feoso, Weblube (local manufacturers)
+   - Mascot Lubricants (Klang-based direct rival, owns `engine oil klang` #1)
+   - Synvoline (Klang small brand)
+   - Facebook-only workshops (easy outranks for hyper-local terms)
+4. **Out of reach:** Petronas, Shell, Castrol, Total, Caltex, Liqui Moly, Motul, Mobil (global brands + listicle sites lock head terms)
 
-### Tasks (after questions answered)
-- [ ] Per-page H1 audit — keyword in H1, unique per page
-- [ ] Rewrite meta descriptions with target keywords
-- [ ] Internal linking pass — connect products ↔ api-cert ↔ api-guide ↔ contact contextually
-- [ ] Add FAQ section to `api-guide.html` (with FAQPage schema)
-- [ ] Consider new long-form pages (e.g. "How to choose engine oil for [common Malaysian car]")
+### Tasks shipped
+- [x] All 6 pages — title rewritten with target keywords
+- [x] All 6 pages — meta description rewritten with keywords + geo (Klang/Selangor) + audience (workshops/fleets)
+- [x] All 6 pages — OG and Twitter card tags aligned with new titles/descriptions for consistent social share previews
+- [x] `api-guide.html` — visible FAQ section added (5 Q&A items matching existing FAQPage JSON-LD; required by Google for rich snippet eligibility)
+- [x] `api-guide.html` — `.faq-list` / `.faq-item` CSS added in page style; `.reveal.d4` delay added
+- [x] `index.html` "Who We Are" lead — added "Malaysian engine oil brand based in Klang, Selangor" + keyword-anchor link to api-cert.html
+- [x] `contact.html` hero lead — added "Klang-based Malaysian engine oil supplier serving workshops, fleets and motorists across Selangor and Malaysia" (JS i18n EN copy updated to match)
+- [x] `where-to-buy.html` hero lead — added "supplied from Klang, Selangor across all of Malaysia" (JS i18n EN copy updated to match)
+
+### Carry-forward (not done)
+- [ ] Long-form blog/comparison pages (e.g. "How to choose engine oil for Proton Saga" / "API CK-4 vs FA-4 for fleet diesel trucks") — bigger content effort, treat as Batch 4
+- [ ] Translate the new EN hero leads to ZH/BM in JS i18n object (only matters if multilingual strategy A is chosen)
 
 ## 4. Batch 3 — Strategic
 > Bigger decisions, bigger scope.
@@ -113,14 +121,18 @@
 | 2026-05-14 | WebP everywhere except `og:image` / `apple-touch-icon` / JSON-LD `logo` | Social previews + iOS still expect PNG; in-page WebP is supported in 96%+ browsers |
 | 2026-05-14 | Nav `brand-logo` not lazy-loaded | LCP candidate; even at 17KB we want it eager so first paint is fast |
 | 2026-05-14 | Official domain locked in: `uellubricant.com.my` (registered, status pending) | `.com.my` is a strong local-SEO signal to Google for Malaysian searches. All canonical / og:url / JSON-LD / sitemap updated. |
+| 2026-05-14 | Vercel routing: apex is primary, `www.` redirects to apex | Originally www was primary which caused `Couldn't fetch` on sitemap submission (cross-host redirect) + canonical mismatch (all code uses apex). Flipped in Vercel dashboard, sitemap now Success in GSC. |
+| 2026-05-14 | Removed `makesOffer` from homepage LocalBusiness JSON-LD | Six bare `{@type: Product, name: ...}` entries failed Google's Product schema validator ("offers / review / aggregateRating required"). Full Product schema lives on products.html — homepage block was a thin duplicate. |
+| 2026-05-14 | Drop generic head term `engine oil malaysia` from target list | SERP locked by Petronas / Shell / Castrol / TotalEnergies + productnation / mordor listicles. 6-12 months and a content engine to crack; not realistic for UEL. Target mid-tail + local instead. |
+| 2026-05-14 | GSC property type: Domain (not URL prefix) | One property covers all subdomains + protocols. DNS TXT verified via Exabytes support. |
 
 ## 6. Open Questions (waiting on user)
 1. ~~Should `oil-advisor.html` be deleted from the repo, or kept and noindexed?~~ ✓ Deleted
 2. ~~Do we have a custom OG card image, or use `uel-logo.png` for now?~~ ✓ Logo for now
 3. Should `where-to-buy.html` also be deleted (not in main nav)? Currently kept and in sitemap.
-4. Audience priority + top 5 keywords (Batch 2 Q1, Q2)
-5. Multilingual strategy A / B / C (Batch 3)
-6. Do we want the Google Search Console verification meta tag added now (so it's ready when you create the property)?
+4. ~~Audience priority + top 5 keywords (Batch 2 Q1, Q2)~~ ✓ Answered + shipped
+5. Multilingual strategy A / B / C (Batch 3) — still open
+6. ~~Do we want the Google Search Console verification meta tag added now?~~ ✓ Domain property verified via DNS TXT instead
 
 ---
 
